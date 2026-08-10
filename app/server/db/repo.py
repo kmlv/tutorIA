@@ -105,3 +105,33 @@ class Repo:
             (student_id, concept_id),
         ).fetchall()
         return {r["subskill_id"]: r for r in rows}
+
+    # ---- respuestas --------------------------------------------------------
+    def record_answer(self, *, session_id: str, question_id: str, modalidad: str,
+                      raw_answer: object, grader: str, score: float,
+                      misconception_id: str | None = None,
+                      con_andamiaje: bool = False, judge_json: str | None = None,
+                      model: str | None = None, prompt_version: str | None = None,
+                      latency_ms: int | None = None) -> int:
+        """`model` y `prompt_version` son COLUMNAS, no campos del blob: cuando se cambie
+        de modelo hay que poder saber qué diagnósticos vinieron de cuál, o los datos
+        históricos dejan de ser comparables."""
+        row = self.conn.execute(
+            "SELECT COALESCE(MAX(attempt), 0) + 1 AS n FROM answers "
+            "WHERE session_id = ? AND question_id = ?", (session_id, question_id),
+        ).fetchone()
+        cur = self.conn.execute(
+            "INSERT INTO answers (session_id, question_id, attempt, modalidad, raw_answer, "
+            "grader, score, misconception_id, con_andamiaje, judge_json, model, "
+            "prompt_version, latency_ms, created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            (session_id, question_id, row["n"], modalidad,
+             json.dumps(raw_answer, ensure_ascii=False), grader, score, misconception_id,
+             1 if con_andamiaje else 0, judge_json, model, prompt_version, latency_ms, now()),
+        )
+        self.conn.commit()
+        return row["n"]
+
+    def answers(self, session_id: str) -> list[sqlite3.Row]:
+        return self.conn.execute(
+            "SELECT * FROM answers WHERE session_id = ? ORDER BY id", (session_id,)
+        ).fetchall()

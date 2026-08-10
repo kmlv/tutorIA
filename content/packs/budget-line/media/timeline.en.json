@@ -1,59 +1,69 @@
 {
   "pack": "budget-line",
   "lang": "en",
-  "audio": "20260810-175912_budget-line-en.mp3",
-  "duration_s": 154.464,
+  "audio": "20260810-183534_budget-line-en.mp3",
+  "duration_s": 211.512,
   "sync_granularity": "sentence",
   "cues": [
     {
-      "id": "axes",
+      "id": "consumo",
       "type": "graph",
       "t": 1.516
     },
     {
+      "id": "canasta",
+      "type": "graph",
+      "t": 21.675
+    },
+    {
+      "id": "espacio",
+      "type": "graph",
+      "t": 39.845
+    },
+    {
       "id": "budget_set",
       "type": "graph",
-      "t": 13.766
+      "t": 61.959
     },
     {
       "id": "budget_line",
       "type": "graph",
-      "t": 27.368
+      "t": 80.607
     },
     {
       "id": "intercepts",
       "type": "graph",
-      "t": 47.618
+      "t": 99.8
     },
     {
       "id": "slope",
       "type": "graph",
-      "t": 61.561
+      "t": 113.936
     },
     {
       "id": "cp1",
       "type": "checkpoint",
-      "t": 78.175
+      "t": 132.493
     },
     {
       "id": "income_shift",
       "type": "graph",
-      "t": 88.459
+      "t": 142.709
     },
     {
       "id": "price_pivot",
       "type": "graph",
-      "t": 106.152
+      "t": 161.608
     },
     {
       "id": "cp2",
       "type": "checkpoint",
-      "t": 122.573
+      "t": 177.956
     },
     {
       "id": "recap",
       "type": "graph",
-      "t": 132.925
+      "t": 188.308
     }
   ]
 }

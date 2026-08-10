@@ -12,6 +12,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from app.server.core.content.loader import FilesystemPackSource
+from app.server.core.judge.deterministic import grade
 from app.server.db.repo import Repo
 
 app = FastAPI(title="tutorIA", version="0.1.0")
@@ -61,6 +62,47 @@ def create_session(body: NewSession) -> dict:
         "media": tl.model_dump(mode="json") if tl else None,
         "checkpoints": [c.model_dump() for c in pack.checkpoints],
     }
+
+
+class AnswerIn(BaseModel):
+    question_id: str
+    valor: object
+    con_andamiaje: bool = False
+
+
+@app.post("/api/session/{session_id}/answer")
+def post_answer(session_id: str, body: AnswerIn) -> dict:
+    """Corrige y registra. El veredicto se decide AQUÍ: si el navegador conociera la
+    respuesta, el estudiante podría leerla en el bundle."""
+    row = repo.get_session(session_id)
+    if row is None:
+        raise HTTPException(status_code=404, detail="sesión desconocida")
+    pack = packs.get_pack(row["concept_id"], row["lang"])
+
+    q = next((x for x in pack.questions if x.id == body.question_id), None)
+    if q is None:
+        raise HTTPException(status_code=404, detail=f"pregunta {body.question_id} no existe")
+    if q.grader != "deterministic":
+        raise HTTPException(status_code=501, detail="el juez LLM llega en M3")
+
+    v = grade(q, body.valor, pack.ejemplo)
+    repo.record_answer(
+        session_id=session_id, question_id=q.id, modalidad=q.modalidad,
+        raw_answer=body.valor, grader="deterministic", score=v.score,
+        misconception_id=v.misconception_id, con_andamiaje=body.con_andamiaje,
+    )
+    repo.append_event(session_id, "answer.judged", {
+        "question_id": q.id, "correcta": v.correcta,
+        "misconception_id": v.misconception_id,
+    })
+
+    out: dict = {"correcta": v.correcta, "score": v.score}
+    if v.misconception_id:
+        m = pack.misconception(v.misconception_id)
+        # el estudiante NO ve el id: ve la sonda socrática ya escrita en el catálogo.
+        # El id crudo es para el instructor (decisión 6).
+        out["socratica"] = getattr(m.socratic_probe, row["lang"])
+    return out
 
 
 class EventIn(BaseModel):

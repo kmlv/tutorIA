@@ -4,7 +4,10 @@
     {
       "name": "tutoria-web",
       "runtimeExecutable": "bash",
-      "runtimeArgs": ["-lc", "source .venv/bin/activate && (TUTORIA_DB=/tmp/tutoria-dev.sqlite python -m uvicorn app.server.main:app --port 8000 --log-level warning &) && cd app/web && npx vite --port 5173 --strictPort"],
+      "runtimeArgs": [
+        "-lc",
+        "source .venv/bin/activate && (pkill -f 'uvicorn app.server.main' || true) && (TUTORIA_DB=/tmp/tutoria-dev.sqlite python -m uvicorn app.server.main:app --port 8000 --reload --log-level warning &) && sleep 2 && cd app/web && npx vite --port 5173 --strictPort"
+      ],
       "port": 5173
     }
   ]

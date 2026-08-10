@@ -2,7 +2,7 @@
 #
 # Notación de Kristian (econ100a-slides_homeworks/docs/S2_Budget_Constraint_Ch2.md):
 #   x1, x2 = cantidades   ·   p1, p2 = precios   ·   m = ingreso
-# Ejemplo del PoC: bien 1 = almuerzo, bien 2 = café.
+# Ejemplo del PoC: good 1 = coffee (kg), good 2 = orange juice (L).
 #   p1 = 3, p2 = 1, m = 100  =>  pendiente = -3
 #
 # PROCEDENCIA: los NÚMEROS y la forma de leer la pendiente vienen de S2 de Kristian;
@@ -16,14 +16,14 @@ version: 0.1.0
 titulo:
   es: La línea presupuestaria
   en: The Budget Constraint
-lang: [es, en]
+lang: [en, es]   # en primero: el ingles es la fuente, el espanol la traduccion
 media_variant_default: A
 
 # Parámetros del ejemplo, usados por el guión, el gráfico y los ítems numéricos.
 # Cambiarlos aquí debe bastar para regenerar todo: es la prueba del criterio 2 del bake-off.
 ejemplo:
-  bien_1: {es: almuerzo, en: lunch}
-  bien_2: {es: café, en: coffee}
+  bien_1: {es: café, en: coffee}
+  bien_2: {es: jugo de naranja, en: orange juice}
   p1: 3
   p2: 1
   m: 100
@@ -146,3 +146,51 @@ iesa_micro:
     - soluciones de esquina
     - transformaciones monótonas de la utilidad
     - bienes Giffen e inferiores
+
+# ---------------------------------------------------------------------------
+# On-screen notes. Each cue may put one line of text and one formula on the page,
+# so the student reads the concept as well as hearing it and seeing the graph.
+# Minimal but complete: one idea per cue, never a wall of text.
+#
+# Formulas are TeX and are rendered to static HTML at BUILD time (C3), so the
+# runtime ships no KaTeX JavaScript.
+# ---------------------------------------------------------------------------
+notes:
+  consumo:
+    en: A consumer chooses a *combination* of goods, not one good. What limits it is resources, not desire.
+    es: El consumidor elige una *combinación* de bienes, no un bien. Lo que la limita son los recursos, no el deseo.
+  canasta:
+    en: A bundle with two goods is a pair of numbers.
+    es: Una canasta de dos bienes es un par de números.
+    formula: '(x_1,\, x_2)'
+  espacio:
+    en: Each good is an axis, so every bundle is a point on the plane.
+    es: Cada bien es un eje, así que cada canasta es un punto del plano.
+    formula: 'x_1 \ge 0,\quad x_2 \ge 0'
+  budget_set:
+    en: Affordable bundles — the budget set.
+    es: Canastas alcanzables — el conjunto presupuestario.
+    formula: 'p_1 x_1 + p_2 x_2 \le m'
+  budget_line:
+    en: The budget line is the boundary of that set, not the set itself.
+    es: La línea presupuestaria es la frontera del conjunto, no el conjunto.
+    formula: 'p_1 x_1 + p_2 x_2 = m'
+  intercepts:
+    en: Spend everything on one good and you get the intercepts.
+    es: Gasta todo en un solo bien y obtienes los interceptos.
+    formula: '\frac{m}{p_1} = \frac{100}{3} \approx 33.3 \qquad \frac{m}{p_2} = 100'
+  slope:
+    en: The slope is the relative price — what you give up of one good for one unit of the other.
+    es: La pendiente es el precio relativo — a cuánto de un bien renuncias por una unidad del otro.
+    formula: 'x_2 = \frac{m}{p_2} - \frac{p_1}{p_2}\,x_1 \qquad \text{slope} = -\frac{p_1}{p_2} = -3'
+  income_shift:
+    en: Income up ⇒ parallel shift. Prices did not change, so the slope did not either.
+    es: Sube el ingreso ⇒ desplazamiento paralelo. Los precios no cambiaron, la pendiente tampoco.
+    formula: 'm: 100 \to 150 \qquad \text{slope} = -3 \ \text{(unchanged)}'
+  price_pivot:
+    en: One price up ⇒ pivot. The other good's intercept stays put.
+    es: Sube un precio ⇒ pivote. El intercepto del otro bien no se mueve.
+    formula: 'p_1: 3 \to 4 \qquad \frac{m}{p_2} = 100 \ \text{(unchanged)}'
+  recap:
+    en: Income shifts the line; a price pivots it around the other intercept.
+    es: El ingreso desplaza la línea; un precio la gira sobre el otro intercepto.
