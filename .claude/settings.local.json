@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(npx create-next-app@latest frontend --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(npm install *)",
+      "Bash(pip install *)",
+      "Bash(python -c \"from main import app; print\\('OK'\\)\")",
+      "Bash(uvicorn main:app --reload --port 8000)",
+      "Bash(npm run *)",
+      "Bash(Read \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-PC-Documents-GitHub-tutorIA\\\\26e41874-48e5-450e-8b3b-685501425e65\\\\tasks\\\\b0fky7j5r.output\")",
+      "Bash(python -m uvicorn --version)",
+      "Bash(where uvicorn *)",
+      "Bash(python -m uvicorn main:app --reload --port 8000)",
+      "Bash(curl *)",
+      "Bash(python -c \"import bcrypt; print\\(bcrypt.__version__\\)\")",
+      "PowerShell(Get-Process *)",
+      "Bash(python *)"
+    ]
+  }
+}
