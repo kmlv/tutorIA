@@ -42,6 +42,26 @@ Ojo con la frontera legal: **motor MIT si; contenido de Makler con copyright, no
 Es la pregunta que fija de verdad el costo del concepto numero 20, y el PLAN hoy no
 la responde.
 
+**D-4. ¿Pedimos IESA-Micro hoy? Es lo unico de todo T-002 que tiene prisa.**
+La verificacion adversarial del carril C encontro **IESA-Micro** (Cornell Suite), el
+analogo del Force Concept Inventory para micro intermedia. Su seccion III, "The
+Consumer's Problem", cubre **literalmente tu alcance** con 22 learning goals, y sus
+distractores salieron de **entrevistas think-aloud con estudiantes que ya habian
+cursado la materia** — justo la evidencia que nuestro catalogo, escrito por cuatro
+modelos de lenguaje, no tiene.
+Se pide gratis por formulario en https://www.econ-assessments.org/pages/IESA-Micro.html
+con **lead time desconocido**, asi que la prisa es real: si llega, sus items sirven de
+set dorado externo pre-etiquetado y reducen mucho lo que tendrias que etiquetar a mano.
+
+**CORRECCION a lo que te dije antes en este mismo item.** La primera version de H-003
+decia que el catalogo de misconceptions "no existe publicado" y que lo escribirias tu
+desde cero. **Es falso** y lo cazo la verificacion adversarial del carril C. Lo cierto
+y mas preciso: existe IESA-Micro del que partir, pero **ningun instrumento de economia
+asigna un identificador estable a la misconception** — lo incrustan en el texto del
+distractor sin nombrarlo. Ese contrato de `id`, que si necesitamos, no tiene precedente
+publico en economia: es la oportunidad y el riesgo a la vez, porque nadie ha validado
+que esa taxonomia sea estable.
+
 **Contexto que puede cambiar como lees el bake-off:** el criterio 3 compara
 tecnologias de render y **no mira en absoluto** el costo de escribir el modelo
 pedagogico — pack de sub-skills, reglas de parada y catalogo de misconceptions. Ese

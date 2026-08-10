@@ -93,8 +93,10 @@ El principal quiere **construir las cuatro opciones y compararlas**, no elegir a
 | C | Manim + audio |
 | D | Híbrido: Manim pre-renderiza el gráfico, AudioExplainer narra y sincroniza |
 
-**Control experimental (decisión 24)**: los cuatro renderizan **el mismo guion y el mismo gráfico**.
-La única variable es la tecnología.
+**Comparabilidad gruesa (decisión 24, RELAJADA por Kristian el 2026-08-10)**: los cuatro
+cubren el mismo concepto con contenido equivalente. Nada más se impone; cada tecnología
+juega a sus fortalezas. *"Por hacerlas muy comparables vamos a sufrir restricciones
+innecesarias."* No es un experimento controlado: es una decisión de con qué construimos.
 
 **Criterios de comparación (decisión 23)**, todos con peso:
 1. Calidad visual y claridad pedagógica

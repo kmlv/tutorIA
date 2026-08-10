@@ -46,6 +46,16 @@ Pero al verificar apareció el hallazgo más directo de toda la tarea: EconGraph
 
 Eso cumple a la vez cuatro cosas que tú pediste por separado: el árbol del documento para accesibilidad y equipos modestos, KaTeX, una abstracción declarativa, y sobre todo un formato JSON, que es justo lo que un modelo de lenguaje puede generar al vuelo, que es el futuro que declaraste. Ninguna de tus cuatro opciones del bake-off tiene esa combinación. Ojo con la frontera legal: el motor es abierto, el contenido de Makler no.
 
+## Existe un inventario para tu materia exacta, y no lo estábamos usando
+
+Este es el hallazgo con la única prisa real de todo el trabajo, y apareció al pasar mi propio carril por verificación adversarial.
+
+Se llama IESA Micro, del Cornell Suite, y es el equivalente del Force Concept Inventory pero para microeconomía intermedia. Su sección tres, El problema del consumidor, cubre literalmente tu alcance con veintidós objetivos de aprendizaje: conjunto presupuestario y cómo cambia, pendiente como costo de oportunidad, preferencias y utilidad, tangencia, soluciones de esquina, Slutsky. Correlaciona con la nota del examen final en cero coma cuarenta y cinco, cero coma cincuenta y seis y cero coma treinta y tres, en tres cohortes.
+
+Pero lo que de verdad importa no son sus preguntas, es cómo las construyeron. Primero escribieron los objetivos de aprendizaje, y solo después los ejercicios. Los sometieron a profesores de dentro y de fuera de Cornell. Y luego hicieron entrevistas en voz alta con estudiantes que ya habían cursado la materia, y de ahí sacaron los distractores. O sea, sus opciones incorrectas vienen de errores observados en estudiantes de carne y hueso. Es exactamente la fuente de evidencia que nuestro catálogo, escrito por cuatro modelos de lenguaje, no tiene.
+
+Se pide gratis, por formulario, y el tiempo de espera es desconocido. Por eso corre prisa: si llega, sus ejercicios de elección del consumidor te sirven de conjunto de referencia ya etiquetado, y eso reduce muchísimo lo que tendrías que etiquetar tú a mano.
+
 ## Y ahora la parte donde me equivoqué yo
 
 Sometí la síntesis a los dos y les pedí explícitamente que intentaran tumbar mi conclusión más fuerte. Codex lo hizo, y tenía razón.
@@ -56,7 +66,13 @@ Lo acepté y lo corregí. La conclusión nueva es más modesta y más útil: el 
 
 Hay un detalle que merece registro. Agy había respaldado explícitamente mi versión original. Codex la refutó. No promedié: me puse del lado de Codex, porque la objeción de Agy era sobre si sonaba plausible y la de Codex era sobre qué puede sostener la evidencia, que es el estándar que yo mismo había impuesto en el encargo.
 
-Y el patrón vale la pena: la única afirmación que cayó en la revisión era exactamente la que yo había señalado como la más importante del documento. Las que venían con fuente primaria aguantaron. Los dos carriles ajenos sobrevivieron intactos. El trozo que falló era mío.
+Y hubo una segunda ronda de correcciones, también contra mí. Mi propio carril se rehízo con verificación adversarial: ciento sesenta y dos afirmaciones pasadas por verificadores independientes instruidos para refutarlas. Ciento cuarenta y tres confirmadas, nueve refutadas, diez no verificables. Y dos de esas refutaciones me obligaron a corregir la síntesis.
+
+La primera es la que más te afecta. Yo había escrito que no existe ningún catálogo publicado de errores conceptuales para tus dos conceptos, y que lo tendrías que escribir tú desde cero. Es falso: existe IESA Micro, del que acabo de hablarte. Lo cierto, y es más preciso, es que ningún instrumento de economía le asigna un identificador estable al error conceptual; lo incrustan dentro del texto del distractor sin nombrarlo. Ese contrato de identificadores, que nosotros sí necesitamos, no tiene precedente público en economía. Es la oportunidad y el riesgo a la vez, porque nadie ha validado que esa taxonomía sea estable.
+
+La segunda: yo había dicho limpiamente que el juez automático queda por debajo del acuerdo entre dos humanos. Los dos números no son comparables así, porque uno se mide pareja a pareja y el otro contra un consenso agregado. La consecuencia práctica cambia: el proyecto tiene que medir su propio techo humano en vez de importarlo de otra disciplina.
+
+Y el patrón vale la pena. Tres rondas de corrección, las tres sobre afirmaciones mías, ninguna sobre el trabajo de Codex o de Agy. Lo que venía con fuente primaria aguantó; lo que era inferencia mía sin medición, no. Es el mismo dato que ya salió en la tarea anterior, y es un dato sobre el redactor.
 
 ## Un fallo de la herramienta que te toca saber
 
@@ -66,12 +82,14 @@ Lo peligroso no es el fallo, es el síntoma: desde el hilo de coordinación es i
 
 ## Lo que te toca decidir
 
-Tres cosas, en el archivo de asuntos pendientes, y ninguna bloquea nada.
+Cuatro cosas, en el archivo de asuntos pendientes, y ninguna bloquea nada. Pero una tiene prisa.
 
 Primera. El chequeo de transferencia: uno o dos ejercicios nuevos al cerrar un concepto, sin ayuda, sin nota, y sin presentarse al estudiante como evaluación, cuyo resultado alimente solo tu diagnóstico de instructor. Es lo único que distingue que el estudiante aprendió de que el tutor resolvió por él. Roza tu decisión de que nunca hay nota, y por eso no lo apliqué. Si lo rechazas, conviene registrar qué se pierde: el proyecto no podrá afirmar que enseña, solo que gusta.
 
 Segunda. Si el motor KGJS entra como quinta opción del bake-off.
 
 Tercera. Quién escribe la capa de configuración de los gráficos, tú o el modelo. Es la pregunta que de verdad fija el costo del concepto veinte, y hoy el plan no la responde.
+
+Y cuarta, la que corre prisa: si pedimos hoy el cuestionario de IESA Micro. Es gratis y por formulario, pero el tiempo de espera es desconocido, así que cada día que pasa sin pedirlo es un día que podría bloquear el primer hito.
 
 El plan sigue intacto. Nada de esto se aplicó.

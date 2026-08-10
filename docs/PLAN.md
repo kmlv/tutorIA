@@ -3,7 +3,8 @@
 Síntesis de la ronda 3 de T-001. Redactada por `claude` (Opus 5) como lead, a partir de
 las cuatro propuestas independientes y las cinco críticas cruzadas de la ronda 2.
 
-**Estado: D1–D3 resueltos por Kristian el 2026-08-10 (§10). Ronda de firma en curso.**
+**Estado: FIRMADO 3/3. D1–D3 resueltos. Actualizado con los hallazgos de T-002 (prior art)
+y con dos relajaciones del bake-off decididas por Kristian el 2026-08-10.**
 Falta únicamente que Kristian autorice el cambio de `proposal-only` a `implementation`.
 
 Requisitos en [BRIEF.md](BRIEF.md). Debate completo en el thread de T-001.
@@ -19,7 +20,7 @@ Requisitos en [BRIEF.md](BRIEF.md). Debate completo en el thread de T-001.
 | C3 | **KaTeX se renderiza en build-time**; cero KaTeX JS en runtime | fable aceptó el blocker de claude | claude → fable |
 | C4 | **Fuente declarativa → compilador → bundle de runtime** | fusión de fable §1.2 y claude §1 | fable |
 | C5 | **`MediaAdapter`**: las 4 opciones del bake-off corren *dentro de la app real* | 4–0 | fable |
-| C6 | Las 4 opciones comparten **el mismo MP3 y el mismo `timeline.json`** | 4–0 | fable |
+| C6 | ~~Las 4 opciones comparten **el mismo MP3 y el mismo `timeline.json`**~~ → **REVOCADO por Kristian (2026-08-10)**: basta comparabilidad **gruesa**. Ver §6 | — | fable, revocado por el principal |
 | C7 | **Deterministic-first**: el LLM solo juzga respuestas abiertas | 3–0 | codex y fable |
 | C8 | **Juez en modo sombra** contra el set dorado antes de que pueda mover mastery | 4–0 | codex |
 | C9 | **Catálogo de misconceptions curado y fuera de la generación automática** | 4–0 | fable |
@@ -42,7 +43,7 @@ Requisitos en [BRIEF.md](BRIEF.md). Debate completo en el thread de T-001.
 > incorrectas: la primera declaraba 4–0 sin distinguir la retractación; la segunda,
 > al corregir eso, **invirtió la procedencia** atribuyendo los tres `OPT.*` a `fable`.
 > Ambas las detectó `codex` con evidencia primaria del thread.
-| C12 | **Timebox 6 h por opción**, con guion/MP3/timeline como costo compartido pagado una vez | 4–0 | fable y claude |
+| C12 | **Timebox 6 h por opción**, con el guion como costo compartido pagado una vez *(el MP3 y el timeline dejan de ser compartidos al revocarse C6)* | 4–0 | fable y claude |
 | C13 | **`events` append-only** ⇒ replay de sesiones ⇒ bake-off de jueces gratis | claude; adoptado por fable | claude |
 | C14 | **Éxito = concordancia medida con Kristian**, con contingencia pre-registrada | 4–0 (agy concedió) | claude, codex, fable |
 | C15 | **Sin credenciales propias**: `external_auth_id` reservado, nunca hashes de password | codex y fable | codex |
@@ -180,12 +181,42 @@ era un número inventado con aire de rigor.
 y dirige la remediación; no resta puntos adicionales. Restarlos contaría la misma
 evidencia dos veces, sobre un score que ya refleja el error. Corrección de codex.
 
-**`mastered` = `p ≥ 0.80` ∧ `streak_correct ≥ 2` ∧ `modalidades ≥ 2` ∧ ninguna
-misconception activa.** La exigencia de dos modalidades es de codex y es más fuerte que
-las versiones originales de claude y fable: impide declarar dominio por acertar dos
-veces el mismo tipo de ítem.
+**`mastered` = `p ≥ 0.80` ∧ `streak_correct ≥ 3` ∧ `modalidades ≥ 2` ∧
+**≥1 acierto sin andamiaje** ∧ ninguna misconception activa.**
 
-**`stuck`**: `attempts ≥ 6` en la sub-skill ⇒ acción 4 y cierre parcial honesto.
+> **La cuarta condición es la que salva el criterio, y viene de T-002.** Bastani et al.
+> (RCT, ~1.000 alumnos, 3 brazos) midieron práctica asistida por GPT **+48% a +127%**
+> sobre control, y el examen **sin asistencia inmediatamente posterior** dio **negativo**
+> sin guardarraíles y **cero** con ellos. Y desde la otra literatura, ASSISTments
+> **invalida la oportunidad** cuando el alumno pide pista. El desempeño asistido no basta
+> para demostrar aprendizaje independiente y puede sobreestimar la transferencia.
+>
+> Las tres condiciones anteriores **podían cumplirse enteras con desempeño asistido**:
+> el estudiante podía haber recibido pista, feedback del juez o empujón sobre el gráfico
+> en cada acierto. "Modalidad distinta" no es lo mismo que "sin ayuda".
+>
+> Un acierto **sin andamiaje** = sin pista previa, sin feedback del juez antes de enviar,
+> sin ayuda sobre el gráfico, en ese turno.
+
+**El juez LLM aporta como mucho 1 de las 3 evidencias** mientras siga por debajo del
+techo humano medido. Las otras dos vienen de modalidades deterministas.
+
+> **Esto acorta la sesión, no la alarga.** Capar el juez baja las respuestas abiertas
+> juzgadas de ~24 a ~12 por sesión **mientras la evidencia total sube de 2 a 3 por
+> sub-skill**. El cuello de botella nunca fueron las 12 sub-skills: era cuántas de sus
+> evidencias tenían que pasar por el componente lento, caro y poco fiable.
+
+**Salidas del loop** — reemplazan al antiguo `stuck := attempts ≥ 6`, que codex
+demostró que era un marcador de posición presentado como decisión:
+
+| Estado | Condición |
+|---|---|
+| `provisional_mastery` | Hay evidencia independiente pero incompleta |
+| `budget_exhausted` | Se agotó el tope configurable de preguntas **de la actividad** |
+| `indeterminate` | No hubo evidencia suficiente para afirmar ni negar |
+
+Se registra `stop_rule_version` con cada cierre. Distinguir los tres importa: `indeterminate`
+no es lo mismo que "no lo domina", y tratarlos igual falsea la telemetría del instructor.
 
 Todos los parámetros en `config/mastery.yaml`. **Son hipótesis explícitas, no constantes
 calibradas** — se ajustan con datos reales, y el plan lo dice en vez de fingir precisión.
@@ -223,6 +254,20 @@ en `events` con la regla que la disparó.
 diagnósticos. Temperatura 0. `evidence` obligatoria: el juez cita el fragmento que
 justifica su veredicto, y eso es lo que hace auditable el diagnóstico.
 
+**El enum incluye `NINGUNA` y `FUERA_DE_CATALOGO`, y `NINGUNA` es el valor por defecto.**
+
+> **Sin ese escape, el gate de D3 no medía nada.** El juez estaba obligado a emitir uno
+> de los 14 ids aunque el alumno no cometiera ningún error, o cometiera uno que el
+> catálogo no contempla — y la validación enum lo aceptaba como válido. El criterio
+> "cero IDs fuera de catálogo" **se pasaba por construcción** mientras los falsos
+> positivos subían. Hallazgo del carril C de T-002; el diseño de Eedi asume
+> explícitamente que existen misconceptions fuera del catálogo, y el nuestro no lo hacía.
+
+**Reference-guided grading.** El prompt del juez no lleva solo el enum: lleva también la
+**respuesta de referencia del ítem** y la **firma diagnóstica de cada misconception
+aplicable a ese ítem**. En MT-Bench, inyectar la referencia bajó la tasa de fallo en
+matemáticas del 70% al 15% — la mejora verificada más grande y barata de esa literatura.
+
 ---
 
 ## 4. Catálogo de misconceptions
@@ -242,9 +287,28 @@ convexidad sin significado económico · **espaciado cardinal** *(de codex)*.
 > diagnóstica: **solo emerge al enseñar los dos conceptos juntos**, que es exactamente
 > lo que justifica la decisión 1 del brief de cubrir dos conceptos y no uno.
 
-**Validación pendiente (fase 0):** este catálogo es teoría de cuatro modelos. Debe
-contrastarse con los exámenes y tareas reales de Econ 100A, donde están las confusiones
-que de verdad aparecen y con qué frecuencia.
+**Validación pendiente (M1):** este catálogo es teoría de cuatro modelos. Debe
+contrastarse con dos fuentes, no una:
+
+1. **Los exámenes y tareas reales de Econ 100A** — dónde están las confusiones que de
+   verdad aparecen, y con qué frecuencia.
+2. **IESA-Micro** (Cornell Suite) — *hallazgo de T-002*. Es el análogo del Force Concept
+   Inventory para micro intermedia, **y existe**. Su sección III "The Consumer's Problem"
+   cubre literalmente nuestro alcance con 22 learning goals, y sus distractores se
+   construyeron con **entrevistas think-aloud a estudiantes que ya cursaron la materia** —
+   justo la fuente de evidencia que un catálogo escrito por modelos de lenguaje no tiene.
+
+> **Acción inmediata, antes de M1:** pedir el cuestionario en
+> https://www.econ-assessments.org/pages/IESA-Micro.html — es gratuito, por formulario, y
+> con lead time desconocido. Si llega, sus ítems de *consumer choice* sirven como **set
+> dorado externo pre-etiquetado** en M3, y reducen mucho lo que Kristian tiene que
+> etiquetar a mano.
+>
+> **Y el riesgo que conviene mirar de frente:** ningún instrumento de economía asigna un
+> **identificador estable** a la misconception — la incrustan en el texto del distractor
+> sin nombrarla. El contrato de `id` que necesitamos **no tiene precedente público en
+> economía**. Es a la vez la oportunidad del proyecto y su riesgo: nadie ha validado que
+> esa taxonomía sea estable.
 
 ---
 
@@ -272,13 +336,24 @@ inaccesible para quien no usa mouse.
 
 ## 6. Bake-off
 
-**Control experimental.** Las cuatro opciones comparten guion, `graph_spec.yaml`, **el
-mismo MP3** y **el mismo `timeline.json`**. La única variable es la capa visual. Para
-B y C el audio puede ir empaquetado en el MP4: lo que se controla es contenido y
-duración del audio, no el contenedor; verificación por checksum del stream de origen.
+**Comparabilidad gruesa, no control experimental.** *(Decisión de Kristian, 2026-08-10,
+que revoca C6 y relaja la decisión 24 del brief.)*
+
+Las cuatro opciones cubren **el mismo concepto con contenido equivalente**. Nada más se
+impone. Cada tecnología puede jugar a sus fortalezas: si Remotion rinde mejor con su
+propio ritmo, o Manim con su propia estructura de escena, que lo usen.
+
+> **Por qué se revocó.** El plan había llegado a exigir el mismo MP3 y la misma
+> `timeline.json` para las cuatro — un control más estricto que el que pedía el brief.
+> Kristian lo corta: *"por hacerlas muy comparables vamos a sufrir restricciones
+> innecesarias"*. Y tiene razón en el fondo: obligar a Manim y a Remotion a servirse de
+> una línea de tiempo pensada para el camino HTML les impide mostrar lo que saben hacer,
+> y entonces el bake-off mide su capacidad de imitar a otro, no su valor propio. **El
+> objetivo no es aislar una variable: es decidir con qué construimos.**
 
 Cada prototipo se entrega **corriendo dentro de la app** vía su `MediaAdapter`, con los
-2 checkpoints funcionando. Se compara el producto integrado, no una demo suelta.
+checkpoints funcionando. Eso se mantiene: no es una restricción de comparabilidad sino
+la única forma de ver el costo real de integrar cada opción.
 
 **Guion común**: ~420 palabras, 8 cues + 2 checkpoints. `c1` ejes → `c2` línea con
 interceptos → `c3` fórmula → `c4` pendiente → **CP1** → `c5` desplazamiento por m →
@@ -298,20 +373,32 @@ resultado que se reporta, no un fracaso que se compensa con más tiempo.
 | 4. Accesibilidad y mantenibilidad | axe-core; ¿el texto es DOM o píxeles?; ¿Kristian corrige una errata editando un `.md`?; ¿cuántos archivos hay que tocar? |
 | 5. Versatilidad entre equipos | Matriz de ~6 celdas, abajo |
 
-**Criterio 5 — el método del flash.** El guion dice "…ahora" en `c3` y el visual emite un
-destello de un frame. Grabando pantalla y audio con el celular a 30 fps se mide el
-**desfase audio-visual real** con ~33 ms de resolución, en cualquier máquina ajena, sin
-instalar nada. Es de fable y es mejor que el CPU throttling de claude (que solo simula
-ser otra máquina) y que el gate `sync p95 ≤ 250 ms` de codex — ese umbral es más fino
-que el instrumento que lo mediría, porque `timeupdate` dispara cada ~250 ms.
+**Criterio 5 — medición local, sin instrumentación externa.** *(Decisión de Kristian,
+2026-08-10: el método del flash con grabación de celular es overkill. "Haz lo que puedas
+desde aquí y mi computadora".)*
 
-Celdas: laptop moderna · Firefox ESR · navegador viejo (equipo real de Kristian,
-preferido sobre emulación) · CPU throttling 6× · móvil de gama baja · Fast 3G en carga
-fría. Por celda: arranca sí/no · segundos hasta primer audio · desfase medido en `c3` ·
-jank en `c5`–`c6` · KB transferidos · pico de CPU. Se etiqueta siempre **real vs emulado**.
+Tres instrumentos, todos disponibles sin salir de la máquina:
+
+1. **Instrumentación en página.** El propio cue engine registra, en cada disparo, el
+   `audio.currentTime` real contra el `t` programado. La diferencia es el **desfase
+   interno**, en milisegundos, sin grabar nada. No es el desfase percibido, pero es el
+   único sobre el que podemos actuar en código.
+2. **Throttling de CPU y emulación de red** desde las herramientas de navegador: bytes
+   transferidos, tiempo hasta el primer audio, jank bajo carga.
+3. **El equipo viejo real de Kristian** como celda cualitativa: arranca sí/no, se ve
+   fluido sí/no. Juicio humano, no cronómetro.
+
+Se pierde el desfase percibido en hardware ajeno, y se acepta explícitamente.
+
+> **Qué se retiró y por qué.** El plan tenía el método del flash de un frame + grabación
+> con celular a 30 fps (~33 ms de resolución), propuesta de fable que claude había
+> elogiado dos veces. Mide más fino de lo que el proyecto necesita, a cambio de un
+> procedimiento manual repetido por celda y por opción. También cae el gate
+> `sync p95 ≤ 250 ms` de codex, que era más fino que su propio instrumento.
 
 **Puntaje** = % de celdas "usable sin degradación pedagógica" = audio continuo + gráfico
-visible + desfase < 800 ms.
+visible + sin desincronía evidente **a ojo**. Para distinguir "funciona" de "se ve roto",
+el ojo basta.
 
 **Hipótesis pre-registrada que la matriz debe poder falsar**: el MP4 gana en equipos
 viejos (decodificación por hardware, casi cero JS) y pierde en personalización; HTML es
@@ -357,7 +444,7 @@ password, que serían deuda de seguridad y de migración a la vez.
 | Hito | Contenido | Criterio de salida |
 |---|---|---|
 | **M0** | Esqueleto FastAPI + schema + `loader.py` + CI. **Medir KaTeX y fijar el presupuesto real** | Tests verdes; presupuesto medido, no estimado |
-| **M1** | Guion es/en desde S2 con la voz de Kristian; `audioexplain`; `cues.py` → `timeline.json`. **Validar el catálogo de misconceptions contra material real de Econ 100A** | `timeline.json` valida; catálogo contrastado |
+| **M1** | Guion es/en desde S2 con la voz de Kristian; `audioexplain`; `cues.py` → `timeline.json`. **Validar el catálogo contra Econ 100A _y contra IESA-Micro_** | `timeline.json` valida; las 12 sub-skills mapeadas contra los 22 learning goals de IESA-Micro §III, con lo excluido registrado a propósito |
 | **M2** | Opción A end-to-end: audio + SVG por cues + checkpoints + los 4 tipos de pregunta. **Es también el spike que decide vanilla vs React** | Primer loop cerrado |
 | **M3** | Graders deterministas + juez LLM **en modo sombra** + set dorado + gate de concordancia | El gate pasa, o se activa la contingencia |
 | **M4** | Adaptadores B/C/D; bake-off con timebox; matriz de versatilidad; rúbricas a ciegas | Informe 5 criterios × 4 opciones |
@@ -434,22 +521,42 @@ es siempre una acción del estudiante. Además, `events` debe registrar el **tie
 la pausa del checkpoint y la primera acción del estudiante** — es la señal de atención
 que hace válida esta decisión, y sin registrarla la justificación se pierde.
 
-### D2 · RESUELTO: **80% ahora, con intervalo de confianza reportado**
+### D2 · RESUELTO por Kristian, **reformulado tras T-002**
 
-Se sube a 85% con una muestra mayor antes de exponerlo a estudiantes reales. El informe
-del gate debe incluir el intervalo, no solo la cifra puntual: con n≈30 la diferencia
-entre 80% y 85% es de 1–2 respuestas y está dentro del ruido.
+Kristian fijó 80% con intervalo de confianza reportado. **T-002 mostró que el "80% de
+acuerdo bruto" no identifica un nivel de fiabilidad**, así que se conserva su decisión de
+exigencia pero se cambia el instrumento:
 
-### D3 · RESUELTO: **recall por clase con su n, más gate sobre clases con n ≥ 3**
+1. **Métrica corregida por azar** — kappa de Cohen (o QWK) como criterio de paso, con el
+   acuerdo bruto reportado al lado, nunca como titular, **y siempre junto al baseline de
+   clase mayoritaria**.
+2. **Umbral relativo al techo medido, no absoluto** — Kristian y un segundo corrector
+   etiquetan un solapamiento común → `kappa_humano`. El gate es
+   **`kappa_juez ≥ 0.75 × kappa_humano`**.
+3. **Estratificar y exigir la barra en el estrato *parcial*** — la muestra no es aleatoria
+   sino estratificada por calidad, y la barra se exige donde viven las misconceptions.
+
+> **Por qué.** Nuestro 80% venía por herencia cultural del titular de MT-Bench, que es
+> preferencia **pareada**, en setup con los empates **descartados**, azar base ~50% y
+> **sin corrección por azar**. Nuestra tarea es multiclase sobre 14 ids con una clase
+> "sin misconception" dominante: **un juez que prediga siempre la mayoritaria puede rozar
+> el 80% sin diagnosticar nada.** Referencias: en corrección de respuesta corta con
+> rúbrica el techo humano fue kappa 0.69 y ningún LLM lo igualó consistentemente (máx
+> 0.61); en ASAS los humanos llegan a kappa 0.89–0.98 con facetas binarias mientras los
+> LLM se derrumban en el rango medio — que es exactamente donde viven las misconceptions.
+
+**Dependencia nueva y no negociable:** hace falta un **segundo corrector humano** sobre
+al menos un subconjunto. Sin techo medido, cualquier umbral flota en el vacío. Ver §10-ter.
+
+### D3 · RESUELTO por Kristian, **con una honestidad añadida por T-002**
 
 - **Artefacto que se reporta**: recall de cada misconception con su n al lado, sin promediar.
-- **Gate numérico**, aplicado solo donde la muestra lo soporta:
-  - recall ≥ 70% sobre las misconceptions con n ≥ 3 en el set dorado;
-  - **cero IDs fuera de catálogo**;
-  - tasa de falsos positivos bajo un tope a fijar en M3.
-
-Preserva el criterio de corte que pedía codex sin fingir que se puede medir una clase
-con n = 1.
+- **Gate numérico**, solo donde la muestra lo soporta: recall ≥ 70% sobre misconceptions
+  con n ≥ 3; **cero IDs fuera de catálogo** *(ahora sí medible, gracias al valor de escape
+  del enum — antes se pasaba por construcción)*; tope de falsos positivos a fijar en M3.
+- **El recall por misconception NO se decide en el gate.** Con ~30 respuestas y 14 clases
+  son ~2 por clase. Se declara explícitamente **no medido** y se acumula en sombra hasta
+  tener n ≥ 8 por clase.
 
 ---
 
@@ -498,6 +605,22 @@ a mano.
 **Vanilla TS vs React**: lo decide el spike de M0–M2. Si el estado del dock más los 4
 tipos de pregunta se vuelve inmanejable sin framework, React entra con el mismo
 presupuesto de peso. Preferencia inicial registrada, no posición rígida.
+
+---
+
+## 10-ter. Lo que T-002 dejó pendiente de ti
+
+Tres cosas que no puede resolver ningún agente y que **no bloquean empezar a construir**,
+pero sí bloquean M3 (el gate del juez) si no se resuelven antes de llegar ahí.
+
+| # | Qué | Por qué importa | Cuándo hace falta |
+|---|---|---|---|
+| **K1** | **¿Hay un segundo corrector humano?** | El gate reformulado necesita `kappa_humano` como denominador. Si eres el único que etiqueta, no hay techo medido y el umbral vuelve a flotar en el vacío | Antes de M3 |
+| **K2** | **Pedir IESA-Micro hoy** | Formulario gratuito, lead time desconocido. Si llega, ahorra gran parte del etiquetado manual de M3 | Ya — es lo único con latencia externa |
+| **K3** | **¿Asumimos el riesgo del catálogo sin precedente?** | Ningún instrumento de economía nombra la misconception con un id estable. O lo construimos nosotros, o derivamos los ids de las entrevistas think-aloud que IESA-Micro ya hizo | Antes de M1 |
+
+**K2 es el único urgente**, y solo porque depende de un tercero. Los otros dos se pueden
+decidir mientras se construye M0.
 
 ---
 

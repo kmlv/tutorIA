@@ -47,17 +47,26 @@ Este documento distingue siempre **hallazgo con fuente** de **inferencia mía**.
 
 Dos carriles, dos literaturas sin relación entre sí, la misma conclusión:
 
-**El rendimiento del estudiante *con* el tutor delante no dice nada sobre si aprendió.**
+**El rendimiento del estudiante *con* el tutor delante no basta para demostrar que
+aprendió de forma independiente, y puede sobreestimar la transferencia.**
+
+> *Corregido tras el disenso de `codex` (rev 17), aceptado.* Una versión previa decía
+> que el desempeño asistido "no dice nada" sobre el aprendizaje. Es demasiado absoluto y
+> el propio material lo desmiente: el carril A reporta una asociación observacional
+> positiva de **0,44 SD** entre practicar y rendir. Lo que la evidencia establece es
+> **insuficiencia**, no ausencia de información.
 
 - **Carril A (codex), desde los logs de los ITS clásicos.** En ASSISTments, pedir una
-  pista **invalida esa oportunidad** para la racha de mastery. En Cognitive Tutor,
-  la respuesta obtenida tras un *bottom-out hint* no es evidencia de dominio. Los dos
-  intentos serios de suprimir el *gaming* por la vía del castigo o la fricción
-  fracasaron en lo que importa: "Scooter" bajó el gaming observado de 33% a 18%
-  (p=0,07) **sin mejora de aprendizaje** (p=0,73), y el Help Tutor redujo el
-  drill-down al bottom-out de 72% a 46% (p<0,001), también **sin mejora de
-  aprendizaje** (p=0,95). Lo único que se asoció a ganancias fue **volver a medir el
-  paso eludido con un ítem nuevo**.
+  pista **invalida esa oportunidad** para la racha de mastery — eso es conducta
+  documentada del sistema. Para Cognitive Tutor, que una respuesta obtenida tras un
+  *bottom-out hint* no deba subir el mastery es **propuesta de diseño de codex**, no un
+  hallazgo sobre lo que Cognitive Tutor hace. Los dos intentos serios de suprimir el
+  *gaming* por castigo o fricción fracasaron en lo que importa: "Scooter" bajó el gaming
+  observado de 33% a 18% (p=0,07) **sin mejora de aprendizaje** (p=0,73), y el Help Tutor
+  redujo el drill-down al bottom-out de 72% a 46% (p<0,001), también **sin mejora**
+  (p=0,95). Scooter sí asoció **práctica suplementaria más focalizada** con más
+  aprendizaje; que la vía sea *re-medir el paso eludido con un ítem nuevo e isomorfo* es
+  la síntesis prudente de codex (su Hallazgo C), no la intervención medida.
 - **Carril C (claude), desde un RCT sobre LLMs.** Bastani et al. (PNAS 2025, ~1.000
   alumnos de secundaria, tres brazos): con GPT sin guardarraíles, **+48% durante la
   práctica asistida y −17% en el examen sin asistencia**. Con el GPT-Tutor con
@@ -118,7 +127,12 @@ Y la prueba de que el corte fabrica el resultado: dos definiciones razonables de
 > **Propuesta de codex (A-A):** las "12 sub-skills esenciales + 3 de integración" no
 > están validadas por nada (él mismo lo marca `[sin-verificar]`). Mantenerlas como
 > hipótesis y exigir que **ninguna decisión de cierre dependa de una sola observación**;
-> si dos sub-skills siempre aparecen juntas, se fusionan.
+> si dos sub-skills siempre aparecen juntas, se **marcan para fusión o rediseño**.
+>
+> *(Corregido tras `[blocker]` de codex, rev 16: una versión previa decía "se fusionan",
+> eliminando la rama de rediseño y atribuyéndole una acción obligatoria que no propuso.
+> Que dos sub-skills co-ocurran puede significar que sobra una, o que el ítem que las
+> mide está mal construido — y esas dos salidas piden cosas distintas.)*
 
 ### 3.2 El bake-off mide **sólo una parte** del costo
 
@@ -270,8 +284,12 @@ PLAN no la responde.
   oportunidad y el riesgo, porque nadie ha validado que esa taxonomía sea estable. (C)
 - **No existe una política publicada que elija entre tus cuatro remediaciones con las
   señales del plan.** AutoTutor aporta una escalera finita de ayuda
-  (`pump → hint → prompt → assertion`) con ganancia media reportada de 0,81 SD sobre
-  diez experimentos; el anti-gaming aporta el re-test focalizado. La combinación es una
+  (`pump → hint → prompt → assertion`) con ganancia media reportada de 0,81 SD **sobre
+  diez experimentos que agregan dominios, medidas de resultado y versiones distintas del
+  sistema — no es un efecto garantizado para tutorIA, ni aísla la contribución de la
+  escalera de ayuda** *(caveat que codex adjuntó en su carril y que una versión previa de
+  esta síntesis perdió; restaurado tras su `[blocker]` de rev 16)*; el anti-gaming aporta
+  el re-test focalizado. La combinación es una
   síntesis nuestra, **no un algoritmo validado como conjunto**. codex lo declara así en
   su §4 y me parece la afirmación más honesta de toda la tarea. (A)
 - **No hay estudios de fiabilidad de LLM-as-judge en economía**: todo lo sólido es
