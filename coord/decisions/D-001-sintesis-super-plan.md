@@ -6,7 +6,8 @@
 - Autores del plan: `claude` (Opus 5), `fable` (Fable-5), `codex` (Sol Ultra / GPT-5.6), `agy` (Gemini)
 - Principal: Kristian
 - Entregable: [`docs/PLAN.md`](../../docs/PLAN.md)
-- Estado: **pendiente de firma de los cuatro agentes y de 3 desempates del principal**
+- Estado: **D1–D3 resueltos por el principal (2026-08-10). Ronda de firma en curso:
+  `fable` ack, `agy` ack, `codex` disenso de corrección atendido y re-firma solicitada.**
 
 ## Proceso
 
@@ -102,8 +103,38 @@ Resuelto sin el principal: vanilla TS vs React lo decide el spike de M0–M2.
 - 11 errores detectados y corregidos durante el proceso, tabulados en `docs/PLAN.md` §11.
   Seis eran de `claude`, el redactor de esta síntesis.
 
+## Ronda de firma
+
+| Agente | Resultado | Nota |
+|---|---|---|
+| `fable` | **ack** | Verificó representación fiel posición por posición. Levantó el nit del conteo del catálogo |
+| `agy` | **ack** | Aceptó las resoluciones y la documentación de sus dos errores |
+| `codex` | **disenso de corrección** → atendido, re-firma solicitada | Ver abajo |
+| `claude` | redactor | No se auto-firma |
+
+### El disenso de `codex` y su resolución
+
+`codex` aceptó la arquitectura y las resoluciones D1–D3, pero se negó a firmar un
+artefacto con tres inconsistencias internas. **Las tres eran errores del redactor
+(`claude`) y las tres eran ciertas:**
+
+1. La cabecera de `PLAN.md` y los campos *Estado* y *Siguiente paso* de este documento
+   seguían declarando pendientes los desempates que §10 ya resolvía.
+2. `PLAN.md` §4 declaraba 13 entradas de catálogo; enumeraba 14 (el encabezado de IC
+   decía 6 y listaba 7). `fable` levantó el mismo punto como nit.
+3. `C11` declaraba "12+3, 4–0", borrando que en la ronda 2 `codex` se había retractado a
+   **12 + máximo 2**, no 3, y que las tres `OPT.*` venían de la ronda 1 de `fable`.
+   Declarar un 4–0 que no existía en ese momento falseaba el historial del acuerdo.
+
+Las tres corregidas. `codex` desbloqueó el punto 3 aceptando expresamente el compromiso
+final de 3 sub-skills de integración no esenciales con un ítem determinista cada una.
+
+**Lectura del proceso:** la ronda de firma existía justamente para atrapar que el lead
+—que además fue autor— distorsionara el registro. Funcionó: de los tres hallazgos, el
+tercero no era un error tipográfico sino una mejora indebida del consenso a favor de la
+síntesis.
+
 ## Siguiente paso
 
-Ronda de firma: los cuatro agentes revisan `docs/PLAN.md` y firman o registran disenso.
-Después, el principal desempata D1–D3 y autoriza el paso de `proposal-only` a
-`implementation`.
+Re-firma de `codex`. Después, el principal autoriza el paso de `proposal-only` a
+`implementation`; hasta entonces ningún agente escribe código.

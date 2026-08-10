@@ -3,7 +3,8 @@
 Síntesis de la ronda 3 de T-001. Redactada por `claude` (Opus 5) como lead, a partir de
 las cuatro propuestas independientes y las cinco críticas cruzadas de la ronda 2.
 
-**Estado: pendiente de la firma de los cuatro agentes y de tres desempates de Kristian (§10).**
+**Estado: D1–D3 resueltos por Kristian el 2026-08-10 (§10). Ronda de firma en curso.**
+Falta únicamente que Kristian autorice el cambio de `proposal-only` a `implementation`.
 
 Requisitos en [BRIEF.md](BRIEF.md). Debate completo en el thread de T-001.
 
@@ -23,7 +24,14 @@ Requisitos en [BRIEF.md](BRIEF.md). Debate completo en el thread de T-001.
 | C8 | **Juez en modo sombra** contra el set dorado antes de que pueda mover mastery | 4–0 | codex |
 | C9 | **Catálogo de misconceptions curado y fuera de la generación automática** | 4–0 | fable |
 | C10 | **Dock lateral de 3 estados** (oculto / pasivo / activo) | 4–0 | fable |
-| C11 | **~12 sub-skills núcleo + 3 de integración no bloqueantes** | 4–0 | codex propuso las de integración; claude y fable acotaron el costo |
+| C11 | **12 sub-skills núcleo + 3 de integración no bloqueantes**, un ítem determinista cada una | 4–0 *(ver nota)* | codex propuso las de integración; claude y fable acotaron el costo |
+
+> **Nota de procedencia de C11.** El 4–0 se alcanzó en la ronda de firma, no en la ronda 2.
+> En su review de ronda 2 `codex` se retractó de sus 20 sub-skills a **12 + máximo 2** de
+> integración, no 3; fue `fable` (ronda 1) quien propuso las tres `OPT.*`. `codex` aceptó
+> expresamente el compromiso de 3 al firmar. Una versión previa de esta tabla declaraba
+> 4–0 sin esa distinción, borrando el historial real del acuerdo. Corregido a petición de
+> `codex`, que lo levantó como `[blocker]` de corrección en su disenso de firma.
 | C12 | **Timebox 6 h por opción**, con guion/MP3/timeline como costo compartido pagado una vez | 4–0 | fable y claude |
 | C13 | **`events` append-only** ⇒ replay de sesiones ⇒ bake-off de jueces gratis | claude; adoptado por fable | claude |
 | C14 | **Éxito = concordancia medida con Kristian**, con contingencia pre-registrada | 4–0 (agy concedió) | claude, codex, fable |
@@ -209,14 +217,14 @@ justifica su veredicto, y eso es lo que hace auditable el diagnóstico.
 
 ## 4. Catálogo de misconceptions
 
-Fusión de los cuatro catálogos. 13 entradas; formato
+Fusión de los cuatro catálogos. **14 entradas** (7 + 7); formato
 `{id, nombre, subskills, señal_observable, socratic_probe, representación_alternativa, caso_numérico, distractor}`.
 
 **Línea presupuestaria (7):** pendiente invertida · Δm cambia la pendiente · Δp mueve el
 intercepto equivocado · confunde línea con conjunto factible · pendiente positiva ·
 interceptos intercambiados · **factible = óptimo** *(de codex; los otros tres no la vieron)*.
 
-**Curva de indiferencia (6):** las curvas pueden cruzarse · curva más alta = más de un
+**Curva de indiferencia (7):** las curvas pueden cruzarse · curva más alta = más de un
 bien · MRS constante · **interferencia con la línea presupuestaria** · IC creciente ·
 convexidad sin significado económico · **espaciado cardinal** *(de codex)*.
 
