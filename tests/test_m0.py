@@ -37,9 +37,12 @@ def test_el_enum_del_juez_lleva_los_escapes(pack: Pack) -> None:
 
 
 def test_los_timelines_estan_alineados(pack: Pack) -> None:
+    """Sin número mágico: los dos idiomas deben tener LOS MISMOS cues, y todos alineados.
+    Un conteo fijo solo dice que alguien editó el guion, no que algo esté mal."""
     assert set(pack.timelines) == {"es", "en"}
+    ids = {lang: [c.id for c in tl.cues] for lang, tl in pack.timelines.items()}
+    assert ids["es"] == ids["en"], "los guiones divergen en cues entre idiomas"
     for lang, tl in pack.timelines.items():
-        assert len(tl.cues) == 10, lang
         sin_alinear = [c.id for c in tl.cues if c.t is None]
         assert not sin_alinear, f"{lang}: cues sin alinear {sin_alinear}"
         # los cues deben ir en orden temporal estricto
