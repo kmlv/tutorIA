@@ -101,10 +101,14 @@ dominio:
 salidas:
   # Reemplazan al antiguo `stuck := attempts >= 6`, que codex demostró que era un
   # marcador de posición presentado como decisión.
-  - provisional_mastery   # evidencia independiente pero incompleta
-  - budget_exhausted      # se agotó el tope de preguntas de la actividad
-  - indeterminate         # no hubo evidencia suficiente para afirmar ni negar
   stop_rule_version: "0.1.0"
+  estados:
+    - id: provisional_mastery
+      cuando: evidencia independiente pero incompleta
+    - id: budget_exhausted
+      cuando: se agotó el tope de preguntas de la actividad
+    - id: indeterminate
+      cuando: no hubo evidencia suficiente para afirmar ni negar
 
 # ---------------------------------------------------------------------------
 # Mapeo contra IESA-Micro (Cornell Suite) — hallazgo de T-002.
