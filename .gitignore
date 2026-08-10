@@ -1,1 +1,5 @@
 .DS_Store
+
+# audio efimero: MP3 con TTL de 2 dias (ver scripts/audio-gc.sh).
+# Los transcripts .md permanentes viven en docs/audio/ y SI se versionan.
+.audio/
