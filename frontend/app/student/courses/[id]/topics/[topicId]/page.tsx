@@ -1,13 +1,62 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { apiFetch } from "@/lib/api";
 import MessageBubble from "@/components/chat/MessageBubble";
 
 type Message = { role: "user" | "assistant"; content: string };
 
+type SubSkillMastery = {
+  code: string;
+  title: string;
+  p_mastery: number;
+  status: "not_started" | "developing" | "mastered";
+  evidence_count: number;
+  streak_correct: number;
+};
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+
+function MasteryPanel({ mastery }: { mastery: SubSkillMastery[] }) {
+  return (
+    <aside className="w-72 border-l bg-white overflow-y-auto p-4 shrink-0 hidden lg:block">
+      <h2 className="font-semibold text-gray-800 text-sm mb-1">Progreso del tema</h2>
+      <p className="text-xs text-gray-400 mb-4">Actualizado tras cada respuesta</p>
+      {mastery.map((ss) => {
+        const pct = ss.evidence_count === 0 ? 0 : Math.round(ss.p_mastery * 100);
+        const barColor =
+          ss.status === "mastered" ? "bg-green-500" :
+          ss.status === "developing" ? "bg-blue-500" : "bg-gray-200";
+        const labelColor =
+          ss.status === "mastered" ? "text-green-600" :
+          ss.status === "developing" ? "text-blue-600" : "text-gray-400";
+
+        return (
+          <div key={ss.code} className="mb-5">
+            <div className="flex items-center justify-between mb-0.5">
+              <span className="text-[11px] font-mono text-gray-400">{ss.code}</span>
+              <span className={`text-[11px] font-medium ${labelColor}`}>
+                {ss.status === "mastered" ? "✓ dominada" :
+                 ss.evidence_count === 0 ? "—" : `${pct}%`}
+              </span>
+            </div>
+            <p className="text-xs text-gray-700 leading-tight mb-1">{ss.title}</p>
+            <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+              <div
+                className={`h-full rounded-full transition-all duration-500 ${barColor}`}
+                style={{ width: `${pct}%` }}
+              />
+            </div>
+            {ss.streak_correct > 0 && ss.status !== "mastered" && (
+              <p className="text-[10px] text-gray-400 mt-0.5">{ss.streak_correct} seguidas ✓</p>
+            )}
+          </div>
+        );
+      })}
+    </aside>
+  );
+}
 
 export default function TopicChatPage() {
   const router = useRouter();
@@ -16,7 +65,17 @@ export default function TopicChatPage() {
   const [input, setInput] = useState("");
   const [streaming, setStreaming] = useState(false);
   const [topicTitle, setTopicTitle] = useState("");
+  const [mastery, setMastery] = useState<SubSkillMastery[]>([]);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  const fetchMastery = useCallback(async () => {
+    try {
+      const data = await apiFetch(`/chat/topic/${topicId}/mastery`);
+      if (Array.isArray(data)) setMastery(data);
+    } catch {
+      // topic has no sub-skills — mastery panel stays hidden
+    }
+  }, [topicId]);
 
   useEffect(() => {
     apiFetch(`/chat/topic/${topicId}/history`).then((history: Message[]) => {
@@ -38,7 +97,9 @@ export default function TopicChatPage() {
         }
       }
     });
-  }, [topicId, id, router]);
+
+    fetchMastery();
+  }, [topicId, id, router, fetchMastery]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -90,6 +151,7 @@ export default function TopicChatPage() {
     }
 
     setStreaming(false);
+    fetchMastery();
   }
 
   return (
@@ -101,39 +163,47 @@ export default function TopicChatPage() {
         <span className="font-bold text-gray-900">{topicTitle || "Cargando..."}</span>
       </nav>
 
-      <div className="flex-1 overflow-y-auto px-4 py-6 max-w-3xl w-full mx-auto">
-        {messages.map((msg, i) => (
-          <MessageBubble key={i} role={msg.role} content={msg.content} />
-        ))}
-        {streaming && messages[messages.length - 1]?.role === "assistant" && messages[messages.length - 1]?.content === "" && (
-          <div className="flex justify-start mb-4">
-            <div className="bg-white border border-gray-200 rounded-2xl px-4 py-3">
-              <span className="text-gray-400 text-sm animate-pulse">Escribiendo...</span>
-            </div>
+      <div className="flex flex-1 overflow-hidden">
+        {/* Chat column */}
+        <div className="flex flex-col flex-1 overflow-hidden">
+          <div className="flex-1 overflow-y-auto px-4 py-6 max-w-3xl w-full mx-auto">
+            {messages.map((msg, i) => (
+              <MessageBubble key={i} role={msg.role} content={msg.content} />
+            ))}
+            {streaming && messages[messages.length - 1]?.role === "assistant" && messages[messages.length - 1]?.content === "" && (
+              <div className="flex justify-start mb-4">
+                <div className="bg-white border border-gray-200 rounded-2xl px-4 py-3">
+                  <span className="text-gray-400 text-sm animate-pulse">Escribiendo...</span>
+                </div>
+              </div>
+            )}
+            <div ref={bottomRef} />
           </div>
-        )}
-        <div ref={bottomRef} />
-      </div>
 
-      <form onSubmit={handleSend} className="bg-white border-t px-4 py-4 shrink-0">
-        <div className="max-w-3xl mx-auto flex gap-3">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            disabled={streaming}
-            placeholder="Escribe tu pregunta..."
-            className="flex-1 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
-          />
-          <button
-            type="submit"
-            disabled={streaming || !input.trim()}
-            className="bg-blue-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-700 disabled:opacity-50"
-          >
-            Enviar
-          </button>
+          <form onSubmit={handleSend} className="bg-white border-t px-4 py-4 shrink-0">
+            <div className="max-w-3xl mx-auto flex gap-3">
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                disabled={streaming}
+                placeholder="Escribe tu pregunta..."
+                className="flex-1 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+              />
+              <button
+                type="submit"
+                disabled={streaming || !input.trim()}
+                className="bg-blue-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-700 disabled:opacity-50"
+              >
+                Enviar
+              </button>
+            </div>
+          </form>
         </div>
-      </form>
+
+        {/* Mastery sidebar — only renders if topic has sub-skills */}
+        {mastery.length > 0 && <MasteryPanel mastery={mastery} />}
+      </div>
     </div>
   );
 }

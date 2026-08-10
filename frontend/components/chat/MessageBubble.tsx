@@ -11,16 +11,18 @@ type Props = {
 
 function parseContent(content: string) {
   const parts: { type: "text" | "graph"; value: string }[] = [];
+  // Strip MASTERY_UPDATE blocks — invisible to the student
+  const clean = content.replace(/\[MASTERY_UPDATE\][\s\S]*?\[\/MASTERY_UPDATE\]/g, "").trim();
   const regex = /\[GRAPH\]([\s\S]*?)\[\/GRAPH\]/g;
   let last = 0;
   let match;
 
-  while ((match = regex.exec(content)) !== null) {
-    if (match.index > last) parts.push({ type: "text", value: content.slice(last, match.index) });
+  while ((match = regex.exec(clean)) !== null) {
+    if (match.index > last) parts.push({ type: "text", value: clean.slice(last, match.index) });
     parts.push({ type: "graph", value: match[1] });
     last = match.index + match[0].length;
   }
-  if (last < content.length) parts.push({ type: "text", value: content.slice(last) });
+  if (last < clean.length) parts.push({ type: "text", value: clean.slice(last) });
   return parts;
 }
 

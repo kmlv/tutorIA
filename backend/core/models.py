@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, Integer, String, ForeignKey, DateTime, Text
+from sqlalchemy import Boolean, Column, Float, Integer, String, ForeignKey, DateTime, Text, JSON
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from core.database import Base
@@ -95,3 +95,67 @@ class Exercise(Base):
     feedback = Column(Text)
     is_correct = Column(Boolean)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+
+class SubSkill(Base):
+    __tablename__ = "subskills"
+
+    id = Column(Integer, primary_key=True, index=True)
+    topic_id = Column(Integer, ForeignKey("topics.id"), nullable=False)
+    code = Column(String, nullable=False)
+    title = Column(String, nullable=False)
+    order = Column(Integer, default=0)
+
+
+class Misconception(Base):
+    __tablename__ = "misconceptions"
+
+    id = Column(Integer, primary_key=True, index=True)
+    topic_id = Column(Integer, ForeignKey("topics.id"), nullable=False)
+    code = Column(String, nullable=False)
+    name = Column(String, nullable=False)
+    signal = Column(Text, nullable=False)
+    socratic_probe = Column(Text, nullable=False)
+    alt_representation = Column(Text, nullable=False)
+
+
+class SubSkillMastery(Base):
+    __tablename__ = "subskill_mastery"
+
+    id = Column(Integer, primary_key=True, index=True)
+    student_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    subskill_id = Column(Integer, ForeignKey("subskills.id"), nullable=False)
+    p_mastery = Column(Float, default=0.5)
+    evidence_count = Column(Integer, default=0)
+    streak_correct = Column(Integer, default=0)
+    status = Column(String, default="not_started")  # not_started | developing | mastered
+    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+
+
+class Event(Base):
+    __tablename__ = "events"
+
+    id = Column(Integer, primary_key=True, index=True)
+    session_id = Column(Integer, ForeignKey("chat_sessions.id"), nullable=False)
+    ts = Column(DateTime(timezone=True), server_default=func.now())
+    type = Column(String, nullable=False)
+    payload = Column(JSON)
+
+
+class Slide(Base):
+    __tablename__ = "slides"
+
+    id = Column(Integer, primary_key=True, index=True)
+    topic_id = Column(Integer, ForeignKey("topics.id"), nullable=False)
+    type = Column(String, nullable=False)  # text | graph
+    content = Column(Text, nullable=False)
+    order = Column(Integer, default=0)
+
+
+class SlideCompletion(Base):
+    __tablename__ = "slide_completions"
+
+    id = Column(Integer, primary_key=True, index=True)
+    student_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    topic_id = Column(Integer, ForeignKey("topics.id"), nullable=False)
+    completed_at = Column(DateTime(timezone=True), server_default=func.now())

@@ -15,7 +15,8 @@
       "Bash(curl *)",
       "Bash(python -c \"import bcrypt; print\\(bcrypt.__version__\\)\")",
       "PowerShell(Get-Process *)",
-      "Bash(python *)"
+      "Bash(python *)",
+      "PowerShell(Invoke-RestMethod -Uri \"http://localhost:8000/auth/register\" -Method Post -ContentType \"application/json\" -Body '{\"email\":\"profesor@tutoria.com\",\"password\":\"demo1234\",\"name\":\"Dr. Garc�a\",\"is_professor\":true,\"is_student\":false}')"
     ]
   }
 }
