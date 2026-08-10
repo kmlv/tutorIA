@@ -8,12 +8,12 @@ Herramientas usadas: search_web, view_file, write_to_file
 
 | Sistema | Qué resuelve | Evidencia (Costo/Tech) | Transferible a tutorIA |
 |---|---|---|---|
-| PhET Interactive Simulations | Delivery, preguntas manipulables | Migración a HTML5 por compatibilidad; costo altísimo (~$100k / sim) | Sí (El modelo de accesibilidad A11y DOM-based) |
+| PhET Interactive Simulations | Delivery, preguntas manipulables | Migración a HTML5 por compatibilidad; costo altísimo (equipos pro/meses de dev) | Sí (El modelo de accesibilidad A11y DOM-based) |
 | Desmos Activity Builder | Delivery, ejemplos, preguntas | Gratis; UI drag-and-drop con "Computation Layer" para lógica | Sí (Separación UI / Lógica de eventos) |
 | Mathigon / Polypad | Ejemplos, manipulación | Autoría visual sin código; adquirido por Amplify | Sí (Restringir qué puede mover el alumno) |
 | 3Blue1Brown / manim | Delivery | Alto costo laboral (semanas/meses por video); no interactivo | Parcial (Estética y pre-render) |
 | Explorable Explanations | Manipulación de conceptos | Alto "authoring gap" (JS custom / Tangle.js / Idyll) | Parcial (Scrubbable numbers en línea) |
-| EconGraphs / CORE Econ | Delivery interactivo | Uso intensivo de D3.js + HTML5; cliente ligero | Sí (Renderizado D3 en browser) |
+| EconGraphs / CORE Econ | Delivery interactivo | ~350 gráficos interactivos; motor abierto, contenido no | Sí (Renderizado SVG/D3 en browser) |
 
 ---
 
@@ -24,10 +24,10 @@ Herramientas usadas: search_web, view_file, write_to_file
 - **Estado**: Vivo
 - **Qué resuelve de nuestro ciclo**: Delivery, preguntas (manipulación del gráfico)
 - **Mecanismo concreto**: Simulaciones empaquetadas en HTML5 con un robusto framework de accesibilidad (A11y) que incluye "descripciones de estado": lectura al vuelo por screen readers de los efectos que causan los cambios de variables.
-- **Evidencia**: Cada simulación requiere ~500+ horas de desarrollo de software, diseño e iteración pedagógica, costando típicamente ~$100,000 USD. Emprendieron una migración masiva desde Java/Flash hacia HTML5 específicamente para correr sin plugins en Chromebooks, iPads y equipos de bajos recursos.
+- **Evidencia**: Requieren meses de desarrollo por equipos profesionales y de 4 a 6 entrevistas "think-aloud" con estudiantes por simulación antes de su publicación. Emprendieron una migración masiva desde Java/Flash hacia HTML5 específicamente para correr sin plugins en Chromebooks, iPads y equipos de bajos recursos.
 - **Qué copiamos**: Su arquitectura de despliegue en puro HTML/JS/DOM que corre localmente, garantizando 100% de versatilidad (Criterio 5). Su enfoque a accesibilidad semántica.
 - **Qué NO copiamos**: Su modelo artesanal de meses de desarrollo por concepto. Costo prohibitivo.
-- **Confianza**: [verificado:https://phet.colorado.edu]
+- **Confianza**: [verificado:https://phet.colorado.edu/publications/phet_design_process.pdf]
 
 ### 2. Desmos Activity Builder
 - **URL**: teacher.desmos.com
@@ -69,15 +69,15 @@ Herramientas usadas: search_web, view_file, write_to_file
 - **Qué NO copiamos**: Escribir scripts custom para cada lección.
 - **Confianza**: [verificado:explorableexplanations.com]
 
-### 6. EconGraphs / CORE Econ
+### 6. EconGraphs (Stanford Econ 50) / CORE Econ
 - **URL**: econgraphs.org
 - **Estado**: Vivo
-- **Qué resuelve de nuestro ciclo**: Delivery, preguntas (Microeconomía)
-- **Mecanismo concreto**: Uso intensivo de web standards y librerías declarativas de datos (D3.js). Las curvas (ej. restricción presupuestaria) se calculan en el cliente actualizando los paths de SVG según inputs en sliders HTML.
-- **Evidencia**: Arquitectura de cliente ligero. No hay carga de render para el servidor y los gráficos responden en <16ms (60fps) en navegadores viejos.
-- **Qué copiamos**: Usar D3.js (o alternativas SVG React/HTML5) para procesar las funciones de oferta/demanda y utilidad en el cliente, obteniendo versatilidad sin fallas en dispositivos de bajos recursos.
-- **Qué NO copiamos**: Componentes acoplados y cerrados.
-- **Confianza**: [verificado:econgraphs.org]
+- **Qué resuelve de nuestro ciclo**: Delivery, preguntas (Microeconomía - Prior art directo)
+- **Mecanismo concreto**: ~350 gráficos interactivos que cubren restricciones presupuestarias, curvas de indiferencia, etc. (los conceptos exactos de tutorIA). Funciona con motor KineticGraphs (KGJS) renderizando SVG en el cliente sin requerir plugins ni login.
+- **Evidencia**: Demuestra viabilidad técnica y pedagógica en la enseñanza de microeconomía a nivel universitario. Arquitectura ligera renderizando SVG en cliente, plausiblemente apto para equipos modestos.
+- **Qué copiamos**: La validación de que el enfoque SVG/DOM sirve perfectamente para nuestros conceptos. El uso del motor subyacente (declarado open-source).
+- **Qué NO copiamos**: El CONTENIDO. Existe una clara distinción: el motor (KGJS) es abierto, pero el contenido retiene el copyright de Christopher Makler. No podemos copiar las lecciones, solo la arquitectura/motor.
+- **Confianza**: [verificado:https://www.econgraphs.org/textbooks/intermediate_micro/]
 
 ---
 
@@ -89,7 +89,7 @@ Herramientas usadas: search_web, view_file, write_to_file
 
 2. **Sección afectada**: 3. El bake-off de media (Criterio 5: Versatilidad y Accesibilidad)
    - **Cambio propuesto**: Establecer como criterio eliminatorio que el formato ganador exponga su estado matemático al DOM (DOM-based) y no dependa de MP4/canvas opaco, permitiendo descripciones de estado ARIA.
-   - **Evidencia**: PhET gastó enormes recursos ($100k/simulación, 500h de dev) para reescribir de Java/Flash a HTML5 con el único fin de permitir accesibilidad real (Screen Readers) y compatibilidad con Chromebooks/maquinas viejas de escuelas, probando que el DOM es el único camino viable para la versatilidad masiva.
+   - **Evidencia**: PhET gastó enormes recursos cualitativos (meses de dev, equipos profesionales) para reescribir de Java/Flash a HTML5 con el único fin de permitir accesibilidad real (Screen Readers) y compatibilidad con Chromebooks/maquinas viejas de escuelas, probando que el DOM es el único camino viable para la versatilidad masiva.
 
 3. **Sección afectada**: 5. Qué debe entregar el plan (Punto 4: UX y herramientas de autor)
    - **Cambio propuesto**: Añadir la exigencia técnica de separar los *componentes visuales estándar* de la *lógica conectiva*, utilizando un lenguaje intermedio (tipo "Computation Layer" de Desmos).
@@ -106,9 +106,9 @@ Herramientas usadas: search_web, view_file, write_to_file
 
 ## §5 Fuentes
 
-- **PhET Interactive Simulations**: Investigación de migración HTML5 y costos operativos. Consultado el 2026-08-10 en [https://phet.colorado.edu] y artículos educativos asociados.
+- **PhET Interactive Simulations**: Design Process y migración HTML5. Consultado el 2026-08-10 en [https://phet.colorado.edu/publications/phet_design_process.pdf].
 - **Desmos Classroom & Activity Builder**: Arquitectura y modelo de costo. Consultado el 2026-08-10 en [https://teacher.desmos.com] y [https://amplify.com/programs/desmos-math/].
 - **Mathigon / Polypad**: Authoring Mode y manipulables. Consultado el 2026-08-10 en [https://mathigon.org].
 - **Manim / 3Blue1Brown**: Discusiones de comunidad (ManimCE) sobre tiempos de producción y recursos (reddit, foros). Consultado el 2026-08-10.
 - **Explorable Explanations**: Patrones de autoría y filosofía. Consultado el 2026-08-10 en [https://explorableexplanations.com].
-- **EconGraphs**: Arquitectura D3 orientada a economía. Consultado el 2026-08-10.
+- **EconGraphs**: Christopher Makler, Econ 50. Distinción motor/contenido. Consultado el 2026-08-10 en [https://www.econgraphs.org/] y [https://www.econgraphs.org/textbooks/intermediate_micro/].

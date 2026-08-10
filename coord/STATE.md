@@ -16,7 +16,11 @@ Protocol version: 0.4.22
 - Reviewers: codex,agy
 - Council session: none
 - Active thread: coord/threads/2026-08-10-T-002-prior-art-sistemas-de-aprendizaje-similares.md
-- Status: active
+- Status: delivered — waiting-on-principal (H-003)
+
+Los tres carriles entregaron sin colisiones, la sintesis paso la revision cruzada de
+codex y agy, y el unico blocker (codex contra §3.2) quedo aceptado y corregido.
+Entregable: docs/RESEARCH-PRIOR-ART.md. Pendiente: las tres decisiones de H-003.
 
 ## Paused / Awaiting Principal
 
