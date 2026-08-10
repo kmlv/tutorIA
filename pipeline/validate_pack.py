@@ -88,9 +88,79 @@ def main() -> int:
     if dom.get("sin_andamiaje_min", 0) > dom.get("aciertos_consecutivos", 0):
         errs.append("dominio: sin_andamiaje_min supera aciertos_consecutivos")
 
+    # ---- banco de preguntas -------------------------------------------------
+    qfile = pack_dir / "questions.yaml"
+    qs: list[dict] = []
+    if qfile.exists():
+        qs = yaml.safe_load(qfile.read_text(encoding="utf-8"))["questions"]
+        qids = [q["id"] for q in qs]
+        if len(qids) != len(set(qids)):
+            errs.append("questions.yaml: ids duplicados")
+
+        for q in qs:
+            qid = q["id"]
+            if q["subskill_primary"] not in skills:
+                errs.append(f"{qid}: subskill_primary {q['subskill_primary']} no existe")
+            for sid in q.get("subskills_secundarias", []):
+                if sid not in skills:
+                    errs.append(f"{qid}: subskill secundaria {sid} no existe")
+
+            # todo misconception citado debe existir
+            cited = set(q.get("misconceptions_vigilar", []))
+            cited |= {v for v in (q.get("diagnostico_si_falla") or {}).values() if v}
+            for o in q.get("opciones", []):
+                if o.get("misconception"):
+                    cited.add(o["misconception"])
+            for mid in cited:
+                if mid not in cat:
+                    errs.append(f"{qid}: cita el misconception inexistente {mid}")
+
+            # exactamente una opción correcta en las de opción múltiple
+            if q["modalidad"] == "mcq":
+                n = sum(1 for o in q["opciones"] if o.get("correcta"))
+                if n != 1:
+                    errs.append(f"{qid}: {n} opciones marcadas correctas, debe ser 1")
+                for o in q["opciones"]:
+                    if set(o) - {"es", "en", "correcta", "misconception"}:
+                        errs.append(f"{qid}: opción con campos inesperados")
+
+            # las abiertas necesitan key_points para el reference-guided grading
+            if q["modalidad"] == "open" and not q.get("key_points"):
+                errs.append(f"{qid}: abierta sin key_points")
+
+            if q["modalidad"] == "open" and q.get("grader") != "llm":
+                errs.append(f"{qid}: abierta debe tener grader llm")
+            if q["modalidad"] != "open" and q.get("grader") != "deterministic":
+                errs.append(f"{qid}: no-abierta debe tener grader deterministic")
+
+        # cada sub-skill esencial necesita evidencia posible en >=2 modalidades
+        # (criterio de dominio) y suficientes ítems deterministas
+        for sid, s in skills.items():
+            if not s.get("esencial"):
+                continue
+            mios = [q for q in qs if q["subskill_primary"] == sid]
+            mods = {q["modalidad"] for q in mios}
+            det = [q for q in mios if q.get("grader") == "deterministic"]
+            if len(mods) < 2:
+                errs.append(f"{sid}: solo {len(mods)} modalidad(es); el dominio exige >=2")
+            if len(det) < 2:
+                errs.append(f"{sid}: solo {len(det)} ítem(s) determinista(s); el juez LLM "
+                            f"aporta como mucho 1 de 3 evidencias, hacen falta >=2")
+
+        # los checkpoints del manifiesto deben existir en el banco
+        for cp in pack.get("checkpoints", []):
+            ref = cp.get("pregunta_ref")
+            if ref and ref not in {q["id"] for q in qs}:
+                errs.append(f"checkpoint {cp['id']}: pregunta_ref {ref} no está en el banco")
+    else:
+        warns.append("no hay questions.yaml todavía")
+
     print(f"pack: {pack['id']} v{pack['version']}")
     print(f"  sub-skills    : {len(skills)}")
     print(f"  misconceptions: {len(cat)}")
+    if qs:
+        det = sum(1 for q in qs if q.get("grader") == "deterministic")
+        print(f"  preguntas     : {len(qs)} ({det} deterministas, {len(qs) - det} juez LLM)")
     for w in warns:
         print(f"  [warn]  {w}")
     for e in errs:

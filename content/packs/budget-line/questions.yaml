@@ -1,0 +1,287 @@
+# Banco de preguntas — línea presupuestaria
+#
+# Ninguna lleva nota (decisión 10 del brief). Existen para producir EVIDENCIA por
+# sub-skill, no para calificar.
+#
+# `grader: deterministic` => lo corrige código. `grader: llm` => solo respuestas abiertas.
+# Regla del PLAN §3.2 tras T-002: el juez LLM aporta como mucho 1 de las 3 evidencias
+# necesarias para declarar dominio. Por eso el banco está deliberadamente cargado de
+# ítems deterministas.
+#
+# `andamiaje: false` marca los ítems que pueden contar como el acierto SIN AYUDA que
+# exige el criterio de dominio. Un ítem servido como remediación nunca cuenta.
+
+pack: budget-line
+version: 0.1.0
+
+# Parámetros heredados de pack.yaml: p1=3, p2=1, m=100 (cerveza / jugo de naranja).
+# Los enunciados los referencian como {{p1}}, {{p2}}, {{m}} para que cambiar el ejemplo
+# en pack.yaml regenere el banco sin editar este archivo — criterio 2 del bake-off.
+
+questions:
+
+  # ---------------------------------------------------------------- BL.INT
+  - id: q_int_numeric_1
+    subskill_primary: BL.INT
+    tier: 1
+    modalidad: numeric
+    grader: deterministic
+    andamiaje: false
+    enunciado:
+      es: "Con ingreso {{m}} y precios p1={{p1}} y p2={{p2}}: si gastas todo en jugo, ¿cuántas unidades compras?"
+      en: "With income {{m}} and prices p1={{p1}}, p2={{p2}}: if you spend everything on juice, how many units do you buy?"
+    respuesta: {expr: "m / p2", tolerancia: 0.01}
+    diagnostico_si_falla:
+      "m / p1": BL-M6      # respondió el otro intercepto
+
+  - id: q_int_numeric_2
+    subskill_primary: BL.INT
+    tier: 2
+    modalidad: numeric
+    grader: deterministic
+    andamiaje: false
+    enunciado:
+      es: "¿Y si gastas todo en cerveza? Redondea a un decimal."
+      en: "And if you spend everything on beer? Round to one decimal."
+    respuesta: {expr: "m / p1", tolerancia: 0.05}
+    diagnostico_si_falla:
+      "m / p2": BL-M6
+
+  - id: q_int_mcq
+    subskill_primary: BL.INT
+    tier: 2
+    modalidad: mcq
+    grader: deterministic
+    andamiaje: false
+    enunciado:
+      es: "¿Cuál es el intercepto vertical de la línea presupuestaria?"
+      en: "What is the vertical intercept of the budget line?"
+    opciones:
+      - {es: "m/p2", en: "m/p2", correcta: true}
+      - {es: "m/p1", en: "m/p1", misconception: BL-M6}
+      - {es: "-p1/p2", en: "-p1/p2", misconception: BL-M1}
+      - {es: "m", en: "m", misconception: null}
+
+  # ---------------------------------------------------------------- BL.SLOPE
+  - id: q_slope_numeric
+    subskill_primary: BL.SLOPE
+    tier: 1
+    modalidad: numeric
+    grader: deterministic
+    andamiaje: false
+    enunciado:
+      es: "¿Cuál es la pendiente de la línea presupuestaria? Incluye el signo."
+      en: "What is the slope of the budget line? Include the sign."
+    respuesta: {expr: "-p1 / p2", tolerancia: 0.01}
+    diagnostico_si_falla:
+      "-p2 / p1": BL-M1
+      "p1 / p2": BL-M5
+      "m / p2": BL-M1     # confunde pendiente con intercepto
+
+  - id: q_slope_mcq
+    subskill_primary: BL.SLOPE
+    tier: 2
+    modalidad: mcq
+    grader: deterministic
+    andamiaje: false
+    enunciado:
+      es: "La pendiente de la línea presupuestaria es:"
+      en: "The slope of the budget line is:"
+    opciones:
+      - {es: "-p1/p2", en: "-p1/p2", correcta: true}
+      - {es: "-p2/p1", en: "-p2/p1", misconception: BL-M1}
+      - {es: "+p1/p2, porque ambos precios son positivos", en: "+p1/p2, because both prices are positive", misconception: BL-M5}
+      - {es: "m/p2", en: "m/p2", misconception: BL-M6}
+
+  - id: q_slope_open
+    subskill_primary: BL.SLOPE
+    subskills_secundarias: [BL.CS.P]
+    tier: 3
+    modalidad: open
+    grader: llm
+    andamiaje: false
+    enunciado:
+      es: "Explica con tus palabras qué significa que la pendiente sea {{slope}}. No uses la fórmula: dímelo en cervezas y jugos."
+      en: "Explain in your own words what a slope of {{slope}} means. Don't use the formula: tell me in beers and juices."
+    key_points:
+      - id: kp_tradeoff
+        es: identifica que hay que renunciar a {{slope_abs}} jugos por una cerveza más
+        en: identifies giving up {{slope_abs}} juices for one more beer
+      - id: kp_sign
+        es: el signo negativo refleja que un bien sube y el otro baja
+        en: the negative sign reflects one good rising as the other falls
+      - id: kp_relative_price
+        es: lo conecta con el precio relativo o el costo de oportunidad
+        en: connects it to relative price or opportunity cost
+    misconceptions_vigilar: [BL-M1, BL-M5]
+
+  # ---------------------------------------------------------------- BL.FEAS
+  - id: q_feas_mcq
+    subskill_primary: BL.FEAS
+    tier: 1
+    modalidad: mcq
+    grader: deterministic
+    andamiaje: false
+    enunciado:
+      es: "Compras 10 cervezas y 20 jugos. ¿Esa canasta es alcanzable?"
+      en: "You buy 10 beers and 20 juices. Is that bundle affordable?"
+    opciones:
+      - {es: "Sí, gasta 50 y te sobran 50", en: "Yes, it costs 50 and leaves 50 over", correcta: true}
+      - {es: "No, porque no agota el ingreso", en: "No, because it does not exhaust the income", misconception: BL-M4}
+      - {es: "No, porque no está sobre la recta", en: "No, because it is not on the line", misconception: BL-M4}
+      - {es: "Sí, y además es la mejor canasta posible", en: "Yes, and it is also the best possible bundle", misconception: BL-M7}
+
+  - id: q_feas_manip
+    subskill_primary: BL.FEAS
+    tier: 2
+    modalidad: manip
+    grader: deterministic
+    andamiaje: false
+    enunciado:
+      es: "Arrastra el punto hasta una canasta que puedas pagar SIN gastar todo tu ingreso."
+      en: "Drag the point to a bundle you can afford WITHOUT spending your whole income."
+    verificacion:
+      tipo: region
+      condicion: "p1*x1 + p2*x2 < m"
+      margen: 2.0
+    diagnostico_si_falla:
+      sobre_la_recta: BL-M4
+
+  - id: q_feas_open
+    subskill_primary: BL.FEAS
+    tier: 3
+    modalidad: open
+    grader: llm
+    andamiaje: false
+    enunciado:
+      es: "¿Qué diferencia hay entre la línea presupuestaria y el conjunto presupuestario?"
+      en: "What is the difference between the budget line and the budget set?"
+    key_points:
+      - id: kp_boundary
+        es: la línea es la frontera del conjunto, no el conjunto entero
+        en: the line is the boundary of the set, not the whole set
+      - id: kp_interior
+        es: el conjunto incluye canastas que no agotan el ingreso
+        en: the set includes bundles that do not exhaust income
+    misconceptions_vigilar: [BL-M4]
+
+  # ---------------------------------------------------------------- BL.CS.M
+  - id: q_cp1_income_direction
+    subskill_primary: BL.CS.M
+    tier: 1
+    modalidad: mcq
+    grader: deterministic
+    andamiaje: false
+    checkpoint: cp1
+    enunciado:
+      es: "Tu ingreso sube de {{m}} a 150. ¿Qué le pasa a la línea?"
+      en: "Your income rises from {{m}} to 150. What happens to the line?"
+    opciones:
+      - {es: "Se desplaza hacia afuera, paralela", en: "It shifts outward, parallel", correcta: true}
+      - {es: "Se vuelve más plana", en: "It becomes flatter", misconception: BL-M2}
+      - {es: "Pivota sobre el intercepto de x2", en: "It pivots around the x2 intercept", misconception: BL-M2}
+      - {es: "No cambia, porque los precios son los mismos", en: "It does not change, since prices are the same", misconception: null}
+
+  - id: q_cs_m_manip
+    subskill_primary: BL.CS.M
+    tier: 2
+    modalidad: manip
+    grader: deterministic
+    andamiaje: false
+    enunciado:
+      es: "El ingreso sube a 150. Mueve la recta a su nueva posición."
+      en: "Income rises to 150. Move the line to its new position."
+    verificacion:
+      tipo: recta
+      pendiente_esperada: "-p1/p2"
+      tolerancia_pendiente: 0.10
+      intercepto_x2_esperado: 150.0
+      tolerancia_intercepto: 5.0
+    diagnostico_si_falla:
+      pendiente_cambio: BL-M2
+
+  # ---------------------------------------------------------------- BL.CS.P
+  - id: q_cs_p_mcq
+    subskill_primary: BL.CS.P
+    tier: 2
+    modalidad: mcq
+    grader: deterministic
+    andamiaje: false
+    enunciado:
+      es: "El precio de la cerveza sube de {{p1}} a 4. ¿Qué le pasa a la línea?"
+      en: "The price of beer rises from {{p1}} to 4. What happens to the line?"
+    opciones:
+      - {es: "Pivota: el intercepto del jugo no se mueve y la recta se empina", en: "It pivots: the juice intercept stays and the line gets steeper", correcta: true}
+      - {es: "Se desplaza hacia adentro, paralela", en: "It shifts inward, parallel", misconception: BL-M3}
+      - {es: "Baja el intercepto vertical m/p2", en: "The vertical intercept m/p2 falls", misconception: BL-M3}
+      - {es: "Se vuelve más plana", en: "It becomes flatter", misconception: BL-M1}
+
+  - id: q_cs_p_manip
+    subskill_primary: BL.CS.P
+    tier: 3
+    modalidad: manip
+    grader: deterministic
+    andamiaje: false
+    enunciado:
+      es: "El precio de la cerveza sube a 4. Mueve la recta."
+      en: "The price of beer rises to 4. Move the line."
+    verificacion:
+      tipo: recta
+      pendiente_esperada: -4.0
+      tolerancia_pendiente: 0.10
+      intercepto_x2_esperado: "m / p2"
+      tolerancia_intercepto: 3.0
+    diagnostico_si_falla:
+      intercepto_x2_cambio: BL-M3
+      desplazamiento_paralelo: BL-M3
+
+  - id: q_cp2_why_intercept_fixed
+    subskill_primary: BL.CS.P
+    subskills_secundarias: [BL.INT]
+    tier: 3
+    modalidad: open
+    grader: llm
+    andamiaje: false
+    checkpoint: cp2
+    enunciado:
+      es: "¿Por qué el intercepto del jugo NO se mueve cuando sube el precio de la cerveza?"
+      en: "Why does the juice intercept NOT move when the price of beer rises?"
+    key_points:
+      - id: kp_intercept_formula
+        es: ese intercepto es m/p2 y ni m ni p2 cambiaron
+        en: that intercept is m/p2 and neither m nor p2 changed
+      - id: kp_corner_meaning
+        es: gastar todo en jugo no involucra el precio de la cerveza
+        en: spending everything on juice does not involve the price of beer
+    misconceptions_vigilar: [BL-M3, BL-M2]
+
+  # ---------------------------------------------------------------- BL.EQ
+  # Solo dos ítems y ambos deterministas: BL.EQ es la sub-skill marcada como
+  # `revisar_en_validacion` en pack.yaml por no tener misconception asociada.
+  # Hasta que Kristian decida si se queda o se fusiona con BL.INT, no se le invierte
+  # más banco.
+  - id: q_eq_mcq
+    subskill_primary: BL.EQ
+    tier: 1
+    modalidad: mcq
+    grader: deterministic
+    andamiaje: false
+    enunciado:
+      es: "¿Cuál de estas expresiones es la línea presupuestaria?"
+      en: "Which of these is the budget line?"
+    opciones:
+      - {es: "p1·x1 + p2·x2 = m", en: "p1·x1 + p2·x2 = m", correcta: true}
+      - {es: "p1·x1 + p2·x2 ≤ m", en: "p1·x1 + p2·x2 ≤ m", misconception: BL-M4}
+      - {es: "x1/p1 + x2/p2 = m", en: "x1/p1 + x2/p2 = m", misconception: null}
+      - {es: "p1·p2 = m", en: "p1·p2 = m", misconception: null}
+
+  - id: q_eq_numeric
+    subskill_primary: BL.EQ
+    tier: 2
+    modalidad: numeric
+    grader: deterministic
+    andamiaje: false
+    enunciado:
+      es: "Compras 12 cervezas. Si agotas tu ingreso, ¿cuántos jugos compras?"
+      en: "You buy 12 beers. If you exhaust your income, how many juices do you buy?"
+    respuesta: {expr: "(m - p1*12) / p2", tolerancia: 0.01}
