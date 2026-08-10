@@ -123,16 +123,28 @@ artefacto con tres inconsistencias internas. **Las tres eran errores del redacto
 2. `PLAN.md` §4 declaraba 13 entradas de catálogo; enumeraba 14 (el encabezado de IC
    decía 6 y listaba 7). `fable` levantó el mismo punto como nit.
 3. `C11` declaraba "12+3, 4–0", borrando que en la ronda 2 `codex` se había retractado a
-   **12 + máximo 2**, no 3, y que las tres `OPT.*` venían de la ronda 1 de `fable`.
-   Declarar un 4–0 que no existía en ese momento falseaba el historial del acuerdo.
+   **12 + máximo 2**, no 3. Declarar un 4–0 que no existía en ese momento falseaba el
+   historial del acuerdo.
 
-Las tres corregidas. `codex` desbloqueó el punto 3 aceptando expresamente el compromiso
-final de 3 sub-skills de integración no esenciales con un ítem determinista cada una.
+Los puntos 1 y 2 se corrigieron a la primera. **El punto 3 necesitó dos intentos**: al
+corregirlo, `claude` introdujo un error nuevo — atribuyó las tres `OPT.*` a la ronda 1 de
+`fable`. Es falso, y `codex` lo levantó como segundo `[blocker]` con evidencia primaria:
+su propia ronda 1 enumera las tres (`OPT.FEASIBLE_CHOICE`,
+`OPT.TANGENCY_MRS_PRICE_RATIO`, `OPT.CORNER_VS_INTERIOR`), mientras que la ronda 1 de
+`fable` solo menciona un futuro `OPT.TAN` declarado fuera de alcance. Verificado
+directamente contra el thread antes de aceptar la corrección.
+
+Secuencia real, ya registrada en la nota de `C11` de `docs/PLAN.md`: `codex` propuso las
+tres en ronda 1 dentro de un esquema de 20 bloqueantes → se retractó a 12 + máximo 2 en
+ronda 2 tras los blockers de `claude` y `fable` → aceptó el compromiso final de 3 no
+esenciales en su disenso de firma (rev 16), no al firmar, porque su firma aún no existe.
 
 **Lectura del proceso:** la ronda de firma existía justamente para atrapar que el lead
-—que además fue autor— distorsionara el registro. Funcionó: de los tres hallazgos, el
-tercero no era un error tipográfico sino una mejora indebida del consenso a favor de la
-síntesis.
+—que además fue autor— distorsionara el registro. Funcionó dos veces sobre el mismo
+punto. El hallazgo original no era un error tipográfico sino una mejora indebida del
+consenso a favor de la síntesis; y la corrección apresurada de ese hallazgo produjo una
+atribución falsa en sentido contrario. Ambas las detectó el agente perjudicado, no el
+redactor.
 
 ## Siguiente paso
 

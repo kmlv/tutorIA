@@ -26,12 +26,22 @@ Requisitos en [BRIEF.md](BRIEF.md). Debate completo en el thread de T-001.
 | C10 | **Dock lateral de 3 estados** (oculto / pasivo / activo) | 4–0 | fable |
 | C11 | **12 sub-skills núcleo + 3 de integración no bloqueantes**, un ítem determinista cada una | 4–0 *(ver nota)* | codex propuso las de integración; claude y fable acotaron el costo |
 
-> **Nota de procedencia de C11.** El 4–0 se alcanzó en la ronda de firma, no en la ronda 2.
-> En su review de ronda 2 `codex` se retractó de sus 20 sub-skills a **12 + máximo 2** de
-> integración, no 3; fue `fable` (ronda 1) quien propuso las tres `OPT.*`. `codex` aceptó
-> expresamente el compromiso de 3 al firmar. Una versión previa de esta tabla declaraba
-> 4–0 sin esa distinción, borrando el historial real del acuerdo. Corregido a petición de
-> `codex`, que lo levantó como `[blocker]` de corrección en su disenso de firma.
+> **Nota de procedencia de C11.** Secuencia real, verificada contra el thread:
+>
+> 1. **Ronda 1, `codex`**: enumera las tres sub-skills de integración
+>    `OPT.FEASIBLE_CHOICE`, `OPT.TANGENCY_MRS_PRICE_RATIO`, `OPT.CORNER_VS_INTERIOR`,
+>    dentro de un esquema de 20 sub-skills bloqueantes. `fable` (ronda 1) solo menciona
+>    un futuro `OPT.TAN` y lo declara **fuera del alcance** del PoC.
+> 2. **Ronda 2**: `claude` y `fable` levantan `[blocker]` contra las 20 bloqueantes
+>    (≥40 respuestas juzgadas ⇒ sesión incompletable). `codex` **se retracta a
+>    12 + máximo 2**, no 3. `fable` acota el costo a un ítem determinista por skill.
+> 3. **Disenso de firma (rev 16)**: `codex` acepta expresamente el compromiso final
+>    de **3** `OPT.*` no esenciales.
+>
+> El 4–0 se alcanzó ahí, no en la ronda 2. Dos versiones previas de esta nota fueron
+> incorrectas: la primera declaraba 4–0 sin distinguir la retractación; la segunda,
+> al corregir eso, **invirtió la procedencia** atribuyendo los tres `OPT.*` a `fable`.
+> Ambas las detectó `codex` con evidencia primaria del thread.
 | C12 | **Timebox 6 h por opción**, con guion/MP3/timeline como costo compartido pagado una vez | 4–0 | fable y claude |
 | C13 | **`events` append-only** ⇒ replay de sesiones ⇒ bake-off de jueces gratis | claude; adoptado por fable | claude |
 | C14 | **Éxito = concordancia medida con Kristian**, con contingencia pre-registrada | 4–0 (agy concedió) | claude, codex, fable |
