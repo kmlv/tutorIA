@@ -1,0 +1,139 @@
+# Manifiesto del concepto: línea presupuestaria
+#
+# Notación de Kristian (econ100a-slides_homeworks/docs/S2_Budget_Constraint_Ch2.md):
+#   x1, x2 = cantidades   ·   p1, p2 = precios   ·   m = ingreso
+# Ejemplo canónico del curso: bien 1 = cerveza, bien 2 = jugo de naranja.
+#   p1 = 3, p2 = 1, m = 100  =>  pendiente = -3
+#   "Consumer needs to give up 3 oz. of orange juice to afford 1 additional oz of beer."
+
+id: budget-line
+version: 0.1.0
+titulo:
+  es: La línea presupuestaria
+  en: The Budget Constraint
+lang: [es, en]
+media_variant_default: A
+
+# Parámetros del ejemplo, usados por el guión, el gráfico y los ítems numéricos.
+# Cambiarlos aquí debe bastar para regenerar todo: es la prueba del criterio 2 del bake-off.
+ejemplo:
+  bien_1: {es: cerveza, en: beer}
+  bien_2: {es: jugo de naranja, en: orange juice}
+  p1: 3
+  p2: 1
+  m: 100
+  # intercepto de x1 = 100/3 ≈ 33.3 — deliberadamente no entero.
+  # Es el ejemplo real de Kristian y se conserva; un número redondo escondería que el
+  # intercepto se calcula, no se lee del gráfico.
+
+checkpoints:
+  - id: cp1
+    despues_de_cue: slope
+    pregunta_ref: q_cp1_income_direction
+  - id: cp2
+    despues_de_cue: price_pivot
+    pregunta_ref: q_cp2_why_intercept_fixed
+
+sub_skills:
+  - id: BL.EQ
+    esencial: true
+    umbral: 0.80
+    titulo:
+      es: Plantear p1·x1 + p2·x2 = m e interpretar cada término
+      en: State p1·x1 + p2·x2 = m and interpret each term
+    # HUECO CONOCIDO: es la única sub-skill sin misconception asociada en
+    # misconceptions.yaml. O falta una entrada del catálogo, o esta sub-skill no es
+    # diagnosticable por separado y debería fusionarse con BL.INT.
+    # No lo resolvemos por intuición: es exactamente el caso que codex describió como
+    # "marcar para fusión O rediseño", y se decide con los exámenes de Econ 100A.
+    estado: revisar_en_validacion
+
+  - id: BL.INT
+    esencial: true
+    umbral: 0.80
+    titulo:
+      es: Interceptos m/p1 y m/p2, cálculo e interpretación
+      en: Intercepts m/p1 and m/p2, computation and meaning
+    misconceptions: [BL-M6, BL-M3]
+
+  - id: BL.SLOPE
+    esencial: true
+    umbral: 0.80
+    titulo:
+      es: Pendiente -p1/p2 como precio relativo y costo de oportunidad
+      en: Slope -p1/p2 as relative price and opportunity cost
+    misconceptions: [BL-M1, BL-M5, BL-M2]
+
+  - id: BL.FEAS
+    esencial: true
+    umbral: 0.80
+    titulo:
+      es: Conjunto presupuestario — interior, frontera y no alcanzable
+      en: Budget set — interior, boundary and unaffordable
+    misconceptions: [BL-M4, BL-M7]
+
+  - id: BL.CS.M
+    esencial: true
+    umbral: 0.80
+    titulo:
+      es: Cambio en m ⇒ desplazamiento paralelo
+      en: Change in m ⇒ parallel shift
+    misconceptions: [BL-M2]
+
+  - id: BL.CS.P
+    esencial: true
+    umbral: 0.80
+    titulo:
+      es: Cambio en p1 o p2 ⇒ pivote sobre el intercepto del otro bien
+      en: Change in p1 or p2 ⇒ pivot around the other good's intercept
+    misconceptions: [BL-M3]
+
+# Criterio de dominio (PLAN §3.2, actualizado con los hallazgos de T-002).
+dominio:
+  p_mastery_min: 0.80
+  aciertos_consecutivos: 3
+  modalidades_min: 2
+  sin_andamiaje_min: 1      # al menos un acierto sin pista, sin feedback previo del juez
+                            # y sin ayuda sobre el gráfico, en ese turno
+  max_evidencias_del_juez_llm: 1   # las otras 2 vienen de graders deterministas
+  sin_misconception_activa: true
+
+salidas:
+  # Reemplazan al antiguo `stuck := attempts >= 6`, que codex demostró que era un
+  # marcador de posición presentado como decisión.
+  - provisional_mastery   # evidencia independiente pero incompleta
+  - budget_exhausted      # se agotó el tope de preguntas de la actividad
+  - indeterminate         # no hubo evidencia suficiente para afirmar ni negar
+  stop_rule_version: "0.1.0"
+
+# ---------------------------------------------------------------------------
+# Mapeo contra IESA-Micro (Cornell Suite) — hallazgo de T-002.
+# https://www.econ-assessments.org/pages/IESA-Micro.html
+#
+# Su sección III "The Consumer's Problem" tiene 22 learning goals. El bloque A.Budgets
+# (3 goals) es el que cubre este concepto. PENDIENTE de precisar contra el documento
+# real: Kristian tiene que pedirlo por formulario, y hasta que llegue este mapeo se
+# apoya en el resumen de la investigación, no en la fuente.
+# ---------------------------------------------------------------------------
+iesa_micro:
+  estado: pendiente_de_obtener_el_cuestionario
+  seccion: "III — The Consumer's Problem"
+  bloque: "A. Budgets (3 learning goals)"
+  cobertura_declarada:
+    - goal: conjunto presupuestario y cómo cambia
+      cubierto_por: [BL.FEAS, BL.CS.M, BL.CS.P]
+    - goal: pendiente como costo de oportunidad
+      cubierto_por: [BL.SLOPE]
+    - goal: budget sets a partir de dotaciones
+      cubierto_por: []
+      excluido_a_proposito: true
+      razon: >
+        Las dotaciones (endowments) quedan fuera del alcance del PoC. Se registra aquí
+        para que el hueco sea deliberado y no un descuido, que es justo lo que el
+        hallazgo H-C3 de T-002 pedía.
+  fuera_de_alcance_del_poc:
+    - Slutsky y descomposición de efectos
+    - demanda Hicksiana vs Marshalliana
+    - soluciones de esquina
+    - transformaciones monótonas de la utilidad
+    - bienes Giffen e inferiores

@@ -1,0 +1,176 @@
+# Catálogo curado de misconceptions — línea presupuestaria
+#
+# CONTRATO (C9 del PLAN): este archivo NUNCA se genera automáticamente. Es la ontología
+# diagnóstica fija que hace comparables a los estudiantes entre sí. La generación al vuelo
+# produce guiones, ejemplos y preguntas CONTRA este catálogo, jamás el catálogo.
+#
+# Los `id` son estables y se validan por enum en la salida del juez. Ningún instrumento
+# publicado de economía asigna ids estables a las misconceptions (hallazgo de T-002), así
+# que este contrato no tiene precedente en el área: es la oportunidad y el riesgo.
+#
+# ESTADO: hipótesis de cuatro modelos de lenguaje. PENDIENTE de validar contra los
+# exámenes reales de Econ 100A y contra IESA-Micro (§4 del PLAN).
+
+pack: budget-line
+version: 0.1.0
+lang: [es, en]
+
+# Notación de Kristian (S2_Budget_Constraint_Ch2.md): x1, x2, p1, p2, m.
+# Ejemplo canónico del curso: bien 1 = cerveza, bien 2 = jugo de naranja,
+# p1 = 3, p2 = 1, m = 100  =>  pendiente = -3.
+
+misconceptions:
+
+  - id: BL-M1
+    nombre:
+      es: Pendiente invertida
+      en: Inverted slope
+    subskills: [BL.SLOPE]
+    señal_observable: >
+      Reporta la pendiente como -p2/p1. Con el ejemplo del curso da -1/3 en vez de -3.
+      En manipulación, arrastra la recta hasta una pendiente recíproca.
+    socratic_probe:
+      es: >
+        Si compras una cerveza más, ¿cuántos jugos tienes que dejar de comprar?
+        Dímelo con los números del ejemplo, no con la fórmula.
+      en: >
+        If you buy one more beer, how many juices do you have to give up?
+        Tell me with the numbers, not the formula.
+    representacion_alternativa: numerica
+    caso_numerico: >
+      Despejar x2 paso a paso desde 3·x1 + 1·x2 = 100, para que la pendiente aparezca
+      como el coeficiente que multiplica a x1, y no como algo que se memoriza.
+    distractor:
+      es: La pendiente es -p2/p1
+      en: The slope is -p2/p1
+
+  - id: BL-M2
+    nombre:
+      es: El ingreso cambia la pendiente
+      en: Income changes the slope
+    subskills: [BL.CS.M, BL.SLOPE]
+    señal_observable: >
+      Al subir m, hace girar la recta en vez de desplazarla. O dice que con más ingreso
+      la línea "se hace más plana".
+    socratic_probe:
+      es: >
+        Te duplican la mesada. ¿Cambió el precio de una cerveza medido en jugos?
+      en: >
+        Your allowance doubles. Did the price of a beer, measured in juices, change?
+    representacion_alternativa: grafica
+    caso_numerico: >
+      Superponer las dos rectas, m=100 y m=150, con los mismos precios, y comparar los
+      dos interceptos y la pendiente por separado.
+    distractor:
+      es: Con mayor ingreso la línea se vuelve más plana
+      en: With higher income the line becomes flatter
+
+  - id: BL-M3
+    nombre:
+      es: El precio mueve el intercepto equivocado
+      en: Price moves the wrong intercept
+    subskills: [BL.CS.P, BL.INT]
+    señal_observable: >
+      Sube p1 y baja el intercepto vertical (el de x2), que es el que NO debería moverse.
+    socratic_probe:
+      es: >
+        Si sube el precio de la cerveza pero gastas todo tu ingreso en jugo,
+        ¿cuánto jugo puedes comprar ahora?
+      en: >
+        If the price of beer rises but you spend all your income on juice,
+        how much juice can you buy now?
+    representacion_alternativa: tabla
+    caso_numerico: >
+      Tabla de los dos interceptos, m/p1 y m/p2, antes y después de p1: 3 -> 4.
+      Solo una de las dos celdas cambia.
+    distractor:
+      es: Si sube p1, baja el intercepto vertical m/p2
+      en: If p1 rises, the vertical intercept m/p2 falls
+
+  - id: BL-M4
+    nombre:
+      es: Confunde la línea con el conjunto
+      en: Confuses the line with the set
+    subskills: [BL.FEAS]
+    señal_observable: >
+      Dice que una canasta con p·x < m "no es alcanzable" porque no agota el ingreso.
+      Trata la recta como si fuera todo el conjunto presupuestario.
+    socratic_probe:
+      es: >
+        ¿Puedes comprar cero cervezas y cero jugos? ¿Está ese punto sobre la recta?
+        ¿Y es alcanzable?
+      en: >
+        Can you buy zero beers and zero juices? Is that point on the line?
+        And is it affordable?
+    representacion_alternativa: grafica
+    caso_numerico: >
+      Tres puntos marcados: uno dentro, uno sobre la recta y uno fuera. Calcular el gasto
+      de cada uno y compararlo con m.
+    distractor:
+      es: No es alcanzable porque no gasta todo el ingreso
+      en: It is not affordable because it does not spend the whole income
+    nota: >
+      Kristian la ataca de frente en su propio material de S2: "el budget constraint es
+      la frontera superior del budget set". El guión conserva esa frase.
+
+  - id: BL-M5
+    nombre:
+      es: Pendiente positiva
+      en: Positive slope
+    subskills: [BL.SLOPE]
+    señal_observable: >
+      Omite el signo, o dibuja la recta creciente. Suele razonar "ambos precios son
+      positivos, luego la pendiente es positiva".
+    socratic_probe:
+      es: >
+        ¿Puedes comprar más cerveza Y más jugo gastando exactamente lo mismo?
+      en: >
+        Can you buy more beer AND more juice while spending exactly the same?
+    representacion_alternativa: grafica
+    caso_numerico: >
+      Moverse una unidad a la derecha sobre la recta y leer cuánto baja x2.
+    distractor:
+      es: La pendiente es +p1/p2 porque ambos precios son positivos
+      en: The slope is +p1/p2 because both prices are positive
+
+  - id: BL-M6
+    nombre:
+      es: Interceptos intercambiados
+      en: Swapped intercepts
+    subskills: [BL.INT]
+    señal_observable: >
+      Coloca m/p1 sobre el eje de x2, o viceversa.
+    socratic_probe:
+      es: >
+        Gasta TODO tu ingreso en el bien dos. ¿Cuántas unidades salen? ¿En qué eje va eso?
+      en: >
+        Spend ALL your income on good two. How many units is that? Which axis does it go on?
+    representacion_alternativa: numerica
+    caso_numerico: >
+      Con m=100, p1=3, p2=1: fijar x1=0 y resolver, luego fijar x2=0 y resolver.
+    distractor:
+      es: El intercepto vertical es m/p1
+      en: The vertical intercept is m/p1
+
+  - id: BL-M7
+    nombre:
+      es: Factible es lo mismo que óptimo
+      en: Feasible means optimal
+    subskills: [BL.FEAS]
+    señal_observable: >
+      Afirma que cualquier canasta dentro del presupuesto maximiza la utilidad, o que
+      "la mejor" es simplemente la que agota el ingreso.
+    socratic_probe:
+      es: >
+        Todas las canastas sobre la recta cuestan lo mismo. ¿Te da igual cuál te toque?
+      en: >
+        Every bundle on the line costs the same. Are you indifferent about which one you get?
+    representacion_alternativa: verbal
+    caso_numerico: >
+      Marcar dos canastas distintas sobre la misma recta y preguntar cuál prefiere y por qué.
+    distractor:
+      es: Cualquier canasta dentro del presupuesto maximiza la utilidad
+      en: Any bundle within the budget maximizes utility
+    nota: >
+      Aportada por codex en la ronda 1 de T-001; ni fable, ni agy, ni claude la vieron.
+      Es la bisagra hacia el segundo concepto: separa restricción de preferencias.
