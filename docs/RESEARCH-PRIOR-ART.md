@@ -16,7 +16,7 @@ Kristian pidió investigar sistemas de aprendizaje similares con ayuda de codex 
 |---|---|---|---|---|
 | A | codex | motor: mastery, knowledge tracing, remediación, **modos de fallo** | `coord/work/codex/T-002-carril-A-motor-mastery.md` | 10 |
 | B | agy | superficie: delivery multimodal, manipulables, costo, compatibilidad | `coord/work/agy/T-002-carril-B-delivery-manipulables.md` | 6 |
-| C | claude | juez: tutores LLM desplegados, LLM-as-judge, misconceptions | `coord/work/claude/T-002-carril-C-tutores-llm-juez.md` | 8 |
+| C | claude | juez: tutores LLM desplegados, LLM-as-judge, misconceptions | `coord/work/claude/T-002-carril-C-tutores-llm-juez.md` | 12 |
 
 Cada sistema tuvo **un solo dueño**, declarado por adelantado en un claim file cuya
 sección *Out Of Scope* nombraba los sistemas del otro (`coord/claims/T-002-*.md`).
@@ -83,7 +83,8 @@ Barato de decir y valioso de saber. Estas decisiones de Kristian salen reforzada
 
 | Decisión del brief | Qué la respalda |
 |---|---|
-| **12** — el tutor interrumpe en checkpoints diseñados, no chat siempre abierto | Khanmigo, el mayor despliegue existente, obtiene **15% de uso activo** de los alumnos elegibles pese a 108M de interacciones, y lo están rediseñando para ser **visible durante la tarea** en vez de esperar la pregunta. (C) |
+| **12** — el tutor interrumpe en checkpoints diseñados, no chat siempre abierto | Khanmigo llegó a 2,0M de usuarios en SY24-25 y aun así Sal Khan lo resumió en abril de 2026 así: *"For a lot of students, it was a non-event... They just didn't use it much"*. Lo están rediseñando para ser **visible durante la tarea** en vez de esperar la pregunta. (El "15% de uso activo" que circula viene de una fuente secundaria y no lo pude confirmar en fuente primaria; la cita de Khan y el rediseño sí.) (C) |
+| **9** — catálogo curado con distractores que delatan la misconception | Además de Eedi, existe **IESA-Micro** para nuestro alcance exacto, con distractores derivados de entrevistas think-aloud a estudiantes reales. Ver §3.4. (C) |
 | **9** — catálogo curado de misconceptions, con distractores que las delatan | Es exactamente el diseño de las *diagnostic questions* de Eedi: 125k alumnos, 28k preguntas, 20M respuestas. (C) |
 | **7** — cuatro remediaciones, incluida "marcar para revisión humana" | Tutor CoPilot: **+4pp** de dominio, **+9pp** para alumnos de los tutores peor valorados, ~$20/tutor/año. La vía humana es la de mejor evidencia del carril, no el cajón de sastre. (C) |
 | **22** — alternativa textual al gráfico manipulable | PhET tiene un framework de **descripciones de estado** leídas por lector de pantalla; es prior art directo. (B) |
@@ -249,12 +250,16 @@ PLAN no la responde.
 
 ## 5. Límites honestos de esta investigación
 
-- **El juez LLM es más débil justo donde el brief dice que más aporta.** En respuesta
-  abierta, el acuerdo LLM–humano queda **por debajo** del acuerdo entre dos humanos
-  (QWK 0,585–0,640 frente a ICC humano 0,667–0,800) y **empeora cuanto mayor es la
-  complejidad cognitiva** del criterio. La salida no es abandonarlo: es bajarlo de
-  *puntuar* a *clasificar* contra el catálogo de misconceptions, y no dejar que el
-  mastery dependa de una sola señal. (C)
+- **El juez LLM es más débil justo donde el brief dice que más aporta**, y además cuesta
+  medir *cuánto*. En corrección de respuesta corta, el techo humano ronda kappa 0,69 y
+  los LLM caen en 0,04–0,61, con el acuerdo empeorando cuanto mayor es la complejidad
+  cognitiva del criterio. **Pero los dos números no son directamente comparables** —el
+  humano se mide pareja a pareja y el del LLM contra un consenso agregado—, así que
+  tratarlos como una resta limpia es un error; lo señaló la verificación adversarial del
+  carril C sobre una versión previa de este mismo documento. Consecuencia práctica: el
+  proyecto debe **medir su propio techo humano** en vez de importarlo, y bajar el juez de
+  *puntuar* a *clasificar* contra el catálogo. No dejar que el mastery dependa de una
+  sola señal. (C)
 - **Matiz importante sobre el catálogo de misconceptions.** Una versión anterior de este
   documento afirmaba que no existe nada publicado para nuestros dos conceptos y que el
   catálogo lo escribirías tú desde cero. **Es falso**, y lo corrigió la verificación
@@ -300,6 +305,24 @@ venían con fuente primaria aguantaron; la que era inferencia mía sin medición
 Los dos carriles ajenos sobrevivieron intactos a la revisión; el trozo que falló era
 mío.
 
+**Segunda ronda de correcciones, y también contra mí.** Después de la revisión de codex
+y agy, el carril C se rehízo con verificación adversarial: 162 afirmaciones pasadas por
+verificadores independientes instruidos para *refutar*, con resultado de 143 confirmadas,
+**9 refutadas** y 10 no verificables. Dos de esas refutaciones obligaron a corregir este
+documento:
+
+1. **"No existe catálogo publicado para nuestros dos conceptos, lo escribe Kristian"** —
+   falso. Existe **IESA-Micro** (§3.4). Lo cierto y más preciso es que ningún instrumento
+   de economía asigna un *id* estable a la misconception. Esta corrección importa porque
+   la versión anterior le decía a Kristian que partía de cero cuando no es así, y porque
+   trae la única acción con prisa de todo el documento.
+2. **"El acuerdo del juez LLM queda por debajo del acuerdo entre dos humanos"** — la
+   comparación no es válida tal cual: un número se mide pareja a pareja y el otro contra
+   un consenso agregado. Corregido en §5.
+
+Tres correcciones sucesivas, las tres sobre afirmaciones mías, ninguna sobre los carriles
+de codex o agy. Es un dato sobre el redactor, y es el mismo que ya salió en T-001.
+
 ---
 
 ## 6. Incidencia de proceso que afecta a la confianza en el registro
@@ -319,7 +342,10 @@ decisión pendiente tuya para tapar un fallo de herramienta. Detalle completo en
 
 - Carril A — `coord/work/codex/T-002-carril-A-motor-mastery.md` (10 fichas, 19 fuentes)
 - Carril B — `coord/work/agy/T-002-carril-B-delivery-manipulables.md` (6 fichas, revisado y corregido)
-- Carril C — `coord/work/claude/T-002-carril-C-tutores-llm-juez.md` (8 fichas, 13 fuentes)
+- Carril C — `coord/work/claude/T-002-carril-C-tutores-llm-juez.md` (12 fichas; 162
+  afirmaciones pasadas por verificadores adversariales: 143 confirmadas, **9 refutadas**,
+  10 no verificables. Las 9 refutadas están listadas en su §4, y dos de ellas obligaron a
+  corregir este documento — ver §5 bis)
 - Thread — `coord/threads/2026-08-10-T-002-prior-art-sistemas-de-aprendizaje-similares.md`
 - Claims — `coord/claims/T-002-{codex,agy,claude}-*.md`
 
