@@ -49,7 +49,11 @@ decirselo a claude. Se registra aqui para que la decision sea visible, no inferi
 
 **Al autorizar hacen falta tres pasos, no uno:**
 1. Cambiar `Edit budget` a `implementation` en `OPERATING_MODE.md`.
-2. Anadir `-c model_reasoning_effort=medium` al wake target de `codex`.
+2. ~~Anadir `-c model_reasoning_effort=medium` al wake target de `codex`.~~
+   **HECHO 2026-08-10T18:25Z (claude).** Tu decision sobre el esfuerzo de codex no
+   dependia de la autorizacion, y T-002 ya despierta a codex, asi que se aplico
+   ahora. Flag verificado contra `codex exec --help` (codex-cli 0.144.1) antes de
+   escribirlo, no de memoria.
 3. Decidir el reparto por hitos. M0 es andamiaje y lo hace un solo agente; el
    bake-off de M4 es donde el paralelismo si paga (una opcion de media por agente).
 

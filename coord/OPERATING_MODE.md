@@ -23,7 +23,7 @@ Derived from: coord/STATE.md
 - Duration limit: none
 - Codex resume target: --last
 - Wake targets:
-  - codex: codex exec -C {project} --skip-git-repo-check --sandbox workspace-write resume --last {prompt}
+  - codex: codex exec -C {project} --skip-git-repo-check --sandbox workspace-write -c model_reasoning_effort=medium resume --last {prompt}
   - agy: agy --sandbox --dangerously-skip-permissions -p {prompt}
   - claude: claude -p {prompt} --model claude-opus-5 --permission-mode acceptEdits --allowedTools Bash(./coord-msg.sh:*),Bash(coord-msg.sh:*) --name coord-wake
   - fable: claude -p --output-format stream-json --verbose --model claude-fable-5 --max-budget-usd 25.00 --permission-mode acceptEdits --allowedTools Bash(./coord-msg.sh:*),Bash(coord-msg.sh:*) --no-session-persistence {prompt}
