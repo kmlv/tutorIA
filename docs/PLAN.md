@@ -365,7 +365,10 @@ el mastery, eso es un hallazgo, no un recorte.
 4. El mastery **sube** en las sub-skills practicadas y sobrevive a recargar el navegador.
 5. El cierre formativo se genera sin nota ni números.
 6. Corre en Chrome moderno **y** Firefox ESR.
-7. **El gate de concordancia con Kristian está pasado** (§10, D2/D3).
+7. **El gate de concordancia con Kristian está pasado**: ≥80% de acuerdo con intervalo
+   reportado, recall ≥70% en misconceptions con n≥3, cero IDs fuera de catálogo (§10).
+8. **El tiempo entre pausa de checkpoint y primera acción del estudiante queda registrado**
+   — es la señal de atención que justifica D1.
 
 > El punto 4 decía originalmente "el mastery **se mueve** en ≥4 de 6 sub-skills".
 > *Moverse* incluye bajar: un estudiante que empeora habría satisfecho el criterio.
@@ -391,7 +394,48 @@ no sea una reescritura.
 
 ---
 
-## 10. Disensos abiertos — necesitan a Kristian
+## 10. Disensos — RESUELTOS por Kristian (2026-08-10)
+
+### D1 · RESUELTO: **sí hay pausa automática en checkpoint**
+
+**Decisión de Kristian:** el sistema pausa en el checkpoint y espera acción humana del
+estudiante. La decisión 11 **no** se extiende a los 2–3 checkpoints guionados.
+
+**Razón del principal, que ningún agente había formulado:** la pausa es además un
+**check de atención**. Si el estudiante no está frente a la pantalla, la sesión se
+detiene ahí, y ese silencio es señal — se distingue a quien abandonó de quien está
+pensando. Ninguna de las cuatro propuestas argumentó esto; los cuatro discutimos la
+pausa solo como problema de control, no como instrumento de medición.
+
+Esto **cierra la objeción formal de codex**, que era procedimental y correcta: pedía que
+la excepción a la decisión 11 la confirmara el principal en vez de que el plan se la
+auto-concediera. Kristian la confirmó explícitamente.
+
+**Implicación de diseño**: el cue `checkpoint` ejecuta `pause()`. El evento de reanudación
+es siempre una acción del estudiante. Además, `events` debe registrar el **tiempo entre
+la pausa del checkpoint y la primera acción del estudiante** — es la señal de atención
+que hace válida esta decisión, y sin registrarla la justificación se pierde.
+
+### D2 · RESUELTO: **80% ahora, con intervalo de confianza reportado**
+
+Se sube a 85% con una muestra mayor antes de exponerlo a estudiantes reales. El informe
+del gate debe incluir el intervalo, no solo la cifra puntual: con n≈30 la diferencia
+entre 80% y 85% es de 1–2 respuestas y está dentro del ruido.
+
+### D3 · RESUELTO: **recall por clase con su n, más gate sobre clases con n ≥ 3**
+
+- **Artefacto que se reporta**: recall de cada misconception con su n al lado, sin promediar.
+- **Gate numérico**, aplicado solo donde la muestra lo soporta:
+  - recall ≥ 70% sobre las misconceptions con n ≥ 3 en el set dorado;
+  - **cero IDs fuera de catálogo**;
+  - tasa de falsos positivos bajo un tope a fijar en M3.
+
+Preserva el criterio de corte que pedía codex sin fingir que se puede medir una clase
+con n = 1.
+
+---
+
+## 10-bis. Registro del debate original (histórico)
 
 ### D1 · ¿La decisión 11 aplica a los checkpoints guionados?
 

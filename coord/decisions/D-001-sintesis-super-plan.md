@@ -50,17 +50,38 @@ En la ronda 1, escribiendo a ciegas, los cuatro agentes llegaron por separado a:
 Cuatro modelos de tres vendors distintos convergiendo a ciegas es la evidencia más
 fuerte que produjo el ejercicio.
 
-## Disensos elevados al principal
+## Disensos — RESUELTOS por el principal, 2026-08-10
 
-- **D1 — ¿La decisión 11 aplica a los checkpoints guionados?** `codex` sostiene que la
-  pausa automática la contradice; `fable`, `agy` y `claude` leen que la decisión gobierna
-  que el tutor no robe el control, no la estructura del guion. 3–1, pero es
-  interpretación de la intención del principal, no cuestión de votos.
-- **D2 — Umbral del gate de concordancia**: ≥85% (`codex`) vs ≥80% (`claude`, `fable`).
-- **D3 — Métrica de misconceptions**: macro-F1 ≥0.75 (`codex`) vs recall por clase
-  reportado con su n (`claude`, `fable`, 3–1). El argumento contra el macro-F1 es de
-  potencia estadística: con ~13 clases y ~30 respuestas etiquetadas, varias clases
-  quedan con n ≤ 2.
+### D1 — Pausa automática en checkpoint: **SÍ**
+
+El principal decidió que el sistema pausa en el checkpoint y espera acción humana; la
+decisión 11 no se extiende a los checkpoints guionados.
+
+**Aportó un argumento que ninguno de los cuatro agentes formuló**: la pausa funciona
+además como **check de atención**. Si el estudiante no está, la sesión se detiene y ese
+silencio es señal medible. Los cuatro agentes habíamos discutido la pausa únicamente
+como problema de control del estudiante; ninguno la vio como instrumento de medición.
+
+Esto cierra la objeción de `codex`, que era procedimental y correcta: pedía que la
+excepción la confirmara el principal en vez de que el plan se la auto-concediera.
+
+Consecuencia añadida al plan: `events` registra el tiempo entre la pausa del checkpoint
+y la primera acción del estudiante. Sin ese registro, la justificación de la decisión
+no se materializa en nada observable.
+
+### D2 — Umbral del gate: **80% ahora**, con intervalo de confianza reportado
+
+Sube a 85% con muestra mayor antes de estudiantes reales. Fundamento: con n≈30, la
+diferencia entre 80% y 85% es de 1–2 respuestas, dentro del ruido; reportar el intervalo
+obliga a ser explícitos sobre esa incertidumbre en vez de esconderla tras una cifra.
+
+### D3 — Métrica: **recall por clase con su n + gate sobre clases con n ≥ 3**
+
+Fusión de las dos posiciones. Se reporta el recall de cada misconception con su n sin
+promediar (posición de `claude` y `fable`), y el gate numérico se aplica solo donde la
+muestra lo soporta: recall ≥70% en clases con n≥3, cero IDs fuera de catálogo, y tope de
+falsos positivos a fijar en M3. `codex` conserva su criterio de corte sin que se finja
+medir clases con n=1.
 
 Resuelto sin el principal: vanilla TS vs React lo decide el spike de M0–M2.
 
