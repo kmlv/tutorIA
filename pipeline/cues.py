@@ -13,8 +13,9 @@ Asi que el compilador hace tres cosas:
   2. sintetiza el guion YA LIMPIO,
   3. casa cada marca con el `start_s` de la oracion que la seguia.
 
-Beneficio lateral: al no narrar las marcas, el guion de linea presupuestaria baja de
-3:21 a ~2:57 y entra en el limite de 2-3 minutos de la decision 3.
+Efecto lateral: al no narrar las marcas, el guion de linea presupuestaria baja de
+3:21 a ~2:57. (La duracion de 2-3 min de la decision 3 es REFERENCIAL, no un limite
+duro: orienta la extension del guion, no obliga a recortar contenido.)
 
 Uso:  cues.py content/packs/<pack>/script.<lang>.md [--voice VOZ] [--rate RATE]
 """

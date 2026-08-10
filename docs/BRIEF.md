@@ -35,7 +35,7 @@ Si un agente cree que alguna es un error, lo dice como `[blocker]` con argumento
 |---|---|
 | 1 | Dos conceptos: **línea presupuestaria + curva de indiferencia** (se combinan en óptimo del consumidor) |
 | 2 | Reusar contenido existente de `intermediate_micro_notes` y `econ100a-slides_homeworks`; conservar la voz docente del principal |
-| 3 | Delivery de **2–3 minutos** por concepto |
+| 3 | Delivery de **2–3 minutos** por concepto — **REFERENCIAL, no un límite duro** (Kristian, 2026-08-10). Orienta la extensión del guion; no se recorta contenido para caber |
 | 4 | Profundidad: base (ecuación, interceptos, pendiente, conjunto factible) **+ estática comparativa** (cambios en m, px, py) |
 | — | Idioma: **bilingüe es/en desde el diseño** |
 | — | Stack: **standalone nuevo** en `tutorIA`, no sobre InteractiveEduHub |
