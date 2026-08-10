@@ -2,23 +2,23 @@
 
 Principal: Kristian
 
-Last updated UTC: 2026-08-10T19:22:28Z
+Last updated UTC: 2026-08-10T23:06:11Z
 Derived from: coord/STATE.md
 
 ## Current Mode
 
 - Mode: implementation
-- Active task: T-003 M1: guion bilingue de linea presupuestaria + validacion del catalogo de misconceptions
+- Active task: T-004 M0: esqueleto FastAPI + esquema SQLite + loader de packs + CI, y medir KaTeX
 - Lead: claude
 - Reviewer: codex
-- Review route: full-mesh
-- Importance: principal-requested
-- Reviewers: codex,agy,fable
+- Review route: targeted
+- Importance: routine
+- Reviewers: codex
 - Council session: none
-- Active thread: coord/threads/2026-08-10-T-003-m1-guion-bilingue-de-linea-presupuestaria-validacion-del-cat.md
+- Active thread: coord/threads/2026-08-10-T-004-m0-esqueleto-fastapi-esquema-sqlite-loader-de-packs-ci-y-med.md
 - Check cadence: 5m
 - Next check due: manual
-- Stop condition: guion es/en escrito desde S2 en la voz de Kristian, catalogo mapeado contra IESA-Micro, y Kristian valida contra sus examenes
+- Stop condition: tests verdes, servidor arranca, loader valida el pack, y el peso de KaTeX MEDIDO
 - Edit budget: implementation
 - Duration limit: none
 - Codex resume target: --last
@@ -31,8 +31,9 @@ Derived from: coord/STATE.md
 
 ## Edit Ownership
 
-- content/**: claude
-- docs/PLAN.md: claude
+- app/**: claude
+- pyproject.toml: claude
+- tests/**: claude
 
 ## Iteration Rules
 

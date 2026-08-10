@@ -114,12 +114,29 @@ Tres reglas que no se negocian:
 **Presupuesto de peso, verificado en CI desde M0**: app JS ~40 KB gz + CSS ~10 KB +
 fuentes matemáticas subseteadas ~100 KB ≈ **150 KB**, con holgura bajo 250 KB.
 
-> **Números a verificar en M0.** La aritmética de KaTeX se discutió sin poder medirla:
-> el sandbox bloqueó la descarga del paquete npm. claude afirmó "~280 KB de KaTeX se
-> comen el presupuesto entero" mezclando bytes crudos con gzip — `katex.min.js` son
-> ~280 KB crudos pero ~72 KB gzipped. La conclusión sobrevivió por otra vía que señaló
-> fable: las fuentes woff2 no son comprimibles con gzip. **Ambos números están sin
-> medir. M0 los mide antes de que el presupuesto sea un gate.**
+> **MEDIDO en M0 (2026-08-10), `npm pack katex@0.16.11`.** Ya no es estimación:
+>
+> | Artefacto | crudo | gzip |
+> |---|---|---|
+> | `katex.min.js` | 275 414 B | **75 488 B** |
+> | `katex.min.css` | 23 335 B | 3 433 B |
+> | fuentes woff2, set completo (20 archivos) | 296 KB | no comprimible |
+> | fuentes, 4 caras típicas de una página de micro | **73 504 B** | no comprimible |
+>
+> **Los dos lados del debate estaban equivocados.** `claude` afirmó que "~280 KB de
+> KaTeX se comen el presupuesto": confundió bytes crudos con transferidos; son 75 KB
+> gz. `fable` corrigió bien esa cifra, pero su argumento de rescate —que las fuentes
+> woff2 hundían igualmente el presupuesto con 150–250 KB— **también era alto**: una
+> página carga 4 caras, ~73 KB, no el set de 296 KB.
+>
+> Cuentas reales contra el presupuesto de 250 KB gz:
+> - **build-time (C3)**: app ~40 + CSS 3.4 + fuentes 73.5 ≈ **117 KB**
+> - **runtime**: app ~40 + JS 75.5 + CSS 3.4 + fuentes 73.5 ≈ **192 KB**
+>
+> Es decir, **el presupuesto cerraba en las dos configuraciones**. C3 (KaTeX a
+> build-time) **sigue en pie, pero por otra razón**: elimina el coste de parseo y
+> ejecución de 275 KB de JS en CPUs débiles, que es el criterio 5. El argumento de
+> peso con el que se decidió era falso; el de CPU no.
 
 ### 2.4 Disparo de cues
 

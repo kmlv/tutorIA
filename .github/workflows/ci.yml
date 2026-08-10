@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main, Kristian1]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: uv pip install --system -e ".[dev]"
+
+      - name: Validar los content packs
+        # el pack se valida antes que el codigo: un pack incoherente hace fallar los
+        # tests con un error de pydantic mucho menos legible que el del validador
+        run: |
+          for p in content/packs/*/; do
+            python pipeline/validate_pack.py "$p"
+          done
+
+      - name: Tests
+        run: python -m pytest
+
+      - name: Presupuesto de peso del front
+        # numeros MEDIDOS en M0 (no estimados): katex.min.js 275 KB crudo / 75.5 KB gz,
+        # css 3.4 KB gz, y ~73.5 KB de fuentes woff2 no comprimibles para las 4 caras
+        # que usa una pagina de micro. Con KaTeX renderizado en build-time (C3) el
+        # runtime no embarca el JS. Este gate se activa cuando exista app/web.
+        if: hashFiles('app/web/package.json') != ''
+        run: echo "TODO: medir el bundle real cuando exista app/web"

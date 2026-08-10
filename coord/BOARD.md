@@ -1,6 +1,6 @@
 # Coordination Board
 
-Last updated UTC: 2026-08-10T19:22:28Z
+Last updated UTC: 2026-08-10T23:06:11Z
 
 ## Backlog
 
@@ -11,7 +11,7 @@ Last updated UTC: 2026-08-10T19:22:28Z
 
 | Task | Title | Owner | Reviewer | Scope | Next Step |
 |---|---|---|---|---|---|
-| T-003 | M1: guion bilingue de linea presupuestaria + validacion del catalogo de misconceptions | claude | codex | content/**,docs/PLAN.md | active |
+| T-004 | M0: esqueleto FastAPI + esquema SQLite + loader de packs + CI, y medir KaTeX | claude | codex | app/**,pyproject.toml,tests/** | active |
 
 ## Review
 
@@ -23,4 +23,5 @@ Last updated UTC: 2026-08-10T19:22:28Z
 
 | Task | Title | Owner | Reviewer | Scope | Completed UTC |
 |---|---|---|---|---|---|
+| T-003 | M1: guion bilingue de linea presupuestaria + validacion del catalogo de misconceptions | claude | codex | content/**, docs/PLAN.md | 2026-08-10T23:06:11Z |
 | T-002 | Prior art: sistemas de aprendizaje interactivo similares | claude | codex | unknown=coord/work/claude/T-002-*.md: claude (carril C — tutores LLM y juez), unknown=coord/work/codex/T-002-*.md: codex (carril A — motor de mastery y remediacion), unknown=coord/work/agy/T-002-*.md: agy (carril B — delivery multimodal y manipulables), unknown=docs/RESEARCH-PRIOR-ART.md: claude (sintesis, solo tras cerrar los tres carriles), unknown=docs/PLAN.md, docs/BRIEF.md, coord/decisions/*: claude — CONGELADOS en T-002. | 2026-08-10T19:16:34Z |

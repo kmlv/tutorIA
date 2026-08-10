@@ -9,3 +9,10 @@ content/packs/*/media/*.mp3
 content/packs/*/media/*.player.html
 content/packs/*/media/audio-library.html
 content/packs/*/media/_clean.*.md
+
+# entorno y datos locales
+.venv/
+data/
+__pycache__/
+*.pyc
+.pytest_cache/
