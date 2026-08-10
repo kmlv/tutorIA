@@ -106,8 +106,10 @@ La única variable es la tecnología.
 **Timebox (decisión 26)**: estricto y parejo para los cuatro. Si una tecnología no llega dentro del
 presupuesto de esfuerzo, **ese hecho es el resultado**, no un fracaso a compensar con más tiempo.
 
-**Jurado (decisión 25)**: rúbrica independiente de los tres agentes **y** juicio del principal humano.
-El principal tiene la palabra final.
+**Jurado (decisión 25)**: rúbrica independiente de los **cuatro** agentes **y** juicio del principal
+humano. El principal tiene la palabra final.
+*(Corregido tras el nit de fable: una versión previa decía "tres agentes", de cuando el roster aún
+no incluía a Opus 5 como autor con voto.)*
 
 ---
 
@@ -115,7 +117,18 @@ El principal tiene la palabra final.
 
 | Activo | Ruta | Por qué importa |
 |---|---|---|
-| AudioExplainer | `~/GithubRepos/AudioExplainer` | CLI `audioexplain` madura: script → MP3 + **transcript sincronizado con word boundaries de Edge TTS** + player HTML sin dependencias. Módulo `math_content.py`. Soporta es/en, mono y diálogo. El timing por palabra es lo que hace viable sincronizar gráficos y KaTeX al audio. |
+| AudioExplainer | `~/GithubRepos/AudioExplainer` | CLI `audioexplain` madura: script → MP3 + **transcript sincronizado a nivel de ORACIÓN** + player HTML sin dependencias. Módulo `math_content.py`. Soporta es/en, mono y diálogo. Formato real del `.audio.json`: `sync.segments[] = {text, start_s, end_s, part_index, speaker}` y `formulas[] = {marker, original, mathml, spoken}`. |
+
+> **Corrección (fable, ronda 1; verificada por Opus 5).** Una versión previa de este brief decía
+> "word boundaries de Edge TTS". **Es falso.** La implementación pide `boundary="SentenceBoundary"`
+> (`src/audioexplainer/providers.py:72`) y los artefactos reales declaran
+> `granularity: "sentence"`, `source: "edge-sentence-boundary"`.
+>
+> Consecuencia para el plan: la sincronización es **por oración, no por palabra**. Para cues de
+> gráfico y checkpoints basta y sobra, con la regla de diseño "cada elemento visual tiene su propia
+> oración". Pero **ningún plan debe prometer resaltado de fórmulas palabra por palabra** sin
+> presupuestar antes una extensión de AudioExplainer (Edge sí emite `WordBoundary`; el cambio es
+> acotado, pero es trabajo real y hoy no está hecho).
 | manim | instalado en PATH | Nativo para gráficos matemáticos |
 | Prior art manim+audio | `~/GithubRepos/manim-workspace/nash_equilibrium_with_audio.py` | Patrón ya probado por el principal |
 | Contenido de micro | `~/GithubRepos/intermediate_micro_notes`, `~/GithubRepos/econ100a-slides_homeworks` | Guiones y notación del principal |
