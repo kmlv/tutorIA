@@ -2,23 +2,23 @@
 
 Principal: Kristian
 
-Last updated UTC: 2026-08-10T23:06:11Z
+Last updated UTC: 2026-08-10T23:38:41Z
 Derived from: coord/STATE.md
 
 ## Current Mode
 
 - Mode: implementation
-- Active task: T-004 M0: esqueleto FastAPI + esquema SQLite + loader de packs + CI, y medir KaTeX
+- Active task: T-005 M2 parallel: graph manipulation (agy) + grader review (codex) + question flow (claude)
 - Lead: claude
 - Reviewer: codex
-- Review route: targeted
-- Importance: routine
-- Reviewers: codex
+- Review route: full-mesh
+- Importance: principal-requested
+- Reviewers: codex,agy,fable
 - Council session: none
-- Active thread: coord/threads/2026-08-10-T-004-m0-esqueleto-fastapi-esquema-sqlite-loader-de-packs-ci-y-med.md
+- Active thread: coord/threads/2026-08-10-T-005-m2-parallel-graph-manipulation-agy-grader-review-codex-quest.md
 - Check cadence: 5m
 - Next check due: manual
-- Stop condition: tests verdes, servidor arranca, loader valida el pack, y el peso de KaTeX MEDIDO
+- Stop condition: manip.ts merged, grader review answered, and the four question types run end to end
 - Edit budget: implementation
 - Duration limit: none
 - Codex resume target: --last
@@ -31,9 +31,20 @@ Derived from: coord/STATE.md
 
 ## Edit Ownership
 
-- app/**: claude
-- pyproject.toml: claude
-- tests/**: claude
+STRICT: each agent owns disjoint paths. Do NOT edit outside your own set; if you need a
+change elsewhere, post it in the thread and the owner applies it.
+
+- app/web/src/graph/**            : agy    (implement drag manipulation)
+- app/server/core/judge/**        : codex  (READ-ONLY review, do not edit)
+- app/server/core/content/schema.py: codex (READ-ONLY review, do not edit)
+- app/web/src/questions/**        : claude
+- app/web/src/main.ts             : claude
+- app/web/src/chat/**             : claude
+- content/**                      : claude
+
+- app/web/src/questions/**: claude
+- app/web/src/main.ts: claude
+- app/web/src/chat/**: claude
 
 ## Iteration Rules
 

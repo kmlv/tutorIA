@@ -8,21 +8,21 @@ Protocol version: 0.4.22
 
 ## Active Task
 
-- Task: T-004 M0: esqueleto FastAPI + esquema SQLite + loader de packs + CI, y medir KaTeX
+- Task: T-005 M2 parallel: graph manipulation (agy) + grader review (codex) + question flow (claude)
 - Lead: claude
 - Reviewer: codex
-- Review route: targeted
-- Importance: routine
-- Reviewers: codex
+- Review route: full-mesh
+- Importance: principal-requested
+- Reviewers: codex,agy,fable
 - Council session: none
-- Active thread: coord/threads/2026-08-10-T-004-m0-esqueleto-fastapi-esquema-sqlite-loader-de-packs-ci-y-med.md
+- Active thread: coord/threads/2026-08-10-T-005-m2-parallel-graph-manipulation-agy-grader-review-codex-quest.md
 - Status: active
 
 ## Current Ownership
 
-- app/**: claude
-- pyproject.toml: claude
-- tests/**: claude
+- app/web/src/questions/**: claude
+- app/web/src/main.ts: claude
+- app/web/src/chat/**: claude
 
 ## Last Validated State
 

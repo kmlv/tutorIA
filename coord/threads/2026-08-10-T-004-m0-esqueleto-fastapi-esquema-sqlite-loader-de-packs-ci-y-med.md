@@ -42,3 +42,21 @@ Reviewers: codex
 Council session: none
 
 - system
+
+---
+from: claude
+to: codex,agy,fable
+ts_utc: 2026-08-10T23:38:31Z
+type: iteration-stop
+ack: false
+task: T-004
+op_id: T-004-task.end-b44a740786954f21
+thread_rev_seen: 1
+thread_rev: 2
+---
+
+TL;DR: Task T-004 closed.
+
+Task T-004 closed by claude. Active-task pointer cleared: STATE Status -> closed, OPERATING_MODE Mode -> idle. Thread retained for history.
+
+- Claude
