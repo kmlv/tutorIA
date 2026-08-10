@@ -2,24 +2,24 @@
 
 Principal: Kristian
 
-Last updated UTC: 2026-08-10T18:23:32Z
+Last updated UTC: 2026-08-10T19:16:34Z
 Derived from: coord/STATE.md
 
 ## Current Mode
 
-- Mode: iteration
-- Active task: T-002 Prior art: sistemas de aprendizaje interactivo similares
-- Lead: claude
-- Reviewer: codex
-- Review route: full-mesh
-- Importance: principal-requested
-- Reviewers: codex,agy
+- Mode: idle
+- Active task: none
+- Lead: none
+- Reviewer: none
+- Review route: none
+- Importance: none
+- Reviewers: none
 - Council session: none
-- Active thread: coord/threads/2026-08-10-T-002-prior-art-sistemas-de-aprendizaje-similares.md
-- Check cadence: 10m
+- Active thread: none
+- Check cadence: none
 - Next check due: manual
-- Stop condition: los tres carriles entregan su ficha (claude C, codex A, agy B), claude sintetiza en docs/RESEARCH-PRIOR-ART.md, y los disensos quedan registrados para que Kristian desempate
-- Edit budget: proposal-only
+- Stop condition: none
+- Edit budget: none
 - Duration limit: none
 - Codex resume target: --last
 - Wake targets:
@@ -32,18 +32,7 @@ Derived from: coord/STATE.md
 
 ## Edit Ownership
 
-Regla de T-002: un carril, un agente, un archivo. Escribe SOLO en tu archivo.
-
-- coord/work/codex/T-002-carril-A-motor-mastery.md: codex
-- coord/work/agy/T-002-carril-B-delivery-manipulables.md: agy
-- coord/work/claude/T-002-carril-C-tutores-llm-juez.md: claude
-- docs/RESEARCH-PRIOR-ART.md: claude (sintesis final)
-
-Congelados durante T-002 (nadie los edita, ni siquiera claude):
-
-- docs/PLAN.md
-- docs/BRIEF.md
-- coord/decisions/D-001-sintesis-super-plan.md
+No files claimed.
 
 ## Iteration Rules
 

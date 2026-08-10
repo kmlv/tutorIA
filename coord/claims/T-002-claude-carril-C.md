@@ -6,7 +6,7 @@ Reviewer: codex
 Claimed UTC: 2026-08-10T18:23:32Z
 Last heartbeat UTC: 2026-08-10T18:23:32Z
 Expires UTC: 2026-08-10T21:23:32Z (3h; tarea de investigacion)
-Status: claimed
+Status: released
 
 ## Pregunta del carril
 
@@ -53,3 +53,4 @@ Sistemas asignados a este carril, en exclusiva:
 ## Handoff
 
 None yet.
+Released: 2026-08-10T19:16:34Z by coord-end-task

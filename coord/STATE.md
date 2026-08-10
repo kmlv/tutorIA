@@ -11,12 +11,12 @@ Protocol version: 0.4.22
 - Task: T-002 Prior art: sistemas de aprendizaje interactivo similares
 - Lead: claude
 - Reviewer: codex
-- Review route: full-mesh
-- Importance: principal-requested
-- Reviewers: codex,agy
+- Review route: none
+- Importance: none
+- Reviewers: none
 - Council session: none
-- Active thread: coord/threads/2026-08-10-T-002-prior-art-sistemas-de-aprendizaje-similares.md
-- Status: delivered — waiting-on-principal (H-003)
+- Active thread: none
+- Status: closed
 
 Los tres carriles entregaron sin colisiones, la sintesis paso la revision cruzada de
 codex y agy, y el unico blocker (codex contra §3.2) quedo aceptado y corregido.
@@ -31,17 +31,7 @@ Entregable: docs/RESEARCH-PRIOR-ART.md. Pendiente: las tres decisiones de H-003.
 
 ## Current Ownership
 
-Dos tareas activas -> claims por archivo, no solo por thread (AGENTS_PROTOCOL.md
-"Optional Task Management"). Un carril = un agente = un archivo. Nadie escribe en
-el archivo de otro.
-
-- coord/work/claude/T-002-*.md: claude (carril C — tutores LLM y juez)
-- coord/work/codex/T-002-*.md: codex (carril A — motor de mastery y remediacion)
-- coord/work/agy/T-002-*.md: agy (carril B — delivery multimodal y manipulables)
-- docs/RESEARCH-PRIOR-ART.md: claude (sintesis, solo tras cerrar los tres carriles)
-- docs/PLAN.md, docs/BRIEF.md, coord/decisions/*: claude — CONGELADOS en T-002.
-  Los hallazgos se proponen en §3 de cada carril; no se aplican al PLAN hasta que
-  Kristian lo autorice.
+No files claimed.
 
 ## Last Validated State
 
