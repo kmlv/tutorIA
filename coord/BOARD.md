@@ -1,6 +1,6 @@
 # Coordination Board
 
-Last updated UTC: 2026-08-10T19:16:34Z
+Last updated UTC: 2026-08-10T19:22:28Z
 
 ## Backlog
 
@@ -11,6 +11,7 @@ Last updated UTC: 2026-08-10T19:16:34Z
 
 | Task | Title | Owner | Reviewer | Scope | Next Step |
 |---|---|---|---|---|---|
+| T-003 | M1: guion bilingue de linea presupuestaria + validacion del catalogo de misconceptions | claude | codex | content/**,docs/PLAN.md | active |
 
 ## Review
 

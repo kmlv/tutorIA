@@ -1,0 +1,313 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-10T19:29:32.942146+00:00",
+  "title": "budget-line-en",
+  "provider": "edge",
+  "duration_s": 157.128,
+  "audio": "20260810-142927_budget-line-en.mp3",
+  "transcript": "20260810-142927_budget-line-en.md",
+  "player": "20260810-142927_budget-line-en.player.html",
+  "sync": {
+    "segments": [
+      {
+        "text": "The Budget Constraint",
+        "start_s": 0.1,
+        "end_s": 1.566,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Suppose you have one hundred dollars to spend on two things: beer and orange juice.",
+        "start_s": 1.516,
+        "end_s": 6.141,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Beer costs three dollars per unit, and orange juice costs one.",
+        "start_s": 6.141,
+        "end_s": 9.959,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "The question everything else comes from is simple: which bundles can you afford?",
+        "start_s": 9.959,
+        "end_s": 14.38,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "A bundle is affordable when what you spend does not exceed your income.",
+        "start_s": 14.38,
+        "end_s": 17.914,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "In symbols: p sub 1 x sub 1 plus p sub 2 x sub 2 less than or equal to m.",
+        "start_s": 17.914,
+        "end_s": 23.97,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "All the bundles that satisfy that inequality make up your budget set.",
+        "start_s": 23.97,
+        "end_s": 27.982,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "And the budget line is just the upper boundary of that set: the bundles that exhaust your income exactly, where the inequality becomes an equality.",
+        "start_s": 27.982,
+        "end_s": 36.107,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "p sub 1 x sub 1 plus p sub 2 x sub 2 equals m.",
+        "start_s": 36.107,
+        "end_s": 40.152,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "That distinction matters more than it looks, and it is worth saying out loud: the line is not the set.",
+        "start_s": 40.152,
+        "end_s": 46.164,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "The line is the boundary of the set.",
+        "start_s": 46.164,
+        "end_s": 48.232,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "The endpoints are easy to find.",
+        "start_s": 48.232,
+        "end_s": 50.175,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "If you spend your whole income on beer, you buy one hundred divided by three, about thirty-three units.",
+        "start_s": 50.175,
+        "end_s": 55.675,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "If you spend it all on orange juice, you buy one hundred units.",
+        "start_s": 55.675,
+        "end_s": 59.345,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Those two points are the intercepts, and with them you already have the whole line.",
+        "start_s": 59.345,
+        "end_s": 63.152,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "The slope is minus p one over p two, that is, minus three.",
+        "start_s": 63.152,
+        "end_s": 67.186,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "And that number is not abstract: it means that to buy one more beer, you have to give up three orange juices.",
+        "start_s": 67.186,
+        "end_s": 73.027,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "The market lets you transform three units of juice into one unit of beer, at the current prices.",
+        "start_s": 73.027,
+        "end_s": 78.266,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "That is why the slope is called the relative price.",
+        "start_s": 78.266,
+        "end_s": 80.891,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Before we go on, think about this for a moment.",
+        "start_s": 80.891,
+        "end_s": 83.993,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "If your income rose from one hundred to one hundred and fifty, what would happen to the line?",
+        "start_s": 83.993,
+        "end_s": 88.789,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Would it shift, would it rotate, or both?",
+        "start_s": 88.789,
+        "end_s": 91.175,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "It shifts, but it does not rotate.",
+        "start_s": 91.175,
+        "end_s": 93.459,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "An increase in income moves the line outward in a parallel manner, enlarging the budget set.",
+        "start_s": 93.459,
+        "end_s": 98.414,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "The slope does not change, and the reason is that prices did not change: one beer still costs exactly three orange juices.",
+        "start_s": 98.414,
+        "end_s": 105.823,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "The only difference is that now you can afford more of both goods.",
+        "start_s": 105.823,
+        "end_s": 109.243,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Now the other way around.",
+        "start_s": 109.243,
+        "end_s": 110.834,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "If the price of beer rises from three to four, the line does not shift: it pivots.",
+        "start_s": 110.834,
+        "end_s": 115.709,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "The juice intercept stays exactly where it was, because neither your income nor the price of juice changed.",
+        "start_s": 115.709,
+        "end_s": 121.448,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "What moves is the other endpoint, inward, and the line becomes steeper.",
+        "start_s": 121.448,
+        "end_s": 125.482,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "This is the distinction that slips the most, so I want you to say it.",
+        "start_s": 125.482,
+        "end_s": 129.027,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Income shifts; price pivots.",
+        "start_s": 129.027,
+        "end_s": 131.311,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Can you explain why the juice intercept does not move when what rises is the price of beer?",
+        "start_s": 131.311,
+        "end_s": 135.584,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "To recap.",
+        "start_s": 135.584,
+        "end_s": 136.584,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "The budget set is everything you can afford.",
+        "start_s": 136.584,
+        "end_s": 139.027,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "The line is its boundary.",
+        "start_s": 139.027,
+        "end_s": 140.675,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "The intercepts come from spending your entire income on a single good.",
+        "start_s": 140.675,
+        "end_s": 144.277,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "And the slope is the relative price, which tells you how many units of one good you give up for one unit of the other.",
+        "start_s": 144.277,
+        "end_s": 150.005,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Change income and the line shifts; change a price and the line pivots around the intercept of the good whose price did not change.",
+        "start_s": 150.005,
+        "end_s": 157.128,
+        "part_index": 0,
+        "speaker": null
+      }
+    ],
+    "granularity": "sentence",
+    "source": "edge-sentence-boundary",
+    "timebase": "media_seconds"
+  },
+  "tags": [
+    "budget-line"
+  ],
+  "project": "tutorIA",
+  "formulas": [
+    {
+      "marker": "94778094778",
+      "original": "$p_1 x_1 + p_2 x_2 \\leq m$",
+      "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><msub><mi>p</mi><mn>1</mn></msub><msub><mi>x</mi><mn>1</mn></msub><mo>&#x0002B;</mo><msub><mi>p</mi><mn>2</mn></msub><msub><mi>x</mi><mn>2</mn></msub><mo>&#x02264;</mo><mi>m</mi></mrow></math>",
+      "spoken": "p sub 1 x sub 1 plus p sub 2 x sub 2 less than or equal to m",
+      "display": false
+    },
+    {
+      "marker": "94778194778",
+      "original": "$p_1 x_1 + p_2 x_2 = m$",
+      "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><msub><mi>p</mi><mn>1</mn></msub><msub><mi>x</mi><mn>1</mn></msub><mo>&#x0002B;</mo><msub><mi>p</mi><mn>2</mn></msub><msub><mi>x</mi><mn>2</mn></msub><mo>&#x0003D;</mo><mi>m</mi></mrow></math>",
+      "spoken": "p sub 1 x sub 1 plus p sub 2 x sub 2 equals m",
+      "display": false
+    }
+  ],
+  "transcript_text": "# budget-line-en\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\n# The Budget Constraint\n\n\nSuppose you have one hundred dollars to spend on two things: beer and orange juice. Beer costs three dollars per unit, and orange juice costs one. The question everything else comes from is simple: which bundles can you afford?\n\n\nA bundle is affordable when what you spend does not exceed your income. In symbols: $p_1 x_1 + p_2 x_2 \\leq m$. All the bundles that satisfy that inequality make up your budget set.\n\n\nAnd the budget line is just the upper boundary of that set: the bundles that exhaust your income exactly, where the inequality becomes an equality. $p_1 x_1 + p_2 x_2 = m$. That distinction matters more than it looks, and it is worth saying out loud: the line is not the set. The line is the boundary of the set.\n\n\nThe endpoints are easy to find. If you spend your whole income on beer, you buy one hundred divided by three, about thirty-three units. If you spend it all on orange juice, you buy one hundred units. Those two points are the intercepts, and with them you already have the whole line.\n\n\nThe slope is minus p one over p two, that is, minus three. And that number is not abstract: it means that to buy one more beer, you have to give up three orange juices. The market lets you transform three units of juice into one unit of beer, at the current prices. That is why the slope is called the relative price.\n\n\nBefore we go on, think about this for a moment. If your income rose from one hundred to one hundred and fifty, what would happen to the line? Would it shift, would it rotate, or both?\n\n\nIt shifts, but it does not rotate. An increase in income moves the line outward in a parallel manner, enlarging the budget set. The slope does not change, and the reason is that prices did not change: one beer still costs exactly three orange juices. The only difference is that now you can afford more of both goods.\n\n\nNow the other way around. If the price of beer rises from three to four, the line does not shift: it pivots. The juice intercept stays exactly where it was, because neither your income nor the price of juice changed. What moves is the other endpoint, inward, and the line becomes steeper.\n\n\nThis is the distinction that slips the most, so I want you to say it. Income shifts; price pivots. Can you explain why the juice intercept does not move when what rises is the price of beer?\n\n\nTo recap. The budget set is everything you can afford. The line is its boundary. The intercepts come from spending your entire income on a single good. And the slope is the relative price, which tells you how many units of one good you give up for one unit of the other. Change income and the line shifts; change a price and the line pivots around the intercept of the good whose price did not change.\n\n",
+  "formula_text": "$p_1 x_1 + p_2 x_2 \\leq m$ p sub 1 x sub 1 plus p sub 2 x sub 2 less than or equal to m $p_1 x_1 + p_2 x_2 = m$ p sub 1 x sub 1 plus p sub 2 x sub 2 equals m",
+  "search_text": "budget-line-en budget-line tutorIA # budget-line-en\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\n# The Budget Constraint\n\n\nSuppose you have one hundred dollars to spend on two things: beer and orange juice. Beer costs three dollars per unit, and orange juice costs one. The question everything else comes from is simple: which bundles can you afford?\n\n\nA bundle is affordable when what you spend does not exceed your income. In symbols: $p_1 x_1 + p_2 x_2 \\leq m$. All the bundles that satisfy that inequality make up your budget set.\n\n\nAnd the budget line is just the upper boundary of that set: the bundles that exhaust your income exactly, where the inequality becomes an equality. $p_1 x_1 + p_2 x_2 = m$. That distinction matters more than it looks, and it is worth saying out loud: the line is not the set. The line is the boundary of the set.\n\n\nThe endpoints are easy to find. If you spend your whole income on beer, you buy one hundred divided by three, about thirty-three units. If you spend it all on orange juice, you buy one hundred units. Those two points are the intercepts, and with them you already have the whole line.\n\n\nThe slope is minus p one over p two, that is, minus three. And that number is not abstract: it means that to buy one more beer, you have to give up three orange juices. The market lets you transform three units of juice into one unit of beer, at the current prices. That is why the slope is called the relative price.\n\n\nBefore we go on, think about this for a moment. If your income rose from one hundred to one hundred and fifty, what would happen to the line? Would it shift, would it rotate, or both?\n\n\nIt shifts, but it does not rotate. An increase in income moves the line outward in a parallel manner, enlarging the budget set. The slope does not change, and the reason is that prices did not change: one beer still costs exactly three orange juices. The only difference is that now you can afford more of both goods.\n\n\nNow the other way around. If the price of beer rises from three to four, the line does not shift: it pivots. The juice intercept stays exactly where it was, because neither your income nor the price of juice changed. What moves is the other endpoint, inward, and the line becomes steeper.\n\n\nThis is the distinction that slips the most, so I want you to say it. Income shifts; price pivots. Can you explain why the juice intercept does not move when what rises is the price of beer?\n\n\nTo recap. The budget set is everything you can afford. The line is its boundary. The intercepts come from spending your entire income on a single good. And the slope is the relative price, which tells you how many units of one good you give up for one unit of the other. Change income and the line shifts; change a price and the line pivots around the intercept of the good whose price did not change.\n\n $p_1 x_1 + p_2 x_2 \\leq m$ p sub 1 x sub 1 plus p sub 2 x sub 2 less than or equal to m $p_1 x_1 + p_2 x_2 = m$ p sub 1 x sub 1 plus p sub 2 x sub 2 equals m"
+}
