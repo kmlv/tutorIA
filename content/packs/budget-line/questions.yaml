@@ -29,7 +29,7 @@ questions:
     andamiaje: false
     enunciado:
       es: "Con ingreso {{m}} y precios p1={{p1}} y p2={{p2}}: si gastas todo en jugo, ¿cuántos litros compras?"
-      en: "With income {{m}} and prices p1={{p1}}, p2={{p2}}: if you spend everything on juice, how many liters units do you buy?"
+      en: "With income {{m}} and prices p1={{p1}}, p2={{p2}}: if you spend everything on juice, how many liters do you buy?"
     respuesta: {expr: "m / p2", tolerancia: 0.01}
     diagnostico_si_falla:
       "m / p1": BL-M6      # respondió el otro intercepto
@@ -105,8 +105,8 @@ questions:
       en: "Explain in your own words what a slope of {{slope}} means. Don't use the formula: tell me in coffee and juice."
     key_points:
       - id: kp_tradeoff
-        es: identifica que hay que renunciar a {{slope_abs}} cafés por un kilo más de café
-        en: identifies giving up {{slope_abs}} coffees for one more kilo of coffee
+        es: identifica que hay que renunciar a {{slope_abs}} litros de jugo por un kilo más de café
+        en: identifies giving up {{slope_abs}} liters of juice for one more kilo of coffee
       - id: kp_sign
         es: el signo negativo refleja que un bien sube y el otro baja
         en: the negative sign reflects one good rising as the other falls

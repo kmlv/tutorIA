@@ -83,3 +83,22 @@ button:hover { border-color:var(--accent); color:var(--accent); }
   .notas { border-left:none; border-top:1px solid var(--line); padding-left:0;
     padding-top:1rem; max-height:none; }
 }
+
+/* --- questions inside the dock --------------------------------------------- */
+.pregunta { margin:.6rem 0 1rem; padding:.8rem; border:1px solid var(--line);
+  border-radius:10px; background:var(--conjunto); }
+.q-enunciado { margin:0 0 .7rem; font-size:.94rem; font-weight:500; line-height:1.45; }
+.q-opciones { display:flex; flex-direction:column; gap:.4rem; }
+.q-opcion { text-align:left; font-size:.88rem; padding:.5rem .7rem; line-height:1.35; }
+.q-opcion.elegida { border-color:var(--accent); }
+.q-form { display:flex; flex-direction:column; gap:.5rem; }
+.q-label { display:flex; flex-direction:column; gap:.3rem; font-size:.8rem;
+  color:var(--muted); }
+.q-input, .q-textarea { font:inherit; font-size:.92rem; padding:.45rem .6rem;
+  border:1px solid var(--line); border-radius:8px; background:var(--bg);
+  color:var(--fg); width:100%; }
+.q-textarea { resize:vertical; }
+.q-input:focus, .q-textarea:focus { outline:2px solid var(--accent); outline-offset:1px; }
+.q-nota { margin:0; font-size:.85rem; color:var(--muted); font-style:italic; }
+button:disabled { opacity:.55; cursor:default; }
+button:disabled:hover { border-color:var(--line); color:var(--fg); }

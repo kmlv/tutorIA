@@ -49,10 +49,20 @@ export class BudgetGraph {
     }
   }
 
-  private x(v: number): number {
+  public invX(svgX: number): number {
+    return ((svgX - PAD.l) / (W - PAD.l - PAD.r)) * this.maxX;
+  }
+  public invY(svgY: number): number {
+    return ((H - PAD.b - svgY) / (H - PAD.t - PAD.b)) * this.maxY;
+  }
+  public get svgElement(): SVGSVGElement {
+    return this.svg;
+  }
+
+  public x(v: number): number {
     return PAD.l + (v / this.maxX) * (W - PAD.l - PAD.r);
   }
-  private y(v: number): number {
+  public y(v: number): number {
     return H - PAD.b - (v / this.maxY) * (H - PAD.t - PAD.b);
   }
 

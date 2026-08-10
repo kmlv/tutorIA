@@ -14,6 +14,8 @@ import { createAdapter, type MediaAdapter } from "./player/adapter";
 import type { CueFiring } from "./player/sync";
 import { BudgetGraph, estadoInicial } from "./graph/budget_graph";
 import { Dock } from "./chat/dock";
+import { QuestionFlow } from "./questions/flow";
+import type { QuestionSpec } from "./questions";
 import { NOTES } from "./generated/formulas";
 import type { Ejemplo, GraphState, Lang, SessionInfo } from "./types";
 
@@ -73,6 +75,7 @@ async function main(): Promise<void> {
   const graph = new BudgetGraph(app.querySelector(".lienzo") as HTMLElement, ejemplo, lang);
   const notasLista = app.querySelector(".notas-lista") as HTMLElement;
   const dock = new Dock(app, lang);
+  const flow = new QuestionFlow(session.session_id, dock, lang);
 
   const media: MediaAdapter = createAdapter(variant);
   await media.load(session.media, "/media/budget-line");
@@ -125,13 +128,36 @@ async function main(): Promise<void> {
     if (f.cue.type === "checkpoint") {
       media.pause();
       pausedAt = { cp: f.cue.id, ts: performance.now() };
-      dock.setEstado("abierto-activo");
-      dock.decir(f.cue.id === "cp1" ? T.cp1 : T.cp2);
       evento("checkpoint.shown", { id: f.cue.id });
+      void askCheckpoint(f.cue.id);
     }
     const d = media.lagSummary();
     (document.getElementById("desfase") as HTMLElement).textContent = d.n ? `p95 ${d.p95}ms` : "";
   });
+
+  /** Each checkpoint declares its question in pack.yaml; there is no hardcoded text. */
+  async function askCheckpoint(cpId: string): Promise<void> {
+    const cp = session.checkpoints.find((c) => c.id === cpId);
+    const q: QuestionSpec | undefined = cp
+      ? pack.questions.find((x: QuestionSpec) => x.id === cp.pregunta_ref)
+      : undefined;
+    if (!q) {                       // no question wired: fall back to the spoken prompt
+      dock.setEstado("abierto-activo");
+      dock.decir(cpId === "cp1" ? T.cp1 : T.cp2);
+      return;
+    }
+    if (q.modalidad === "open") {   // the LLM judge lands in M3
+      dock.setEstado("abierto-activo");
+      dock.decir(q.enunciado[lang]);
+      return;
+    }
+    const v = await flow.ask(q);
+    evento("checkpoint.answered", {
+      id: cpId, question_id: q.id, correcta: v.correcta,
+      latency_ms: pausedAt ? Math.round(performance.now() - pausedAt.ts) : null,
+    });
+    pausedAt = null;
+  }
 
   media.on("seeked", () => {
     rebuild(media.currentTime());

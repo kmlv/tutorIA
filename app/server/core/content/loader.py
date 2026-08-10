@@ -69,8 +69,44 @@ class FilesystemPackSource:
         for k in ("salidas", "iesa_micro"):
             data.pop(k, None)
 
-        return Pack.model_validate(data)
+        pack = Pack.model_validate(data)
+        _fill_templates(pack)
+        return pack
 
 
 def _yaml(path: pathlib.Path) -> dict:
     return yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+
+
+def _fill_templates(pack: Pack) -> None:
+    """Substitutes {{p1}}, {{p2}}, {{m}}, {{slope}}, {{slope_abs}} in question text.
+
+    The templates live in the YAML on purpose: changing the numbers in `pack.yaml`
+    must regenerate every wording without editing `questions.yaml`. That is exactly the
+    property criterion 2 of the bake-off measures — how cheap it is to personalise.
+    """
+    e = pack.ejemplo
+    subs = {
+        "p1": _fmt(e.p1), "p2": _fmt(e.p2), "m": _fmt(e.m),
+        "slope": _fmt(e.pendiente), "slope_abs": _fmt(abs(e.pendiente)),
+        "intercept_x1": _fmt(e.intercepto_x1), "intercept_x2": _fmt(e.intercepto_x2),
+    }
+
+    def apply(s: str) -> str:
+        for k, v in subs.items():
+            s = s.replace("{{" + k + "}}", v)
+        return s
+
+    for q in pack.questions:
+        q.enunciado.es = apply(q.enunciado.es)
+        q.enunciado.en = apply(q.enunciado.en)
+        for kp in q.key_points or []:
+            for lang in ("es", "en"):
+                if isinstance(kp.get(lang), str):
+                    kp[lang] = apply(kp[lang])
+
+
+def _fmt(v: float) -> str:
+    """Renders 3.0 as "3" and 33.333… as "33.3": a trailing .0 in a question stem reads
+    like a typo to a student."""
+    return str(int(v)) if float(v).is_integer() else f"{v:.1f}"

@@ -18,10 +18,16 @@ export interface QuestionSpec {
   opciones?: Array<Record<Lang, string> & { correcta?: boolean }>;
 }
 
+/** Manipulation answers come in two shapes, and the server tells them apart by the
+ *  question's `verificacion.tipo`:
+ *    region -> the student placed a POINT   {x1, x2}
+ *    recta  -> the student moved the LINE   {p1, p2, m}  */
+export type ManipValue = { x1: number; x2: number } | { p1: number; p2: number; m: number };
+
 export interface Respuesta {
   question_id: string;
   modalidad: QuestionSpec["modalidad"];
-  valor: string | number | { p1: number; p2: number; m: number };
+  valor: string | number | ManipValue;
   con_andamiaje: boolean;
 }
 
