@@ -1,0 +1,9 @@
+Execution error
+coord-pulse ISSUE-004: wake of fable is sandbox/auth blocked.
+  cause: no stdout/stderr byte within 300s
+  child_exit: 124
+  ask Kristian: authorize a HOME/network/localhost-capable wake from an unsandboxed Terminal.
+  do not keep retrying this child from a write-confined agent sandbox; it inherits the same jail.
+  command resolves the wake target from coord/OPERATING_MODE.md.
+  Terminal command:
+    COORD_WAKE_TIMEOUT='300' '/Users/klopezva/.aistigmergy/kit/coord-pulse.sh' '/Users/klopezva/GithubRepos/tutorIA' --agent 'fable' --force --log
