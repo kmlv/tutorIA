@@ -14,7 +14,7 @@
 pack: budget-line
 version: 0.1.0
 
-# Parámetros heredados de pack.yaml: p1=3, p2=1, m=100 (cerveza / jugo de naranja).
+# Parámetros heredados de pack.yaml: p1=3, p2=1, m=100 (almuerzo / café).
 # Los enunciados los referencian como {{p1}}, {{p2}}, {{m}} para que cambiar el ejemplo
 # en pack.yaml regenere el banco sin editar este archivo — criterio 2 del bake-off.
 
@@ -28,8 +28,8 @@ questions:
     grader: deterministic
     andamiaje: false
     enunciado:
-      es: "Con ingreso {{m}} y precios p1={{p1}} y p2={{p2}}: si gastas todo en jugo, ¿cuántas unidades compras?"
-      en: "With income {{m}} and prices p1={{p1}}, p2={{p2}}: if you spend everything on juice, how many units do you buy?"
+      es: "Con ingreso {{m}} y precios p1={{p1}} y p2={{p2}}: si gastas todo en cafés, ¿cuántos compras?"
+      en: "With income {{m}} and prices p1={{p1}}, p2={{p2}}: if you spend everything on coffees, how many units do you buy?"
     respuesta: {expr: "m / p2", tolerancia: 0.01}
     diagnostico_si_falla:
       "m / p1": BL-M6      # respondió el otro intercepto
@@ -41,8 +41,8 @@ questions:
     grader: deterministic
     andamiaje: false
     enunciado:
-      es: "¿Y si gastas todo en cerveza? Redondea a un decimal."
-      en: "And if you spend everything on beer? Round to one decimal."
+      es: "¿Y si gastas todo en almuerzos? Redondea a un decimal."
+      en: "And if you spend everything on lunch? Round to one decimal."
     respuesta: {expr: "m / p1", tolerancia: 0.05}
     diagnostico_si_falla:
       "m / p2": BL-M6
@@ -101,12 +101,12 @@ questions:
     grader: llm
     andamiaje: false
     enunciado:
-      es: "Explica con tus palabras qué significa que la pendiente sea {{slope}}. No uses la fórmula: dímelo en cervezas y jugos."
-      en: "Explain in your own words what a slope of {{slope}} means. Don't use the formula: tell me in beers and juices."
+      es: "Explica con tus palabras qué significa que la pendiente sea {{slope}}. No uses la fórmula: dímelo en almuerzos y cafés."
+      en: "Explain in your own words what a slope of {{slope}} means. Don't use the formula: tell me in lunches and coffees."
     key_points:
       - id: kp_tradeoff
-        es: identifica que hay que renunciar a {{slope_abs}} jugos por una cerveza más
-        en: identifies giving up {{slope_abs}} juices for one more beer
+        es: identifica que hay que renunciar a {{slope_abs}} cafés por un almuerzo más
+        en: identifies giving up {{slope_abs}} coffees for one more lunch
       - id: kp_sign
         es: el signo negativo refleja que un bien sube y el otro baja
         en: the negative sign reflects one good rising as the other falls
@@ -123,8 +123,8 @@ questions:
     grader: deterministic
     andamiaje: false
     enunciado:
-      es: "Compras 10 cervezas y 20 jugos. ¿Esa canasta es alcanzable?"
-      en: "You buy 10 beers and 20 juices. Is that bundle affordable?"
+      es: "Compras 10 almuerzos y 20 cafés. ¿Esa canasta es alcanzable?"
+      en: "You buy 10 lunches and 20 coffees. Is that bundle affordable?"
     opciones:
       - {es: "Sí, gasta 50 y te sobran 50", en: "Yes, it costs 50 and leaves 50 over", correcta: true}
       - {es: "No, porque no agota el ingreso", en: "No, because it does not exhaust the income", misconception: BL-M4}
@@ -208,10 +208,10 @@ questions:
     grader: deterministic
     andamiaje: false
     enunciado:
-      es: "El precio de la cerveza sube de {{p1}} a 4. ¿Qué le pasa a la línea?"
-      en: "The price of beer rises from {{p1}} to 4. What happens to the line?"
+      es: "El precio del almuerzo sube de {{p1}} a 4. ¿Qué le pasa a la línea?"
+      en: "The price of lunch rises from {{p1}} to 4. What happens to the line?"
     opciones:
-      - {es: "Pivota: el intercepto del jugo no se mueve y la recta se empina", en: "It pivots: the juice intercept stays and the line gets steeper", correcta: true}
+      - {es: "Pivota: el intercepto del café no se mueve y la recta se empina", en: "It pivots: the coffee intercept stays and the line gets steeper", correcta: true}
       - {es: "Se desplaza hacia adentro, paralela", en: "It shifts inward, parallel", misconception: BL-M3}
       - {es: "Baja el intercepto vertical m/p2", en: "The vertical intercept m/p2 falls", misconception: BL-M3}
       - {es: "Se vuelve más plana", en: "It becomes flatter", misconception: BL-M1}
@@ -223,8 +223,8 @@ questions:
     grader: deterministic
     andamiaje: false
     enunciado:
-      es: "El precio de la cerveza sube a 4. Mueve la recta."
-      en: "The price of beer rises to 4. Move the line."
+      es: "El precio del almuerzo sube a 4. Mueve la recta."
+      en: "The price of lunch rises to 4. Move the line."
     verificacion:
       tipo: recta
       pendiente_esperada: -4.0
@@ -244,15 +244,15 @@ questions:
     andamiaje: false
     checkpoint: cp2
     enunciado:
-      es: "¿Por qué el intercepto del jugo NO se mueve cuando sube el precio de la cerveza?"
-      en: "Why does the juice intercept NOT move when the price of beer rises?"
+      es: "¿Por qué el intercepto del café NO se mueve cuando sube el precio del almuerzo?"
+      en: "Why does the coffee intercept NOT move when the price of lunch rises?"
     key_points:
       - id: kp_intercept_formula
         es: ese intercepto es m/p2 y ni m ni p2 cambiaron
         en: that intercept is m/p2 and neither m nor p2 changed
       - id: kp_corner_meaning
-        es: gastar todo en jugo no involucra el precio de la cerveza
-        en: spending everything on juice does not involve the price of beer
+        es: gastar todo en cafés no involucra el precio del almuerzo
+        en: spending everything on coffee does not involve the price of lunch
     misconceptions_vigilar: [BL-M3, BL-M2]
 
   # ---------------------------------------------------------------- BL.EQ
@@ -282,6 +282,6 @@ questions:
     grader: deterministic
     andamiaje: false
     enunciado:
-      es: "Compras 12 cervezas. Si agotas tu ingreso, ¿cuántos jugos compras?"
-      en: "You buy 12 beers. If you exhaust your income, how many juices do you buy?"
+      es: "Compras 12 almuerzos. Si agotas tu ingreso, ¿cuántos cafés compras?"
+      en: "You buy 12 lunches. If you exhaust your income, how many coffees do you buy?"
     respuesta: {expr: "(m - p1*12) / p2", tolerancia: 0.01}

@@ -16,7 +16,7 @@ version: 0.1.0
 lang: [es, en]
 
 # Notación de Kristian (S2_Budget_Constraint_Ch2.md): x1, x2, p1, p2, m.
-# Ejemplo canónico del curso: bien 1 = cerveza, bien 2 = jugo de naranja,
+# Ejemplo canónico del curso: bien 1 = almuerzo, bien 2 = café,
 # p1 = 3, p2 = 1, m = 100  =>  pendiente = -3.
 
 misconceptions:
@@ -31,10 +31,10 @@ misconceptions:
       En manipulación, arrastra la recta hasta una pendiente recíproca.
     socratic_probe:
       es: >
-        Si compras una cerveza más, ¿cuántos jugos tienes que dejar de comprar?
+        Si compras un almuerzo más, ¿cuántos cafés tienes que dejar de comprar?
         Dímelo con los números del ejemplo, no con la fórmula.
       en: >
-        If you buy one more beer, how many juices do you have to give up?
+        If you buy one more lunch, how many coffees do you have to give up?
         Tell me with the numbers, not the formula.
     representacion_alternativa: numerica
     caso_numerico: >
@@ -54,9 +54,9 @@ misconceptions:
       la línea "se hace más plana".
     socratic_probe:
       es: >
-        Te duplican la mesada. ¿Cambió el precio de una cerveza medido en jugos?
+        Te duplican la mesada. ¿Cambió el precio de un almuerzo medido en cafés?
       en: >
-        Your allowance doubles. Did the price of a beer, measured in juices, change?
+        Your allowance doubles. Did the price of a lunch, measured in coffees, change?
     representacion_alternativa: grafica
     caso_numerico: >
       Superponer las dos rectas, m=100 y m=150, con los mismos precios, y comparar los
@@ -74,11 +74,11 @@ misconceptions:
       Sube p1 y baja el intercepto vertical (el de x2), que es el que NO debería moverse.
     socratic_probe:
       es: >
-        Si sube el precio de la cerveza pero gastas todo tu ingreso en jugo,
-        ¿cuánto jugo puedes comprar ahora?
+        Si sube el precio del almuerzo pero gastas todo tu ingreso en cafés,
+        ¿cuántos cafés puedes comprar ahora?
       en: >
-        If the price of beer rises but you spend all your income on juice,
-        how much juice can you buy now?
+        If the price of lunch rises but you spend all your income on coffee,
+        how much coffee can you buy now?
     representacion_alternativa: tabla
     caso_numerico: >
       Tabla de los dos interceptos, m/p1 y m/p2, antes y después de p1: 3 -> 4.
@@ -97,10 +97,10 @@ misconceptions:
       Trata la recta como si fuera todo el conjunto presupuestario.
     socratic_probe:
       es: >
-        ¿Puedes comprar cero cervezas y cero jugos? ¿Está ese punto sobre la recta?
+        ¿Puedes comprar cero almuerzos y cero cafés? ¿Está ese punto sobre la recta?
         ¿Y es alcanzable?
       en: >
-        Can you buy zero beers and zero juices? Is that point on the line?
+        Can you buy zero lunches and zero coffees? Is that point on the line?
         And is it affordable?
     representacion_alternativa: grafica
     caso_numerico: >
@@ -123,9 +123,9 @@ misconceptions:
       positivos, luego la pendiente es positiva".
     socratic_probe:
       es: >
-        ¿Puedes comprar más cerveza Y más jugo gastando exactamente lo mismo?
+        ¿Puedes comprar más almuerzos Y más cafés gastando exactamente lo mismo?
       en: >
-        Can you buy more beer AND more juice while spending exactly the same?
+        Can you buy more lunches AND more coffees while spending exactly the same?
     representacion_alternativa: grafica
     caso_numerico: >
       Moverse una unidad a la derecha sobre la recta y leer cuánto baja x2.

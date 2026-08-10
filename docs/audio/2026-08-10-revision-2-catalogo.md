@@ -12,11 +12,11 @@ El estudiante reporta la pendiente como menos pe dos sobre pe uno, en vez de men
 
 ## Dos: el ingreso cambia la pendiente
 
-Al subir el ingreso, el estudiante hace girar la recta en vez de desplazarla. O dice que con más ingreso la línea se vuelve más plana. La sonda socrática que le escribimos es: te duplican la mesada, ¿cambió el precio de una cerveza medido en jugos?
+Al subir el ingreso, el estudiante hace girar la recta en vez de desplazarla. O dice que con más ingreso la línea se vuelve más plana. La sonda socrática que le escribimos es: te duplican la mesada, ¿cambió el precio de un almuerzo medido en cafés?
 
 ## Tres: el precio mueve el intercepto equivocado
 
-Sube el precio de la cerveza y el estudiante baja el intercepto vertical, que es justo el que no debería moverse. El distractor dice: si sube pe uno, baja el intercepto vertical eme sobre pe dos.
+Sube el precio del almuerzo y el estudiante baja el intercepto vertical, que es justo el que no debería moverse. El distractor dice: si sube pe uno, baja el intercepto vertical eme sobre pe dos.
 
 ## Cuatro: confunde la línea con el conjunto
 

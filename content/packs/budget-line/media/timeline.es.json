@@ -1,8 +1,8 @@
 {
   "pack": "budget-line",
   "lang": "es",
-  "audio": "20260810-142905_budget-line-es.mp3",
-  "duration_s": 177.816,
+  "audio": "20260810-175849_budget-line-es.mp3",
+  "duration_s": 176.304,
   "sync_granularity": "sentence",
   "cues": [
     {
@@ -13,47 +13,47 @@
     {
       "id": "budget_set",
       "type": "graph",
-      "t": 16.784
+      "t": 16.08
     },
     {
       "id": "budget_line",
       "type": "graph",
-      "t": 31.284
+      "t": 30.58
     },
     {
       "id": "intercepts",
       "type": "graph",
-      "t": 53.75
+      "t": 53.045
     },
     {
       "id": "slope",
       "type": "graph",
-      "t": 71.034
+      "t": 69.455
     },
     {
       "id": "cp1",
       "type": "checkpoint",
-      "t": 91.545
+      "t": 89.955
     },
     {
       "id": "income_shift",
       "type": "graph",
-      "t": 102.773
+      "t": 101.182
     },
     {
       "id": "price_pivot",
       "type": "graph",
-      "t": 122.273
+      "t": 120.636
     },
     {
       "id": "cp2",
       "type": "checkpoint",
-      "t": 140.875
+      "t": 139.352
     },
     {
       "id": "recap",
       "type": "graph",
-      "t": 153.534
+      "t": 152.023
     }
   ]
 }

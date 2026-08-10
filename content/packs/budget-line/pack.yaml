@@ -2,9 +2,14 @@
 #
 # Notación de Kristian (econ100a-slides_homeworks/docs/S2_Budget_Constraint_Ch2.md):
 #   x1, x2 = cantidades   ·   p1, p2 = precios   ·   m = ingreso
-# Ejemplo canónico del curso: bien 1 = cerveza, bien 2 = jugo de naranja.
+# Ejemplo del PoC: bien 1 = almuerzo, bien 2 = café.
 #   p1 = 3, p2 = 1, m = 100  =>  pendiente = -3
-#   "Consumer needs to give up 3 oz. of orange juice to afford 1 additional oz of beer."
+#
+# PROCEDENCIA: los NÚMEROS y la forma de leer la pendiente vienen de S2 de Kristian;
+# los BIENES no. Su ejemplo original usaba otro par de bienes y él pidió cambiarlo
+# (2026-08-10). Se conserva su lectura de la pendiente —"hay que renunciar a 3 unidades
+# del bien 2 para poder comprar 1 unidad más del bien 1"— pero NO se le atribuye como
+# cita textual, porque la frase con estos bienes no es suya.
 
 id: budget-line
 version: 0.1.0
@@ -17,8 +22,8 @@ media_variant_default: A
 # Parámetros del ejemplo, usados por el guión, el gráfico y los ítems numéricos.
 # Cambiarlos aquí debe bastar para regenerar todo: es la prueba del criterio 2 del bake-off.
 ejemplo:
-  bien_1: {es: cerveza, en: beer}
-  bien_2: {es: jugo de naranja, en: orange juice}
+  bien_1: {es: almuerzo, en: lunch}
+  bien_2: {es: café, en: coffee}
   p1: 3
   p2: 1
   m: 100
