@@ -285,3 +285,35 @@ questions:
       es: "Compras 12 kg de café. Si agotas tu ingreso, ¿cuántos litros de jugo compras?"
       en: "You buy 12 kg of coffee. If you exhaust your income, how many liters of juice do you buy?"
     respuesta: {expr: "(m - p1*12) / p2", tolerancia: 0.01}
+
+  # Added after codex's T-005 review: the stricter reachability validator showed that
+  # BL.EQ and BL.CS.M had only two primary items each, so three consecutive correct
+  # answers were impossible. The bank claimed a mastery criterion it could not deliver.
+  - id: q_eq_mcq_terms
+    subskill_primary: BL.EQ
+    tier: 2
+    modalidad: mcq
+    grader: deterministic
+    andamiaje: false
+    enunciado:
+      es: "En p1·x1 + p2·x2 = m, ¿qué representa el término p1·x1?"
+      en: "In p1·x1 + p2·x2 = m, what does the term p1·x1 represent?"
+    opciones:
+      - {es: "Lo que gastas en el bien 1", en: "What you spend on good 1", correcta: true}
+      - {es: "Cuántas unidades del bien 1 compras", en: "How many units of good 1 you buy", misconception: null}
+      - {es: "El precio relativo del bien 1", en: "The relative price of good 1", misconception: BL-M1}
+      - {es: "Lo que te queda tras comprar el bien 1", en: "What is left after buying good 1", misconception: null}
+
+  - id: q_cs_m_numeric
+    subskill_primary: BL.CS.M
+    tier: 2
+    modalidad: numeric
+    grader: deterministic
+    andamiaje: false
+    enunciado:
+      es: "Tu ingreso sube de {{m}} a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?"
+      en: "Your income rises from {{m}} to 150 and prices do not change. What is the new vertical intercept?"
+    respuesta: {expr: "150 / p2", tolerancia: 0.01}
+    diagnostico_si_falla:
+      "m / p2": BL-M2      # dejó el intercepto viejo: no vio que el ingreso lo mueve
+      "150 / p1": BL-M6    # usó el eje equivocado

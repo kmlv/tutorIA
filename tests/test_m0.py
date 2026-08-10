@@ -20,7 +20,7 @@ def test_pack_carga_y_es_coherente(pack: Pack) -> None:
     assert pack.id == "budget-line"
     assert len(pack.sub_skills) == 6
     assert len(pack.misconceptions) == 7
-    assert len(pack.questions) == 16
+    assert len(pack.questions) >= 3 * len([s for s in pack.sub_skills if s.esencial])
 
 
 def test_ejemplo_da_la_pendiente_del_guion(pack: Pack) -> None:

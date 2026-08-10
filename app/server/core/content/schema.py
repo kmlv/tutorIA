@@ -71,6 +71,14 @@ class Dominio(BaseModel):
 
     @model_validator(mode="after")
     def _coherente(self) -> Dominio:
+        if not 0.0 <= self.p_mastery_min <= 1.0:
+            raise ValueError("p_mastery_min must be in [0, 1]")
+        for name in ("aciertos_consecutivos", "modalidades_min"):
+            if getattr(self, name) < 1:
+                raise ValueError(f"{name} must be >= 1")
+        for name in ("sin_andamiaje_min", "max_evidencias_del_juez_llm"):
+            if getattr(self, name) < 0:
+                raise ValueError(f"{name} must be >= 0")
         if self.max_evidencias_del_juez_llm > self.aciertos_consecutivos:
             raise ValueError(
                 "max_evidencias_del_juez_llm no puede superar aciertos_consecutivos"
@@ -200,24 +208,33 @@ class Pack(BaseModel):
             if cp.pregunta_ref not in q_ids:
                 errs.append(f"checkpoint {cp.id}: pregunta_ref {cp.pregunta_ref} no está en el banco")
 
-        # el criterio de dominio debe ser alcanzable con el banco que hay
+        # Mastery must be REACHABLE with the bank that exists. codex T-005 showed the
+        # previous version was only a partial lower bound: it skipped skills with zero
+        # questions, checked modality and determinism independently instead of as one
+        # selectable set, and ignored `sin_andamiaje_min` entirely.
+        d = self.dominio
         for s in self.sub_skills:
             if not s.esencial:
                 continue
             mias = [q for q in self.questions if q.subskill_primary == s.id]
-            mods = {q.modalidad for q in mias}
-            det = [q for q in mias if q.grader == "deterministic"]
-            if mods and len(mods) < self.dominio.modalidades_min:
+            if len(mias) < d.aciertos_consecutivos:
                 errs.append(
-                    f"sub-skill {s.id}: {len(mods)} modalidad(es) en el banco, "
-                    f"el dominio exige {self.dominio.modalidades_min}"
+                    f"sub-skill {s.id}: {len(mias)} question(s) in the bank, mastery needs "
+                    f"{d.aciertos_consecutivos} consecutive correct answers"
                 )
-            necesarias = self.dominio.aciertos_consecutivos - self.dominio.max_evidencias_del_juez_llm
-            if mias and len(det) < necesarias:
+                continue
+            det = [q for q in mias if q.grader == "deterministic"]
+            if len(det) < d.aciertos_consecutivos - d.max_evidencias_del_juez_llm:
                 errs.append(
-                    f"sub-skill {s.id}: {len(det)} ítem(s) determinista(s), hacen falta "
-                    f"{necesarias} porque el juez LLM aporta como mucho "
-                    f"{self.dominio.max_evidencias_del_juez_llm}"
+                    f"sub-skill {s.id}: {len(det)} deterministic item(s); the LLM judge "
+                    f"supplies at most {d.max_evidencias_del_juez_llm} of "
+                    f"{d.aciertos_consecutivos}"
+                )
+            if not _reachable(mias, d):
+                errs.append(
+                    f"sub-skill {s.id}: no set of {d.aciertos_consecutivos} items satisfies "
+                    f"modalities>={d.modalidades_min}, llm<={d.max_evidencias_del_juez_llm} "
+                    f"and unscaffolded>={d.sin_andamiaje_min} at the same time"
                 )
 
         if errs:
@@ -239,3 +256,26 @@ class Pack(BaseModel):
         por construcción. Hallazgo del carril C de T-002.
         """
         return [m.id for m in self.misconceptions] + ["NINGUNA", "FUERA_DE_CATALOGO"]
+
+
+def _reachable(items: list[Question], d: Dominio) -> bool:
+    """Is there a set of `aciertos_consecutivos` items meeting ALL constraints at once?
+
+    Checking the constraints independently is not enough: a bank can have plenty of
+    modalities and plenty of deterministic items and still have no single selection that
+    satisfies modalities, the LLM cap and the unscaffolded minimum together.
+    """
+    from itertools import combinations
+
+    n = d.aciertos_consecutivos
+    if len(items) < n:
+        return False
+    for combo in combinations(items, n):
+        if len({q.modalidad for q in combo}) < d.modalidades_min:
+            continue
+        if sum(1 for q in combo if q.grader == "llm") > d.max_evidencias_del_juez_llm:
+            continue
+        if sum(1 for q in combo if not q.andamiaje) < d.sin_andamiaje_min:
+            continue
+        return True
+    return False

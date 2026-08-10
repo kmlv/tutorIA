@@ -110,7 +110,7 @@ def test_manip_giro_cuando_debia_desplazar_es_BL_M2(pack) -> None:
     """El diagnóstico es DIRECCIONAL: distingue rotar de desplazar."""
     v = grade(q(pack, "q_cs_m_manip"), {"p1": 1.5, "p2": 1, "m": 150}, pack.ejemplo)
     assert not v.correcta and v.misconception_id == "BL-M2"
-    assert "giró" in v.detalle["por_que"]
+    assert "rotated" in v.detalle["why"]
 
 
 def test_manip_precio_correcto(pack) -> None:
@@ -125,5 +125,94 @@ def test_manip_desplazo_cuando_debia_girar_es_BL_M3(pack) -> None:
 
 
 def test_abierta_no_pasa_por_grader_determinista(pack) -> None:
-    with pytest.raises(ValueError, match="no es determinista"):
+    with pytest.raises(ValueError, match="not deterministic"):
         grade(q(pack, "q_slope_open"), "lo que sea", pack.ejemplo)
+
+
+# ---------------------------------------------------------------------------
+# Adversarial cases from codex's T-005 review. The original suite only proved happy
+# paths, so every one of these used to pass wrongly or raise a 500.
+# ---------------------------------------------------------------------------
+
+from app.server.core.judge.deterministic import ExpressionError  # noqa: E402
+
+
+def test_manip_rejects_missing_keys(pack) -> None:
+    """`{}` used to grade as CORRECT: x1/x2 defaulted to zero, which spends nothing."""
+    v = grade(q(pack, "q_feas_manip"), {}, pack.ejemplo)
+    assert v.invalida and not v.correcta
+
+
+def test_manip_rejects_negative_quantities(pack) -> None:
+    v = grade(q(pack, "q_feas_manip"), {"x1": -100, "x2": 0}, pack.ejemplo)
+    assert v.invalida and not v.correcta
+
+
+def test_manip_rejects_zero_price(pack) -> None:
+    """`p2: 0` used to raise ZeroDivisionError and surface as a 500 to the student."""
+    v = grade(q(pack, "q_cs_m_manip"), {"p1": 3, "p2": 0, "m": 100}, pack.ejemplo)
+    assert v.invalida and not v.correcta
+
+
+def test_manip_rejects_non_dict(pack) -> None:
+    assert grade(q(pack, "q_cs_m_manip"), "nope", pack.ejemplo).invalida
+
+
+def test_manip_arbitrary_wrong_line_claims_no_misconception(pack) -> None:
+    """An arbitrary wrong line used to be labelled BL-M3 just because both fields were
+    off. Naming a confusion the student did not show poisons the diagnosis."""
+    v = grade(q(pack, "q_cs_p_manip"), {"p1": 1, "p2": 1, "m": 1000}, pack.ejemplo)
+    assert not v.correcta and v.misconception_id is None
+
+
+def test_manip_rotation_with_imperfect_intercept_is_still_BL_M2(pack) -> None:
+    """Asked to shift, the student rotated. Both fields are off, but the signature is
+    unambiguous: the slope changed on a shift task. Used to return no id."""
+    v = grade(q(pack, "q_cs_m_manip"), {"p1": 1.5, "p2": 1, "m": 100}, pack.ejemplo)
+    assert v.misconception_id == "BL-M2"
+
+
+def test_manip_unchanged_line_on_pivot_task_gets_no_false_reason(pack) -> None:
+    """Submitting the original line on the price item used to come back with the reason
+    'rotated when it should have shifted' — which is false twice over."""
+    v = grade(q(pack, "q_cs_p_manip"), {"p1": 3, "p2": 1, "m": 100}, pack.ejemplo)
+    assert not v.correcta
+    assert "rotated" not in v.detalle.get("why", "")
+
+
+def test_eval_expr_rejects_huge_exponent_and_division_by_zero() -> None:
+    for bad in ["2 ** 1000000000", "1 / 0", "m / (p1 - p1)"]:
+        with pytest.raises(ExpressionError):
+            eval_expr(bad, {"m": 1.0, "p1": 3.0})
+
+
+def test_eval_expr_rejects_bool_and_syntax_errors() -> None:
+    with pytest.raises(ExpressionError):
+        eval_expr("True", {})
+    with pytest.raises(ExpressionError):
+        eval_expr("m +", {"m": 1.0})
+
+
+def test_eval_expr_rejects_oversized_input() -> None:
+    with pytest.raises(ExpressionError):
+        eval_expr("m + " * 200 + "m", {"m": 1.0})
+
+
+def test_numeric_rejects_bad_input_as_invalid(pack) -> None:
+    v = grade(q(pack, "q_slope_numeric"), None, pack.ejemplo)
+    assert v.invalida
+
+
+def test_mcq_rejects_bool_index(pack) -> None:
+    """`True` is an int subclass, so it used to select option 1."""
+    assert grade(q(pack, "q_slope_mcq"), True, pack.ejemplo).invalida
+
+
+def test_unreachable_mastery_is_rejected_at_load() -> None:
+    """The validator must reject a bank that cannot deliver the mastery it promises."""
+    from app.server.core.content.schema import Pack
+    base = FilesystemPackSource().get_pack("budget-line").model_dump()
+    base["questions"] = [q for q in base["questions"]
+                         if q["subskill_primary"] != "BL.EQ"][:]
+    with pytest.raises(ValueError, match="BL.EQ"):
+        Pack.model_validate(base)
