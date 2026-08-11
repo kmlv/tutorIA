@@ -278,8 +278,11 @@ def test_una_respuesta_con_pista_queda_registrada_como_asistida(tmp_path, pack) 
         assert r["think_ms"] == 4200
         if r["assist_arm"] == "push":
             assert r["con_andamiaje"] == 1, f"{r['question_id']} empujado sin marcar"
-        if r["assist_arm"] == "na":
-            assert r["con_andamiaje"] == 0
+        # `na` ya NO implica sin andamiaje: tras revelarle la respuesta a un alumno, sus
+        # aciertos posteriores en ese ítem se registran como asistidos, aunque el ítem no
+        # esté en ningún par de D-1. Esa marca la puso la revisión adversarial de codex, que
+        # demostró que sin ella el motor de dominio contaba una respuesta copiada como
+        # evidencia limpia. Lo que sí se sigue exigiendo es que un `push` esté marcado.
 
     # Y el evento de apertura lleva la semilla, o nada de esto es auditable.
     ev = [json.loads(e["payload"]) for e in m.repo.events(sid)

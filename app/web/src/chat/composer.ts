@@ -117,8 +117,14 @@ export class Composer {
    *  eran ese mismo silencio visto desde cinco sitios distintos. Escribir las mismas
    *  palabras a mano sí contestaba, lo que lo hacía especialmente desconcertante. */
   async preguntar(texto: string): Promise<void> {
+    // Si ya hay una pregunta en vuelo, NO se pisa el borrador del alumno ni se finge que
+    // se mandó algo. Antes esto sobrescribía lo que estuviera escrito y, con dos clics
+    // seguidos, el segundo se descartaba en silencio dejando el texto huérfano en la caja.
+    if (this.busy) return;
+    const borrador = this.input.value;
     this.input.value = texto;
     await this.send();
+    if (this.input.value === texto) this.input.value = borrador;   // no salió: se devuelve
   }
 
   private async send(): Promise<void> {

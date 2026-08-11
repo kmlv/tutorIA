@@ -321,6 +321,55 @@ class Repo:
             self.conn.commit()
             return row["n"]
 
+    def fallos(self, session_id: str, question_id: str) -> int:
+        """Cuántas veces se ha FALLADO este ítem. No cuántas se ha enviado.
+
+        `intentos()` contaba todas las filas, así que acertar y luego equivocarse revelaba
+        la respuesta en el primer error. Lo reprodujo codex en la revisión adversarial."""
+        with self._lock:
+            r = self.conn.execute(
+                "SELECT COUNT(*) AS n FROM answers WHERE session_id = ? AND question_id = ? "
+                "AND score < 1.0", (session_id, question_id)).fetchone()
+            return int(r["n"])
+
+    def fue_servido(self, session_id: str, question_id: str) -> bool:
+        """¿La lección puso este ítem delante del alumno alguna vez?
+
+        Es el candado que impide que `/answer` sea un oráculo: sin él, cualquiera puede
+        mandar valores basura contra todos los ids del pack y cosechar las respuestas.
+        Se mira el log de eventos, que es donde `/next`, los checkpoints y las predicciones
+        dejan constancia de lo que sirvieron."""
+        import json as _json
+        with self._lock:
+            filas = self.conn.execute(
+                "SELECT payload FROM events WHERE session_id = ? AND type IN "
+                "('practice.item_shown','checkpoint.shown','assist_nudge_shown')",
+                (session_id,)).fetchall()
+        for f in filas:
+            try:
+                if _json.loads(f["payload"]).get("question_id") == question_id:
+                    return True
+            except Exception:
+                continue
+        return False
+
+    def marcar_revelado(self, session_id: str, question_id: str) -> None:
+        """Deja constancia de que a este alumno ya se le dijo la respuesta de este ítem.
+
+        A partir de aquí sus aciertos en él se registran CON andamiaje: copiar una respuesta
+        que acabas de leer no es evidencia de dominio, y sin esta marca el motor la contaba
+        para la racha y limpiaba la confusión."""
+        self.append_event(session_id, "answer.revealed", {"question_id": question_id})
+
+    def le_revelaron(self, session_id: str, question_id: str) -> bool:
+        import json as _json
+        with self._lock:
+            filas = self.conn.execute(
+                "SELECT payload FROM events WHERE session_id = ? AND type = 'answer.revealed'",
+                (session_id,)).fetchall()
+        return any(_json.loads(f["payload"]).get("question_id") == question_id
+                   for f in filas)
+
     def intentos(self, session_id: str, question_id: str) -> int:
         """Cuántas veces se ha contestado ya este ítem en esta sesión.
 

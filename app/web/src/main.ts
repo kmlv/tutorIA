@@ -66,7 +66,10 @@ const modoDemo = new URLSearchParams(location.search).get("demo") === "1";
 /** El mismo momento y la misma variante, en el otro idioma. */
 function otroIdiomaHref(): string {
   const q = new URLSearchParams(location.search);
-  q.set("lang", (q.get("lang") || "en") === "es" ? "en" : "es");
+  // Se compara contra el idioma YA NORMALIZADO y no contra el crudo de la URL. Con
+  // `?lang=ES` o `?lang=es-ES` la página salía en español y el enlace decía «English»
+  // apuntando a `?lang=es`: un bucle sobre sí mismo. Lo encontró codex.
+  q.set("lang", lang === "es" ? "en" : "es");
   return `?${q}`;
 }
 
@@ -226,9 +229,17 @@ async function main(): Promise<void> {
         //
         // Un arrastre equivocado y un no-arrastre son los dos incorrectos; que uno avance
         // con su sonda socrática y el otro encierre al alumno era la incoherencia.
+        // El punto que se manda es EL QUE SE VE, no el origen.
+        //
+        // Mandaba {x1:0, x2:0}, y el corrector acepta el origen como estrictamente
+        // asequible: gasto cero. O sea que pulsar «Listo» sin tocar nada daba CORRECTO y
+        // sumaba dominio por un punto que el alumno nunca eligió. Convertí un callejón sin
+        // salida en crédito fabricado, que es peor — lo demostró codex ejecutando el
+        // corrector. El punto visible de partida es (m/2p1, m/2p2), que está sobre la
+        // recta y por tanto se califica como lo que es.
         const enviado: ManipValue = valor ?? (
           modo === "point"
-            ? { x1: 0, x2: 0 } as ManipValue
+            ? { x1: estado.m / (2 * estado.p1), x2: estado.m / (2 * estado.p2) } as ManipValue
             : { p1: estado.p1, p2: estado.p2, m: estado.m } as ManipValue);
         void flow.submitManip(q.id, enviado).then(resolve);
       });

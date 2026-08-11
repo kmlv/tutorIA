@@ -193,7 +193,6 @@ def post_answer(session_id: str, body: AnswerIn) -> dict:
                        con_andamiaje=body.con_andamiaje)
         return r.student_payload
 
-    intento = repo.intentos(session_id, q.id) + 1
     v = grade(q, body.valor, pack.ejemplo)
     # El brazo se lee del log, no de lo que diga el cliente. Si el navegador pudiera
     # declarar su propio brazo, la asignación dejaría de estar aleatorizada en el momento
@@ -217,7 +216,10 @@ def post_answer(session_id: str, body: AnswerIn) -> dict:
         # Una respuesta con pista ES asistida. Registrarla como no asistida sería una
         # mentira en el esquema, y excluirla de la evidencia partiría por la mitad el
         # rendimiento de un presupuesto de 12 ítems. El criterio ya sabe pesar eso.
-        con_andamiaje=body.con_andamiaje or brazo == assist.PUSH,
+        # Tras una revelación, TODO acierto posterior en ese ítem es asistido. Copiar una
+        # respuesta que acabas de leer no es evidencia de dominio.
+        con_andamiaje=(body.con_andamiaje or brazo == assist.PUSH
+                       or repo.le_revelaron(session_id, q.id)),
         assist_arm=brazo, pair_id=pair_id, pair_pos=pos, probe_id=probe,
         think_ms=body.think_ms,
     )
@@ -235,6 +237,17 @@ def post_answer(session_id: str, body: AnswerIn) -> dict:
 
     # A la SEGUNDA equivocación en el mismo ítem, se dice cuál era.
     #
+    # DOS CANDADOS, los dos por la revisión adversarial de codex, que demostró que sin
+    # ellos esto es un ORÁCULO: extrajo 15 de 15 respuestas deterministas en 30 peticiones
+    # sin reproducir la lección, mandando valores basura contra cada id del pack.
+    #
+    #  (a) El ítem tiene que haber sido SERVIDO a esta sesión. `/answer` aceptaba cualquier
+    #      id del pack sin exigir que `/next`, un checkpoint o una predicción lo hubieran
+    #      puesto delante del alumno. Sin este candado, el pack público es la lista de la
+    #      compra del oráculo.
+    #  (b) Se cuentan FALLOS, no envíos. `repo.intentos()` contaba todas las filas, así que
+    #      acertar y luego fallar revelaba en el primer error — codex lo reprodujo.
+    #
     # Instrucción de Kristian tras probarlo él: "contesté mal... no me da la respuesta
     # correcta. Creo que eso debería corregirse." El barrido lo confirmó desde tres
     # superficies distintas: un alumno podía fallar y quedarse mirando una frase genérica
@@ -244,8 +257,14 @@ def post_answer(session_id: str, body: AnswerIn) -> dict:
     # revelar antes de eso convierte el sistema en un solucionario. Y lo decide el SERVIDOR
     # porque la respuesta correcta no puede estar en el navegador: es la misma frontera por
     # la que /api/packs dejó de mandar el pack entero.
-    if not v.correcta and intento >= 2:
+    if (not v.correcta
+            and repo.fue_servido(session_id, q.id)
+            and repo.fallos(session_id, q.id) >= 2):
         out["revelacion"] = _revelar(q, pack, row["lang"])
+        # BLOQUEADOR 4: quien ve la respuesta y luego la copia NO produce evidencia sin
+        # ayuda. Sin esto, `state.compute` contaba ese acierto para la racha de dominio y
+        # limpiaba la confusión — el alumno quedaba registrado como que lo domina.
+        repo.marcar_revelado(session_id, q.id)
     return out
 
 

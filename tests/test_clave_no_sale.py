@@ -104,9 +104,16 @@ def test_la_respuesta_se_revela_al_segundo_fallo_y_no_antes(cliente) -> None:
     sid = cliente.post("/api/session",
                        json={"concept_id": "budget-line", "lang": "es"}).json()["session_id"]
 
+    # El ítem tiene que haber sido SERVIDO. Sin esto la revelación no llega, y ese es
+    # justo el candado que impide que /answer sea un oráculo.
+    cliente.get(f"/api/session/{sid}/next")
+    qid = "q_cp1_income_direction"
+    cliente.post(f"/api/session/{sid}/events",
+                 json={"type": "practice.item_shown", "payload": {"question_id": qid}})
+
     def fallar():
         return cliente.post(f"/api/session/{sid}/answer",
-                            json={"question_id": "q_cp1_income_direction", "valor": 3}).json()
+                            json={"question_id": qid, "valor": 3}).json()
 
     primera = fallar()
     assert primera["correcta"] is False
@@ -123,7 +130,46 @@ def test_acertar_nunca_revela(cliente) -> None:
     quedaría quemado para el resto de la sesión."""
     sid = cliente.post("/api/session",
                        json={"concept_id": "budget-line", "lang": "es"}).json()["session_id"]
+    cliente.post(f"/api/session/{sid}/events",
+                 json={"type": "practice.item_shown",
+                       "payload": {"question_id": "q_cp1_income_direction"}})
     r = cliente.post(f"/api/session/{sid}/answer",
                      json={"question_id": "q_cp1_income_direction", "valor": 0}).json()
     assert r["correcta"] is True
     assert "revelacion" not in r
+
+
+def test_answer_no_es_un_oraculo(cliente) -> None:
+    """El ataque exacto que ejecutó codex: sin reproducir la lección, mandar valores basura
+    contra cada id del pack y cosechar las respuestas. Sacó 15 de 15 en 30 peticiones.
+
+    El candado es que el ítem tiene que haber sido SERVIDO a esta sesión. Se prueba con el
+    ataque y no con la función, porque lo que importa es lo que la red permite."""
+    sid = cliente.post("/api/session",
+                       json={"concept_id": "budget-line", "lang": "es"}).json()["session_id"]
+    publico = cliente.get("/api/packs/budget-line?lang=es").json()
+    ids = [q["id"] for q in publico["questions"] if q.get("opciones")]
+    assert len(ids) >= 8, "el pack público no trae MCQ: la prueba no comprobaría nada"
+
+    cosechadas = 0
+    for qid in ids:
+        for _ in range(3):                       # fallar de sobra para forzar la revelación
+            r = cliente.post(f"/api/session/{sid}/answer",
+                             json={"question_id": qid, "valor": 99}).json()
+            if "revelacion" in r:
+                cosechadas += 1
+                break
+    assert cosechadas == 0, f"{cosechadas} respuestas extraídas sin jugar la lección"
+
+
+def test_contestar_bien_y_luego_mal_no_revela(cliente) -> None:
+    """Se cuentan FALLOS, no envíos. Antes se contaban todas las filas, así que acertar y
+    luego equivocarse revelaba en el primer error."""
+    sid = cliente.post("/api/session",
+                       json={"concept_id": "budget-line", "lang": "es"}).json()["session_id"]
+    qid = "q_cp1_income_direction"
+    cliente.post(f"/api/session/{sid}/events",
+                 json={"type": "practice.item_shown", "payload": {"question_id": qid}})
+    cliente.post(f"/api/session/{sid}/answer", json={"question_id": qid, "valor": 0})
+    r = cliente.post(f"/api/session/{sid}/answer", json={"question_id": qid, "valor": 3}).json()
+    assert "revelacion" not in r, "un solo fallo no debe revelar, aunque haya envíos previos"

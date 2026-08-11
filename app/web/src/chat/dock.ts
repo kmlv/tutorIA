@@ -123,7 +123,14 @@ export class Dock {
       b.className = "intencion";
       b.textContent = i.label;
       b.addEventListener("click", () => {
-        this.decir(i.label, "estudiante");
+        // El chip NO pinta la burbuja: la pinta quien manda de verdad.
+        //
+        // Antes pintaba aquí la etiqueta corta («No entiendo») y después el composer
+        // pintaba la frase completa que sí viaja al tutor, así que un solo clic dejaba DOS
+        // burbujas del alumno y solo un mensaje en el servidor. Y con dos clics rápidos, la
+        // segunda burbuja aparecía «enviada» mientras el composer la descartaba por estar
+        // ocupado: exactamente el fallo que este arreglo venía a quitar, reaparecido.
+        // Lo encontró codex.
         for (const h of this.handlers) h(i.id);
       });
       this.acciones.appendChild(b);
