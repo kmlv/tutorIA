@@ -1,13 +1,3 @@
-agy · 2026-08-10 19:24:55 -0500 · deep
+agy · 2026-08-10 19:45:21 -0500 · deep
 --------------------------------------------------------------
-I have completed the graph stage requirements for T-011 and posted a status update to the coordination thread.
-
-Here is a summary of the work done:
-1. **Per-good hue and shape**: Created `app/web/src/graph/graph.css` exporting `--color-good1` (amber) and `--color-good2` (blue) so the ledger and captions can share them. Good 1 uses a circle shape and Good 2 uses a square shape marker. These are applied consistently across axis labels, intercept dots, drop-lines, and tethers.
-2. **Axis labels**: Updated `budget_graph.ts` so the labels show the full binding (`x₁ — kilograms of coffee`) via `ejemplo.bien_1[this.lang]`, ending with the appropriate shape markers.
-3. **`project(term)`**: Added `public project(term: string | null): void` to `BudgetGraph`. When called by `main.ts` with terms like `"m"`, `"p1"`, `"p2"`, `"p1_p2"`, or `"slope"`, it triggers a CSS animation (`.projecting`) on the corresponding geometric elements (intercept dots or slope triangle). 
-4. **`budget_set` / `budget_line` fix**: Implemented logic to check `s.enfasis === "frontera"`. When active, it adds a `.enfasis-frontera` CSS class that dims the region and strengthens the boundary line visually without layout repaints.
-5. **Sample bundles**: `dibujarMuestras` now draws the scatter points from `GraphState.muestras` along with tethers pointing to the axes. When the set is shown (`s.mostrar.conjunto`), points inside the budget set turn green and points outside turn red.
-6. **`manip.ts` fixes**: Localized the `aria-label` depending on `graph.lang` ("Selected point at" vs "Punto seleccionado en") and fixed the focusable element bug by making it a 100% width/height transparent rect instead of `0x0`.
-
-The `npm run typecheck` passes with no errors.
+I have read the provided screenshots and formulated a visual design proposal addressing the feedback provided by Kristian and Claude. I have posted the proposal to the active thread (`T-011`) using the `coord_post` tool as requested, proposing to use `transform` for prominence swapping and inline icons to replace the cards.
