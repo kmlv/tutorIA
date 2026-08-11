@@ -1,0 +1,84 @@
+# Matriz del bake-off M4.
+#
+# ESTADO: PROVISIONAL. Ningún brazo se ha construido todavía. Estos valores salen del
+# reconocimiento —cuatro agentes que instalaron y ejecutaron cada tecnología en esta
+# máquina— y NO de medir el producto terminado. Cada celda dice de dónde viene.
+#
+# Existe ahora, antes de construir nada, porque el plan de M4 pide correr el barrido de
+# ponderaciones con estimaciones antes de gastar un timebox: si el símplex ya tiene un
+# ganador estable, los brazos que siguen son intentos de FALSARLO con un blanco concreto,
+# y no una pesca. Y tiene que ocurrir antes de que existan resultados, o no es un
+# pre-registro.
+#
+# c1 se deja SIN MEDIR a propósito. Es la única celda que el reconocimiento no puede
+# responder —si una lección renderizada enseña mejor que la de SVG— y rellenarla con una
+# corazonada sería justo la racionalización que el pre-registro intenta evitar. El
+# marcador renormaliza sobre lo medido y lo dice.
+
+criteria:
+  c1:
+    nombre: "calidad visual y pedagógica"
+    unidad: "1-5"
+    higher_is_better: true
+  c2:
+    nombre: "personalización al vuelo"
+    unidad: "0-10"
+    higher_is_better: true
+  c3:
+    nombre: "costo por concepto"
+    unidad: "horas"
+    higher_is_better: false
+  c4:
+    nombre: "accesibilidad y mantenibilidad"
+    unidad: "0-10"
+    higher_is_better: true
+  c5:
+    nombre: "versatilidad entre equipos"
+    unidad: "0-10"
+    higher_is_better: true
+
+options:
+
+  # A — lo que ya existe y está en producción: audio MP3 + escenario DOM/SVG movido por
+  # el cue engine. Es el único con números medidos de verdad.
+  A-dom-svg:
+    c1: null          # sin medir: hace falta la rúbrica a ciegas
+    c2: 9             # cambiar m, p1 y el nombre del bien es editar pack.yaml; el
+                      # loader ya sustituye plantillas y el validador rechaza las malas
+    c3: 0.5           # horas por concepto: guion + marcas de cue + compilar audio
+    c4: 9             # el texto es DOM, no píxeles; una errata se arregla en un .md
+    c5: 6             # muta SVG en cada cue: es el que más trabajo pone en el hilo
+                      # principal de los cuatro
+
+  # B — Remotion: componentes React renderizados a MP4 por un navegador headless.
+  # El reconocimiento lo instaló y renderizó: 2.5 MB de MP4 contra 1.69 MB del MP3 que A
+  # ya envía, o sea +0.85 MB por toda la imagen en movimiento, y MENOS trabajo en el hilo
+  # principal que A porque la decodificación va por hardware.
+  B-remotion:
+    c1: null
+    c2: 2             # personalizar exige una cadena de render por alumno y variación
+    c3: 3             # estimación del explorador, sin medir
+    c4: 2             # el texto es píxeles: sin lector de pantalla, sin arreglar erratas
+                      # editando un .md
+    c5: 8             # decodificación por hardware, casi nada de JS
+
+  # C — Manim: motor de animación en Python. Su explorador lo instaló y renderizó.
+  C-manim:
+    c1: null
+    c2: 1             # el artefacto que un modelo tendría que emitir es Python
+                      # arbitrario, donde una llamada mal escrita es un no-op silencioso
+                      # y un signo cambiado renderiza precioso
+    c3: 4
+    c4: 2
+    c5: 8
+
+  # D — Híbrido: vídeo pre-renderizado para la narración pura, DOM/SVG vivo para lo
+  # interactivo. El explorador concluyó que nada lo mata técnicamente, y que eso mismo
+  # lo descalifica como CONTENDIENTE: es una técnica de composición, no una tecnología
+  # que competir contra las otras.
+  D-hibrido:
+    c1: null
+    c2: 4
+    c3: 2.5
+    c4: 5
+    c5: 7
