@@ -34,7 +34,7 @@ Derived from: coord/STATE.md
 STRICT: each agent owns disjoint paths. Do NOT edit outside your own set; if you need a
 change elsewhere, post it in the thread and the owner applies it.
 
-- app/web/src/graph/**            : agy    (implement drag manipulation)
+- app/web/src/graph/**            : claude (agy delivered manip.ts; ownership returned)
 - app/server/core/judge/**        : codex  (READ-ONLY review, do not edit)
 - app/server/core/content/schema.py: codex (READ-ONLY review, do not edit)
 - app/web/src/questions/**        : claude

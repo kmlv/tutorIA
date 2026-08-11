@@ -53,7 +53,15 @@ export interface GraphState {
     conjunto: boolean;
     pendiente: boolean;
   };
-  /** Recta previa, para dibujar el "antes" al comparar desplazamiento vs pivote. */
+  /** Previous line, to draw the "before" when comparing a shift against a pivot. */
   fantasma: { p1: number; p2: number; m: number } | null;
   destacar: "ninguno" | "intercepto_x1" | "intercepto_x2" | "pendiente";
+  /** Sample bundles scattered on the plane. They appear when the narration says
+   *  "every bundle is a point", and become the EVIDENCE for the budget set: once the
+   *  region is shaded, some of them are visibly inside and some outside. That is
+   *  BL-M4 ("the line IS the set") attacked visually instead of stated. */
+  muestras: Array<{ x1: number; x2: number }>;
+  /** Emphasis on the boundary, for the moment the narration says the line is only the
+   *  edge of the region. Without it that sentence has no visual counterpart. */
+  enfasis: "ninguno" | "frontera";
 }
