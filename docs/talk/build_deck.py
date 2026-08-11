@@ -142,7 +142,8 @@ def cmd_deck(src: pathlib.Path, base: pathlib.Path, out: pathlib.Path):
     parts = []
     for i, (s, t) in enumerate(zip(slides, starts)):
         parts.append(
-            f'<section class="slide" data-start="{t:.3f}" data-i="{i}">'
+            f'<section class="slide" data-start="{t:.3f}" data-i="{i}"'
+            f'{" data-appx=\"1\"" if s["appendix"] else ""}>'
             f'{s["visual"]}</section>'
         )
     slides_html = "\n".join(parts)
@@ -277,6 +278,13 @@ ol.changes{margin:8px 0 0;padding-left:1.4em;font-size:20px;display:flex;
 .provbar b{font-weight:600;color:var(--fg)}
 .provbar .chain{opacity:.85}
 .eyebrow-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:2px}
+/* Study card: the paper's own question in the headline position, the contrast and
+   the limit underneath, the citation at the foot. */
+.card{display:flex;flex-direction:column;gap:12px}
+.card h2{font-size:33px;line-height:1.25;max-width:24em}
+.card .qline{font-size:19px;color:var(--muted);margin:0;max-width:46em;line-height:1.5}
+.card .qline b{color:var(--fg);font-weight:650}
+.card .cite{font-size:15px;color:var(--muted);margin:6px 0 0;font-style:italic}
 .qgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px}
 .qgrid>div{background:var(--bg);border:1px solid var(--rule);border-radius:10px;
   padding:18px;display:flex;flex-direction:column;gap:8px;font-size:16px}
@@ -389,9 +397,13 @@ button:hover{border-color:var(--accent)}
   }
   function go(i){
     i=Math.max(0,Math.min(slides.length-1,i));
-    // Appendix slides are parked past the end of the audio: show them without
-    // seeking, so jumping to the references does not fast-forward the talk.
-    if(a.duration && starts[i] < a.duration) a.currentTime=starts[i]+0.01;
+    if(slides[i].dataset.appx){
+      // Stepping out of the talk to show a reference. Pause, or the next
+      // timeupdate would drag the deck straight back to the narrated slide.
+      a.pause();
+    } else if(a.duration && starts[i] < a.duration){
+      a.currentTime=starts[i]+0.01;
+    }
     show(i);
   }
   function fmt(s){
@@ -432,7 +444,10 @@ button:hover{border-color:var(--accent)}
   ccBtn.onclick=toggleCC;
 
   a.addEventListener('timeupdate',function(){
-    show(indexAt(a.currentTime));
+    // The audio drives the slides only while it is actually playing. Paused, the
+    // presenter is in control — otherwise a trailing timeupdate fired after a
+    // manual jump would drag the deck back to wherever the playhead sits.
+    if(!a.paused) show(indexAt(a.currentTime));
     caption(a.currentTime);
     seek.value=a.currentTime;
     document.getElementById('time').textContent=

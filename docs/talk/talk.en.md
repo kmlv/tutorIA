@@ -103,6 +103,30 @@ as a result.
 The middle two are the ones you should argue with, and I have tried to make them easy to
 find rather than easy to miss.
 
+## SLIDE 1c — The question Bastani et al. asked
+
+<!--visual
+<div class="card">
+  <p class="kicker">Study card · the harm experiment</p>
+  <h2>“How generative AI affects <em>learning</em> — how humans acquire new skills as
+  they perform tasks.”</h2>
+  <p class="qline"><b>The comparison:</b> three arms — an unrestricted assistant, a
+  safeguarded tutor, and practice with no technology. The lecture and the final unassisted
+  exam are identical across arms; only the practice tool changes.</p>
+  <p class="qline"><b>Does not license:</b> a claim about AI harming learning in general.
+  The safeguarded arm is the proof that the harm is not inevitable.</p>
+  <p class="cite">Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakcı, Ö., &amp; Mariman, R.
+  (2025). <i>PNAS</i>, 122(26), e2422633122.</p>
+</div>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· research question quoted from the abstract</span></span> <span class="chain">Compiled in T-006 (fable) from the primary source</span></div>
+-->
+
+Before the result, the question they set out to answer, in their words: how generative AI
+affects learning — how humans acquire new skills as they perform tasks.
+
+Notice that the question is about acquisition, not about performance. That is what makes
+the design work.
+
 ## SLIDE 2 — The experiment
 
 <!--visual
@@ -200,6 +224,37 @@ claiming this experiment shows the metric is capable of inverting the ranking.
 
 Which is enough reason to be a little suspicious of a demonstration that feels
 wonderful.
+
+## SLIDE 4b — The question the meta-analysis asked
+
+<!--visual
+<div class="card">
+  <p class="kicker">Study card · the meta-analysis</p>
+  <h2>“Adaptive educational technology promises the personalization of teaching at a
+  fraction of its cost, but experimental estimates vary widely in magnitude and in sign,
+  and existing syntheses <em>predate generative AI</em>.”</h2>
+  <p class="qline"><b>What they did:</b> brought computer-assisted learning platforms and
+  generative AI tools into a common framework, under common inclusion criteria, on a common
+  effect-size scale.</p>
+  <p class="qline"><b>Does not license:</b> treating the subgroups as settled. The authors
+  call them suggestive rather than conclusive, and no included study is from a low-income
+  country.</p>
+  <p class="cite">Burneo, A., Dinarte-Diaz, L., Lopez, C., &amp; Molina, E. (2026). Background
+  paper, <i>World Development Report 2026</i>, World Bank. Working paper.</p>
+</div>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· research question quoted from the abstract</span></span> <span class="chain">Verified in T-006 (fable) against the primary PDF</span></div>
+-->
+
+And the same for the meta-analysis, because its question tells you what it can settle.
+
+They note that experimental estimates vary widely in magnitude and even in sign, and that
+the existing syntheses all predate generative AI.
+
+So what they built is a common frame: old-style adaptive platforms and new generative
+tools, under the same inclusion criteria, on the same effect-size scale.
+
+That is what makes the next two slides possible, and it is also the reason they can
+compare the generations at all.
 
 ## SLIDE 5 — So does it work?
 
@@ -329,6 +384,47 @@ the human support, not about access itself.
 Same broad technology. Completely different outcomes. So the interesting question is not
 whether AI works. It is what distinguishes the top row from the bottom one.
 
+## SLIDE 7b — What each of those three actually asked
+
+<!--visual
+<h2>Three studies, three different questions</h2>
+<div class="qgrid">
+  <div><b>Kestin et al. — physics</b>
+    <span>“Measure the difference between how much students learn … when <em>identical
+    material</em> is presented through an AI tutor compared with an active learning
+    classroom.”<br><br>Not AI versus nothing. Not AI versus a lecture. AI versus the best
+    thing we already do.</span></div>
+  <div><b>De Simone et al. — Nigeria</b>
+    <span>“Whether generative AI … can help solve that problem” — large learning deficits
+    with scarce teaching resources.<br><br>The control “did not receive any intervention”.
+    So +0.31 SD is the effect of the whole after-school package, not of the model.</span></div>
+  <div><b>LearnLM/Fab AI — Sierra Leone</b>
+    <span>“How does the <em>teacher-led integration</em> of Guided Learning into mathematics
+    classes … affect student learning outcomes?”<br><br>Same teacher training in both arms.
+    The question is about integration, not about the app.</span></div>
+</div>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· questions quoted from each paper</span></span> <span class="chain">Compiled and checked in T-006 (fable) · Sierra Leone is a provider report</span></div>
+-->
+
+It is worth putting the three questions side by side, because they are not the same
+question and the effect sizes are not comparable in the way a table makes them look.
+
+Kestin asked whether an AI tutor beats an active learning classroom when the material is
+identical. Not AI against nothing, and not AI against a lecture — AI against the best
+thing we already know how to do. That is the hardest comparison in the set, and it is why
+that number is striking.
+
+Nigeria asked whether generative AI can help with large learning deficits and scarce
+teaching resources. Their control group received no intervention at all. So the three
+tenths is the effect of the entire after-school package, not of the model inside it.
+
+Sierra Leone asked something different again: how does teacher-led integration of the tool
+into maths classes affect outcomes. Both arms had the same teacher training. The question
+there is about integration, not about the app.
+
+Three questions, three contrasts, one table. That is exactly how a literature gets
+misread.
+
 ## SLIDE 8 — Effects are recipes
 
 <!--visual
@@ -370,6 +466,36 @@ contain all of them.
 
 What I am confident saying is the negative version. Copying the brand does not reproduce
 the treatment. And copying the prompt does not reproduce it either.
+
+## SLIDE 8b — The question Robinson et al. asked
+
+<!--visual
+<div class="card">
+  <p class="kicker">Study card · the take-up null</p>
+  <h2>“An engaged, in-person human tutor whose role is to support student engagement with
+  an AI literacy tutor, <em>not to deliver direct instruction</em>.”</h2>
+  <p class="qline"><b>The comparison:</b> students used the AI literacy platform
+  independently, or with that in-person tutor. <b>Both arms had the platform.</b></p>
+  <p class="qline"><b>Does not license:</b> “access to an AI tutor produced zero learning”
+  as an experimental result. There is no no-AI arm, so this design cannot estimate access
+  against nothing.</p>
+  <p class="cite">Robinson, C. D., Gormley, D., Trindade Ribeiro, A., &amp; Loeb, S. (2026).
+  EdWorkingPaper 26-1451, Annenberg Institute, Brown University.</p>
+</div>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· research question quoted from the introduction</span></span> <span class="chain">This card exists because fable caught the talk misreading the contrast (T-006)</span></div>
+-->
+
+And this one I want to give you carefully, because an earlier version of this talk got it
+wrong, and it is the kind of wrong that gets found in the question session rather than in
+the preparation.
+
+What they tested was an in-person tutor whose role was to support engagement with an AI
+literacy tutor — explicitly not to deliver instruction.
+
+Both groups had the platform. What was randomised was the human being.
+
+So this study cannot tell you what happens when you compare access against nothing,
+because there is no arm without the AI.
 
 ## SLIDE 9 — The null result that matters most
 

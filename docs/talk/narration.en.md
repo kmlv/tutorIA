@@ -28,6 +28,10 @@ And our project means it is a fact about the thing we are building, which is not
 
 The middle two are the ones you should argue with, and I have tried to make them easy to find rather than easy to miss.
 
+Before the result, the question they set out to answer, in their words: how generative AI affects learning — how humans acquire new skills as they perform tasks.
+
+Notice that the question is about acquisition, not about performance. That is what makes the design work.
+
 Nearly a thousand high school mathematics students were randomly assigned to three groups.
 
 The first group practised with an ordinary chat assistant, with no restrictions.
@@ -65,6 +69,14 @@ And here is the practical consequence for anyone choosing software. If you evalu
 I am not claiming that is what buyers systematically do — nobody has measured that. I am claiming this experiment shows the metric is capable of inverting the ranking.
 
 Which is enough reason to be a little suspicious of a demonstration that feels wonderful.
+
+And the same for the meta-analysis, because its question tells you what it can settle.
+
+They note that experimental estimates vary widely in magnitude and even in sign, and that the existing syntheses all predate generative AI.
+
+So what they built is a common frame: old-style adaptive platforms and new generative tools, under the same inclusion criteria, on the same effect-size scale.
+
+That is what makes the next two slides possible, and it is also the reason they can compare the generations at all.
 
 So, does any of it work? Yes, on average, modestly, and the honest number is not thrilling.
 
@@ -116,6 +128,16 @@ That last row needs a caveat, and I would rather give it to you than have you fi
 
 Same broad technology. Completely different outcomes. So the interesting question is not whether AI works. It is what distinguishes the top row from the bottom one.
 
+It is worth putting the three questions side by side, because they are not the same question and the effect sizes are not comparable in the way a table makes them look.
+
+Kestin asked whether an AI tutor beats an active learning classroom when the material is identical. Not AI against nothing, and not AI against a lecture — AI against the best thing we already know how to do. That is the hardest comparison in the set, and it is why that number is striking.
+
+Nigeria asked whether generative AI can help with large learning deficits and scarce teaching resources. Their control group received no intervention at all. So the three tenths is the effect of the entire after-school package, not of the model inside it.
+
+Sierra Leone asked something different again: how does teacher-led integration of the tool into maths classes affect outcomes. Both arms had the same teacher training. The question there is about integration, not about the app.
+
+Three questions, three contrasts, one table. That is exactly how a literature gets misread.
+
 Look at what was actually deployed in these four cases, and a pattern appears.
 
 The physics result used lessons designed by subject experts, with worked solutions prepared in advance, and a sequence the platform imposed from outside the model.
@@ -131,6 +153,14 @@ Across these high-effect cases, what was tested is a package: verified content, 
 I want to be careful here, because this is my reading and not a finding. Nobody has tested whether those four ingredients are each necessary, and Sierra Leone does not contain all of them.
 
 What I am confident saying is the negative version. Copying the brand does not reproduce the treatment. And copying the prompt does not reproduce it either.
+
+And this one I want to give you carefully, because an earlier version of this talk got it wrong, and it is the kind of wrong that gets found in the question session rather than in the preparation.
+
+What they tested was an in-person tutor whose role was to support engagement with an AI literacy tutor — explicitly not to deliver instruction.
+
+Both groups had the platform. What was randomised was the human being.
+
+So this study cannot tell you what happens when you compare access against nothing, because there is no arm without the AI.
 
 The most useful result in this area is a null one, and it is the least discussed.
 

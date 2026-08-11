@@ -23,6 +23,10 @@ import type { Ejemplo, GraphState, Lang, SessionInfo } from "./types";
 
 const lang: Lang = (new URLSearchParams(location.search).get("lang") as Lang) || "en";
 const variant = new URLSearchParams(location.search).get("variant") || "A";
+/** `?t=95` jumps straight to a moment on load. A capture affordance: it is how the
+ *  design review screenshots are taken, and it will be how the M4 bake-off captures the
+ *  same instant across all four media options. */
+const seekParam = Number(new URLSearchParams(location.search).get("t"));
 
 const T = {
   es: { empezar: "Empezar", preguntar: "✋ Preguntar", pausa: "Pausa", seguir: "Seguir",
@@ -229,6 +233,23 @@ async function main(): Promise<void> {
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ type, payload }),
     }).catch(() => { /* telemetry must never break the session */ });
+  }
+
+  // `?t=` paints the state at that instant WITHOUT touching the media. The first
+  // version seeked the audio element, which meant it silently did nothing in headless
+  // Chrome — where no audio loads — and produced blank review screenshots. The cue
+  // times come from the timeline, not from the audio, so the state is reachable
+  // without playing anything. That is also what the M4 bake-off needs: capture the same
+  // instant across four media technologies, three of which are pre-rendered video.
+  if (Number.isFinite(seekParam) && seekParam > 0) {
+    for (const c of (session.media.cues ?? [])) {
+      if (c.t !== null && c.t <= seekParam) {
+        estado = aplicarCue(estado, c.id, ejemplo);
+        paintLedger(c.id);
+      }
+    }
+    graph.render(estado);
+    captions.update(seekParam);
   }
 
   // Instrumentation hook for browser tests and the criterion-5 measurement.

@@ -29,7 +29,8 @@ export interface MediaAdapter {
   onCue(cb: (f: CueFiring) => void): void;
   /** Cues at or before `t`. Used to rebuild state after a seek. */
   cuesUntil(t: number): Array<{ id: string }>;
-  on(event: "play" | "pause" | "timeupdate" | "seeked", cb: () => void): void;
+  on(event: "play" | "pause" | "timeupdate" | "seeked" | "loadedmetadata", cb: () => void): void;
+  off?(event: string, cb: () => void): void;
   /** Internal cue lag, in ms. Replaces external screen-recording measurement. */
   lagSummary(): { n: number; p50: number; p95: number; max: number };
   destroy(): void;
@@ -57,8 +58,13 @@ export class HtmlAudioAdapter implements MediaAdapter {
   onCue(cb: (f: CueFiring) => void): void { this.engine?.onCue(cb); }
   cuesUntil(t: number): Array<{ id: string }> { return this.engine?.hasta(t) ?? []; }
 
-  on(event: "play" | "pause" | "timeupdate" | "seeked", cb: () => void): void {
+  on(event: "play" | "pause" | "timeupdate" | "seeked" | "loadedmetadata",
+     cb: () => void): void {
     this.audio.addEventListener(event, cb);
+  }
+
+  off(event: string, cb: () => void): void {
+    this.audio.removeEventListener(event, cb);
   }
 
   lagSummary(): { n: number; p50: number; p95: number; max: number } {
