@@ -154,6 +154,11 @@ async function main(): Promise<void> {
       evento("checkpoint.shown", { id: f.cue.id });
       void askCheckpoint(f.cue.id);
     }
+    if (f.cue.type === "prediction") {
+      media.pause();
+      media.holdRest();   // the reveal shares this timestamp; it must wait for the answer
+      void askPrediction(f.cue.id);
+    }
     const d = media.lagSummary();
     (document.getElementById("desfase") as HTMLElement).textContent = d.n ? `p95 ${d.p95}ms` : "";
   });
@@ -174,12 +179,40 @@ async function main(): Promise<void> {
       dock.decir(q.enunciado[lang]);
       return;
     }
-    const v = await flow.ask(q);
+    const v = await flow.ask(q, {});
     evento("checkpoint.answered", {
       id: cpId, question_id: q.id, correcta: v.correcta,
       latency_ms: pausedAt ? Math.round(performance.now() - pausedAt.ts) : null,
     });
     pausedAt = null;
+  }
+
+  /**
+   * A prediction pauses BEFORE the narration reveals the answer, asks the student to
+   * commit, and then resumes into the reveal. It replaces an "I understood" button:
+   * same single tap, but it produces evidence instead of a self-report, and predicting
+   * improves learning even when the prediction is wrong.
+   *
+   * The verdict is deliberately NOT shown here. Telling the student they were wrong
+   * before the narration explains why would spend the surprise the prediction just
+   * bought. It is recorded, and the reveal does the teaching.
+   */
+  async function askPrediction(predId: string): Promise<void> {
+    const qid = pack.predictions?.[predId];
+    const q: QuestionSpec | undefined = qid
+      ? pack.questions.find((x: QuestionSpec) => x.id === qid)
+      : undefined;
+    if (!q) { void media.play(); return; }
+
+    const t0 = performance.now();
+    dock.setEstado("abierto-activo");
+    const v = await flow.ask(q, { silent: true });
+    evento("prediction.answered", {
+      id: predId, question_id: q.id, correcta: v.correcta,
+      latency_ms: Math.round(performance.now() - t0),
+    });
+    dock.setEstado("oculto");
+    void media.play();
   }
 
   media.on("seeked", () => {

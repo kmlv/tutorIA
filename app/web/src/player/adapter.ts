@@ -27,6 +27,8 @@ export interface MediaAdapter {
   duration(): number;
   paused(): boolean;
   onCue(cb: (f: CueFiring) => void): void;
+  /** Defers the remaining cues of the current tick until playback resumes. */
+  holdRest(): void;
   /** Cues at or before `t`. Used to rebuild state after a seek. */
   cuesUntil(t: number): Array<{ id: string }>;
   on(event: "play" | "pause" | "timeupdate" | "seeked" | "loadedmetadata", cb: () => void): void;
@@ -56,6 +58,7 @@ export class HtmlAudioAdapter implements MediaAdapter {
   paused(): boolean { return this.audio.paused; }
 
   onCue(cb: (f: CueFiring) => void): void { this.engine?.onCue(cb); }
+  holdRest(): void { this.engine?.holdRest(); }
   cuesUntil(t: number): Array<{ id: string }> { return this.engine?.hasta(t) ?? []; }
 
   on(event: "play" | "pause" | "timeupdate" | "seeked" | "loadedmetadata",

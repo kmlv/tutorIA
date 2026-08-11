@@ -1,7 +1,7 @@
 /** Tipos del contrato servidor→cliente. Espejo de app/server/core/content/schema.py. */
 
 export type Lang = "es" | "en";
-export type CueType = "graph" | "checkpoint";
+export type CueType = "graph" | "checkpoint" | "prediction";
 
 export interface Cue {
   id: string;

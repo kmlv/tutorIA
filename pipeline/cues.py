@@ -43,9 +43,19 @@ def parse(script: str) -> tuple[str, list[dict]]:
     for m in CUE_RE.finditer(script):
         out.append(script[pos:m.start()])
         name = m.group(1)
-        kind = "checkpoint" if name.startswith("checkpoint:") else "graph"
+        # A `predict:` cue pauses BEFORE the narration reveals the answer and asks the
+        # student to commit. Predicting improves learning even when the prediction is
+        # wrong, and unlike an "I understood" button it produces evidence instead of a
+        # self-report. Placing it as a script mark keeps the pedagogical decision in the
+        # text, where the author can see what is being revealed next.
+        if name.startswith("checkpoint:"):
+            kind = "checkpoint"
+        elif name.startswith("predict:"):
+            kind = "prediction"
+        else:
+            kind = "graph"
         cues.append({
-            "id": name.split(":", 1)[-1] if kind == "checkpoint" else name,
+            "id": name.split(":", 1)[-1] if kind in ("checkpoint", "prediction") else name,
             "type": kind,
             # el texto que sigue a la marca, hasta la siguiente marca o el final
             "_follows": None,
@@ -60,6 +70,15 @@ def parse(script: str) -> tuple[str, list[dict]]:
         start = c["_char"]
         end = cues[i + 1]["_char"] if i + 1 < len(cues) else len(clean)
         c["_follows"] = clean[start:end].strip()
+
+    # A `predict:` mark sits immediately before the cue whose narration reveals the
+    # answer, so the text between the two marks is empty and the mark has nothing to
+    # align to. It inherits the next cue's sentence: both land on the same timestamp,
+    # and because the prediction is emitted first the media pauses BEFORE the reveal
+    # plays — which is the entire point of predicting.
+    for i in range(len(cues) - 1, -1, -1):
+        if not cues[i]["_follows"] and i + 1 < len(cues):
+            cues[i]["_follows"] = cues[i + 1]["_follows"]
     return clean, cues
 
 

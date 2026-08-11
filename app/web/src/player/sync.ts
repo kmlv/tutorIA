@@ -29,6 +29,11 @@ export class CueEngine {
   private handlers: Handler[] = [];
   private prev = -1;
   private disparados = new Set<string>();
+  private ticking = false;
+  /** Set when a prediction fires; cleared only by `play`. While it is set the engine
+   *  fires nothing, so the reveal cannot slip through on the `timeupdate` that
+   *  `pause()` itself emits. */
+  private blocked = false;
   readonly telemetria: CueFiring[] = [];
   private rvfcId: number | null = null;
 
@@ -40,11 +45,25 @@ export class CueEngine {
     this.audio.addEventListener("timeupdate", this.tick);
     this.audio.addEventListener("seeking", this.onSeek);
     this.audio.addEventListener("play", this.startFine);
+    this.audio.addEventListener("play", this.unblock);
     this.audio.addEventListener("pause", this.stopFine);
   }
 
   onCue(h: Handler): void {
     this.handlers.push(h);
+  }
+
+  /**
+   * Stops the rest of THIS tick and re-arms the cues that had not fired yet.
+   *
+   * A prediction mark shares its timestamp with the cue whose narration reveals the
+   * answer — that is how it lands before the reveal. Without this, both fire in the
+   * same tick and the graph would show the answer while the student is being asked to
+   * predict it, which destroys the only thing a prediction is for. The handler calls
+   * this; the deferred cues fire when playback resumes.
+   */
+  holdRest(): void {
+    this.blocked = true;
   }
 
   /** Cues ya disparados hasta `t`. Lo usa el seek para reconstruir el estado. */
@@ -63,6 +82,7 @@ export class CueEngine {
     this.audio.removeEventListener("timeupdate", this.tick);
     this.audio.removeEventListener("seeking", this.onSeek);
     this.audio.removeEventListener("play", this.startFine);
+    this.audio.removeEventListener("play", this.unblock);
     this.audio.removeEventListener("pause", this.stopFine);
   }
 
@@ -88,6 +108,10 @@ export class CueEngine {
     this.rvfcId = null;
   };
 
+  private unblock = (): void => {
+    this.blocked = false;
+  };
+
   /** Un salto hacia atrás reabre los cues posteriores para que puedan volver a disparar. */
   private onSeek = (): void => {
     const t = this.audio.currentTime;
@@ -98,6 +122,21 @@ export class CueEngine {
   };
 
   private tick = (): void => {
+    // Reentrancy guard. `pause()` — which a prediction handler calls from inside this
+    // very loop — can fire a synchronous `timeupdate`, re-entering tick. The inner call
+    // used to reset `held` and fire the cue the prediction had just held back, so the
+    // graph revealed the answer while the question was on screen. Found by running it,
+    // not by reading it.
+    if (this.ticking || this.blocked) return;
+    this.ticking = true;
+    try {
+      this.tickInner();
+    } finally {
+      this.ticking = false;
+    }
+  };
+
+  private tickInner(): void {
     const t = this.audio.currentTime;
     const desde = this.prev;
     this.prev = t;
@@ -115,8 +154,27 @@ export class CueEngine {
       };
       this.telemetria.push(f);
       for (const h of this.handlers) h(f);
+
+      // A `prediction` cue BLOCKS, and the engine enforces it rather than trusting the
+      // handler to call holdRest(). A prediction shares its timestamp with the cue whose
+      // narration reveals the answer — that is how it lands first — so if the loop
+      // continued, the graph would show the answer while the question is on screen,
+      // which destroys the only thing a prediction is for.
+      //
+      // The cooperative version (handler calls holdRest) did not work and cost two
+      // rounds of wrong guesses. Ownership belongs here: the engine knows the cue type,
+      // so it should not need anyone's cooperation to honour it.
+      if (c.type === "prediction") {
+        this.blocked = true;
+        // minus epsilon, NOT c.t: the next tick uses `c.t > desde`, so parking exactly
+        // on the timestamp makes the deferred cue fail that test forever and the reveal
+        // never lands. The prediction itself cannot re-fire — it is already in
+        // `disparados`.
+        this.prev = c.t! - 0.001;
+        return;
+      }
     }
-  };
+  }
 
   /** p50 y p95 del desfase interno. Es el criterio 5 medido sin instrumentación externa. */
   resumenDesfase(): { n: number; p50: number; p95: number; max: number } {

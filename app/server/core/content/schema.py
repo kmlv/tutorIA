@@ -118,6 +118,7 @@ class Question(BaseModel):
     grader: Grader
     andamiaje: bool = False
     checkpoint: str | None = None
+    prediction: bool = False
     enunciado: Localized
     opciones: list[Opcion] | None = None
     respuesta: dict | None = None
@@ -150,7 +151,7 @@ class Question(BaseModel):
 
 class Cue(BaseModel):
     id: str
-    type: Literal["graph", "checkpoint"]
+    type: Literal["graph", "checkpoint", "prediction"]
     t: float | None = None
     warning: str | None = None
 
@@ -184,6 +185,7 @@ class Pack(BaseModel):
     media_variant_default: str = "A"
     ejemplo: Ejemplo
     checkpoints: list[Checkpoint]
+    predictions: dict[str, str] = Field(default_factory=dict)
     sub_skills: list[SubSkill]
     dominio: Dominio
     misconceptions: list[Misconception] = Field(default_factory=list)
@@ -217,6 +219,11 @@ class Pack(BaseModel):
         for cp in self.checkpoints:
             if cp.pregunta_ref not in q_ids:
                 errs.append(f"checkpoint {cp.id}: pregunta_ref {cp.pregunta_ref} no está en el banco")
+        for pid, qid in self.predictions.items():
+            if qid not in q_ids:
+                errs.append(f"prediction {pid}: question {qid} is not in the bank")
+            elif not next(q for q in self.questions if q.id == qid).prediction:
+                errs.append(f"prediction {pid}: {qid} is not marked `prediction: true`")
 
         # Mastery must be REACHABLE with the bank that exists. codex T-005 showed the
         # previous version was only a partial lower bound: it skipped skills with zero

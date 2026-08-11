@@ -1032,3 +1032,73 @@ LLM tutors.</p>
 would follow to find out why.</p>
 </div>
 -->
+
+## SLIDE A3 — Backup · Mindspark
+
+<!--visual
+<div class="card">
+  <p class="kicker">Study card · the pre-LLM benchmark</p>
+  <h2>“The impact of a personalized technology-aided after-school instruction program in middle-school grades in urban India, using a lottery that provided winners with free access to the program.”</h2>
+  <p class="qline"><b>The comparison:</b> lottery winners (free access to the after-school program) vs lottery losers. Again a package: adaptive software plus scheduled after-school sessions.</p>
+  <p class="qline"><b>Licenses:</b> +0.37 SD in maths and +0.23 SD in Hindi in 4.5 months, from <b>pre-language-model</b> adaptive technology. Similar absolute gains for all, larger relative gains for weaker students. This is the benchmark the generative generation has not demonstrably beaten.</p>
+  <p class="qline"><b>Does not license:</b> anything about generative AI — there is no language model here. That is precisely its role in this talk.</p>
+  <p class="cite">Muralidharan, K., Singh, A., &amp; Ganimian, A. J. (2019). <i>American Economic Review</i>, 109(4), 1426–1460.</p>
+</div>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· question quoted from the source</span></span> <span class="chain">Verified in T-006 (fable) against the published article</span></div>
+-->
+
+## SLIDE A4 — Backup · Rori (Ghana)
+
+<!--visual
+<div class="card">
+  <p class="kicker">Study card · low-bandwidth access</p>
+  <h2>“The impact of Rori, an AI powered conversational math tutor accessible via WhatsApp, on the math performance of approximately 1,000 students in grades 3–9 across 11 schools in Ghana.”</h2>
+  <p class="qline"><b>The comparison:</b> control continued regular maths instruction; treatment used Rori for two 30-minute sessions a week over 8 months <b>in addition to</b> regular instruction — extra time again.</p>
+  <p class="qline"><b>Licenses:</b> d = 0.36–0.37, on basic phones over low-bandwidth networks. The access story matters for low-resource settings.</p>
+  <p class="qline"><b>Does not license:</b> treating it as confirmatory. Preprint; assignment at school level with only 11 units; added instructional time uncontrolled. The authors' own caveat: “the results should be interpreted judiciously, as they only report on year 1.”</p>
+  <p class="cite">Henkel, O., Horne-Robinson, H., Kozhakhmetova, N., &amp; Lee, A. (2024). arXiv:2402.09809. Preprint.</p>
+</div>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· question quoted from the source</span></span> <span class="chain">Verified in T-006 (fable) · preprint, treat as preliminary</span></div>
+-->
+
+## SLIDE A5 — Backup · ASSISTments
+
+<!--visual
+<div class="card">
+  <p class="kicker">Study card · the other pre-LLM benchmark</p>
+  <h2>“Do students in schools that use ASSISTments for mathematics homework learn more than students in schools who do homework without ASSISTments?”</h2>
+  <p class="qline"><b>The comparison:</b> schools randomised to ASSISTments — online homework with immediate feedback <b>plus teacher training</b> — against business-as-usual homework practices.</p>
+  <p class="qline"><b>Licenses:</b> g = 0.18 at state scale over a full school year; 2,850 seventh-graders, 43 schools, Maine. Students with low prior achievement benefited most.</p>
+  <p class="qline"><b>Does not license:</b> claims about chatbots — there is no language model. And the effect includes the teacher professional development, not just the software.</p>
+  <p class="cite">Roschelle, J., Feng, M., Murphy, R. F., &amp; Mason, C. A. (2016). <i>AERA Open</i>, 2(4), 1–12.</p>
+</div>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· question quoted from the source</span></span> <span class="chain">Verified in T-006 (fable) against the published article</span></div>
+-->
+
+## SLIDE A6 — Backup · Tutor CoPilot
+
+<!--visual
+<div class="card">
+  <p class="kicker">Study card · AI aimed at the tutor, not the student</p>
+  <h2>“Training novice educators with expert guidance is important for effectiveness but expensive … We introduce Tutor CoPilot, a novel Human-AI approach that leverages a model of expert thinking to provide expert-like guidance to tutors as they tutor.”</h2>
+  <p class="qline"><b>The comparison:</b> tutors randomised to access or no access. <b>The model never talks to the student.</b> Preregistered; 900 tutors, ~1,800 students in Title I schools, grades 3–8.</p>
+  <p class="qline"><b>Licenses:</b> +4 percentage points on the platform's exit ticket (62% → 66%), and most of the benefit goes to the lowest-rated tutors. A closed menu of seven human-chosen strategies is a workable division of labour.</p>
+  <p class="qline"><b>Does not license:</b> learning gains in general: the distal standardised test was null. The significant effect is on the platform's own progression gate.</p>
+  <p class="cite">Wang, R. E., Ribeiro, A. T., Robinson, C. D., Loeb, S., &amp; Demszky, D. (2024). arXiv:2410.03017.</p>
+</div>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· question quoted from the source</span></span> <span class="chain">Researched in T-002 (claude) · question quoted by fable in T-006</span></div>
+-->
+
+## SLIDE A7 — Backup · Eedi / LearnLM
+
+<!--visual
+<div class="card">
+  <p class="kicker">Study card · supervised, not autonomous</p>
+  <h2>“To evaluate whether generative AI might help expand access to [one-to-one tutoring], we conducted an exploratory randomized controlled trial with N = 165 students across five UK secondary schools.”</h2>
+  <p class="qline"><b>The comparison:</b> two levels. Students randomised to static hints vs live 1:1 chat; within chat, sessions randomised to a human tutor alone vs <b>LearnLM drafting every message under human supervision</b> — the tutor revised each draft until they would send it themselves.</p>
+  <p class="qline"><b>Licenses:</b> supervised AI matched human tutors on remediation (93.0% vs 91.2%, overlapping intervals), tutors approved 76.4% of drafts with zero or minimal edits, and the abstract reports +5.5 points on novel problems.</p>
+  <p class="qline"><b>Does not license:</b> autonomous AI tutoring — a human vetted every single message. Nor anything confirmatory: the authors call it exploratory, N=165, and the author list includes the vendor and the platform.</p>
+  <p class="cite">LearnLM Team, Google, &amp; Eedi (2025). arXiv:2512.23633. Exploratory.</p>
+</div>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· question quoted from the source</span></span> <span class="chain">Researched in T-002 (claude) · question quoted by fable in T-006</span></div>
+-->

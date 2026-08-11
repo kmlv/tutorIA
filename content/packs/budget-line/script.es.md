@@ -12,12 +12,14 @@ Y ahí está la idea que hace que todo lo demás se vea. Si cada bien es un eje,
 <!--cue:budget_set-->
 Ahora sí: ¿qué puntos de ese mapa puedes pagar? Una canasta es alcanzable si lo que gastas no supera tu ingreso. En símbolos: $p_1 x_1 + p_2 x_2 \leq m$. Todas las canastas que cumplen esa desigualdad forman tu conjunto presupuestario, y es la región sombreada.
 
+<!--cue:predict:line_vs_set-->
 <!--cue:budget_line-->
 La línea presupuestaria es solamente el borde de esa región: las canastas que agotan exactamente tu ingreso, donde la desigualdad se vuelve igualdad. $p_1 x_1 + p_2 x_2 = m$. Conviene decirlo en voz alta porque es la confusión más común: la línea no es el conjunto. La línea es la frontera del conjunto.
 
 <!--cue:intercepts-->
 Los extremos son fáciles. Si gastas todo tu ingreso en café, compras cien entre tres, unos treinta y tres kilos. Si lo gastas todo en jugo, compras cien litros. Esos dos puntos son los interceptos, y con ellos ya tienes la recta completa.
 
+<!--cue:predict:slope_sign-->
 <!--cue:slope-->
 La pendiente es menos p uno sobre p dos, es decir, menos tres. Ese número no es abstracto: significa que para llevarte un kilo más de café, tienes que renunciar a tres litros de jugo. El mercado te deja transformar tres litros de jugo en un kilo de café, a los precios actuales. Por eso a la pendiente se le llama el precio relativo.
 
@@ -27,6 +29,7 @@ Antes de seguir, piénsalo un momento. Si tu ingreso subiera de cien a ciento ci
 <!--cue:income_shift-->
 Se desplaza, pero no gira. Un aumento del ingreso mueve la línea hacia afuera de forma paralela, y agranda el conjunto presupuestario. La pendiente no cambia, y la razón es que los precios no cambiaron: un kilo de café sigue costando exactamente tres litros de jugo. Lo único distinto es que ahora puedes pagar más de ambos.
 
+<!--cue:predict:price_effect-->
 <!--cue:price_pivot-->
 Ahora al revés. Si sube el precio del café, de tres a cuatro, la línea no se desplaza: gira. El intercepto del jugo se queda clavado donde estaba, porque ni tu ingreso ni el precio del jugo cambiaron. Lo que se mueve es el otro extremo, hacia adentro, y la recta se vuelve más empinada.
 

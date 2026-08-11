@@ -1,7 +1,7 @@
 {
   "pack": "budget-line",
   "lang": "en",
-  "audio": "20260810-192759_budget-line-en.mp3",
+  "audio": "20260810-194900_budget-line-en.mp3",
   "duration_s": 211.512,
   "sync_granularity": "sentence",
   "cues": [
@@ -26,6 +26,11 @@
       "t": 61.959
     },
     {
+      "id": "line_vs_set",
+      "type": "prediction",
+      "t": 80.607
+    },
+    {
       "id": "budget_line",
       "type": "graph",
       "t": 80.607
@@ -34,6 +39,11 @@
       "id": "intercepts",
       "type": "graph",
       "t": 99.8
+    },
+    {
+      "id": "slope_sign",
+      "type": "prediction",
+      "t": 113.936
     },
     {
       "id": "slope",
@@ -49,6 +59,11 @@
       "id": "income_shift",
       "type": "graph",
       "t": 142.709
+    },
+    {
+      "id": "price_effect",
+      "type": "prediction",
+      "t": 161.608
     },
     {
       "id": "price_pivot",

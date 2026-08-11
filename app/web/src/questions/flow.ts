@@ -30,13 +30,15 @@ export class QuestionFlow {
   ) {}
 
   /** Mounts the question and resolves with the verdict once the student answers. */
-  ask(q: QuestionSpec, conAndamiaje = false): Promise<Verdict> {
+  ask(q: QuestionSpec, opts: { conAndamiaje?: boolean; silent?: boolean } = {}): Promise<Verdict> {
     return new Promise((resolve) => {
       const node = render(q, this.lang, async (r: Respuesta) => {
         const v = await this.submit(r);
-        this.report(v);
+        // `silent` is for predictions: the reveal that follows is what teaches, and
+        // saying "wrong" first would spend the surprise the prediction just bought.
+        if (!opts.silent) this.report(v);
         resolve(v);
-      }, conAndamiaje);
+      }, opts.conAndamiaje ?? false);
       this.dock.setEstado("abierto-activo");
       this.dock.montarPregunta(node);
     });

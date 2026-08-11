@@ -317,3 +317,61 @@ questions:
     diagnostico_si_falla:
       "m / p2": BL-M2      # dejó el intercepto viejo: no vio que el ingreso lo mueve
       "150 / p1": BL-M6    # usó el eje equivocado
+
+  # ---------------------------------------------------------------------------
+  # PREDICTIONS. These fire from `<!--cue:predict:X-->` marks in the script, BEFORE the
+  # narration reveals the answer. Kristian's instinct was to have the student confirm
+  # "I understood" every few seconds; the instinct is right and the mechanism was wrong.
+  # "I understood" is a self-report, and self-reports of comprehension are badly
+  # calibrated — the student who clicks it most confidently is the one most at risk.
+  # A prediction costs the same single tap but produces EVIDENCE, and predicting improves
+  # learning even when the prediction is wrong, because it primes the student to notice
+  # the gap between what they expected and what happens.
+  # Each distractor maps to a catalogue misconception, so a wrong prediction is a
+  # diagnosis rather than just a miss.
+  # ---------------------------------------------------------------------------
+
+  - id: q_predict_line_vs_set
+    subskill_primary: BL.FEAS
+    tier: 1
+    modalidad: mcq
+    grader: deterministic
+    andamiaje: false
+    prediction: true
+    enunciado:
+      es: "Antes de seguir: la región sombreada es el conjunto presupuestario. ¿Qué es entonces la recta que la bordea?"
+      en: "Before we go on: the shaded region is the budget set. So what is the line that bounds it?"
+    opciones:
+      - {es: "Las canastas que gastan exactamente todo el ingreso", en: "The bundles that spend exactly all the income", correcta: true}
+      - {es: "Las únicas canastas alcanzables", en: "The only affordable bundles", misconception: BL-M4}
+      - {es: "Las canastas que no puedes pagar", en: "The bundles you cannot afford", misconception: BL-M4}
+
+  - id: q_predict_slope_sign
+    subskill_primary: BL.SLOPE
+    tier: 1
+    modalidad: mcq
+    grader: deterministic
+    andamiaje: false
+    prediction: true
+    enunciado:
+      es: "Predice: para llevarte un kilo más de café, ¿a cuánto jugo tienes que renunciar?"
+      en: "Predict: to take home one more kilo of coffee, how much juice do you give up?"
+    opciones:
+      - {es: "3 litros", en: "3 liters", correcta: true}
+      - {es: "1 tercio de litro", en: "1 third of a liter", misconception: BL-M1}
+      - {es: "A nada: puedo comprar más de los dos", en: "Nothing: I can buy more of both", misconception: BL-M5}
+
+  - id: q_predict_price_effect
+    subskill_primary: BL.CS.P
+    tier: 2
+    modalidad: mcq
+    grader: deterministic
+    andamiaje: false
+    prediction: true
+    enunciado:
+      es: "Predice: ahora sube el precio del café. ¿Qué le pasa a la recta?"
+      en: "Predict: now the price of coffee rises. What happens to the line?"
+    opciones:
+      - {es: "Gira: el intercepto del jugo no se mueve", en: "It pivots: the juice intercept stays put", correcta: true}
+      - {es: "Se desplaza hacia adentro, paralela", en: "It shifts inward, parallel", misconception: BL-M3}
+      - {es: "Gira, pero el que no se mueve es el intercepto del café", en: "It pivots, but the coffee intercept is the one that stays", misconception: BL-M3}

@@ -39,6 +39,13 @@ checkpoints:
     despues_de_cue: price_pivot
     pregunta_ref: q_cp2_why_intercept_fixed
 
+# Prediction points. The `<!--cue:predict:X-->` marks in the script pause the media
+# BEFORE the narration reveals the answer; this maps each mark to its question.
+predictions:
+  line_vs_set:  q_predict_line_vs_set
+  slope_sign:   q_predict_slope_sign
+  price_effect: q_predict_price_effect
+
 sub_skills:
   - id: BL.EQ
     esencial: true
