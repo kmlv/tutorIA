@@ -55,6 +55,13 @@ const relojGrosero =
   new URLSearchParams(location.search).get("reloj") === "grosero";
 /** `?debug=1` enseña la instrumentación interna. Por defecto, no. */
 const depurar = new URLSearchParams(location.search).get("debug") === "1";
+/** `?demo=1` añade un botón para saltar al siguiente momento de la lección.
+ *
+ *  Es para enseñar el sistema, no para aprender con él: un alumno que puede saltarse la
+ *  explicación se salta la explicación. Por eso va detrás de un parámetro y no en la
+ *  interfaz — el enlace que se le manda a un estudiante no lo lleva, y no hay forma de
+ *  descubrirlo pulsando. */
+const modoDemo = new URLSearchParams(location.search).get("demo") === "1";
 
 /** El mismo momento y la misma variante, en el otro idioma. */
 function otroIdiomaHref(): string {
@@ -124,6 +131,9 @@ async function main(): Promise<void> {
         <button id="ask" class="secundario">${T.preguntar}</button>
         <span id="reloj" class="reloj">0:00</span>
         <span id="desfase" class="desfase" title="internal cue lag"></span>
+        ${modoDemo ? `<button id="siguiente" class="secundario"
+           title="Salta al siguiente momento. Solo en modo demostración."
+           >${lang === "es" ? "Siguiente ▸" : "Next ▸"}</button>` : ""}
         <!-- El idioma era solo un parámetro de URL, que vale para desarrollar y no para
              enseñárselo a nadie. Es un enlace y no un botón con JS: recargar es lo
              correcto aquí, porque el idioma decide qué audio y qué timeline se sirven, y
@@ -441,6 +451,27 @@ async function main(): Promise<void> {
     (document.getElementById("reloj") as HTMLElement).textContent =
       `${Math.floor(t / 60)}:${String(t % 60).padStart(2, "0")}`;
   });
+
+  if (modoDemo) {
+    /** Salta al siguiente cue: el próximo momento en que la lección HACE algo.
+     *
+     *  Salta a cue y no un número fijo de segundos porque lo que se enseña en una demo son
+     *  los momentos, no el tiempo: quien mira quiere ver aparecer la región, el pivote, el
+     *  checkpoint. Los huecos entre cues duran veinte segundos y no contienen nada nuevo.
+     *
+     *  Menos 0,15 s para caer JUSTO ANTES: el motor dispara con `prev < t <= actual`, así
+     *  que aterrizar encima del segundo exacto se saltaría el cue en vez de verlo. */
+    document.getElementById("siguiente")?.addEventListener("click", () => {
+      const t = media.currentTime();
+      const cues = (session.media?.cues ?? [])
+        .filter((c) => c.t !== null && c.t > t + 0.2)
+        .sort((a, b) => (a.t ?? 0) - (b.t ?? 0));
+      const destino = cues.length ? (cues[0].t as number) - 0.15 : media.duration() - 0.5;
+      media.seek(Math.max(0, destino));
+      evento("demo.salto", { desde: Math.round(t), hasta: Math.round(destino) });
+      if (media.paused()) void media.play();
+    });
+  }
 
   // "Ask" pauses: the student decides, the tutor never steals control (decision 11).
   document.getElementById("ask")!.addEventListener("click", () => {
