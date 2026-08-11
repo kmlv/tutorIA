@@ -1,0 +1,200 @@
+[
+ {
+  "cue": "consumo",
+  "estado": {
+   "p1": 3,
+   "p2": 1,
+   "m": 100,
+   "mostrar": {
+    "ejes": false,
+    "linea": false,
+    "interceptos": false,
+    "conjunto": false,
+    "pendiente": false
+   },
+   "fantasma": null,
+   "destacar": "ninguno",
+   "muestras": [],
+   "enfasis": "ninguno"
+  }
+ },
+ {
+  "cue": "canasta",
+  "estado": {
+   "p1": 3,
+   "p2": 1,
+   "m": 100,
+   "mostrar": {
+    "ejes": false,
+    "linea": false,
+    "interceptos": false,
+    "conjunto": false,
+    "pendiente": false
+   },
+   "fantasma": null,
+   "destacar": "ninguno",
+   "muestras": [],
+   "enfasis": "ninguno"
+  }
+ },
+ {
+  "cue": "espacio",
+  "estado": {
+   "p1": 3,
+   "p2": 1,
+   "m": 100,
+   "mostrar": {
+    "ejes": true,
+    "linea": false,
+    "interceptos": false,
+    "conjunto": false,
+    "pendiente": false
+   },
+   "fantasma": null,
+   "destacar": "ninguno",
+   "muestras": [],
+   "enfasis": "ninguno"
+  }
+ },
+ {
+  "cue": "budget_set",
+  "estado": {
+   "p1": 3,
+   "p2": 1,
+   "m": 100,
+   "mostrar": {
+    "ejes": true,
+    "linea": true,
+    "interceptos": false,
+    "conjunto": true,
+    "pendiente": false
+   },
+   "fantasma": null,
+   "destacar": "ninguno",
+   "muestras": [],
+   "enfasis": "ninguno"
+  }
+ },
+ {
+  "cue": "budget_line",
+  "estado": {
+   "p1": 3,
+   "p2": 1,
+   "m": 100,
+   "mostrar": {
+    "ejes": true,
+    "linea": true,
+    "interceptos": false,
+    "conjunto": true,
+    "pendiente": false
+   },
+   "fantasma": null,
+   "destacar": "ninguno",
+   "muestras": [],
+   "enfasis": "ninguno"
+  }
+ },
+ {
+  "cue": "intercepts",
+  "estado": {
+   "p1": 3,
+   "p2": 1,
+   "m": 100,
+   "mostrar": {
+    "ejes": true,
+    "linea": true,
+    "interceptos": true,
+    "conjunto": true,
+    "pendiente": false
+   },
+   "fantasma": null,
+   "destacar": "ninguno",
+   "muestras": [],
+   "enfasis": "ninguno"
+  }
+ },
+ {
+  "cue": "slope",
+  "estado": {
+   "p1": 3,
+   "p2": 1,
+   "m": 100,
+   "mostrar": {
+    "ejes": true,
+    "linea": true,
+    "interceptos": true,
+    "conjunto": true,
+    "pendiente": true
+   },
+   "fantasma": null,
+   "destacar": "pendiente",
+   "muestras": [],
+   "enfasis": "ninguno"
+  }
+ },
+ {
+  "cue": "income_shift",
+  "estado": {
+   "p1": 3,
+   "p2": 1,
+   "m": 150,
+   "mostrar": {
+    "ejes": true,
+    "linea": true,
+    "interceptos": true,
+    "conjunto": true,
+    "pendiente": true
+   },
+   "fantasma": {
+    "p1": 3,
+    "p2": 1,
+    "m": 100
+   },
+   "destacar": "ninguno",
+   "muestras": [],
+   "enfasis": "ninguno"
+  }
+ },
+ {
+  "cue": "price_pivot",
+  "estado": {
+   "p1": 4,
+   "p2": 1,
+   "m": 100,
+   "mostrar": {
+    "ejes": true,
+    "linea": true,
+    "interceptos": true,
+    "conjunto": true,
+    "pendiente": true
+   },
+   "fantasma": {
+    "p1": 3,
+    "p2": 1,
+    "m": 100
+   },
+   "destacar": "intercepto_x2",
+   "muestras": [],
+   "enfasis": "ninguno"
+  }
+ },
+ {
+  "cue": "recap",
+  "estado": {
+   "p1": 3,
+   "p2": 1,
+   "m": 100,
+   "mostrar": {
+    "ejes": true,
+    "linea": true,
+    "interceptos": true,
+    "conjunto": true,
+    "pendiente": true
+   },
+   "fantasma": null,
+   "destacar": "ninguno",
+   "muestras": [],
+   "enfasis": "ninguno"
+  }
+ }
+]

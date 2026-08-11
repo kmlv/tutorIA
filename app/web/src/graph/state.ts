@@ -16,6 +16,7 @@
  * timeline into per-cue props without a browser.
  */
 import type { Ejemplo, GraphState } from "../types";
+import { aplicarOps, type GraphScript } from "./script.js";   // con extensión: el test corre el JS compilado bajo node ESM, que la exige
 
 export function estadoInicial(e: Ejemplo): GraphState {
   return {
@@ -33,32 +34,20 @@ export function estadoInicial(e: Ejemplo): GraphState {
   };
 }
 
-/** The script is in charge: every cue has a declared effect on the graph. */
-export function aplicarCue(s: GraphState, id: string, e: Ejemplo): GraphState {
-  const n: GraphState = { ...s, mostrar: { ...s.mostrar } };
-  switch (id) {
-    case "espacio":      n.mostrar.ejes = true; break;
-    case "budget_set":   n.mostrar.linea = true; n.mostrar.conjunto = true; break;
-    case "budget_line":  n.mostrar.linea = true; break;
-    case "intercepts":   n.mostrar.interceptos = true; break;
-    case "slope":        n.mostrar.pendiente = true; n.destacar = "pendiente"; break;
-    case "income_shift":
-      n.fantasma = { p1: e.p1, p2: e.p2, m: e.m };
-      n.m = e.m * 1.5;
-      n.destacar = "ninguno";
-      break;
-    case "price_pivot":
-      n.m = e.m;
-      n.fantasma = { p1: e.p1, p2: e.p2, m: e.m };
-      n.p1 = e.p1 + 1;
-      n.destacar = "intercepto_x2";  // the one that does NOT move: that is the point
-      break;
-    case "recap":
-      n.fantasma = null;
-      n.p1 = e.p1;
-      n.m = e.m;
-      n.destacar = "ninguno";
-      break;
-  }
-  return n;
+/**
+ * Aplica un cue leyendo el guion del gráfico (decisión D-3).
+ *
+ * Antes esto era un `switch` con una rama por cue: añadir un concepto exigía escribir
+ * TypeScript, que es exactamente lo que hace caro el concepto número veinte. Ahora el
+ * documento es datos —`content/packs/<id>/graph.yaml`— y lo emite un modelo contra el
+ * esquema de `script.ts`.
+ *
+ * Un cue sin entrada no cambia nada, que es lo correcto para los que solo narran. Que no
+ * sea un error es deliberado: el error ruidoso lo levanta `pipeline/check_cues.py` cuando
+ * un cue de la timeline no tiene efecto EN NINGÚN sitio, que es el caso peligroso.
+ */
+export function aplicarCue(s: GraphState, id: string, e: Ejemplo,
+                           script: GraphScript): GraphState {
+  const ops = script.cues[id];
+  return ops ? aplicarOps(s, ops, e) : s;
 }

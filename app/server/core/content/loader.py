@@ -71,6 +71,10 @@ class FilesystemPackSource:
                 timelines[f"{t.lang}/{t.variant}"] = t
         data["timelines"] = timelines
 
+        gs = d / "graph.yaml"
+        if gs.is_file():
+            data["graph_script"] = yaml.safe_load(gs.read_text(encoding="utf-8"))
+
         # `salidas` e `iesa_micro` son metadatos de autoría, no los consume el runtime
         for k in ("salidas", "iesa_micro"):
             data.pop(k, None)

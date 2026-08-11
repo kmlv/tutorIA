@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "test": "tsc src/player/sync.ts --outDir dist-test --target es2020 --module es2020 --moduleResolution node --skipLibCheck && node test/sync.invariant.mjs"
+    "test": "tsc src/player/sync.ts src/graph/state.ts src/graph/script.ts --outDir dist-test --rootDir src --target es2020 --module es2020 --moduleResolution node --skipLibCheck && node test/sync.invariant.mjs && node test/script.golden.mjs"
   },
   "devDependencies": {
     "katex": "^0.16.11",

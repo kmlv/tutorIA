@@ -1,0 +1,81 @@
+{
+ "version": 1,
+ "cues": {
+  "espacio": [
+   {
+    "mostrar": "ejes"
+   }
+  ],
+  "budget_set": [
+   {
+    "mostrar": [
+     "linea",
+     "conjunto"
+    ]
+   }
+  ],
+  "budget_line": [
+   {
+    "mostrar": "linea"
+   }
+  ],
+  "intercepts": [
+   {
+    "mostrar": "interceptos"
+   }
+  ],
+  "slope": [
+   {
+    "mostrar": "pendiente"
+   },
+   {
+    "destacar": "pendiente"
+   }
+  ],
+  "income_shift": [
+   {
+    "fantasma": "base"
+   },
+   {
+    "set": {
+     "m": "m * 1.5"
+    }
+   },
+   {
+    "destacar": "ninguno"
+   }
+  ],
+  "price_pivot": [
+   {
+    "set": {
+     "m": "m"
+    }
+   },
+   {
+    "fantasma": "base"
+   },
+   {
+    "set": {
+     "p1": "p1 + 1"
+    }
+   },
+   {
+    "destacar": "intercepto_x2"
+   }
+  ],
+  "recap": [
+   {
+    "fantasma": "ninguno"
+   },
+   {
+    "set": {
+     "p1": "p1",
+     "m": "m"
+    }
+   },
+   {
+    "destacar": "ninguno"
+   }
+  ]
+ }
+}

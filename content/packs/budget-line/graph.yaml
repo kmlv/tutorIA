@@ -1,0 +1,59 @@
+# Qué hace la imagen en cada cue, como DATOS (decisión D-3).
+#
+# Este documento lo emite un modelo contra el esquema de `app/web/src/graph/script.ts`.
+# Hasta hoy vivía como un `switch` en TypeScript, así que añadir un concepto exigía
+# escribir código; eso es justo lo que hace caro el concepto número veinte.
+#
+# El vocabulario es cerrado a propósito —cinco capas, cuatro destacados, dos fantasmas,
+# tres variables— y las expresiones son de una sola operación sobre el ejemplo base del
+# pack. Lo que un modelo pueda escribir está en el esquema o es un error ruidoso. Un cue
+# sin entrada no cambia nada, que es lo correcto para los que solo narran.
+#
+# Las expresiones se evalúan contra el ejemplo BASE y nunca contra el estado corriente:
+# así dos `set` en distinto orden dan el mismo resultado y un modelo no puede romper la
+# lección reordenando operaciones que parecen independientes.
+
+version: 1
+
+# Cues que narran sin tocar la imagen. Se declaran EXPLÍCITAMENTE: la compuerta
+# `pipeline/check_cues.py` exige que cada cue de la timeline esté aquí o en `cues`, así
+# que un cue que un modelo se saltó por descuido no puede pasar por deliberado.
+narracion: [consumo, canasta]
+
+cues:
+
+  espacio:
+    - mostrar: ejes
+
+  budget_set:
+    - mostrar: [linea, conjunto]
+
+  budget_line:
+    - mostrar: linea
+
+  intercepts:
+    - mostrar: interceptos
+
+  slope:
+    - mostrar: pendiente
+    - destacar: pendiente
+
+  # Desplazamiento paralelo: la recta anterior se queda de fantasma para que la
+  # comparación sea una sola imagen y no dos gráficos superpuestos.
+  income_shift:
+    - fantasma: base
+    - set: {m: m * 1.5}
+    - destacar: ninguno
+
+  # Pivote. El ingreso vuelve al base —venía multiplicado por el cue anterior— y sube p1.
+  # Se destaca el intercepto que NO se mueve: esa es la lección entera.
+  price_pivot:
+    - set: {m: m}
+    - fantasma: base
+    - set: {p1: p1 + 1}
+    - destacar: intercepto_x2
+
+  recap:
+    - fantasma: ninguno
+    - set: {p1: p1, m: m}
+    - destacar: ninguno

@@ -318,6 +318,11 @@ class Pack(BaseModel):
             raise ValueError("pack incoherente:\n  - " + "\n  - ".join(errs))
         return self
 
+    #: El guion del gráfico (D-3). Datos y no código: lo emite un modelo contra el
+    #: esquema de `app/web/src/graph/script.ts`, que es lo que hace barato el concepto
+    #: número veinte. Opcional para que un pack sin gráfico siga siendo válido.
+    graph_script: dict | None = None
+
     def timeline(self, lang: str, variant: str = "A") -> Timeline | None:
         """La timeline de esa variante, con fallback a A.
 

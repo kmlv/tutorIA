@@ -14,6 +14,7 @@ import { createAdapter, type MediaAdapter } from "./player/adapter";
 import type { CueFiring } from "./player/sync";
 import { BudgetGraph } from "./graph/budget_graph";
 import { aplicarCue, estadoInicial } from "./graph/state";
+import { revisar, type GraphScript } from "./graph/script";
 import { Dock } from "./chat/dock";
 import { Composer } from "./chat/composer";
 import { Ledger } from "./ledger/goods";
@@ -66,6 +67,26 @@ async function main(): Promise<void> {
 
   const pack = await (await fetch(`/api/packs/budget-line?lang=${lang}`)).json();
   const ejemplo: Ejemplo = pack.ejemplo;
+
+  // El guion del gráfico (D-3). Sin él la lección se reproduce y no se dibuja nada, así
+  // que el fallo tiene que ser explícito: un pack sin guion es un pack a medio compilar,
+  // no un pack sin gráfico.
+  const recibido = session.graph_script;
+  if (!recibido) {
+    app.textContent = "Este pack no trae graph.yaml. Ver docs/D3-GUION-GRAFICO.md.";
+    return;
+  }
+  // Reasignar tras la comprobación: `rebuild` y los manejadores son declaraciones de
+  // función, que se izan, y TypeScript no les propaga el estrechamiento de arriba.
+  const guion: GraphScript = recibido;
+  const problemas = revisar(guion, ejemplo);
+  if (problemas.length) {
+    // En pantalla y no solo en consola: este documento lo emite un modelo, y un guion
+    // inválido que solo se queja en la consola es indistinguible de una lección aburrida.
+    app.textContent = `El guion del gráfico tiene ${problemas.length} problema(s): `
+      + problemas.slice(0, 3).join(" · ");
+    return;
+  }
 
   app.innerHTML = `
     <div class="escenario">
@@ -210,7 +231,7 @@ async function main(): Promise<void> {
   function rebuild(t: number): void {
     estado = estadoInicial(ejemplo);
     for (const c of media.cuesUntil(t)) {
-      estado = aplicarCue(estado, c.id, ejemplo);
+      estado = aplicarCue(estado, c.id, ejemplo, guion);
       paintLedger(c.id);
     }
     pintar();
@@ -262,7 +283,7 @@ async function main(): Promise<void> {
     // practice loop, the tutor context and `?t=` review all read. Only the PAINTING is
     // conditional. Skipping the state update instead would have been the tempting
     // shortcut and would have left the stage blank the moment practice began.
-    estado = aplicarCue(estado, f.cue.id, ejemplo);
+    estado = aplicarCue(estado, f.cue.id, ejemplo, guion);
     pintar(f.cue.id);
     cueActual = f.cue.id;
     evento("cue.fired", { id: f.cue.id, lag_ms: f.desfase_ms });
@@ -421,7 +442,7 @@ async function main(): Promise<void> {
     }
     for (const c of (session.media.cues ?? [])) {
       if (c.t !== null && c.t <= seekParam) {
-        estado = aplicarCue(estado, c.id, ejemplo);
+        estado = aplicarCue(estado, c.id, ejemplo, guion);
         paintLedger(c.id);
       }
     }

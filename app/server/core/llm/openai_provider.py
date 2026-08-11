@@ -83,7 +83,7 @@ class OpenAIProvider:
             kwargs["response_format"] = {
                 "type": "json_schema",
                 "json_schema": {
-                    "name": "open_response_verdict",
+                    "name": req.schema_name,
                     "schema": req.json_schema,
                     "strict": True,
                 },

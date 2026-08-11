@@ -55,16 +55,41 @@ def main() -> int:
     errs: list[str] = []
     total = 0
 
+    # Desde D-3, el efecto de cada cue sobre el GRÁFICO vive en `graph.yaml` y no en un
+    # `switch`. La compuerta se parte en dos: el gráfico se comprueba contra ese
+    # documento, y el ledger sigue siendo un `switch` en main.ts.
+    #
+    # `narracion` es lo que le devuelve los dientes a la compuerta ahora que el documento
+    # lo escribe un modelo: un cue puede legítimamente no tocar la imagen, pero tiene que
+    # decirlo. Sin esa lista, un cue que el modelo se saltó por descuido y uno que decidió
+    # dejar mudo son indistinguibles.
+    import yaml
+    gpath = pack_dir / "graph.yaml"
+    con_efecto: set[str] = set()
+    narracion: set[str] = set()
+    if gpath.is_file():
+        g = yaml.safe_load(gpath.read_text(encoding="utf-8")) or {}
+        con_efecto = set(g.get("cues") or {})
+        narracion = set(g.get("narracion") or [])
+    else:
+        errs.append("falta graph.yaml: sin él el gráfico no dibuja nada (D-3)")
+
     for tl_path in sorted(media.glob("timeline.*.json")):
         tl = json.loads(tl_path.read_text(encoding="utf-8"))
         for c in tl.get("cues", []):
             if c.get("type") in POR_TIPO:
                 continue
             total += 1
-            if c["id"] not in manejados:
+            if c["id"] not in con_efecto and c["id"] not in narracion:
                 errs.append(
-                    f"{tl_path.name}: el cue `{c['id']}` (t={c.get('t')}) no tiene "
-                    f"`case \"{c['id']}\"` en main.ts — dispararía sin pintar nada"
+                    f"{tl_path.name}: el cue `{c['id']}` (t={c.get('t')}) no está ni en "
+                    f"`cues` ni en `narracion` de graph.yaml — dispararía sin dibujar "
+                    f"nada, y sin que nadie lo haya decidido"
+                )
+            if c["id"] not in manejados and c["id"] not in narracion:
+                errs.append(
+                    f"{tl_path.name}: el cue `{c['id']}` no tiene `case \"{c['id']}\"` "
+                    f"en main.ts — no pinta el ledger"
                 )
 
     # Segunda comprobación: una variante derivada que ya no corresponde a su original.
@@ -101,7 +126,9 @@ def main() -> int:
             )
 
     print(f"\n  cues de gráfico comprobados: {total}")
-    print(f"  ids con efecto en el cliente: {len(manejados)}")
+    print(f"  ids con efecto en graph.yaml: {len(con_efecto)}  "
+          f"(+{len(narracion)} declarados de solo narración)")
+    print(f"  ids que pintan el ledger:     {len(manejados)}")
     for e in errs:
         print(f"  [ERROR] {e}")
 

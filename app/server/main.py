@@ -84,6 +84,9 @@ def create_session(body: NewSession) -> dict:
         "titulo": getattr(pack.titulo, body.lang),
         "media": tl.model_dump(mode="json") if tl else None,
         "checkpoints": [c.model_dump() for c in pack.checkpoints],
+        # El guion del gráfico viaja al cliente: dice qué DIBUJAR, nunca ninguna
+        # respuesta. Es la misma frontera que el resto de la sesión.
+        "graph_script": pack.graph_script,
     }
 
 

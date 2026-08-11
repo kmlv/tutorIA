@@ -40,6 +40,11 @@ class LLMRequest:
     #: JSON Schema the response must conform to. Enforced by the provider where it can
     #: be (Claude structured outputs) and re-validated by the caller regardless.
     json_schema: dict | None = None
+    #: What to call that schema on the wire. It was hardcoded to the judge's name, so
+    #: every other caller's request went out labelled `open_response_verdict` — harmless
+    #: for the model, and a lie in whatever request log the provider keeps. Found the day
+    #: a second caller appeared.
+    schema_name: str = "respuesta"
 
 
 @dataclass(frozen=True)

@@ -36,6 +36,8 @@ export interface SessionInfo {
   titulo: string;
   media: Timeline | null;
   checkpoints: Checkpoint[];
+  /** El guion del gráfico (D-3): qué hace la imagen en cada cue. */
+  graph_script?: import("./graph/script").GraphScript | null;
 }
 
 /** Parámetros del ejemplo: los mismos que el guión narra. */

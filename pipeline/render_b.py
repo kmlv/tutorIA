@@ -36,7 +36,7 @@ FPS = 30
 sys.path.insert(0, str(ROOT))
 
 
-def beats_via_node(cues: list[dict], ejemplo: dict) -> list[dict]:
+def beats_via_node(cues: list[dict], ejemplo: dict, guion: dict) -> list[dict]:
     """Runs the app's own state machine over the cues and returns one state per cue.
 
     Through node rather than a Python port. A port would be shorter to write and would
@@ -49,7 +49,8 @@ def beats_via_node(cues: list[dict], ejemplo: dict) -> list[dict]:
             # `--rootDir` en `src/` y no en `src/graph/`: state.ts importa el tipo de
             # `../types`, y tsc lo cuenta como fuente aunque el import sea `import type`
             # y no sobreviva a la compilación. Con rootDir en graph/ aborta con TS6059.
-            ["npx", "tsc", str(STATE_TS), "--outDir", str(out),
+            ["npx", "tsc", str(STATE_TS), str(STATE_TS.parent / "script.ts"),
+             "--outDir", str(out),
              "--rootDir", str(STATE_TS.parents[1]),
              "--target", "es2020", "--module", "es2020", "--moduleResolution", "node",
              "--skipLibCheck"],
@@ -58,18 +59,22 @@ def beats_via_node(cues: list[dict], ejemplo: dict) -> list[dict]:
         driver = out / "driver.mjs"
         driver.write_text(
             "import {estadoInicial, aplicarCue} from './graph/state.js';\n"
-            "const {cues, ejemplo} = JSON.parse(process.argv[2]);\n"
+            "import {revisar} from './graph/script.js';\n"
+            "const {cues, ejemplo, guion} = JSON.parse(process.argv[2]);\n"
+            "const errs = revisar(guion, ejemplo, new Set(cues.map(c => c.id)));\n"
+            "if (errs.length) { console.error(errs.join('\\n')); process.exit(3); }\n"
             "let s = estadoInicial(ejemplo);\n"
             "const beats = [];\n"
             "for (const c of cues) {\n"
-            "  s = aplicarCue(s, c.id, ejemplo);\n"
+            "  s = aplicarCue(s, c.id, ejemplo, guion);\n"
             "  beats.push({cue: c.id, t: c.t, estado: s});\n"
             "}\n"
             "process.stdout.write(JSON.stringify(beats));\n",
             encoding="utf-8",
         )
         r = subprocess.run(
-            ["node", str(driver), json.dumps({"cues": cues, "ejemplo": ejemplo})],
+            ["node", str(driver),
+             json.dumps({"cues": cues, "ejemplo": ejemplo, "guion": guion})],
             capture_output=True, text=True,
         )
         if r.returncode != 0:
@@ -124,7 +129,10 @@ def main() -> int:
     # app, which pauses the video exactly as it pauses the audio — the MP4 has no idea
     # they exist, and that is the point: the interaction is not baked in.
     cues = [{"id": c.id, "t": c.t} for c in tl.cues if c.type == "graph" and c.t is not None]
-    beats = beats_via_node(cues, ejemplo)
+    if not pack.graph_script:
+        print(f"  {args.pack}: falta graph.yaml (D-3); sin él no hay nada que dibujar")
+        return 2
+    beats = beats_via_node(cues, ejemplo, pack.graph_script)
 
     transcript = [s.model_dump() for s in tl.transcript]
     for b in beats:
