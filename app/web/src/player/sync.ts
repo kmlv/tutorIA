@@ -36,8 +36,9 @@ export class CueEngine {
   private blocked = false;
   readonly telemetria: CueFiring[] = [];
   private rvfcId: number | null = null;
+  private rafId: number | null = null;
   /** Qué reloj disparó de verdad. Lo lee el informe del bake-off; ver `resumenDesfase`. */
-  private fuente: "timeupdate" | "rvfc" = "timeupdate";
+  private fuente: "timeupdate" | "rvfc" | "raf" = "timeupdate";
 
   /**
    * @param groseroForzado Obliga a usar solo `timeupdate` aunque el elemento ofrezca
@@ -116,17 +117,45 @@ export class CueEngine {
       requestVideoFrameCallback?: (cb: () => void) => number;
     };
     if (this.groseroForzado) return;
-    if (typeof el.requestVideoFrameCallback !== "function") return;
-    this.fuente = "rvfc";
-    const loop = (): void => {
+    if (typeof el.requestVideoFrameCallback === "function") {
+      this.fuente = "rvfc";
+      const loop = (): void => {
+        this.tick();
+        if (!this.audio.paused) this.rvfcId = el.requestVideoFrameCallback!(loop);
+      };
+      this.rvfcId = el.requestVideoFrameCallback(loop);
+      return;
+    }
+    // Sondeo con requestAnimationFrame para los elementos que no tienen rVFC — es decir,
+    // todo `<audio>`, en todos los navegadores.
+    //
+    // Existe por una medición del bake-off. Con solo `timeupdate`, el desfase p95 de la
+    // opción A salió 483-541 ms contra los 86-120 ms de la opción B, y era tentador
+    // anotarlo como una ventaja del vídeo. No lo es: `<video>` expone rVFC y `<audio>` no,
+    // pero `audio.currentTime` se puede leer en cada fotograma igual de bien. Los 500 ms
+    // eran una omisión de diez líneas en NUESTRO código, no un límite del camino DOM, y
+    // dejarlos habría hecho que el criterio 5 midiera nuestro descuido.
+    //
+    // El bucle solo corre mientras hay reproducción: `stopFine` lo corta en `pause`.
+    // El `typeof` no es paranoia: este motor se ejecuta también fuera del navegador —la
+    // prueba de invariantes lo corre en node— y allí `requestAnimationFrame` no existe.
+    // Sin la guarda, el motor lanzaba en el primer `play`.
+    if (typeof requestAnimationFrame !== "function") return;
+    this.fuente = "raf";
+    const rafLoop = (): void => {
+      if (this.audio.paused) { this.rafId = null; return; }
       this.tick();
-      if (!this.audio.paused) this.rvfcId = el.requestVideoFrameCallback!(loop);
+      this.rafId = requestAnimationFrame(rafLoop);
     };
-    this.rvfcId = el.requestVideoFrameCallback(loop);
+    this.rafId = requestAnimationFrame(rafLoop);
   };
 
   private stopFine = (): void => {
     this.rvfcId = null;
+    if (this.rafId !== null) {
+      if (typeof cancelAnimationFrame === "function") cancelAnimationFrame(this.rafId);
+      this.rafId = null;
+    }
   };
 
   private unblock = (): void => {
@@ -213,7 +242,7 @@ export class CueEngine {
    *  nada en el informe recordaría preguntarlo. */
   resumenDesfase(): {
     n: number; p50: number; p95: number; max: number;
-    fuente: "timeupdate" | "rvfc";
+    fuente: "timeupdate" | "rvfc" | "raf";
   } {
     const v = this.telemetria.map((f) => f.desfase_ms).sort((a, b) => a - b);
     const fuente = this.fuente;

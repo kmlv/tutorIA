@@ -66,7 +66,7 @@ export interface MediaAdapter {
    *  clocks, and the bake-off report has to be able to say so. */
   lagSummary(): {
     n: number; p50: number; p95: number; max: number;
-    fuente: "timeupdate" | "rvfc";
+    fuente: "timeupdate" | "rvfc" | "raf";
   };
   destroy(): void;
 }
@@ -107,7 +107,7 @@ export class HtmlAudioAdapter implements MediaAdapter {
 
   lagSummary(): {
     n: number; p50: number; p95: number; max: number;
-    fuente: "timeupdate" | "rvfc";
+    fuente: "timeupdate" | "rvfc" | "raf";
   } {
     return this.engine?.resumenDesfase()
       ?? { n: 0, p50: 0, p95: 0, max: 0, fuente: "timeupdate" as const };
@@ -199,7 +199,7 @@ export class VideoAdapter implements MediaAdapter {
 
   lagSummary(): {
     n: number; p50: number; p95: number; max: number;
-    fuente: "timeupdate" | "rvfc";
+    fuente: "timeupdate" | "rvfc" | "raf";
   } {
     return this.engine?.resumenDesfase()
       ?? { n: 0, p50: 0, p95: 0, max: 0, fuente: "timeupdate" as const };

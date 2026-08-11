@@ -11,6 +11,22 @@
  * Se corre con `node`, sin navegador: el motor solo necesita un objeto con
  * addEventListener y currentTime.
  */
+// El motor sondea con requestAnimationFrame cuando el elemento no tiene rVFC — que es
+// todo <audio>. Aquí se sustituye por una cola controlable: sin esto la prueba solo
+// ejercitaba el camino de `timeupdate`, y el camino que usa la opción A en producción se
+// quedaba sin cubrir.
+const colaRaf = [];
+globalThis.requestAnimationFrame = (cb) => { colaRaf.push(cb); return colaRaf.length; };
+globalThis.cancelAnimationFrame = () => {};
+globalThis.__resetRaf = () => { colaRaf.length = 0; };
+globalThis.__pendientesRaf = () => colaRaf.length;
+globalThis.__drenarRaf = (n = 1) => {
+  for (let i = 0; i < n; i++) {
+    const cb = colaRaf.shift();
+    if (cb) cb();
+  }
+};
+
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
@@ -68,3 +84,39 @@ const dos = [
 assert.deepEqual(run(dos, new Set()), ["a", "b"]);
 
 console.log("  sync invariant ok: checkpoint y prediction detienen el tick; graph no");
+
+// El sondeo con requestAnimationFrame: el camino que usa la opción A en producción.
+//
+// Existe porque el bake-off midió el desfase p95 de A en 483-541 ms contra 86-120 ms de
+// B, y era tentador anotarlo como ventaja del vídeo. No lo es: `<video>` expone rVFC y
+// `<audio>` no, pero `audio.currentTime` se lee igual de bien en cada fotograma. Sin esta
+// prueba, el bucle nuevo se ejercitaba solo en un navegador.
+{
+  // Las pruebas anteriores dejaron callbacks encolados que nadie drenó: sin este reset,
+  // `__drenarRaf(1)` sacaba uno de ellos, atado a otro motor, y aquí no disparaba nada.
+  globalThis.__resetRaf();
+  const m = fakeMedia();
+  const e = new CueEngine(m, { cues: [{ id: "uno", type: "graph", t: 1 }] });
+  const vistos = [];
+  e.onCue((f) => vistos.push(f.cue.id));
+
+  m.paused = false;
+  m.fire("play");                     // arranca el bucle de rAF
+  m.currentTime = 2;                  // avanza el reloj SIN emitir `timeupdate`
+  globalThis.__drenarRaf(1);
+
+  assert.deepEqual(vistos, ["uno"],
+    "el cue debe disparar por rAF aunque `timeupdate` no llegue nunca");
+  assert.equal(e.resumenDesfase().fuente, "raf",
+    `la fuente del reloj debe quedar registrada como raf, es ${e.resumenDesfase().fuente}`);
+
+  // Y al pausar, el bucle se corta: si siguiera, sondearía para siempre en segundo plano.
+  m.paused = true;
+  m.fire("pause");
+  globalThis.__drenarRaf(3);
+  assert.equal(vistos.length, 1, "en pausa no debe dispararse nada más");
+  assert.equal(globalThis.__pendientesRaf(), 0,
+    "el bucle no debe reencolarse tras la pausa: sondearía para siempre en segundo plano");
+}
+
+console.log("  sync raf ok: dispara sin timeupdate y se detiene en pause");
