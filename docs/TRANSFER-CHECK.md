@@ -254,3 +254,72 @@ The log is append-only and complete, so **the statistic can be computed later fr
 **Dropped, and recoverable later from the same log at zero loss:** `assist.py` and the readout entirely (a SQL query over `answers` + `events` reconstructs all four cells whenever we want them); `assist_pulled` as a stored column (derivable from `chat_messages.question_id` retroactively); the instructor-diagnosis row; the `practice.item_shown` event; the tier-matching preference; the five validator rules; the `assist_nudge_shown` event; the remaining five nudges.
 
 **Not droppable at any budget, because dropping them turns this into something else:** the seed and the resolved order in the event payload (without them the arms are a story, not an experiment); `con_andamiaje=1` on push rows (without it the schema lies); the absence of any `flags` write; and the rule that no nudge contains a digit or a question mark — enforced by eye if the validator is cut, but enforced.
+
+---
+
+## Apéndice — estado de la implementación (2026-08-11)
+
+Construida la **mitad de recogida** del §7. La lectura NO está, a propósito: el log es
+append-only y completo, así que las cuatro celdas se reconstruyen después. Recoger tiene
+fecha límite; analizar no.
+
+### Lo que existe
+
+`app/server/core/mastery/assist.py` (capa de emparejamiento, moneda con semilla, filtro
+on-target), las seis columnas de `answers` y `chat_messages.question_id` vía
+`_ensure_column`, los tres tipos de evento, el renderizado de la pista antes de montar la
+pregunta, `think_ms` medido en el cliente, dos reglas duras en el validador, y
+`tests/test_d1_rnp.py` con las propiedades que sostienen el diseño.
+
+### Dos desviaciones de la especificación, con su motivo
+
+**1. El desempate del selector.** La especificación dice que la capa solo decide si el
+ítem que el selector devolvió abre o cierra un bloque, y nada más. Con esa regla al pie de
+la letra, **un par abierto casi nunca llegaba a cerrarse** —comprobado recorriendo una
+sesión: el bloque abría en `q_cs_p_mcq` y el ítem siguiente era otro— y un par a medias no
+aporta ninguna observación, porque las dos celdas exigen las dos posiciones.
+
+`next_question` recibe ahora `preferir`, que gana **empates y solo empates**. El desempate
+final de ese selector era el id alfabético, que es arbitrario por construcción: llegados
+ahí, la pedagogía ya declaró equivalentes a los candidatos que quedan. La capa sigue sin
+poder elegir contenido; solo ordena dos ítems intercambiables.
+
+**2. Un fallo del producto que salió por el camino.** Con el juez en sombra, un ítem
+abierto se juzga y se guarda con `shadow = 1`, así que `evidence()` no lo devuelve nunca.
+El selector contaba las vistas desde la evidencia, de modo que ese ítem se quedaba en
+"visto 0 veces" **para siempre**, ganaba el orden de menos-visto en cada vuelta, y el
+alumno recibía la misma pregunta abierta hasta el tope de 40 del bucle de práctica. Y como
+tampoco producía evidencia, su sub-skill no alcanzaba dominio jamás: el concepto entero era
+inalcanzable. Arreglado separando servir de puntuar (`vistas`). No es de D-1, pero sin
+arreglarlo D-1 no se podía ni probar.
+
+### El rendimiento real, medido
+
+**2 pares por sesión**, en `BL.CS.P` y `BL.SLOPE`, con los dos órdenes de la moneda
+apareciendo. Es el extremo bajo de lo que el §6 predijo, y con **dos** pistas redactadas de
+siete: sin `nudge` no hay ítem empujable, y solo `BL-M1` y `BL-M3` lo tienen. Las otras
+cuatro sub-skills esenciales dan cero pares.
+
+Eso es exactamente lo que el §6 llamó "el fracaso parcial que ES el hallazgo": pone precio
+a la autoría antes de que nadie la pague. Escribir las cinco pistas que faltan no compra
+cinco pares — compra los pares de las sub-skills cuya pareja además comparte clase de
+corrector, que hay que contar una por una.
+
+### La lectura, cuando toque
+
+No hace falta código nuevo para empezar. Las cuatro celdas salen de una consulta:
+
+```sql
+SELECT assist_arm, pair_pos, COUNT(*) n, AVG(score >= 1.0) p
+FROM answers
+WHERE shadow = 0 AND attempt = 1 AND assist_arm IN ('push','solo')
+  AND pair_id IN (SELECT pair_id FROM answers
+                  WHERE pair_id IS NOT NULL AND attempt = 1
+                  GROUP BY pair_id HAVING COUNT(DISTINCT pair_pos) = 2)
+GROUP BY assist_arm, pair_pos;
+```
+
+`transfer = p(solo@2) − p(solo@1)`; `assist_lift = p(push@1) − p(solo@1)`. **La compuerta
+del §3 sigue en pie**: por debajo de 5 observaciones por celda no se rinde ningún estimador
+puntual, solo los conteos y la cadena literal "datos insuficientes — solo comprobación de
+fontanería". Con un alumno la compuerta no se abre, y esa es la conducta correcta.
