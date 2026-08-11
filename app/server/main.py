@@ -14,6 +14,7 @@ from pydantic import BaseModel
 
 from app.server.config import load_dotenv
 from app.server.core import chat, mastery
+from app.server.core.mastery import assist
 from app.server.core.content.loader import FilesystemPackSource
 from app.server.core.judge import shadow
 from app.server.core.judge.deterministic import grade
@@ -90,6 +91,11 @@ class AnswerIn(BaseModel):
     question_id: str
     valor: object
     con_andamiaje: bool = False
+    #: Milisegundos entre que se pintó el ítem y que se envió. Es una COVARIABLE guardada,
+    #: nunca una entrada de ninguna regla: ningún veredicto ni marca se condiciona a ella.
+    #: Un suelo de latencia anula verdaderos positivos —ejecutar una receta de memoria es
+    #: rápido y confundirse de verdad es lento— y conserva los confusores.
+    think_ms: int | None = None
 
 
 @app.post("/api/session/{session_id}/answer")
@@ -112,10 +118,31 @@ def post_answer(session_id: str, body: AnswerIn) -> dict:
         return r.student_payload
 
     v = grade(q, body.valor, pack.ejemplo)
+    # El brazo se lee del log, no de lo que diga el cliente. Si el navegador pudiera
+    # declarar su propio brazo, la asignación dejaría de estar aleatorizada en el momento
+    # en que alguien abriera las herramientas de desarrollo.
+    sitio = assist.situar(
+        assist.bloques_del_log(repo.events(session_id)),
+        {r["question_id"] for r in repo.answers(session_id)},
+        q.id,
+    )
+    brazo, pair_id, pos, probe = assist.NA, None, None, None
+    if sitio:
+        bloque, pos = sitio
+        brazo = bloque.arm(pos)
+        pair_id = bloque.pair_id
+        probe = (bloque.probe_q1 if pos == 1 else bloque.probe_q2) if brazo == assist.PUSH else None
+
     repo.record_answer(
         session_id=session_id, question_id=q.id, modalidad=q.modalidad,
         raw_answer=body.valor, grader="deterministic", score=v.score,
-        misconception_id=v.misconception_id, con_andamiaje=body.con_andamiaje,
+        misconception_id=v.misconception_id,
+        # Una respuesta con pista ES asistida. Registrarla como no asistida sería una
+        # mentira en el esquema, y excluirla de la evidencia partiría por la mitad el
+        # rendimiento de un presupuesto de 12 ítems. El criterio ya sabe pesar eso.
+        con_andamiaje=body.con_andamiaje or brazo == assist.PUSH,
+        assist_arm=brazo, pair_id=pair_id, pair_pos=pos, probe_id=probe,
+        think_ms=body.think_ms,
     )
     repo.append_event(session_id, "answer.judged", {
         "question_id": q.id, "correcta": v.correcta,
@@ -202,10 +229,11 @@ def post_chat(session_id: str, body: ChatIn) -> dict:
 
     if not r.limited:
         repo.record_chat(session_id=session_id, role="user", content=body.pregunta,
-                         phase=row["phase"])
+                         phase=row["phase"], question_id=body.question_id)
         repo.record_chat(session_id=session_id, role="assistant", content=r.text,
                          phase=row["phase"], model=r.model,
-                         tokens_in=r.tokens_in, tokens_out=r.tokens_out)
+                         tokens_in=r.tokens_in, tokens_out=r.tokens_out,
+                         question_id=body.question_id)
     if r.blocked:
         # Recorded, not swallowed: how often the tutor tries to solve is a number we
         # want. It is the only direct measure we have of the failure mode that made the
@@ -266,7 +294,21 @@ def read_next(session_id: str) -> dict:
         raise HTTPException(status_code=404, detail="sesión desconocida")
     states, evidence, ctx = _mastery(session_id, row)
     pack, lang = ctx["pack"], row["lang"]
-    choice = mastery.next_question(pack, states, evidence)
+
+    # Si hay un par a medias, su segundo ítem entra como DESEMPATE del selector: solo
+    # gana entre candidatos que la pedagogía ya declaró equivalentes. Ver `next_question`.
+    eventos = repo.events(session_id)
+    contestadas = {r["question_id"] for r in repo.answers(session_id)}
+    bloques = assist.bloques_del_log(eventos)
+    medio = assist.a_medias(bloques, contestadas)
+    # `vistas` se cuenta sobre TODAS las respuestas, incluidas las del juez en sombra que
+    # `evidence()` filtra. Ver `next_question`: sin esto un ítem abierto se repite sin fin.
+    servidas: dict[str, int] = {}
+    for r in repo.answers(session_id):
+        servidas[r["question_id"]] = servidas.get(r["question_id"], 0) + 1
+    choice = mastery.next_question(pack, states, evidence,
+                                   preferir=medio.q2 if medio else None,
+                                   vistas=servidas)
 
     out: dict = {"done": choice.done}
     if choice.question is None:
@@ -287,8 +329,44 @@ def read_next(session_id: str) -> dict:
         ) if q.modalidad == "manip" else None,
     }
 
+    # --- D-1 / RNP: la capa de emparejamiento -----------------------------------
+    # Va POR ENCIMA del selector y no dentro: el selector conserva intacta su lógica
+    # pedagógica y esta capa solo decide si el ítem que devolvió abre o cierra un bloque.
+    # Al revés —dejando que el experimento eligiera ítem— el diseño estaría escogiendo qué
+    # se enseña, que es exactamente lo que no puede hacer.
     st = states.get(choice.subskill_id)
     rem = mastery.remediation_for(pack, st, evidence) if st else None
+
+    sitio = assist.situar(bloques, contestadas, q.id)
+
+    # La remediación manda sobre el experimento. Si hay una confusión en medio, el alumno
+    # necesita la sonda socrática, no una pista aleatorizada: el bloque se rompe y su
+    # huérfano queda fuera del estadístico por el filtro de universo de la lectura.
+    if sitio is None and rem is None:
+        nuevo = assist.abrir_bloque(pack, session_id, q, contestadas, len(bloques))
+        if nuevo is not None:
+            repo.append_event(session_id, assist.TIPO_BLOQUE, nuevo.payload())
+            bloques.append(nuevo)
+            sitio = assist.situar(bloques, contestadas, q.id)
+
+    brazo = assist.NA
+    if sitio:
+        bloque, pos = sitio
+        brazo = bloque.arm(pos)
+        if brazo == assist.PUSH:
+            probe = bloque.probe_q1 if pos == 1 else bloque.probe_q2
+            out["assist"] = {"arm": brazo,
+                             "texto": assist.texto_del_nudge(pack, probe, lang)}
+            repo.append_event(session_id, assist.TIPO_NUDGE,
+                              {"pair_id": bloque.pair_id, "question_id": q.id,
+                               "probe_id": probe})
+    if "assist" not in out:
+        out["assist"] = {"arm": brazo}
+    # Practice was the one phase with no shown->answered trace at all.
+    repo.append_event(session_id, "practice.item_shown",
+                      {"question_id": q.id, "pair_id": sitio[0].pair_id if sitio else None,
+                       "assist_arm": brazo})
+
     if rem:
         repo.record_remediation(session_id=session_id, subskill_id=rem.subskill_id,
                                 action_type=rem.action, trigger_rule=rem.rule)

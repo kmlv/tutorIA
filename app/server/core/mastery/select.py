@@ -111,7 +111,30 @@ def _target_subskill(pack: Pack, states: dict[str, SubSkillState]) -> SubSkillSt
 
 
 def next_question(pack: Pack, states: dict[str, SubSkillState], evidence: list[Evidence],
-                  *, exclude: set[str] | None = None) -> Choice:
+                  *, exclude: set[str] | None = None,
+                  preferir: str | None = None,
+                  vistas: dict[str, int] | None = None) -> Choice:
+    """`preferir` gana EMPATES, y solo empates.
+
+    El desempate final de este selector era el id alfabético, que es arbitrario por
+    construcción: llegados ahí, la pedagogía ya declaró equivalentes a los candidatos que
+    quedan. Poner ahí una preferencia externa no cambia qué se enseña; cambia cuál de dos
+    ítems intercambiables sale primero.
+
+    La distinción importa porque quien la usa es la capa de emparejamiento de D-1, y esa
+    capa tiene prohibido elegir el contenido. Con el desempate alfabético, un par abierto
+    casi nunca llegaba a cerrarse —comprobado: el bloque abría y el ítem siguiente era
+    otro— y un par a medias no aporta ninguna observación. Sin esto el experimento no
+    recoge nada; con esto no decide nada.
+
+    `vistas` cuenta cuántas veces se SIRVIÓ cada ítem, que no es lo mismo que cuántas
+    veces produjo evidencia. Con el juez en sombra, un ítem abierto se contesta, se juzga
+    y se guarda con `shadow = 1`, así que `evidence()` no lo devuelve nunca — y contando
+    desde la evidencia se quedaba en "visto 0 veces" para siempre, ganaba el orden de
+    menos-visto en cada vuelta, y el alumno recibía la MISMA pregunta abierta hasta el
+    tope de 40 del bucle de práctica. Comprobado en una sesión real. Servir y puntuar son
+    dos cosas distintas y esto es lo que las separa.
+    """
     exclude = set(exclude or ())
     if evidence:
         # Never the same item twice in a row: it reads as the tutor not having noticed.
@@ -176,6 +199,10 @@ def next_question(pack: Pack, states: dict[str, SubSkillState], evidence: list[E
     # Least-seen first, then lowest tier. Least-seen before tier so the bank is used
     # before anything is repeated — a repeat is weaker evidence than a fresh item, since
     # the student may be remembering the answer rather than deriving it.
-    pick = sorted(pool, key=lambda q: (_times_seen(evidence, q.id), q.tier, q.id))[0]
+    def veces(qid: str) -> int:
+        return vistas[qid] if vistas is not None and qid in vistas else _times_seen(evidence, qid)
+
+    pick = sorted(pool, key=lambda q: (veces(q.id), q.tier,
+                                       0 if q.id == preferir else 1, q.id))[0]
     reasons.append(f"tier {pick.tier}, {pick.modalidad}")
     return Choice(pick, st.id, reason="; ".join(reasons))
