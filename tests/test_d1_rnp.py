@@ -28,6 +28,10 @@ def test_la_pista_nunca_puede_entregar_la_respuesta(pack) -> None:
     """Sin dígitos: es lo que hace estructuralmente imposible que una pista mostrada
     ANTES de contestar contenga el resultado del ítem que precede. Comprobable en una
     línea, a diferencia de "a un revisor le parece justo"."""
+    # Sin este conteo la prueba pasa cuando no hay NINGUNA pista, que es como empezó el
+    # repositorio y como quedaría si alguien borra el campo. La prueba de extremo a extremo
+    # ya enseñó lo que cuesta una aserción que nunca se ejecuta.
+    assert sum(1 for m in pack.misconceptions if m.nudge) >= 2
     for m in pack.misconceptions:
         if m.nudge is None:
             continue
@@ -44,9 +48,12 @@ def test_la_sonda_siempre_pertenece_a_la_sub_skill(pack) -> None:
     """El filtro on-target. Empujar sobre pendiente justo antes de una pregunta de
     interceptos es peor que callarse: es el tutor sin escuchar, y quedaría en el log como
     una observación tratada."""
+    comprobados = 0
     for q in pack.questions:
         for mid in assist.on_target(pack, q):
+            comprobados += 1
             assert q.subskill_primary in pack.misconception(mid).subskills
+    assert comprobados >= 5, "on_target no devolvió nada: la prueba no comprobó nada"
 
 
 def test_el_dominio_sigue_alcanzable_bajo_cualquier_asignacion() -> None:
@@ -105,11 +112,15 @@ def test_el_brazo_es_recuperable_del_log(tmp_path, pack) -> None:
 
 
 def test_exactamente_un_empuje_por_bloque(pack) -> None:
+    """Y que la moneda no esté pegada: 40 semillas tienen que producir los dos órdenes."""
+    ordenes = set()
     for i in range(40):
         q1 = next(q for q in pack.questions if assist.es_emparejable(pack, q))
         b = assist.abrir_bloque(pack, f"s{i}", q1, set(), 0)
         assert b is not None
         assert sorted(b.orden) == [assist.PUSH, assist.SOLO]
+        ordenes.add(b.orden)
+    assert len(ordenes) == 2, f"la moneda siempre sale igual: {ordenes}"
 
 
 def test_un_bloque_cerrado_ya_no_reclama_sus_items(pack) -> None:
