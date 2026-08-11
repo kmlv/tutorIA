@@ -52,6 +52,28 @@ descubrirla.**
 | Acabado | 5 | 3 | A es vector a cualquier zoom, con KaTeX en la ecuación. B es un ráster de 1120×920 escalado a ~575 px: el texto queda blando y los subíndices se sientan raro. |
 | **media** | **4,8** | **3,6** | |
 
+## Añadido tras verlo en vivo (Kristian, 2026-08-11)
+
+Los cinco instantes de la rúbrica caen todos después del segundo 44, que es cuando la
+lección empieza a dibujar. **Ninguno captura los primeros cuarenta y cuatro segundos**, y
+ahí la opción B tiene su peor momento:
+
+La lección no dibuja nada hasta `espacio` (t=44,3), a propósito — la narración está
+introduciendo la idea antes de que el plano exista. En la opción A eso es fondo de página:
+no se ve, no molesta. En B es **un rectángulo blanco opaco** en mitad de la pantalla
+durante casi un minuto. El mismo vacío pedagógico se lee como pantalla rota, y le toca al
+minuto uno.
+
+Es la misma limitación estructural que ya está anotada abajo —un MP4 no puede ser
+transparente ni seguir el tema de la página— pero es su cara más dañina, y la rúbrica no
+la habría encontrado porque eligió sus instantes por lo que el guion HACE en ellos. Un
+instante donde el guion no hace nada no estaba en la lista.
+
+**No cambio la nota de c1 por esto**, y lo digo para que se pueda revisar: la rúbrica se
+pre-registró y modificarla después de ver un resultado es exactamente lo que el
+pre-registro existe para impedir. Queda como evidencia adicional, en el mismo sentido que
+la nota que ya había.
+
 ## Lo que esta nota no dice
 
 No mide aprendizaje. Cinco cuadros fijos no dicen si un alumno entiende mejor el pivote en
