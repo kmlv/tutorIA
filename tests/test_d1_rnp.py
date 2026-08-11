@@ -286,3 +286,18 @@ def test_una_respuesta_con_pista_queda_registrada_como_asistida(tmp_path, pack) 
           if e["type"] == assist.TIPO_BLOQUE]
     for p in ev:
         assert p["seed"] and p["orden"] and p["q1"] and p["q2"]
+
+
+def test_ningun_item_del_juez_llm_puede_emparejarse(pack) -> None:
+    """El camino de escritura de una respuesta abierta es `shadow.run`, que no lleva las
+    columnas del experimento. Un par de dos ítems abiertos se abriría, serviría los dos
+    brazos, mostraría la pista, y no registraría ninguno: la asignación existiría solo en
+    el log de eventos, sin ningún resultado atado a ella.
+
+    En ESTE pack no puede formarse ese par —cada ítem abierto es el único de su sub-skill—
+    así que el agujero era invisible y se habría abierto el día que alguien escriba un
+    segundo. Por eso la exclusión es estructural y no incidental."""
+    abiertos = [q for q in pack.questions if q.grader == "llm"]
+    assert abiertos, "el pack no tiene ítems del juez: esta prueba no comprobaría nada"
+    for q in abiertos:
+        assert not assist.es_emparejable(pack, q), q.id

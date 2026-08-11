@@ -97,8 +97,19 @@ def es_emparejable(pack: Pack, q: Question) -> bool:
     Scaffolded items are out because the arm is defined by whether help was volunteered,
     and an item that already carries help has the treatment baked in. Items with no
     on-target nudge are out because there is nothing to push with.
+
+    LLM-judged items are out **structurally**, not incidentally. The write path for an
+    open answer is `shadow.run`, which does not carry the assist columns: a pair of two
+    open items would open, serve both arms, show the nudge, and then record neither arm —
+    the assignment would exist only in the event log with no outcome attached to it. In
+    THIS pack no such pair can form (every open item is the only one in its sub-skill), so
+    the hole was invisible and would have opened the day someone wrote a second one.
+
+    The exclusion is also right on its own terms: pairing across grader classes puts judge
+    leniency inside the contrast, and D-1 does not measure judge validity — the shadow
+    bake-off does.
     """
-    return (not q.prediction and not q.andamiaje
+    return (not q.prediction and not q.andamiaje and q.grader == "deterministic"
             and bool(on_target(pack, q)) and bool(pack.misconception(on_target(pack, q)[0]).nudge))
 
 
@@ -172,11 +183,11 @@ TIPO_NUDGE = "assist_nudge_shown"
 
 
 def bloques_del_log(eventos: list) -> list[Bloque]:
+    import json as _json
     fuera = []
     for e in eventos:
         if e["type"] != TIPO_BLOQUE:
             continue
-        import json as _json
         d = _json.loads(e["payload"]) if isinstance(e["payload"], str) else e["payload"]
         fuera.append(Bloque(
             pair_id=d["pair_id"], subskill_id=d["subskill_id"], q1=d["q1"], q2=d["q2"],
