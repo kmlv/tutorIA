@@ -103,6 +103,13 @@ def _fill_templates(pack: Pack) -> None:
         for kp in q.key_points or []:
             kp.es = apply(kp.es)
             kp.en = apply(kp.en)
+        # `opciones` quedaban fuera. Hoy ninguna usa plantilla, asi que no era un fallo
+        # vivo — era una trampa: el dia que alguien escriba "sube de {{m}} a 150" en un
+        # distractor, el alumno leeria las llaves en pantalla y nadie lo veria hasta que
+        # lo viera un alumno. Cuesta dos lineas cerrarla.
+        for o in q.opciones or []:
+            o.es = apply(o.es)
+            o.en = apply(o.en)
 
 
 def _fmt(v: float) -> str:

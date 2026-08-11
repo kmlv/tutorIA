@@ -9,6 +9,7 @@ Uso:  validate_pack.py content/packs/<pack>
 from __future__ import annotations
 
 import pathlib
+import re
 import sys
 
 import yaml
@@ -96,6 +97,18 @@ def main() -> int:
         qids = [q["id"] for q in qs]
         if len(qids) != len(set(qids)):
             errs.append("questions.yaml: ids duplicados")
+
+        # Ninguna plantilla puede sobrevivir hasta la pantalla. El loader sustituye un
+        # conjunto FIJO de nombres ({{p1}}, {{m}}, {{slope}}...) y un `{{ingreso}}` mal
+        # escrito no falla: se queda tal cual y el alumno lee las llaves. Esto lo caza
+        # aqui, contra el texto crudo, en vez de en la cara de alguien.
+        CONOCIDAS = {"p1", "p2", "m", "slope", "slope_abs", "intercept_x1", "intercept_x2"}
+        for m in re.finditer(r"\{\{\s*([\w.]+)\s*\}\}", qfile.read_text(encoding="utf-8")):
+            if m.group(1) not in CONOCIDAS:
+                errs.append(
+                    f"questions.yaml: plantilla desconocida {{{{{m.group(1)}}}}}; "
+                    f"el loader solo sustituye {sorted(CONOCIDAS)}"
+                )
 
         for q in qs:
             qid = q["id"]
