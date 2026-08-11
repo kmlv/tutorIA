@@ -1,5 +1,28 @@
 # M4 BUILD PLAN
 
+> **ESTADO (2026-08-11): M4 EJECUTADO Y CERRADO. Este documento es el plan, no el
+> resultado.** Se conserva sin reescribir porque su valor ahora es el registro de qué se
+> planeó ANTES de medir; corregirlo a posteriori borraría justo eso.
+>
+> Dónde está la verdad actual:
+> - Resultado y cifras medidas → `bakeoff/02-informe.md`
+> - Bitácora del brazo B → `docs/M4-BRAZO-B.md`
+> - Puntuación del criterio 1 → `bakeoff/01-criterio-1.md`
+> - Matriz y barrido → `bakeoff/results.yaml`, `bakeoff/score.py`
+>
+> **Lo que ha caducado de este texto.** Las referencias a `aplicarCue` y `paintLedger`
+> como `switch` sin rama por defecto describen el código de antes de D-3: los dos son hoy
+> intérpretes de un documento de datos (`content/packs/<id>/graph.yaml`), y la compuerta
+> que el §5 pedía existe como `pipeline/check_cues.py` — no como el `validate_config.py`
+> que este plan nombra y que nunca llegó a escribirse con ese nombre. Los números de línea
+> de `main.ts` ya no corresponden.
+>
+> **Lo que el plan acertó y conviene no perder:** los dos avisos del §"maneras de hacerlo
+> inútil por accidente" se cumplieron los dos. Publicar el desfase sin normalizar
+> `requestVideoFrameCallback` habría dado al vídeo una victoria que no era suya —medido:
+> 4x— y correr un brazo antes de que existiera la compuerta habría hecho el criterio 2
+> inmedible.
+
 Written against the repo at `Kristian1` (85b728c), the four scouting reports, `docs/PLAN.md` §6 and `docs/M4-PREREGISTRO.md`. Every file reference below was checked, not remembered.
 
 ---

@@ -441,6 +441,10 @@ async function main(): Promise<void> {
   }
 
   // Instrumentation hook for browser tests and the criterion-5 measurement.
+  // La sesión cruda, para que un arnés pueda leer la timeline en vez de clavar segundos.
+  // El arnés de extremo a extremo saltaba a 85 s, que va justo antes de la predicción
+  // española y justo después de la inglesa: el inglés fallaba y el fallo era del arnés.
+  (window as unknown as Record<string, unknown>).__tutoriaSesion = session;
   (window as unknown as Record<string, unknown>).__tutoria = {
     media, dock, composer, practice,
     estado: () => estado, lag: () => media.lagSummary(),

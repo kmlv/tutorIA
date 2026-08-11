@@ -18,6 +18,7 @@ const exe = path.join(base, d, 'chrome-mac-arm64',
 
 const URL_BASE = process.argv[2] || 'http://localhost:61911';
 const variante = process.argv[3] || 'A';
+const lang = process.argv[4] || 'es';
 const fallos = [];
 const ok = (c, m) => { console.log(`  ${c ? '✓' : '✗'} ${m}`); if (!c) fallos.push(m); };
 
@@ -41,8 +42,8 @@ page.on('response', r => { if (r.status() >= 400) httpMalos.push(`${r.status()} 
 let nNext = 0;
 page.on('request', r => { if (/\/next$/.test(r.url())) nNext += 1; });
 
-console.log(`\n  variante ${variante}\n`);
-await page.goto(`${URL_BASE}/?lang=es&variant=${variante}`, {waitUntil:'domcontentloaded'});
+console.log(`\n  variante ${variante} · idioma ${lang}\n`);
+await page.goto(`${URL_BASE}/?lang=${lang}&variant=${variante}`, {waitUntil:'domcontentloaded'});
 await page.waitForFunction('window.__tutoria && window.__tutoria.media.duration() > 0',
                            null, {timeout:30000});
 
@@ -51,8 +52,20 @@ const guion = await page.evaluate("window.__tutoria.guion ?? null");
 ok(await page.evaluate("!!document.querySelector('.escenario')"), 'la lección monta');
 
 // 2. Reproducir hasta la primera predicción y comprobar que detiene.
-await page.evaluate("window.__tutoria.media.seek(85); window.__tutoria.media.play()");
-await page.waitForTimeout(4500);
+//
+// El instante se LEE de la timeline, no se clava. La primera versión saltaba a 85 s, que
+// es justo antes de la predicción española (87,0) y justo DESPUÉS de la inglesa (80,6):
+// el inglés fallaba dos comprobaciones y el fallo era del arnés. Con más packs por venir
+// —que es el punto entero de D-3— clavar un segundo es garantizar ese error otra vez.
+const marca = await page.evaluate(`(() => {
+  const s = window.__tutoriaSesion;
+  const c = (s?.media?.cues || []).filter(x => x.type === 'prediction' && x.t != null);
+  return c.length ? c[0].t : null;
+})()`);
+ok(marca !== null, `la timeline declara su primera predicción (t=${marca})`);
+await page.evaluate(`window.__tutoria.media.seek(${(marca ?? 85) - 2.5});
+                     window.__tutoria.media.play()`);
+await page.waitForTimeout(5000);
 const enPrediccion = await page.evaluate(`(() => ({
   pausado: window.__tutoria.media.paused(),
   t: +window.__tutoria.media.currentTime().toFixed(1),
