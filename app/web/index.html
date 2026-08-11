@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>tutorIA</title>
+<!-- Un favicon en línea. Sin él, cada sesión pide /favicon.ico, el servidor devuelve 404,
+     y ese 404 sale en la consola de todo el mundo — incluido el arnés de extremo a
+     extremo, donde tapaba los errores que sí importan. Data URI para no añadir una
+     petición más. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 14V2' stroke='%2375756e' fill='none'/%3E%3Cpath d='M2 14h12' stroke='%2375756e' fill='none'/%3E%3Cpath d='M3 4L11 13' stroke='%230b5cff' stroke-width='2' fill='none'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="/katex/katex.min.css">
 <link rel="stylesheet" href="/src/ledger/ledger.css">
 <link rel="stylesheet" href="/src/graph/graph.css">
