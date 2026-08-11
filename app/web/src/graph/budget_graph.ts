@@ -8,26 +8,15 @@
 import type { Ejemplo, GraphState } from "../types";
 import "./graph.css";
 
+// La máquina de estados vive en `state.ts` porque tiene que poder correr sin DOM: la
+// opción B del bake-off la ejecuta en node para generar sus fotogramas. Se reexporta
+// aquí para que quien ya la importaba de este módulo no cambie.
+export { estadoInicial, aplicarCue } from "./state";
+
 const NS = "http://www.w3.org/2000/svg";
 const W = 560;
 const H = 460;
 const PAD = { l: 62, r: 28, t: 34, b: 64 };
-
-export function estadoInicial(e: Ejemplo): GraphState {
-  return {
-    p1: e.p1,
-    p2: e.p2,
-    m: e.m,
-    mostrar: { ejes: false, linea: false, interceptos: false, conjunto: false, pendiente: false },
-    fantasma: null,
-    destacar: "ninguno",
-    // Placeholders: the fields exist so the type is stable, but nothing draws them yet.
-    // The display design consult (T-010) decides what they become; until then they are
-    // inert rather than half-implemented.
-    muestras: [],
-    enfasis: "ninguno",
-  };
-}
 
 export class BudgetGraph {
   private svg: SVGSVGElement;

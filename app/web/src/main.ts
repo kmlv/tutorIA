@@ -12,7 +12,8 @@
  */
 import { createAdapter, type MediaAdapter } from "./player/adapter";
 import type { CueFiring } from "./player/sync";
-import { BudgetGraph, estadoInicial } from "./graph/budget_graph";
+import { BudgetGraph } from "./graph/budget_graph";
+import { aplicarCue, estadoInicial } from "./graph/state";
 import { Dock } from "./chat/dock";
 import { Composer } from "./chat/composer";
 import { Ledger } from "./ledger/goods";
@@ -30,6 +31,10 @@ const variant = new URLSearchParams(location.search).get("variant") || "A";
  *  design review screenshots are taken, and it will be how the M4 bake-off captures the
  *  same instant across all four media options. */
 const seekParam = Number(new URLSearchParams(location.search).get("t"));
+/** `?reloj=grosero` forces every option onto `timeupdate`. Only the criterion-5
+ *  measurement uses it; see the constructor of `CueEngine` for why it has to exist. */
+const relojGrosero =
+  new URLSearchParams(location.search).get("reloj") === "grosero";
 
 const T = {
   es: { empezar: "Empezar", preguntar: "✋ Preguntar", pausa: "Pausa", seguir: "Seguir",
@@ -115,6 +120,7 @@ async function main(): Promise<void> {
       fantasma: { p1: ejemplo.p1, p2: ejemplo.p2, m: ejemplo.m },
       destacar: "ninguno",
     };
+    tomarEscenario();
     graph.render(estado);
 
     let valor: ManipValue | null = null;
@@ -154,11 +160,42 @@ async function main(): Promise<void> {
   const practice = new PracticeLoop(
     session.session_id, dock, flow, lang, evento, askManip);
 
-  const media: MediaAdapter = createAdapter(variant);
+  const media: MediaAdapter = createAdapter(variant, relojGrosero);
+  media.mount?.(app.querySelector(".stage") as HTMLElement);
+  // The layout knows about the ledger; the adapter must not. It says whether it owns the
+  // picture and this attribute is what the stylesheet reacts to.
+  escenario.dataset.escenario = media.ownsStage ? "media" : "dom";
   await media.load(session.media, "/media/budget-line");
 
   let estado: GraphState = estadoInicial(ejemplo);
-  graph.render(estado);
+
+  /**
+   * The one place that decides whether the DOM stage may paint.
+   *
+   * Before this, five call sites painted unconditionally. That was correct while option
+   * A was the only adapter — and it is exactly the assumption M4 has to break, because
+   * a pre-rendered video already contains the graph and the equation. Painting them
+   * again on top does not look like a bug on the first frame: it looks like a slightly
+   * blurry duplicate that drifts apart as the cue lag accumulates, which is the kind of
+   * thing that gets scored as "video quality" in a bake-off when it is really our own
+   * double-draw.
+   *
+   * Ownership is a property of the MOMENT, not of the technology. The picture goes back
+   * to the DOM as soon as the student has to touch it.
+   */
+  function pintar(cueId?: string): void {
+    if (media.ownsStage) return;
+    if (cueId) paintLedger(cueId);
+    graph.render(estado);
+  }
+
+  /** Takes the stage back for the interactive phase. Nothing pre-rendered can be dragged. */
+  function tomarEscenario(): void {
+    media.releaseStage?.();
+    escenario.dataset.escenario = "dom";
+  }
+
+  pintar();
 
   let pausedAt: { cp: string; ts: number } | null = null;
 
@@ -168,9 +205,9 @@ async function main(): Promise<void> {
     estado = estadoInicial(ejemplo);
     for (const c of media.cuesUntil(t)) {
       estado = aplicarCue(estado, c.id, ejemplo);
-      paintLedger(c.id);
+      if (!media.ownsStage) paintLedger(c.id);
     }
-    graph.render(estado);
+    pintar();
   }
 
   /**
@@ -215,9 +252,12 @@ async function main(): Promise<void> {
   }
 
   media.onCue((f: CueFiring) => {
+    // The state advances even when the video owns the picture: `estado` is what the
+    // practice loop, the tutor context and `?t=` review all read. Only the PAINTING is
+    // conditional. Skipping the state update instead would have been the tempting
+    // shortcut and would have left the stage blank the moment practice began.
     estado = aplicarCue(estado, f.cue.id, ejemplo);
-    graph.render(estado);
-    paintLedger(f.cue.id);
+    pintar(f.cue.id);
     cueActual = f.cue.id;
     evento("cue.fired", { id: f.cue.id, lag_ms: f.desfase_ms });
 
@@ -296,6 +336,10 @@ async function main(): Promise<void> {
   // and nothing happened, while the whole mastery engine sat on the server unreached.
   media.on("ended", () => {
     escenario.dataset.on = "";
+    // The narration is over, so whatever painted it hands the stage back. Under option A
+    // this is a no-op; under a video option it is what makes practice possible at all.
+    tomarEscenario();
+    pintar();
     void practice.start();
   });
 
@@ -360,13 +404,22 @@ async function main(): Promise<void> {
   // without playing anything. That is also what the M4 bake-off needs: capture the same
   // instant across four media technologies, three of which are pre-rendered video.
   if (Number.isFinite(seekParam) && seekParam > 0) {
+    // When something else owns the picture, showing an instant means MOVING it there.
+    // Replaying cues into a hidden DOM stage would leave the video sitting at zero while
+    // the app reported the right state — and `?t=` is precisely how the bake-off captures
+    // the same moment in both options, so a silent no-op here would have compared a
+    // rendered frame against a black one.
+    if (media.ownsStage) {
+      const ir = (): void => media.seek(seekParam);
+      if (media.duration() > 0) ir(); else media.on("loadedmetadata", ir);
+    }
     for (const c of (session.media.cues ?? [])) {
       if (c.t !== null && c.t <= seekParam) {
         estado = aplicarCue(estado, c.id, ejemplo);
-        paintLedger(c.id);
+        if (!media.ownsStage) paintLedger(c.id);
       }
     }
-    graph.render(estado);
+    pintar();
     captions.update(seekParam);
   }
 
@@ -375,36 +428,6 @@ async function main(): Promise<void> {
     media, dock, composer, practice,
     estado: () => estado, lag: () => media.lagSummary(),
   };
-}
-
-/** The script is in charge: every cue has a declared effect on the graph. */
-function aplicarCue(s: GraphState, id: string, e: Ejemplo): GraphState {
-  const n: GraphState = { ...s, mostrar: { ...s.mostrar } };
-  switch (id) {
-    case "espacio":      n.mostrar.ejes = true; break;
-    case "budget_set":   n.mostrar.linea = true; n.mostrar.conjunto = true; break;
-    case "budget_line":  n.mostrar.linea = true; break;
-    case "intercepts":   n.mostrar.interceptos = true; break;
-    case "slope":        n.mostrar.pendiente = true; n.destacar = "pendiente"; break;
-    case "income_shift":
-      n.fantasma = { p1: e.p1, p2: e.p2, m: e.m };
-      n.m = e.m * 1.5;
-      n.destacar = "ninguno";
-      break;
-    case "price_pivot":
-      n.m = e.m;
-      n.fantasma = { p1: e.p1, p2: e.p2, m: e.m };
-      n.p1 = e.p1 + 1;
-      n.destacar = "intercepto_x2";  // the one that does NOT move: that is the point
-      break;
-    case "recap":
-      n.fantasma = null;
-      n.p1 = e.p1;
-      n.m = e.m;
-      n.destacar = "ninguno";
-      break;
-  }
-  return n;
 }
 
 void main();

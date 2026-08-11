@@ -26,6 +26,23 @@ body[data-dock="oculto"] #app { grid-template-columns: 1fr 0; }
 .lienzo { max-width:min(620px, 100%); width:100%; height:100%;
   display:grid; align-items:center; }
 .bgraph { max-height:100%; }
+
+/* Opción B del bake-off. `contain` y no `cover`: recortar un gráfico para que llene la
+   caja se lleva por delante justo lo que hay que mirar — en la primera prueba el vídeo
+   se desbordó y el intercepto quedó por debajo del borde, con la lección aparentemente
+   intacta. Mejor bandas negras que un gráfico mutilado. */
+/* `width/height: 100%` con `object-fit: contain`, igual que hace `.lienzo`: la fila del
+   grid sí tiene altura definida, pero `max-height:100%` sobre un elemento de altura
+   automática no la resuelve y el vídeo se salía 13 px por abajo — lo justo para comerse
+   el subtítulo quemado. Con `contain` el aspecto no se deforma; sobra borde, no falta
+   imagen. */
+.video-escenario { max-width:min(620px, 100%); width:100%; height:100%;
+  object-fit:contain; display:block; margin:0 auto; min-height:0; }
+
+/* Mientras el vídeo es el escenario, el ledger no pinta: sus bandas se quedarían vacías
+   sobre un vídeo que ya trae sus propias etiquetas, que es peor que no tenerlas. */
+.escenario[data-escenario="media"] .bands { display:none; }
+
 .controles { padding:.5rem 1.1rem; margin-top:0; border-top:1px solid var(--line); }
 body[data-dock="abierto-activo"] .escenario { opacity:.55; }
 

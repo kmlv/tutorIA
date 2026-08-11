@@ -36,8 +36,27 @@ export class CueEngine {
   private blocked = false;
   readonly telemetria: CueFiring[] = [];
   private rvfcId: number | null = null;
+  /** Qué reloj disparó de verdad. Lo lee el informe del bake-off; ver `resumenDesfase`. */
+  private fuente: "timeupdate" | "rvfc" = "timeupdate";
 
-  constructor(private audio: HTMLMediaElement, timeline: Timeline) {
+  /**
+   * @param groseroForzado Obliga a usar solo `timeupdate` aunque el elemento ofrezca
+   *   `requestVideoFrameCallback`.
+   *
+   *   Existe por una trampa de medición del bake-off, no por una necesidad del producto.
+   *   La opción A monta `<audio>`, que NO tiene rVFC en ningún navegador, así que sondea
+   *   con `timeupdate` cada ~250 ms. La opción B monta `<video>`, que sí la tiene y
+   *   sondea por frame decodificado, ~16 ms. Comparar los desfases tal cual haría ganar
+   *   a B el criterio 5 por diez veces — y el número no diría nada sobre vídeo contra
+   *   SVG, solo sobre qué API de sondeo admite cada etiqueta HTML.
+   *
+   *   Con esto el informe puede dar las dos cifras y decir cuál es cuál: el desfase con
+   *   el mejor reloj que cada opción tiene (lo que vive el estudiante) y el desfase sobre
+   *   el reloj común (lo que compara las tecnologías). Las dos son legítimas; confundirlas
+   *   es lo que convierte un bake-off en una profecía.
+   */
+  constructor(private audio: HTMLMediaElement, timeline: Timeline,
+              private groseroForzado = false) {
     this.cues = timeline.cues
       .filter((c): c is Cue & { t: number } => c.t !== null)
       .sort((a, b) => a.t! - b.t!);
@@ -96,7 +115,9 @@ export class CueEngine {
     const el = this.audio as HTMLVideoElement & {
       requestVideoFrameCallback?: (cb: () => void) => number;
     };
+    if (this.groseroForzado) return;
     if (typeof el.requestVideoFrameCallback !== "function") return;
+    this.fuente = "rvfc";
     const loop = (): void => {
       this.tick();
       if (!this.audio.paused) this.rvfcId = el.requestVideoFrameCallback!(loop);
@@ -185,11 +206,19 @@ export class CueEngine {
     }
   }
 
-  /** p50 y p95 del desfase interno. Es el criterio 5 medido sin instrumentación externa. */
-  resumenDesfase(): { n: number; p50: number; p95: number; max: number } {
+  /** p50 y p95 del desfase interno. Es el criterio 5 medido sin instrumentación externa.
+   *
+   *  `fuente` viaja con los números a propósito: un p95 de 8 ms y uno de 240 ms no se
+   *  pueden poner en la misma columna si vienen de relojes distintos, y sin este campo
+   *  nada en el informe recordaría preguntarlo. */
+  resumenDesfase(): {
+    n: number; p50: number; p95: number; max: number;
+    fuente: "timeupdate" | "rvfc";
+  } {
     const v = this.telemetria.map((f) => f.desfase_ms).sort((a, b) => a - b);
-    if (!v.length) return { n: 0, p50: 0, p95: 0, max: 0 };
+    const fuente = this.fuente;
+    if (!v.length) return { n: 0, p50: 0, p95: 0, max: 0, fuente };
     const q = (p: number): number => v[Math.min(v.length - 1, Math.floor(v.length * p))];
-    return { n: v.length, p50: q(0.5), p95: q(0.95), max: v[v.length - 1] };
+    return { n: v.length, p50: q(0.5), p95: q(0.95), max: v[v.length - 1], fuente };
   }
 }

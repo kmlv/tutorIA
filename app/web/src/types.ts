@@ -18,6 +18,10 @@ export interface Timeline {
   cues: Cue[];
   /** Sentence-level transcript, added by pipeline/cues.py. Drives the caption band. */
   transcript?: Array<{ text: string; start_s: number; end_s: number; part_index: number }>;
+  /** Which bake-off option produced this timeline. "A" is the DOM/SVG path. */
+  variant?: string;
+  /** MP4 in the pack's media/, for the pre-rendered options. */
+  video?: string | null;
 }
 
 export interface Checkpoint {
