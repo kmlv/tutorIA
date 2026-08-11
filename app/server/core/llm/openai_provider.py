@@ -26,7 +26,7 @@ from __future__ import annotations
 import time
 from typing import Any
 
-from .provider import LLMError, LLMRefusal, LLMRequest, LLMResult
+from .provider import LLMError, LLMNoCredit, LLMRefusal, LLMRequest, LLMResult
 from .roles import ModelSpec
 
 #: `effort` in config/models.yaml is provider-neutral; this is where it lands for
@@ -95,6 +95,17 @@ class OpenAIProvider:
         except openai.APIConnectionError as e:
             raise LLMError(f"could not reach the provider: {e}") from e
         except openai.RateLimitError as e:
+            # Un 429 son DOS cosas distintas con remedios opuestos, y la API las manda
+            # por el mismo código: "vas muy rápido" (esperar y reintentar funciona) y
+            # "te quedaste sin crédito" (esperar no sirve; hay que poner dinero).
+            # Reportarlas igual costó 137 llamadas fallidas y un bake-off entero antes
+            # de que alguien leyera el cuerpo del error.
+            msg = str(e).lower()
+            if "no credits" in msg or "insufficient_quota" in msg or "billing" in msg:
+                raise LLMNoCredit(
+                    "la cuenta de OpenAI no tiene crédito: reintentar no sirve, hay que "
+                    "recargarla en https://platform.openai.com/settings/organization/billing"
+                ) from e
             raise LLMError(f"rate limited: {e}") from e
         except openai.BadRequestError as e:
             # Almost always our fault, not the network's: a schema strict mode rejects,

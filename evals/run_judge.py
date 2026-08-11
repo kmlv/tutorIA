@@ -20,6 +20,7 @@ import datetime
 import json
 import pathlib
 import sys
+import threading
 from concurrent.futures import ThreadPoolExecutor
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
@@ -70,10 +71,18 @@ def main() -> int:
     print(f"  ítems     {len(items)}")
     print(f"  proveedor {provider.name}\n")
 
+    parar = threading.Event()
+
     def one(item):
+        if parar.is_set():
+            return None
         q = by_id[item.question_id]
         v = judge_open(q, item.answer, pack, lang=item.lang,
                        provider=provider, spec=spec)
+        if v.error_kind == "no_credit":
+            # Sin saldo no hay reintento que valga. Se corta el lote entero en el primero
+            # en vez de acumular sesenta y nueve fallos idénticos.
+            parar.set()
         print(("  ok  " if not v.invalida else " FALLA") +
               f"  {item.id}  {v.latency_ms or 0:>6} ms  ${v.cost_usd:.5f}"
               + (f"  {v.error}" if v.error else ""))
@@ -86,6 +95,7 @@ def main() -> int:
                 v.judge.get("misconception_id") if isinstance(v.judge, dict) else None),
             "invalida": v.invalida,
             "error": v.error,
+            "error_kind": v.error_kind,
             "model": v.model,
             "prompt_version": v.prompt_version,
             "latency_ms": v.latency_ms,
@@ -94,7 +104,12 @@ def main() -> int:
         }
 
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
-        rows = list(pool.map(one, items))
+        rows = [r for r in pool.map(one, items) if r is not None]
+
+    if parar.is_set():
+        print("\n  CORTADO: la cuenta se quedó sin crédito. Recárgala y vuelve a correr.")
+        print("  https://platform.openai.com/settings/organization/billing\n")
+        return 2
 
     stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     safe_model = spec.model.replace("/", "_")

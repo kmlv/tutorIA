@@ -21,6 +21,12 @@ class LLMError(RuntimeError):
     never surface as a 500 to a student."""
 
 
+class LLMNoCredit(LLMError):
+    """La cuenta no tiene saldo. Es un 429 como el de rate limit, pero reintentar no
+    sirve y seguir intentando quema el resto del lote contra un muro. Se separa para que
+    quien llama pueda parar en el primero en vez de fallar sesenta y nueve veces."""
+
+
 class LLMRefusal(LLMError):
     """The provider's safety classifiers declined the request. Distinct from a transport
     failure because retrying the same prompt will not help, and because a refusal on a

@@ -1,11 +1,13 @@
 """Provider seam, role routing and cost accounting for every model call."""
 
 from .fake import FakeProvider
-from .provider import LLMError, LLMProvider, LLMRefusal, LLMRequest, LLMResult
+from .provider import (
+    LLMError, LLMNoCredit, LLMProvider, LLMRefusal, LLMRequest, LLMResult,
+)
 from .roles import ModelSpec, Router, RoutingError
 
 __all__ = [
-    "FakeProvider", "LLMError", "LLMProvider", "LLMRefusal", "LLMRequest",
+    "FakeProvider", "LLMError", "LLMNoCredit", "LLMProvider", "LLMRefusal", "LLMRequest",
     "LLMResult", "ModelSpec", "Router", "RoutingError",
 ]
 

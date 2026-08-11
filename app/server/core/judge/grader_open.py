@@ -29,7 +29,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from ..content.schema import Pack, Question
-from ..llm.provider import LLMError, LLMProvider, LLMRefusal, LLMRequest
+from ..llm.provider import LLMError, LLMNoCredit, LLMProvider, LLMRefusal, LLMRequest
 from ..llm.roles import ModelSpec, Router
 
 #: Bump on any change to the semantics of the prompt. The fingerprint appended at
@@ -91,6 +91,9 @@ class OpenVerdict:
     latency_ms: int | None = None
     cost_usd: float = 0.0
     error: str | None = None
+    #: Clase del fallo, no su texto. `run_judge` corta el lote con esto en vez de buscar
+    #: una palabra dentro del mensaje, que se rompe al traducirlo o al reescribirlo.
+    error_kind: str | None = None
 
 
 def prompt_fingerprint() -> str:
@@ -312,11 +315,15 @@ def judge_open(q: Question, answer: Any, pack: Pack, *, lang: str,
     except LLMRefusal as e:
         return OpenVerdict(False, 0.0, invalida=True, model=spec.model,
                            prompt_version=prompt_id(), error=str(e),
-                           judge={"refusal": str(e)})
+                           error_kind="refusal", judge={"refusal": str(e)})
+    except LLMNoCredit as e:
+        return OpenVerdict(False, 0.0, invalida=True, model=spec.model,
+                           prompt_version=prompt_id(), error=str(e),
+                           error_kind="no_credit", judge={"provider_error": str(e)})
     except LLMError as e:
         return OpenVerdict(False, 0.0, invalida=True, model=spec.model,
                            prompt_version=prompt_id(), error=str(e),
-                           judge={"provider_error": str(e)})
+                           error_kind="provider", judge={"provider_error": str(e)})
 
     try:
         data = validate_output(res.text, q, pack)

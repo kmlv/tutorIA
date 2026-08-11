@@ -197,10 +197,12 @@ def report(name: str, rows: list[dict], items_by_id: dict, pack,
     src = collections.Counter(i.source for i, _ in paired)
     synth = src.get("synthetic", 0)
     if synth:
-        print(f"\n  {MEH}  {synth}/{len(paired)} respuestas son SINTÉTICAS. Este reporte "
-              "mide si el juez")
-        print("          concuerda con Kristian, no si funciona con la prosa de un "
-              "alumno real.")
+        quien = "la intención con que se escribieron" if use_intent else "Kristian"
+        print(f"\n  {MEH}  {synth}/{len(paired)} respuestas son SINTÉTICAS: las escribió "
+              f"un modelo, no un alumno.")
+        print(f"          Este reporte mide si el juez concuerda con {quien}, no si "
+              "funciona con la")
+        print("          prosa de un chico de diecinueve años a medianoche.")
 
     if not paired:
         print(f"\n  {BAD}  nada que medir\n")
@@ -232,8 +234,9 @@ def report(name: str, rows: list[dict], items_by_id: dict, pack,
     fp = sum(1 for h, j in a["correctness"] if j and not h)
     fn = sum(1 for h, j in a["correctness"] if h and not j)
     if fp or fn:
-        print(f"   {DIM}el juez aprobó {fp} que tú reprobaste; reprobó {fn} que tú "
-              f"aprobaste{RST}")
+        ref_n = "la intención" if use_intent else "tú"
+        print(f"   {DIM}el juez aprobó {fp} que {ref_n} reprobaba; reprobó {fn} que "
+              f"{ref_n} aprobaba{RST}")
         if fp > fn:
             print(f"   {DIM}sesgo indulgente: el modo caro de fallar, porque promueve "
                   f"sin evidencia{RST}")
@@ -334,10 +337,19 @@ def report(name: str, rows: list[dict], items_by_id: dict, pack,
     print(f"   {OK if gate2 else BAD}  recall ≥{pct(RECALL_MIN)} en cada misconception "
           f"con n≥{RECALL_MIN_N}")
     print(f"   {OK if gate3 else BAD}  cero ids fuera de catálogo")
-    print(f"\n   {B}{'APROBADA' if passed else 'NO APROBADA'}{RST}")
-    if passed:
-        print(f"   {DIM}Para pasar a modo vivo: JUDGE_MODE=live y JUDGE_GATE_PASSED=1 "
-              f"en .env{RST}")
+    if use_intent:
+        # Sin este bloque, el pie decia "APROBADA" y ofrecia el comando para pasar a
+        # modo vivo, que es exactamente el malentendido que el encabezado intenta evitar.
+        print(f"\n   {B}{'SIMULADA: pasa contra la intención' if passed else 'NO PASA ni contra la intención'}{RST}")
+        print(f"   {MEH}  la compuerta NO está aprobada. La referencia es otro modelo, "
+              "no un humano.")
+        print(f"   {DIM}Para aprobarla de verdad: etiquetar con evals/label.py y correr "
+              f"este reporte sin --vs-intent.{RST}")
+    else:
+        print(f"\n   {B}{'APROBADA' if passed else 'NO APROBADA'}{RST}")
+        if passed:
+            print(f"   {DIM}Para pasar a modo vivo: JUDGE_MODE=live y "
+                  f"JUDGE_GATE_PASSED=1 en .env{RST}")
     print()
     return passed
 
@@ -378,6 +390,12 @@ def compare(runs: list[tuple[str, list[dict]]], items_by_id: dict, pack,
         model = r[0]["model"] if r else "?"
         cost = sum(x["cost_usd"] for _, x in a["paired"])
         lat = statistics.median([x["latency_ms"] or 0 for _, x in a["paired"]] or [0])
+        if n == 0:
+            # Una corrida entera inválida no es un modelo malo: es una corrida que no
+            # ocurrió. Meterla en la tabla con 0/0 la haría parecer un resultado.
+            print(f"  {MEH}  {model}: 0 veredictos válidos de {len(r)} — "
+                  f"corrida fallida, excluida de la comparación")
+            continue
         rows.append((model, k, n, wilson(k, n), kappa(a["correctness"]), cost, lat))
         q_by_id = {q.id: q for q in pack.questions}
         for item, x in a["paired"]:
