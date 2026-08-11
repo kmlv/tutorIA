@@ -109,6 +109,24 @@ class Opcion(BaseModel):
     misconception: str | None = None
 
 
+class KeyPoint(BaseModel):
+    """One line of the rubric the LLM judge grades an open answer against.
+
+    Typed rather than a bare dict because it IS the rubric: the judge reports presence
+    per key point and the score is computed from that here, not taken from the model's
+    own opinion of whether the answer was right.
+
+    `esencial` is what separates "must say this or the answer is wrong" from "nice to
+    have". Without it every listed point is load-bearing, which makes a two-point
+    rubric an all-or-nothing gate whether the author meant that or not.
+    """
+
+    id: str
+    es: str
+    en: str
+    esencial: bool = True
+
+
 class Question(BaseModel):
     id: str
     subskill_primary: str
@@ -123,7 +141,7 @@ class Question(BaseModel):
     opciones: list[Opcion] | None = None
     respuesta: dict | None = None
     verificacion: dict | None = None
-    key_points: list[dict] | None = None
+    key_points: list[KeyPoint] | None = None
     misconceptions_vigilar: list[str] = Field(default_factory=list)
     diagnostico_si_falla: dict | None = None
 
@@ -144,6 +162,16 @@ class Question(BaseModel):
                 raise ValueError(f"{self.id}: abierta sin key_points")
             if self.grader != "llm":
                 raise ValueError(f"{self.id}: abierta debe usar grader llm")
+            ids = [k.id for k in self.key_points]
+            if len(set(ids)) != len(ids):
+                # The judge's output schema keys presence by key-point id. Duplicates
+                # would make one verdict silently overwrite another.
+                raise ValueError(f"{self.id}: key_points con id repetido: {ids}")
+            if not any(k.esencial for k in self.key_points):
+                raise ValueError(
+                    f"{self.id}: ningún key_point es esencial, así que ninguna respuesta "
+                    "podría ser incorrecta"
+                )
         elif self.grader != "deterministic":
             raise ValueError(f"{self.id}: {self.modalidad} debe usar grader deterministic")
         return self

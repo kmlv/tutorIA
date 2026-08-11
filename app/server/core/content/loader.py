@@ -101,9 +101,8 @@ def _fill_templates(pack: Pack) -> None:
         q.enunciado.es = apply(q.enunciado.es)
         q.enunciado.en = apply(q.enunciado.en)
         for kp in q.key_points or []:
-            for lang in ("es", "en"):
-                if isinstance(kp.get(lang), str):
-                    kp[lang] = apply(kp[lang])
+            kp.es = apply(kp.es)
+            kp.en = apply(kp.en)
 
 
 def _fmt(v: float) -> str:
