@@ -20,6 +20,11 @@ export function estadoInicial(e: Ejemplo): GraphState {
     mostrar: { ejes: false, linea: false, interceptos: false, conjunto: false, pendiente: false },
     fantasma: null,
     destacar: "ninguno",
+    // Placeholders: the fields exist so the type is stable, but nothing draws them yet.
+    // The display design consult (T-010) decides what they become; until then they are
+    // inert rather than half-implemented.
+    muestras: [],
+    enfasis: "ninguno",
   };
 }
 

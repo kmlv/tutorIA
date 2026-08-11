@@ -26,6 +26,7 @@ Derived from: coord/STATE.md
   - codex: codex exec -C {project} --skip-git-repo-check --sandbox workspace-write resume --last {prompt}
   - agy: agy --sandbox --dangerously-skip-permissions -p {prompt}
   - claude: claude -p {prompt} --permission-mode acceptEdits --allowedTools Bash(./coord-msg.sh:*),Bash(coord-msg.sh:*) --name coord-wake
+  - fable: claude -p --output-format stream-json --verbose --model claude-fable-5 --max-budget-usd 25.00 --permission-mode acceptEdits --allowedTools Bash(./coord-msg.sh:*),Bash(coord-msg.sh:*) --no-session-persistence {prompt}
 - Self-wakeable agents: claude,codex,agy,fable
 - Active loop drivers: none
 
