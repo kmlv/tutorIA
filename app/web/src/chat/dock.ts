@@ -38,6 +38,26 @@ const INTENCIONES: Record<"es" | "en", Intencion[]> = {
 export class Dock {
   private root: HTMLElement;
   private historial: HTMLElement;
+
+  /** Deja a la vista el PRINCIPIO de lo que acaba de llegar, no su final.
+   *
+   *  `scrollTop = scrollHeight` a secas baja del todo, que es lo correcto para un mensaje
+   *  corto y lo contrario de lo correcto para uno largo: la caja mide 176 px, así que una
+   *  respuesta del tutor de cuatro frases aparece con sus primeras líneas ya por encima
+   *  del borde. El alumno ve el final de una explicación cuyo comienzo nunca vio, que se
+   *  siente como que el chat no siguió — y es peor, porque sí se movió, de más.
+   *
+   *  Se hace en el siguiente fotograma porque en el momento de insertar, el navegador aún
+   *  no ha calculado la altura del nodo con su texto ya repartido en líneas. */
+  private alFondo(nuevo: HTMLElement): void {
+    requestAnimationFrame(() => {
+      const caja = this.historial.clientHeight;
+      const alto = nuevo.getBoundingClientRect().height;
+      this.historial.scrollTop = alto > caja
+        ? nuevo.offsetTop                       // largo: su primera línea arriba del todo
+        : this.historial.scrollHeight;          // corto: cabe entero, al fondo
+    });
+  }
   private acciones: HTMLElement;
   private estado: DockEstado = "oculto";
   private handlers: IntencionHandler[] = [];
@@ -82,7 +102,7 @@ export class Dock {
     p.className = `msg ${quien}`;
     p.textContent = texto;
     this.historial.appendChild(p);
-    this.historial.scrollTop = this.historial.scrollHeight;
+    this.alFondo(p);
   }
 
   /** Monta una pregunta dentro del dock. Las de manipulación resaltan el gráfico del
@@ -92,7 +112,7 @@ export class Dock {
     wrap.className = "pregunta";
     wrap.appendChild(nodo);
     this.historial.appendChild(wrap);
-    this.historial.scrollTop = this.historial.scrollHeight;
+    this.alFondo(wrap);
   }
 
   private renderAcciones(): void {
