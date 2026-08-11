@@ -21,8 +21,9 @@ export function enableDrag(
 
   // Focusable element for keyboard
   const focusEl = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-  focusEl.setAttribute("width", "0");
-  focusEl.setAttribute("height", "0");
+  focusEl.setAttribute("width", "100%");
+  focusEl.setAttribute("height", "100%");
+  focusEl.setAttribute("fill", "transparent");
   focusEl.setAttribute("tabindex", "0");
   focusEl.setAttribute("role", "slider");
   focusEl.style.outline = "none";
@@ -44,7 +45,8 @@ export function enableDrag(
 
   function updateAria() {
     if (mode === "point") {
-      svg.setAttribute("aria-label", `Punto seleccionado en ${state.pointX.toFixed(1)}, ${state.pointY.toFixed(1)}`);
+      const prefix = graph.lang === "en" ? "Selected point at" : "Punto seleccionado en";
+      svg.setAttribute("aria-label", `${prefix} ${state.pointX.toFixed(1)}, ${state.pointY.toFixed(1)}`);
     } else {
       svg.setAttribute("aria-label", graph.descripcion({ ...initialState, p1: state.p1, p2: state.p2, m: state.m }));
     }

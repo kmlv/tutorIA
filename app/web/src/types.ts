@@ -16,6 +16,8 @@ export interface Timeline {
   duration_s: number;
   sync_granularity: string;
   cues: Cue[];
+  /** Sentence-level transcript, added by pipeline/cues.py. Drives the caption band. */
+  transcript?: Array<{ text: string; start_s: number; end_s: number; part_index: number }>;
 }
 
 export interface Checkpoint {

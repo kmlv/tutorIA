@@ -47,14 +47,18 @@ def parse(src: pathlib.Path):
         narration = VISUAL_RE.sub("", body)
         paras = [" ".join(p.split()) for p in narration.split("\n\n")]
         paras = [p for p in paras if p and not p.startswith("<!--")]
-        if not paras:
-            sys.exit(f"slide {m.group(1)}: no narration")
+        # A slide with no narration is an appendix slide: references, backup
+        # material, the thing you jump to when someone asks. It is reachable by
+        # arrow keys and the dots, but playback never lands on it (see cmd_deck).
         slides.append({
             "id": m.group(1),
             "title": m.group(2).strip(),
             "visual": visual,
             "paragraphs": paras,
+            "appendix": not paras,
         })
+    if all(s["appendix"] for s in slides):
+        sys.exit(f"{src}: every slide is an appendix — nothing would be narrated")
     return slides
 
 
@@ -79,6 +83,9 @@ def align(slides, segments):
     """
     starts, cursor, missed = [], 0, []
     for s in slides:
+        if s["appendix"]:
+            starts.append(None)
+            continue
         first = SENT_RE.split(s["paragraphs"][0])[0]
         want = norm(first)
         hit = None
@@ -96,12 +103,13 @@ def align(slides, segments):
         else:
             starts.append(float(segments[hit].get("start_s", 0.0)))
             cursor = hit + 1
-    if starts and starts[0] is None:
+    if starts and starts[0] is None and not slides[0]["appendix"]:
         starts[0] = 0.0
-    # Any slide we could not place inherits the previous start: it will simply
-    # advance with the one before it rather than silently landing at zero.
+    # A narrated slide we could not place inherits the previous start: it advances
+    # with the one before it rather than silently landing at zero. Appendix slides
+    # keep None; cmd_deck parks them past the end of the audio.
     for i in range(1, len(starts)):
-        if starts[i] is None:
+        if starts[i] is None and not slides[i]["appendix"]:
             starts[i] = starts[i - 1]
     return starts, missed
 
@@ -114,6 +122,14 @@ def cmd_deck(src: pathlib.Path, base: pathlib.Path, out: pathlib.Path):
         sys.exit(f"{base}.audio.json: no sync.segments — cannot align slides")
     starts, missed = align(slides, segments)
     duration = float(side.get("duration_s") or 0)
+
+    # Park appendix slides beyond the audio so `indexAt` never selects one during
+    # playback, while arrow keys and the dots still reach them.
+    park = duration + 1.0
+    for i, s in enumerate(slides):
+        if s["appendix"]:
+            park += 1.0
+            starts[i] = park
 
     mp3 = base.with_suffix(".mp3")
     audio_b64 = base64.b64encode(mp3.read_bytes()).decode("ascii")
@@ -160,7 +176,8 @@ def cmd_deck(src: pathlib.Path, base: pathlib.Path, out: pathlib.Path):
     if missed:
         print(f"  WARNING unaligned slides (inherited previous start): {', '.join(missed)}")
     for i, (s, t) in enumerate(zip(slides, starts)):
-        print(f"  {i+1:2d}. {t/60:5.2f}  {s['title']}")
+        when = "  appx" if s["appendix"] else f"{t/60:6.2f}"
+        print(f"  {i+1:2d}. {when}  {s['title']}")
 
 
 TEMPLATE = r"""<!doctype html>
@@ -243,6 +260,11 @@ ol.checks{margin:10px 0 0;padding-left:1.4em;font-size:21px;display:flex;
   flex-direction:column;gap:9px;color:var(--fg)}
 ol.changes{margin:8px 0 0;padding-left:1.4em;font-size:20px;display:flex;
   flex-direction:column;gap:12px}
+.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:10px 0}
+.step{background:var(--bg);border:1px solid var(--rule);border-radius:10px;padding:18px;
+  display:flex;flex-direction:column;gap:7px;font-size:17px}
+.step b{font-size:15px;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+.step span{color:var(--muted);line-height:1.4}
 .stack{display:flex;flex-direction:column;gap:7px;margin-top:6px}
 .layer{border:1px solid var(--rule);border-radius:8px;padding:13px 18px;
   font-size:19px;background:var(--bg)}
@@ -260,7 +282,7 @@ ol.changes{margin:8px 0 0;padding-left:1.4em;font-size:20px;display:flex;
   background:var(--card);border:1px solid var(--rule);border-radius:10px;
   padding:12px 20px;min-height:1.45em}
 #ccbtn.on{border-color:var(--accent);color:var(--accent);font-weight:700}
-#bar{display:flex;align-items:center;gap:14px;padding:10px 18px;
+#bar{display:flex;align-items:center;gap:14px;padding:10px 18px;flex-wrap:wrap;
   border-top:1px solid var(--rule);background:var(--card);flex:0 0 auto}
 button{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--rule);
   border-radius:8px;padding:7px 12px;cursor:pointer}
@@ -273,7 +295,11 @@ button:hover{border-color:var(--accent)}
 .dot{width:11px;height:11px;padding:0;border-radius:99px;background:var(--rule);
   border:none;cursor:pointer}
 .dot.on{background:var(--accent)}
-@media (max-width:900px){ #dots{display:none} }
+@media (max-width:900px){
+  #dots{display:none}
+  #cc p{font-size:17px;padding:10px 14px}
+  #bar{gap:10px;padding:8px 12px}
+}
 </style>
 
 <div id="stage"><div id="frame">__SLIDES__</div></div>
@@ -331,7 +357,10 @@ button:hover{border-color:var(--accent)}
   }
   function go(i){
     i=Math.max(0,Math.min(slides.length-1,i));
-    a.currentTime=starts[i]+0.01; show(i);
+    // Appendix slides are parked past the end of the audio: show them without
+    // seeking, so jumping to the references does not fast-forward the talk.
+    if(a.duration && starts[i] < a.duration) a.currentTime=starts[i]+0.01;
+    show(i);
   }
   function fmt(s){
     s=Math.max(0,s|0); return (s/60|0)+':'+('0'+(s%60)).slice(-2);

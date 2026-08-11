@@ -63,6 +63,35 @@ def parse(script: str) -> tuple[str, list[dict]]:
     return clean, cues
 
 
+def build_transcript(segments: list[dict]) -> list[dict]:
+    """Keep the sentence-level timing contract needed by selectable captions.
+
+    The audio sidecar contains provider metadata that the browser does not need.  The
+    timeline owns this reduced representation so its language, audio, cues and spoken
+    text cannot drift into independently cached files.
+    """
+    transcript: list[dict] = []
+    previous_start = -1.0
+    for index, segment in enumerate(segments):
+        text = str(segment.get("text", "")).strip()
+        start = float(segment["start_s"])
+        end = float(segment["end_s"])
+        if not text:
+            raise ValueError(f"segment {index}: empty transcript text")
+        if start < 0 or end < start:
+            raise ValueError(f"segment {index}: invalid interval {start}..{end}")
+        if start < previous_start:
+            raise ValueError(f"segment {index}: transcript is not ordered")
+        previous_start = start
+        transcript.append({
+            "text": text,
+            "start_s": round(start, 3),
+            "end_s": round(end, 3),
+            "part_index": int(segment["part_index"]),
+        })
+    return transcript
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("script", type=pathlib.Path)
@@ -140,6 +169,7 @@ def main() -> int:
         "duration_s": meta.get("duration_s"),
         "sync_granularity": meta["sync"].get("granularity"),
         "cues": resolved,
+        "transcript": build_transcript(segments),
     }
     tl = media / f"timeline.{lang}.json"
     tl.write_text(json.dumps(timeline, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -149,6 +179,7 @@ def main() -> int:
     print(f"{tl}")
     print(f"  audio    : {mp3.name}  ({int(dur // 60)}:{int(dur % 60):02d})")
     print(f"  cues     : {len(resolved)} ({len(bad)} sin alinear)")
+    print(f"  captions : {len(timeline['transcript'])} sentences")
     for c in resolved:
         mark = "  !" if c["t"] is None else "   "
         t = "----" if c["t"] is None else f"{c['t']:7.2f}"

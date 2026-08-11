@@ -170,6 +170,9 @@ notes:
   budget_set:
     en: Affordable bundles — the budget set.
     es: Canastas alcanzables — el conjunto presupuestario.
+    # Dimensional form FIRST (codex, T-010): the units live inside the equation, not
+    # beside it, which is what Kristian asked for. The compact form follows.
+    formula_dim: '3\,\tfrac{\$}{kg} \cdot x_1\,kg \;+\; 1\,\tfrac{\$}{L} \cdot x_2\,L \;\le\; 100\,\$'
     formula: 'p_1 x_1 + p_2 x_2 \le m'
   budget_line:
     en: The budget line is the boundary of that set, not the set itself.
@@ -182,7 +185,9 @@ notes:
   slope:
     en: The slope is the relative price — what you give up of one good for one unit of the other.
     es: La pendiente es el precio relativo — a cuánto de un bien renuncias por una unidad del otro.
-    formula: 'x_2 = \frac{m}{p_2} - \frac{p_1}{p_2}\,x_1 \qquad \text{slope} = -\frac{p_1}{p_2} = -3'
+    # The slope's UNIT is readable here, not asserted: litres per kilo.
+    formula_dim: '-\frac{p_1}{p_2} = -\frac{3\,\$/kg}{1\,\$/L} = -3\,\tfrac{L}{kg}'
+    formula: 'x_2 = \frac{m}{p_2} - \frac{p_1}{p_2}\,x_1'
   income_shift:
     en: Income up ⇒ parallel shift. Prices did not change, so the slope did not either.
     es: Sube el ingreso ⇒ desplazamiento paralelo. Los precios no cambiaron, la pendiente tampoco.

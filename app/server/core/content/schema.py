@@ -155,6 +155,15 @@ class Cue(BaseModel):
     warning: str | None = None
 
 
+class TranscriptSegment(BaseModel):
+    """One spoken sentence with its timing. Feeds the caption band (codex, T-011)."""
+
+    text: str
+    start_s: float
+    end_s: float
+    part_index: int = 0
+
+
 class Timeline(BaseModel):
     pack: str
     lang: Lang
@@ -162,6 +171,7 @@ class Timeline(BaseModel):
     duration_s: float
     sync_granularity: str
     cues: list[Cue]
+    transcript: list[TranscriptSegment] = Field(default_factory=list)
 
 
 class Pack(BaseModel):

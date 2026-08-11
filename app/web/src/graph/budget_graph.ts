@@ -6,6 +6,7 @@
  * SVG no repinta el layout, que es lo que protege el criterio 5 en CPUs débiles.
  */
 import type { Ejemplo, GraphState } from "../types";
+import "./graph.css";
 
 const NS = "http://www.w3.org/2000/svg";
 const W = 560;
@@ -35,8 +36,10 @@ export class BudgetGraph {
    *  se vería igual que un pivote y el concepto se perdería. */
   private maxX: number;
   private maxY: number;
+  public readonly lang: "es" | "en";
 
-  constructor(host: HTMLElement, private ejemplo: Ejemplo, private lang: "es" | "en") {
+  constructor(host: HTMLElement, private ejemplo: Ejemplo, lang: "es" | "en") {
+    this.lang = lang;
     this.maxX = (ejemplo.m / ejemplo.p1) * 1.6;
     this.maxY = (ejemplo.m / ejemplo.p2) * 1.6;
 
@@ -45,6 +48,35 @@ export class BudgetGraph {
     this.svg.setAttribute("role", "img");
     this.svg.setAttribute("class", "bgraph");
     host.appendChild(this.svg);
+
+    // Defs para los marcadores de forma de los bienes
+    const defs = document.createElementNS(NS, "defs");
+    this.svg.appendChild(defs);
+
+    const m1 = document.createElementNS(NS, "marker");
+    m1.setAttribute("id", "marker-good1");
+    m1.setAttribute("markerWidth", "6");
+    m1.setAttribute("markerHeight", "6");
+    m1.setAttribute("refX", "3");
+    m1.setAttribute("refY", "3");
+    const c1 = document.createElementNS(NS, "circle");
+    c1.setAttribute("cx", "3"); c1.setAttribute("cy", "3"); c1.setAttribute("r", "3");
+    c1.setAttribute("class", "marker good1");
+    m1.appendChild(c1);
+    defs.appendChild(m1);
+
+    const m2 = document.createElementNS(NS, "marker");
+    m2.setAttribute("id", "marker-good2");
+    m2.setAttribute("markerWidth", "6");
+    m2.setAttribute("markerHeight", "6");
+    m2.setAttribute("refX", "3");
+    m2.setAttribute("refY", "3");
+    const r2 = document.createElementNS(NS, "rect");
+    r2.setAttribute("x", "0"); r2.setAttribute("y", "0");
+    r2.setAttribute("width", "6"); r2.setAttribute("height", "6");
+    r2.setAttribute("class", "marker good2");
+    m2.appendChild(r2);
+    defs.appendChild(m2);
 
     for (const c of ["ejes", "conjunto", "fantasma", "linea", "interceptos", "etiquetas"]) {
       const g = document.createElementNS(NS, "g");
@@ -79,7 +111,25 @@ export class BudgetGraph {
     if (s.mostrar.linea) this.dibujarRecta(s, "linea", false);
     if (s.mostrar.interceptos) this.dibujarInterceptos(s);
     if (s.mostrar.pendiente) this.dibujarPendiente(s);
+    this.dibujarMuestras(s);
     this.svg.setAttribute("aria-label", this.descripcion(s));
+  }
+
+  public project(term: string | null): void {
+    // Limpiar clase de proyección previa
+    const els = this.svg.querySelectorAll(".projecting");
+    els.forEach(el => el.classList.remove("projecting"));
+    if (!term) return;
+
+    if (term === "m" || term === "p1") {
+      this.svg.querySelector(".intercept.good1")?.classList.add("projecting");
+    }
+    if (term === "m" || term === "p2") {
+      this.svg.querySelector(".intercept.good2")?.classList.add("projecting");
+    }
+    if (term === "p1_p2" || term === "slope") {
+      this.svg.querySelector(".triangulo")?.classList.add("projecting");
+    }
   }
 
   /** Alternativa textual del gráfico (decisión 22). Sin esto la manipulación es
@@ -100,17 +150,22 @@ export class BudgetGraph {
 
   private dibujarEjes(): void {
     const g = this.capas["ejes"];
-    const eje = (x1: number, y1: number, x2: number, y2: number): void => {
-      const l = document.createElementNS(NS, "line");
-      l.setAttribute("x1", `${x1}`); l.setAttribute("y1", `${y1}`);
-      l.setAttribute("x2", `${x2}`); l.setAttribute("y2", `${y2}`);
-      l.setAttribute("class", "eje");
-      g.appendChild(l);
-    };
-    eje(PAD.l, H - PAD.b, W - PAD.r, H - PAD.b);
-    eje(PAD.l, H - PAD.b, PAD.l, PAD.t);
-    this.texto(g, W - PAD.r, H - PAD.b + 42, this.ejemplo.bien_1[this.lang], "eje-label", "end");
-    this.texto(g, PAD.l + 6, PAD.t - 6, this.ejemplo.bien_2[this.lang], "eje-label", "start");
+    const ejeX = document.createElementNS(NS, "line");
+    ejeX.setAttribute("x1", `${PAD.l}`); ejeX.setAttribute("y1", `${H - PAD.b}`);
+    ejeX.setAttribute("x2", `${W - PAD.r}`); ejeX.setAttribute("y2", `${H - PAD.b}`);
+    ejeX.setAttribute("class", "eje");
+    ejeX.setAttribute("marker-end", "url(#marker-good1)");
+    g.appendChild(ejeX);
+
+    const ejeY = document.createElementNS(NS, "line");
+    ejeY.setAttribute("x1", `${PAD.l}`); ejeY.setAttribute("y1", `${H - PAD.b}`);
+    ejeY.setAttribute("x2", `${PAD.l}`); ejeY.setAttribute("y2", `${PAD.t}`);
+    ejeY.setAttribute("class", "eje");
+    ejeY.setAttribute("marker-end", "url(#marker-good2)");
+    g.appendChild(ejeY);
+
+    this.texto(g, W - PAD.r - 10, H - PAD.b + 42, `x₁ — ${this.ejemplo.bien_1[this.lang]}`, "eje-label good1", "end");
+    this.texto(g, PAD.l + 14, PAD.t - 6, `x₂ — ${this.ejemplo.bien_2[this.lang]}`, "eje-label good2", "start");
   }
 
   private dibujarRecta(s: { p1: number; p2: number; m: number }, cls: string, punteada: boolean): void {
@@ -119,7 +174,9 @@ export class BudgetGraph {
     l.setAttribute("y1", `${this.y(s.m / s.p2)}`);
     l.setAttribute("x2", `${this.x(s.m / s.p1)}`);
     l.setAttribute("y2", `${this.y(0)}`);
-    l.setAttribute("class", punteada ? `recta ${cls} punteada` : `recta ${cls}`);
+    let classNames = punteada ? `recta ${cls} punteada` : `recta ${cls}`;
+    if (!punteada && (s as any).enfasis === "frontera") classNames += " enfasis-frontera";
+    l.setAttribute("class", classNames);
     this.capas[punteada ? "fantasma" : "linea"].appendChild(l);
   }
 
@@ -127,26 +184,39 @@ export class BudgetGraph {
     const p = document.createElementNS(NS, "polygon");
     p.setAttribute("points",
       `${this.x(0)},${this.y(0)} ${this.x(0)},${this.y(s.m / s.p2)} ${this.x(s.m / s.p1)},${this.y(0)}`);
-    p.setAttribute("class", "conjunto");
+    p.setAttribute("class", s.enfasis === "frontera" ? "conjunto enfasis-frontera" : "conjunto");
     this.capas["conjunto"].appendChild(p);
+    
+    // Si hay énfasis en la frontera, actualizamos la clase de la recta si ya fue dibujada o lo será
+    const linea = this.capas["linea"].querySelector(".recta.linea");
+    if (linea && s.enfasis === "frontera") {
+      linea.classList.add("enfasis-frontera");
+    }
   }
 
   private dibujarInterceptos(s: GraphState): void {
     const g = this.capas["interceptos"];
-    const pts: Array<[number, number, string, string]> = [
-      [s.m / s.p1, 0, `${(s.m / s.p1).toFixed(1)}`, "intercepto_x1"],
-      [0, s.m / s.p2, `${(s.m / s.p2).toFixed(0)}`, "intercepto_x2"],
-    ];
-    for (const [vx, vy, label, key] of pts) {
-      const c = document.createElementNS(NS, "circle");
-      c.setAttribute("cx", `${this.x(vx)}`);
-      c.setAttribute("cy", `${this.y(vy)}`);
-      c.setAttribute("r", s.destacar === key ? "7" : "5");
-      c.setAttribute("class", s.destacar === key ? "punto destacado" : "punto");
-      g.appendChild(c);
-      this.texto(g, this.x(vx) + (vy === 0 ? 0 : -12), this.y(vy) + (vy === 0 ? 22 : -10),
-        label, s.destacar === key ? "valor destacado" : "valor", vy === 0 ? "middle" : "end");
-    }
+    
+    // Intercepto X (Bien 1 - Círculo)
+    const cx = this.x(s.m / s.p1);
+    const cy = this.y(0);
+    const c1 = document.createElementNS(NS, "circle");
+    c1.setAttribute("cx", `${cx}`); c1.setAttribute("cy", `${cy}`);
+    c1.setAttribute("r", s.destacar === "intercepto_x1" ? "7" : "5");
+    c1.setAttribute("class", s.destacar === "intercepto_x1" ? "intercept good1 destacado" : "intercept good1");
+    g.appendChild(c1);
+    this.texto(g, cx, cy + 22, `${(s.m / s.p1).toFixed(1)}`, s.destacar === "intercepto_x1" ? "valor destacado good1" : "valor good1", "middle");
+
+    // Intercepto Y (Bien 2 - Rectángulo en vez de círculo para que haga match)
+    const yx = this.x(0);
+    const yy = this.y(s.m / s.p2);
+    const s2 = s.destacar === "intercepto_x2" ? 14 : 10;
+    const r2 = document.createElementNS(NS, "rect");
+    r2.setAttribute("x", `${yx - s2/2}`); r2.setAttribute("y", `${yy - s2/2}`);
+    r2.setAttribute("width", `${s2}`); r2.setAttribute("height", `${s2}`);
+    r2.setAttribute("class", s.destacar === "intercepto_x2" ? "intercept good2 destacado" : "intercept good2");
+    g.appendChild(r2);
+    this.texto(g, yx - 12, yy - 10, `${(s.m / s.p2).toFixed(0)}`, s.destacar === "intercepto_x2" ? "valor destacado good2" : "valor good2", "end");
   }
 
   private dibujarPendiente(s: GraphState): void {
@@ -161,6 +231,44 @@ export class BudgetGraph {
     path.setAttribute("class", "triangulo");
     g.appendChild(path);
     this.texto(g, this.x(x0 + 1) + 10, this.y(y0 - dy / 2), `−${dy.toFixed(0)}`, "valor destacado", "start");
+  }
+
+  private dibujarMuestras(s: GraphState): void {
+    if (!s.muestras || s.muestras.length === 0) return;
+    const g = this.capas["conjunto"]; // Las dibujamos encima del conjunto
+    
+    for (const m of s.muestras) {
+      const px = this.x(m.x1);
+      const py = this.y(m.x2);
+      const ox = this.x(0);
+      const oy = this.y(0);
+      
+      // Tethers (Drop-lines)
+      const tx = document.createElementNS(NS, "line");
+      tx.setAttribute("x1", `${px}`); tx.setAttribute("y1", `${py}`);
+      tx.setAttribute("x2", `${px}`); tx.setAttribute("y2", `${oy}`);
+      tx.setAttribute("class", "tether good1");
+      g.appendChild(tx);
+      
+      const ty = document.createElementNS(NS, "line");
+      ty.setAttribute("x1", `${px}`); ty.setAttribute("y1", `${py}`);
+      ty.setAttribute("x2", `${ox}`); ty.setAttribute("y2", `${py}`);
+      ty.setAttribute("class", "tether good2");
+      g.appendChild(ty);
+      
+      // Point
+      const dot = document.createElementNS(NS, "circle");
+      dot.setAttribute("cx", `${px}`);
+      dot.setAttribute("cy", `${py}`);
+      dot.setAttribute("r", "5");
+      let cls = "muestra-punto";
+      if (s.mostrar.conjunto) {
+        const cost = m.x1 * s.p1 + m.x2 * s.p2;
+        cls += cost <= s.m + 0.001 ? " adentro" : " afuera";
+      }
+      dot.setAttribute("class", cls);
+      g.appendChild(dot);
+    }
   }
 
   private texto(g: SVGGElement, x: number, y: number, s: string, cls: string, anchor: string): void {

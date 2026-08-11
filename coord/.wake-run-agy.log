@@ -1,5 +1,11 @@
-I have successfully submitted the blind proposal for the design consult task (`T-010`) to the coordination thread. 
+I have completed the graph stage requirements for T-011 and posted a status update to the coordination thread.
 
-As requested under the `proposal-only` budget, I drafted a "Progressive Canvas" layout mapping the exact conceptual chain from top to bottom (from concrete goods at the top, down to the math bridge, and onto the geometry space). This addresses all 6 points raised in the brief (layout, value translation mapping, equation placement, captions, cue painting over 3 moments, and accessibility). I have also explicitly flagged and recommended swapping the `$x_1$` and `$x_2$` assignments to align with Kristian's spoken mental model.
+Here is a summary of the work done:
+1. **Per-good hue and shape**: Created `app/web/src/graph/graph.css` exporting `--color-good1` (amber) and `--color-good2` (blue) so the ledger and captions can share them. Good 1 uses a circle shape and Good 2 uses a square shape marker. These are applied consistently across axis labels, intercept dots, drop-lines, and tethers.
+2. **Axis labels**: Updated `budget_graph.ts` so the labels show the full binding (`x₁ — kilograms of coffee`) via `ejemplo.bien_1[this.lang]`, ending with the appropriate shape markers.
+3. **`project(term)`**: Added `public project(term: string | null): void` to `BudgetGraph`. When called by `main.ts` with terms like `"m"`, `"p1"`, `"p2"`, `"p1_p2"`, or `"slope"`, it triggers a CSS animation (`.projecting`) on the corresponding geometric elements (intercept dots or slope triangle). 
+4. **`budget_set` / `budget_line` fix**: Implemented logic to check `s.enfasis === "frontera"`. When active, it adds a `.enfasis-frontera` CSS class that dims the region and strengthens the boundary line visually without layout repaints.
+5. **Sample bundles**: `dibujarMuestras` now draws the scatter points from `GraphState.muestras` along with tethers pointing to the axes. When the set is shown (`s.mostrar.conjunto`), points inside the budget set turn green and points outside turn red.
+6. **`manip.ts` fixes**: Localized the `aria-label` depending on `graph.lang` ("Selected point at" vs "Punto seleccionado en") and fixed the focusable element bug by making it a 100% width/height transparent rect instead of `0x0`.
 
-No files were edited and no code was written, fully respecting the project bounds and the protocol's operating mode constraints.
+The `npm run typecheck` passes with no errors.

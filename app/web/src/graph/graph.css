@@ -1,0 +1,56 @@
+:root {
+  --color-good1: #d97706; /* amber-600 */
+  --color-good2: #2563eb; /* blue-600 */
+}
+
+/* Markers */
+.marker.good1 { fill: var(--color-good1); }
+.marker.good2 { fill: var(--color-good2); }
+
+/* Text */
+.eje-label.good1 { fill: var(--color-good1); font-weight: 500; }
+.eje-label.good2 { fill: var(--color-good2); font-weight: 500; }
+
+/* Tethers (Drop-lines) */
+.tether.good1 { stroke: var(--color-good1); stroke-dasharray: 4 4; opacity: 0.6; }
+.tether.good2 { stroke: var(--color-good2); stroke-dasharray: 4 4; opacity: 0.6; }
+
+/* Intercept Dots */
+.intercept.good1 { stroke: var(--color-good1); fill: white; stroke-width: 2; }
+.intercept.good1.destacado { fill: var(--color-good1); }
+.intercept.good2 { stroke: var(--color-good2); fill: white; stroke-width: 2; }
+.intercept.good2.destacado { fill: var(--color-good2); }
+
+/* Projection Animation */
+@keyframes project-flash {
+  0% { filter: drop-shadow(0 0 0px currentColor) brightness(1); transform: scale(1); }
+  50% { filter: drop-shadow(0 0 8px currentColor) brightness(1.2); transform: scale(1.3); }
+  100% { filter: drop-shadow(0 0 0px currentColor) brightness(1); transform: scale(1); }
+}
+.projecting {
+  animation: project-flash 0.6s ease-out;
+  transform-origin: center;
+}
+
+/* Budget Set and Line Emphasis */
+/* budget_set shades the region with a quiet boundary; budget_line dims the region and
+   strengthens the boundary — so the sentence "the line is only the edge of that region"
+   has a visual counterpart. Theme variables, not hardcoded black: the previous version
+   painted a black line on a dark background. */
+.conjunto { transition: fill .3s ease; }
+.conjunto.enfasis-frontera { fill: color-mix(in srgb, var(--accent) 4%, transparent); }
+.recta.linea { transition: stroke-width .3s ease; }
+.recta.linea.enfasis-frontera { stroke-width: 4; }
+
+/* Sample bundles.
+   NOT green/red. The brief's non-negotiable is that hue is never the sole carrier, and
+   green/red is the worst possible pair for the commonest colour blindness. It also
+   carries a right/wrong connotation that is simply false here: a bundle outside the
+   budget set is not an error, it is unaffordable.
+   Affordable = filled. Unaffordable = hollow with a dashed stroke. The distinction
+   survives greyscale, colour blindness and a monochrome print. */
+.muestra-punto { fill: var(--muted); stroke: none; transition: fill .3s, stroke .3s; }
+.muestra-punto.adentro { fill: var(--fg); }
+.muestra-punto.afuera  { fill: none; stroke: var(--muted); stroke-width: 2;
+                         stroke-dasharray: 2.5 2.5; }
+.muestra-etiqueta { font-size: 11px; fill: var(--muted); }

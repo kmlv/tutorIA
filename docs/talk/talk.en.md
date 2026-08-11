@@ -45,6 +45,50 @@ Then I will give you the honest number for whether any of this works.
 And I will finish with the questions I would ask before letting one of these tools near
 my students.
 
+## SLIDE 1b — Where this comes from
+
+<!--visual
+<h2>Where this talk comes from</h2>
+<div class="pipeline">
+  <div class="step"><b>1 · Draft</b><span>A research report I generated in a
+    conversation with a language model</span></div>
+  <div class="step"><b>2 · Check</b><span>9 headline figures re-checked against the
+    original papers &nbsp;·&nbsp; <b>8 held, 1 was wrong</b></span></div>
+  <div class="step"><b>3 · Map</b><span>An earlier review of this literature from three
+    angles: tutoring systems, interfaces and authoring, deployed LLM tutors</span></div>
+  <div class="step"><b>4 · This talk</b><span>Every slide labels which of the three it
+    is showing you</span></div>
+</div>
+<p class="note">The label in the corner of each slide: <span class="prov prov-paper">MEASURED
+· paper</span> <span class="prov prov-review">FOUND · our review</span>
+<span class="prov prov-mine">INFERENCE · mine</span></p>
+-->
+
+Before any of the evidence, thirty seconds on where this talk comes from, because you
+should be able to tell my sources apart from my opinions.
+
+It started as a research report I generated in a conversation with a language model.
+
+That is a perfectly good way to start and a terrible way to finish, so nothing from it
+went onto a slide until it had been checked against the original paper.
+
+Nine headline figures were re-checked that way. Eight held.
+
+One was wrong, and I will show you that one later, because correcting it turned out to
+make the argument better rather than weaker.
+
+Underneath that sits an earlier review of this same literature from three separate
+angles: the intelligent tutoring tradition, the interface and authoring side, and the
+language-model tutors that are actually deployed today.
+
+So from here on, every slide carries a small label in the corner.
+
+It tells you whether what you are looking at was measured in a study, turned up in our
+own review, or is an inference of mine.
+
+The third kind is the one you should argue with, and I have tried to make it easy to
+find.
+
 ## SLIDE 2 — The experiment
 
 <!--visual
@@ -131,10 +175,14 @@ help available — was the moment that told us least about whether anything had 
 learned.
 
 And here is the practical consequence for anyone choosing software. If you evaluate a
-tool by watching students use it, you will systematically prefer the tools that do the
-most work for them.
+tool by watching students use it, that can lead you to prefer the tools that do the most
+work for them.
 
-The better the demonstration feels, the more suspicious you should be.
+I am not claiming that is what buyers systematically do — nobody has measured that. I am
+claiming this experiment shows the metric is capable of inverting the ranking.
+
+Which is enough reason to be a little suspicious of a demonstration that feels
+wonderful.
 
 ## SLIDE 5 — So does it work?
 
@@ -260,7 +308,8 @@ whether AI works. It is what distinguishes the top row from the bottom one.
 
 <!--visual
 <div class="big-idea">
-  <h2>The large effects are <em>recipes</em>, not properties of the model.</h2>
+  <h2>Across these cases, the large effects look like <em>recipes</em>,
+  not properties of the model.</h2>
   <ul class="clean">
     <li>Content written and checked by subject experts</li>
     <li>A sequence the platform enforces from <b>outside</b> the model</li>
@@ -272,7 +321,7 @@ whether AI works. It is what distinguishes the top row from the bottom one.
 </div>
 -->
 
-Look at what produced the large effects and the same pattern appears every time.
+Look at what was actually deployed in these four cases, and a pattern appears.
 
 The physics result used lessons designed by subject experts, with worked solutions
 prepared in advance, and a sequence the platform imposed from outside the model.
@@ -286,11 +335,15 @@ teachers present, and students working in pairs.
 
 Sierra Leone was ordinary classes, led by teachers who set the objectives.
 
-Every large effect in this literature is a package: verified content, an enforced
-sequence, protected time, and people.
+Across these high-effect cases, what was tested is a package: verified content, an
+enforced sequence, protected time, and people.
 
-Which means copying the brand does not reproduce the treatment. And copying the prompt
-does not reproduce it either.
+I want to be careful here, because this is my reading and not a finding. Nobody has
+tested whether those four ingredients are each necessary, and Sierra Leone does not
+contain all of them.
+
+What I am confident saying is the negative version. Copying the brand does not reproduce
+the treatment. And copying the prompt does not reproduce it either.
 
 ## SLIDE 9 — The null result that matters most
 
@@ -349,8 +402,8 @@ detail. It is part of the treatment, and it has to be planned and measured like 
 
 If the effects come from packages, it is worth asking what a package actually contains.
 
-The conversation is the surface. It is the part you see in a demonstration, and it is the
-easiest part to build.
+The conversation is the surface. It is the part you see in a demonstration, and usually
+the only part a demonstration shows.
 
 Underneath, a serious system needs a map of the subject, with prerequisites and worked
 solutions.
@@ -364,9 +417,10 @@ fail.
 A chat history says: this student asked about the budget constraint twice and seemed
 confused.
 
-A learner model says: this student can compute the slope, cannot interpret it as an
-opportunity cost, has not demonstrated the feasible set at all, and the last two pieces
-of evidence came with hints, so they do not count.
+A learner model, in the system we are building, could instead say: this student can
+compute the slope, cannot interpret it as an opportunity cost, has not demonstrated the
+feasible set at all, and the last two pieces of evidence came with hints, so they do not
+count.
 
 The first is a transcript. The second is something a teacher can read, disagree with, and
 correct.
@@ -392,9 +446,9 @@ measuring itself that is not its own opinion.
   <li><b>Interaction</b> — the example, the hint, the next question in this turn
       <span class="tag common">common</span></li>
   <li><b>Pedagogical decision</b> — the next action, chosen from a diagnosis
-      <span class="tag rare">rare</span></li>
+      <span class="tag rare">evidence thin</span></li>
   <li><b>Trajectory</b> — across sessions: prerequisites, forgetting, transfer
-      <span class="tag rare">rare</span></li>
+      <span class="tag rare">evidence thin</span></li>
 </ol>
 <p class="note big">Remembering your name is not the same as estimating what you know.</p>
 -->
@@ -407,7 +461,8 @@ Level one changes presentation: tone, language, length, reading level.
 Level two changes the interaction: which example, which hint, which question comes next
 in this turn.
 
-Most products stop there, and both levels are genuinely useful for access.
+Many of the products you will be shown stop there, and both levels are genuinely useful
+for access.
 
 Level three chooses the next action based on a diagnosis of what this student got wrong,
 and why.
@@ -415,7 +470,9 @@ and why.
 Level four maintains a trajectory across sessions, tracking prerequisites, forgetting and
 transfer.
 
-Three and four are where the learning effects live, and they remain rare.
+Three and four are what this framework treats as genuine pedagogical adaptation. I should
+be careful about how I put the next part: the public causal evidence does not isolate
+those levels and tell us the effects live there. It is thinner than that.
 
 The test I find most useful is this. A system that remembers your name, adopts a warm
 tone, and rephrases the same content can feel deeply personal while estimating nothing at
@@ -530,9 +587,12 @@ of its students simply never used the chat, and is now being rebuilt to be visib
 the task.
 
 The second: evidence obtained with help does not count towards mastery. If a student
-takes a hint, that attempt no longer counts, and we ask a fresh question instead. That
-rule comes straight from the tutoring systems of the nineteen-nineties, and the first
-experiment I showed you is the modern proof that it still matters.
+takes a hint, that attempt no longer counts, and we ask a fresh question instead.
+
+I should be precise about where that rule comes from, because it would be easy to
+overclaim. The rule itself comes from the tutoring systems of the nineteen-nineties,
+where asking for a hint already invalidated the attempt. Bastani does not test that rule.
+What Bastani supplies is the modern warning that sent us looking for it.
 
 The third, and the one I am least comfortable with: an unassisted check at the end of
 each concept. No grade, never presented to the student as an assessment, feeding only the
@@ -546,8 +606,8 @@ decisions that follow from other people's evidence.
 
 We have not run a trial. We do not know whether our tutor teaches anything.
 
-What I can tell you is that we built the instrument that would let us find out, before we
-built the thing it measures — and I would ask the same of anyone selling to us.
+What I can tell you is that we designed the instrument that would let us find out before
+we finished the thing it measures — and I would ask the same of anyone selling to us.
 
 ## SLIDE 15 — The line to remember
 

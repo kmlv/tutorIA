@@ -14,6 +14,8 @@ import { createAdapter, type MediaAdapter } from "./player/adapter";
 import type { CueFiring } from "./player/sync";
 import { BudgetGraph, estadoInicial } from "./graph/budget_graph";
 import { Dock } from "./chat/dock";
+import { Ledger } from "./ledger/goods";
+import { CaptionBand } from "./captions/captions";
 import { QuestionFlow } from "./questions/flow";
 import type { QuestionSpec } from "./questions";
 import { NOTES } from "./generated/formulas";
@@ -56,13 +58,9 @@ async function main(): Promise<void> {
   app.innerHTML = `
     <div class="escenario">
       <h1 class="titulo">${session.titulo}</h1>
-      <div class="cols">
-        <div class="lienzo"></div>
-        <section class="notas" aria-label="${T.notas}">
-          <h2 class="notas-h">${T.notas}</h2>
-          <ol class="notas-lista"></ol>
-        </section>
-      </div>
+      <div class="bands"></div>
+      <div class="stage"><div class="lienzo"></div></div>
+      <div class="captions-band"></div>
       <div class="controles">
         <button id="play" class="primario">${T.empezar}</button>
         <button id="ask" class="secundario">${T.preguntar}</button>
@@ -72,8 +70,11 @@ async function main(): Promise<void> {
     </div>`;
 
   const escenario = app.querySelector(".escenario") as HTMLElement;
+  const ledger = new Ledger(app.querySelector(".bands") as HTMLElement, ejemplo, lang);
   const graph = new BudgetGraph(app.querySelector(".lienzo") as HTMLElement, ejemplo, lang);
-  const notasLista = app.querySelector(".notas-lista") as HTMLElement;
+  const captions = new CaptionBand(
+    app.querySelector(".captions-band") as HTMLElement,
+    session.media.transcript ?? [], lang);
   const dock = new Dock(app, lang);
   const flow = new QuestionFlow(session.session_id, dock, lang);
 
@@ -89,40 +90,58 @@ async function main(): Promise<void> {
    *  just replays every cue up to `t` instead of trying to undo anything. */
   function rebuild(t: number): void {
     estado = estadoInicial(ejemplo);
-    notasLista.textContent = "";
     for (const c of media.cuesUntil(t)) {
       estado = aplicarCue(estado, c.id, ejemplo);
-      addNote(c.id);
+      paintLedger(c.id);
     }
     graph.render(estado);
   }
 
-  function addNote(cueId: string): void {
+  /**
+   * The ledger is what each cue paints, per docs/DISPLAY-DESIGN.md §5. This replaces the
+   * notes sidebar: the equation is a structural spine between the two good cards, not a
+   * column of commentary beside the graph.
+   */
+  function paintLedger(cueId: string): void {
     const n = NOTES[cueId];
-    if (!n || (!n[lang] && !n.formulaHtml)) return;
-    const li = document.createElement("li");
-    li.className = "nota";
-    if (n[lang]) {
-      const p = document.createElement("p");
-      p.className = "nota-txt";
-      // el guion usa *cursiva* para la palabra clave de cada nota
-      p.innerHTML = n[lang].replace(/\*(.+?)\*/g, "<em>$1</em>");
-      li.appendChild(p);
+    if (n && (n.formulaHtml || n.formulaDimHtml)) {
+      ledger.setEquation(n.formulaHtml, n.formulaDimHtml);
     }
-    if (n.formulaHtml) {
-      const d = document.createElement("div");
-      d.className = "nota-f";
-      d.innerHTML = n.formulaHtml;   // pre-rendered at build time, never user input
-      li.appendChild(d);
+    switch (cueId) {
+      case "consumo":
+        ledger.reveal("g1", "glyph"); ledger.reveal("g2", "glyph"); break;
+      case "canasta":
+        ledger.reveal("g1", "unit"); ledger.reveal("g2", "unit");
+        ledger.highlight("x1", "x2"); break;
+      case "espacio":
+        ledger.reveal("g1", "symbol"); ledger.reveal("g2", "symbol");
+        ledger.highlight("x1", "x2"); break;
+      case "budget_set":
+        ledger.reveal("g1", "price"); ledger.reveal("g2", "price");
+        ledger.highlight("p1", "p2", "m"); break;
+      case "budget_line":
+        ledger.highlight(); break;          // the moment is the <= -> = morph, nothing else
+      case "intercepts":
+        ledger.highlight("m", "p1", "p2"); break;
+      case "slope":
+        ledger.highlight("p1", "p2");
+        ledger.compress(true); break;        // progressive compression starts here
+      case "income_shift":
+        ledger.highlight("m"); break;
+      case "price_pivot":
+        ledger.morphPrice("g1", ejemplo.p1 + 1);
+        ledger.highlight("p1"); break;
+      case "recap":
+        ledger.compress(false);
+        ledger.morphPrice("g1", ejemplo.p1);
+        ledger.highlight(); break;
     }
-    notasLista.appendChild(li);
-    li.scrollIntoView({ block: "nearest", behavior: "smooth" });
   }
 
   media.onCue((f: CueFiring) => {
     estado = aplicarCue(estado, f.cue.id, ejemplo);
     graph.render(estado);
-    addNote(f.cue.id);
+    paintLedger(f.cue.id);
     evento("cue.fired", { id: f.cue.id, lag_ms: f.desfase_ms });
 
     if (f.cue.type === "checkpoint") {
@@ -160,6 +179,7 @@ async function main(): Promise<void> {
   }
 
   media.on("seeked", () => {
+    captions.update(media.currentTime());
     rebuild(media.currentTime());
     if (dock.actual === "abierto-activo") dock.setEstado("oculto");
   });
@@ -171,6 +191,7 @@ async function main(): Promise<void> {
   media.on("play", () => { play.textContent = T.pausa; escenario.dataset.on = "1"; });
   media.on("pause", () => { play.textContent = T.seguir; });
   media.on("timeupdate", () => {
+    captions.update(media.currentTime());
     const t = Math.floor(media.currentTime());
     (document.getElementById("reloj") as HTMLElement).textContent =
       `${Math.floor(t / 60)}:${String(t % 60).padStart(2, "0")}`;

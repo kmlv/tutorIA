@@ -1,7 +1,7 @@
 {
   "pack": "budget-line",
   "lang": "es",
-  "audio": "20260810-183601_budget-line-es.mp3",
+  "audio": "20260810-192823_budget-line-es.mp3",
   "duration_s": 232.752,
   "sync_granularity": "sentence",
   "cues": [
@@ -64,6 +64,308 @@
       "id": "recap",
       "type": "graph",
       "t": 206.948
+    }
+  ],
+  "transcript": [
+    {
+      "text": "La línea presupuestaria",
+      "start_s": 0.1,
+      "end_s": 2.3,
+      "part_index": 0
+    },
+    {
+      "text": "Antes de hablar de presupuestos, hay que decir qué es lo que estamos eligiendo.",
+      "start_s": 2.25,
+      "end_s": 6.716,
+      "part_index": 0
+    },
+    {
+      "text": "Un consumidor no elige un bien: elige una combinación de todo lo que consume.",
+      "start_s": 6.716,
+      "end_s": 11.705,
+      "part_index": 0
+    },
+    {
+      "text": "Al conjunto de todas las combinaciones imaginables lo llamamos conjunto de consumo.",
+      "start_s": 11.705,
+      "end_s": 16.523,
+      "part_index": 0
+    },
+    {
+      "text": "Y lo que impide llegar a cualquiera de ellas no es el deseo, sino los recursos: el ingreso, el tiempo, lo que sea que esté limitado.",
+      "start_s": 16.523,
+      "end_s": 24.239,
+      "part_index": 0
+    },
+    {
+      "text": "A cada combinación concreta la llamamos una canasta.",
+      "start_s": 24.239,
+      "end_s": 27.693,
+      "part_index": 0
+    },
+    {
+      "text": "Si hay dos bienes, una canasta es simplemente un par de números: cuánto del bien uno y cuánto del bien dos.",
+      "start_s": 27.693,
+      "end_s": 34.023,
+      "part_index": 0
+    },
+    {
+      "text": "La escribimos así: (x sub 1 , x sub 2",
+      "start_s": 34.023,
+      "end_s": 37.795,
+      "part_index": 0
+    },
+    {
+      "text": "). Con más bienes sería un vector más largo, pero nos quedamos en dos por una razón muy práctica: dos se pueden dibujar.",
+      "start_s": 37.795,
+      "end_s": 44.318,
+      "part_index": 0
+    },
+    {
+      "text": "Y ahí está la idea que hace que todo lo demás se vea.",
+      "start_s": 44.318,
+      "end_s": 47.67,
+      "part_index": 0
+    },
+    {
+      "text": "Si cada bien es un eje, entonces cada canasta posible es un punto del plano.",
+      "start_s": 47.67,
+      "end_s": 52.557,
+      "part_index": 0
+    },
+    {
+      "text": "El espacio de bienes deja de ser una lista de números y pasa a ser un mapa.",
+      "start_s": 52.557,
+      "end_s": 56.852,
+      "part_index": 0
+    },
+    {
+      "text": "Pongamos café en kilos en el eje horizontal, y jugo de naranja en litros en el vertical.",
+      "start_s": 56.852,
+      "end_s": 62.182,
+      "part_index": 0
+    },
+    {
+      "text": "El café cuesta tres dólares el kilo, el jugo cuesta uno el litro, y tienes cien dólares.",
+      "start_s": 62.182,
+      "end_s": 67.955,
+      "part_index": 0
+    },
+    {
+      "text": "Ahora sí: ¿qué puntos de ese mapa puedes pagar?",
+      "start_s": 67.955,
+      "end_s": 71.489,
+      "part_index": 0
+    },
+    {
+      "text": "Una canasta es alcanzable si lo que gastas no supera tu ingreso.",
+      "start_s": 71.489,
+      "end_s": 75.443,
+      "part_index": 0
+    },
+    {
+      "text": "En símbolos: p sub 1 x sub 1 más p sub 2 x sub 2 menor o igual que m.",
+      "start_s": 75.443,
+      "end_s": 80.977,
+      "part_index": 0
+    },
+    {
+      "text": "Todas las canastas que cumplen esa desigualdad forman tu conjunto presupuestario, y es la región sombreada.",
+      "start_s": 80.977,
+      "end_s": 87.045,
+      "part_index": 0
+    },
+    {
+      "text": "La línea presupuestaria es solamente el borde de esa región: las canastas que agotan exactamente tu ingreso, donde la desigualdad se vuelve igualdad.",
+      "start_s": 87.045,
+      "end_s": 95.42,
+      "part_index": 0
+    },
+    {
+      "text": "p sub 1 x sub 1 más p sub 2 x sub 2 igual a m.",
+      "start_s": 95.42,
+      "end_s": 99.602,
+      "part_index": 0
+    },
+    {
+      "text": "Conviene decirlo en voz alta porque es la confusión más común: la línea no es el conjunto.",
+      "start_s": 99.602,
+      "end_s": 105.045,
+      "part_index": 0
+    },
+    {
+      "text": "La línea es la frontera del conjunto.",
+      "start_s": 105.045,
+      "end_s": 107.727,
+      "part_index": 0
+    },
+    {
+      "text": "Los extremos son fáciles.",
+      "start_s": 107.727,
+      "end_s": 110.114,
+      "part_index": 0
+    },
+    {
+      "text": "Si gastas todo tu ingreso en café, compras cien entre tres, unos treinta y tres kilos.",
+      "start_s": 110.114,
+      "end_s": 115.602,
+      "part_index": 0
+    },
+    {
+      "text": "Si lo gastas todo en jugo, compras cien litros.",
+      "start_s": 115.602,
+      "end_s": 119.17,
+      "part_index": 0
+    },
+    {
+      "text": "Esos dos puntos son los interceptos, y con ellos ya tienes la recta completa.",
+      "start_s": 119.17,
+      "end_s": 123.864,
+      "part_index": 0
+    },
+    {
+      "text": "La pendiente es menos p uno sobre p dos, es decir, menos tres.",
+      "start_s": 123.864,
+      "end_s": 128.602,
+      "part_index": 0
+    },
+    {
+      "text": "Ese número no es abstracto: significa que para llevarte un kilo más de café, tienes que renunciar a tres litros de jugo.",
+      "start_s": 128.602,
+      "end_s": 135.761,
+      "part_index": 0
+    },
+    {
+      "text": "El mercado te deja transformar tres litros de jugo en un kilo de café, a los precios actuales.",
+      "start_s": 135.761,
+      "end_s": 141.443,
+      "part_index": 0
+    },
+    {
+      "text": "Por eso a la pendiente se le llama el precio relativo.",
+      "start_s": 141.443,
+      "end_s": 144.761,
+      "part_index": 0
+    },
+    {
+      "text": "Antes de seguir, piénsalo un momento.",
+      "start_s": 144.761,
+      "end_s": 147.648,
+      "part_index": 0
+    },
+    {
+      "text": "Si tu ingreso subiera de cien a ciento cincuenta, ¿qué le pasaría a la línea?",
+      "start_s": 147.648,
+      "end_s": 152.318,
+      "part_index": 0
+    },
+    {
+      "text": "¿Se desplazaría, giraría, o las dos cosas?",
+      "start_s": 152.318,
+      "end_s": 155.989,
+      "part_index": 0
+    },
+    {
+      "text": "Se desplaza, pero no gira.",
+      "start_s": 155.989,
+      "end_s": 158.5,
+      "part_index": 0
+    },
+    {
+      "text": "Un aumento del ingreso mueve la línea hacia afuera de forma paralela, y agranda el conjunto presupuestario.",
+      "start_s": 158.5,
+      "end_s": 164.614,
+      "part_index": 0
+    },
+    {
+      "text": "La pendiente no cambia, y la razón es que los precios no cambiaron: un kilo de café sigue costando exactamente tres litros de jugo.",
+      "start_s": 164.614,
+      "end_s": 171.977,
+      "part_index": 0
+    },
+    {
+      "text": "Lo único distinto es que ahora puedes pagar más de ambos.",
+      "start_s": 171.977,
+      "end_s": 175.682,
+      "part_index": 0
+    },
+    {
+      "text": "Ahora al revés.",
+      "start_s": 176.128,
+      "end_s": 177.998,
+      "part_index": 1
+    },
+    {
+      "text": "Si sube el precio del café, de tres a cuatro, la línea no se desplaza: gira.",
+      "start_s": 177.948,
+      "end_s": 183.278,
+      "part_index": 1
+    },
+    {
+      "text": "El intercepto del jugo se queda clavado donde estaba, porque ni tu ingreso ni el precio del jugo cambiaron.",
+      "start_s": 183.278,
+      "end_s": 189.278,
+      "part_index": 1
+    },
+    {
+      "text": "Lo que se mueve es el otro extremo, hacia adentro, y la recta se vuelve más empinada.",
+      "start_s": 189.278,
+      "end_s": 194.551,
+      "part_index": 1
+    },
+    {
+      "text": "Esta es la distinción que más se resbala, así que quiero que la digas tú.",
+      "start_s": 194.551,
+      "end_s": 198.812,
+      "part_index": 1
+    },
+    {
+      "text": "El ingreso desplaza; el precio gira.",
+      "start_s": 198.812,
+      "end_s": 201.801,
+      "part_index": 1
+    },
+    {
+      "text": "¿Puedes explicar por qué el intercepto del jugo no se mueve cuando lo que sube es el precio del café?",
+      "start_s": 201.801,
+      "end_s": 206.948,
+      "part_index": 1
+    },
+    {
+      "text": "Recapitulando.",
+      "start_s": 206.948,
+      "end_s": 208.677,
+      "part_index": 1
+    },
+    {
+      "text": "Una canasta es un punto del espacio de bienes.",
+      "start_s": 208.677,
+      "end_s": 211.892,
+      "part_index": 1
+    },
+    {
+      "text": "El conjunto presupuestario es la región que puedes pagar, y la línea es su frontera.",
+      "start_s": 211.892,
+      "end_s": 216.801,
+      "part_index": 1
+    },
+    {
+      "text": "Los interceptos salen de gastar todo el ingreso en un solo bien.",
+      "start_s": 216.801,
+      "end_s": 220.71,
+      "part_index": 1
+    },
+    {
+      "text": "Y la pendiente es el precio relativo, que dice a cuánto de un bien renuncias por una unidad del otro.",
+      "start_s": 220.71,
+      "end_s": 226.346,
+      "part_index": 1
+    },
+    {
+      "text": "Cambia el ingreso y la línea se traslada; cambia un precio y gira sobre el intercepto del bien cuyo precio no cambió.",
+      "start_s": 226.346,
+      "end_s": 232.653,
+      "part_index": 1
     }
   ]
 }

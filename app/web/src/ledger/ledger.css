@@ -1,0 +1,90 @@
+/* Ledger band. Owned by claude (T-011). Each module owns its own CSS file so three
+   agents can edit simultaneously without colliding on styles.css. */
+
+:root {
+  /* Per-good hue. Shared with the graph via GOOD_TOKENS — the graph imports the
+     tokens rather than redefining these. Contrast-checked in both themes. */
+  --g1: #b4560f;   /* coffee  */
+  --g2: #1d6fb8;   /* juice   */
+}
+@media (prefers-color-scheme: dark) {
+  :root { --g1: #e8934f; --g2: #6fb3ec; }
+}
+
+.ledger {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) minmax(0, 2.1fr) minmax(150px, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+  padding: .9rem 1.1rem;
+  border-bottom: 1px solid var(--line);
+  transition: padding .35s ease;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--hue);
+  border-radius: 10px;
+  padding: .6rem .7rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .1rem .7rem;
+  align-content: start;
+}
+.card-h { grid-column: 1 / -1; display: flex; align-items: center; gap: .4rem;
+  font-size: .82rem; font-weight: 600; margin-bottom: .35rem; }
+.mark { color: var(--hue); font-size: .9em; }
+.card-name { text-transform: capitalize; }
+
+.glyph { width: 40px; height: 40px; color: var(--hue); }
+.stations { margin: 0; display: grid; gap: .12rem; align-content: start; }
+
+/* Stations fill in as the narration reaches each link. The card is never wrong, only
+   incomplete: an unrevealed station is absent, not a placeholder. */
+.station { opacity: 0; transition: opacity .3s ease; }
+.station.on { opacity: 1; }
+.stations .station { display: grid; grid-template-columns: auto 1fr; gap: .45rem;
+  font-size: .78rem; line-height: 1.35; }
+.stations dt { color: var(--muted); }
+.stations dd { margin: 0; font-variant-numeric: tabular-nums; }
+.sym { font-style: italic; font-weight: 600; color: var(--hue); }
+.price.morphing { animation: morph .42s ease; }
+
+/* `morph` — one of the two verbs approved. The value changes in place, which is what
+   carries the causal claim. Under reduced motion it becomes a plain crossfade. */
+@keyframes morph {
+  0%   { transform: scale(1);    }
+  35%  { transform: scale(1.22); }
+  100% { transform: scale(1);    }
+}
+
+.eq-slot { display: grid; align-content: center; justify-items: center; gap: .1rem;
+  padding: 0 .5rem; min-height: 3.2rem; }
+.eq-dim { font-size: .82em; opacity: .78; }
+.eq-dim .katex-display, .eq-compact .katex-display { margin: .15rem 0; }
+
+/* A4: a term lights up in the equation and on its card at the same time. Only possible
+   because pipeline/render_math.mjs tags each term with a stable id at build time. */
+[data-term] { border-radius: 3px; padding: 0 .08em;
+  transition: background .22s ease, color .22s ease; }
+[data-term].lit { background: color-mix(in srgb, currentColor 16%, transparent); }
+.eq-slot [data-term="x1"].lit, .eq-slot [data-term="p1"].lit { color: var(--g1); }
+.eq-slot [data-term="x2"].lit, .eq-slot [data-term="p2"].lit { color: var(--g2); }
+
+/* Progressive compression: after `slope` the scaffold shrinks but never disappears. */
+.ledger.compact { padding: .45rem 1.1rem; }
+.ledger.compact .glyph { width: 26px; height: 26px; }
+.ledger.compact .long,
+.ledger.compact .stations dt { display: none; }
+.ledger.compact .stations { grid-auto-flow: column; gap: .8rem; }
+.ledger.compact .stations .station { grid-template-columns: 1fr; }
+
+@media (prefers-reduced-motion: reduce) {
+  .price.morphing { animation: none; }
+  .station, [data-term] { transition: opacity .15s linear; }
+}
+
+@media (max-width: 900px) {
+  .ledger { grid-template-columns: 1fr 1fr; }
+  .eq-slot { grid-column: 1 / -1; order: -1; }
+}

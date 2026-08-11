@@ -1,7 +1,7 @@
 {
   "pack": "budget-line",
   "lang": "en",
-  "audio": "20260810-183534_budget-line-en.mp3",
+  "audio": "20260810-192759_budget-line-en.mp3",
   "duration_s": 211.512,
   "sync_granularity": "sentence",
   "cues": [
@@ -64,6 +64,308 @@
       "id": "recap",
       "type": "graph",
       "t": 188.308
+    }
+  ],
+  "transcript": [
+    {
+      "text": "The Budget Constraint",
+      "start_s": 0.1,
+      "end_s": 1.566,
+      "part_index": 0
+    },
+    {
+      "text": "Before we talk about budgets, we have to say what it is that we are choosing.",
+      "start_s": 1.516,
+      "end_s": 5.561,
+      "part_index": 0
+    },
+    {
+      "text": "A consumer does not choose one good: they choose a combination of everything they consume.",
+      "start_s": 5.561,
+      "end_s": 10.482,
+      "part_index": 0
+    },
+    {
+      "text": "The set of all imaginable combinations is what we call the consumption set.",
+      "start_s": 10.482,
+      "end_s": 14.448,
+      "part_index": 0
+    },
+    {
+      "text": "And what keeps you from reaching any of them is not desire, it is resources: income, time, whatever happens to be limited.",
+      "start_s": 14.448,
+      "end_s": 21.675,
+      "part_index": 0
+    },
+    {
+      "text": "Each concrete combination is what we call a bundle.",
+      "start_s": 21.675,
+      "end_s": 24.595,
+      "part_index": 0
+    },
+    {
+      "text": "With two goods, a bundle is simply a pair of numbers: how much of good one and how much of good two.",
+      "start_s": 24.595,
+      "end_s": 30.334,
+      "part_index": 0
+    },
+    {
+      "text": "We write it like this: (x sub 1 , x sub 2",
+      "start_s": 30.334,
+      "end_s": 33.686,
+      "part_index": 0
+    },
+    {
+      "text": "). With more goods it would be a longer vector, but we stay with two for a very practical reason: two can be drawn.",
+      "start_s": 33.686,
+      "end_s": 39.845,
+      "part_index": 0
+    },
+    {
+      "text": "And here is the idea that makes everything else visible.",
+      "start_s": 39.845,
+      "end_s": 42.868,
+      "part_index": 0
+    },
+    {
+      "text": "If each good is an axis, then every possible bundle is a point on the plane.",
+      "start_s": 42.868,
+      "end_s": 47.436,
+      "part_index": 0
+    },
+    {
+      "text": "The goods space stops being a list of numbers and becomes a map.",
+      "start_s": 47.436,
+      "end_s": 51.039,
+      "part_index": 0
+    },
+    {
+      "text": "Let us put coffee in kilos on the horizontal axis, and orange juice in liters on the vertical one.",
+      "start_s": 51.039,
+      "end_s": 56.516,
+      "part_index": 0
+    },
+    {
+      "text": "Coffee costs three dollars a kilo, juice costs one a liter, and you have one hundred dollars.",
+      "start_s": 56.516,
+      "end_s": 61.959,
+      "part_index": 0
+    },
+    {
+      "text": "Now the real question: which points on that map can you afford?",
+      "start_s": 61.959,
+      "end_s": 65.55,
+      "part_index": 0
+    },
+    {
+      "text": "A bundle is affordable when what you spend does not exceed your income.",
+      "start_s": 65.55,
+      "end_s": 69.084,
+      "part_index": 0
+    },
+    {
+      "text": "In symbols: p sub 1 x sub 1 plus p sub 2 x sub 2 less than or equal to m.",
+      "start_s": 69.084,
+      "end_s": 75.141,
+      "part_index": 0
+    },
+    {
+      "text": "All the bundles that satisfy that inequality form your budget set, and it is the shaded region.",
+      "start_s": 75.141,
+      "end_s": 80.607,
+      "part_index": 0
+    },
+    {
+      "text": "The budget line is only the edge of that region: the bundles that exhaust your income exactly, where the inequality becomes an equality.",
+      "start_s": 80.607,
+      "end_s": 88.22,
+      "part_index": 0
+    },
+    {
+      "text": "p sub 1 x sub 1 plus p sub 2 x sub 2 equals m.",
+      "start_s": 88.22,
+      "end_s": 92.266,
+      "part_index": 0
+    },
+    {
+      "text": "It is worth saying out loud, because it is the most common confusion: the line is not the set.",
+      "start_s": 92.266,
+      "end_s": 97.732,
+      "part_index": 0
+    },
+    {
+      "text": "The line is the boundary of the set.",
+      "start_s": 97.732,
+      "end_s": 99.8,
+      "part_index": 0
+    },
+    {
+      "text": "The endpoints are easy.",
+      "start_s": 99.8,
+      "end_s": 101.323,
+      "part_index": 0
+    },
+    {
+      "text": "If you spend your whole income on coffee, you buy one hundred divided by three, about thirty-three kilos.",
+      "start_s": 101.323,
+      "end_s": 106.959,
+      "part_index": 0
+    },
+    {
+      "text": "If you spend it all on juice, you buy one hundred liters.",
+      "start_s": 106.959,
+      "end_s": 110.13,
+      "part_index": 0
+    },
+    {
+      "text": "Those two points are the intercepts, and with them you already have the whole line.",
+      "start_s": 110.13,
+      "end_s": 113.936,
+      "part_index": 0
+    },
+    {
+      "text": "The slope is minus p one over p two, that is, minus three.",
+      "start_s": 113.936,
+      "end_s": 117.97,
+      "part_index": 0
+    },
+    {
+      "text": "That number is not abstract: it means that to take home one more kilo of coffee, you have to give up three liters of juice.",
+      "start_s": 117.97,
+      "end_s": 124.448,
+      "part_index": 0
+    },
+    {
+      "text": "The market lets you transform three liters of juice into one kilo of coffee, at the current prices.",
+      "start_s": 124.448,
+      "end_s": 129.868,
+      "part_index": 0
+    },
+    {
+      "text": "That is why the slope is called the relative price.",
+      "start_s": 129.868,
+      "end_s": 132.493,
+      "part_index": 0
+    },
+    {
+      "text": "Before we go on, think about it for a moment.",
+      "start_s": 132.493,
+      "end_s": 135.527,
+      "part_index": 0
+    },
+    {
+      "text": "If your income rose from one hundred to one hundred and fifty, what would happen to the line?",
+      "start_s": 135.527,
+      "end_s": 140.323,
+      "part_index": 0
+    },
+    {
+      "text": "Would it shift, would it rotate, or both?",
+      "start_s": 140.323,
+      "end_s": 142.709,
+      "part_index": 0
+    },
+    {
+      "text": "It shifts, but it does not rotate.",
+      "start_s": 142.709,
+      "end_s": 144.993,
+      "part_index": 0
+    },
+    {
+      "text": "An increase in income moves the line outward in a parallel manner, enlarging the budget set.",
+      "start_s": 144.993,
+      "end_s": 149.948,
+      "part_index": 0
+    },
+    {
+      "text": "The slope does not change, and the reason is that prices did not change: one kilo of coffee still costs exactly three liters of juice.",
+      "start_s": 149.948,
+      "end_s": 158.175,
+      "part_index": 0
+    },
+    {
+      "text": "The only difference is that now you can afford more of both.",
+      "start_s": 158.175,
+      "end_s": 161.208,
+      "part_index": 0
+    },
+    {
+      "text": "Now the other way around.",
+      "start_s": 161.608,
+      "end_s": 163.244,
+      "part_index": 1
+    },
+    {
+      "text": "If the price of coffee rises from three to four, the line does not shift: it pivots.",
+      "start_s": 163.194,
+      "end_s": 168.183,
+      "part_index": 1
+    },
+    {
+      "text": "The juice intercept stays exactly where it was, because neither your income nor the price of juice changed.",
+      "start_s": 168.183,
+      "end_s": 173.922,
+      "part_index": 1
+    },
+    {
+      "text": "What moves is the other endpoint, inward, and the line becomes steeper.",
+      "start_s": 173.922,
+      "end_s": 177.956,
+      "part_index": 1
+    },
+    {
+      "text": "This is the distinction that slips the most, so I want you to say it.",
+      "start_s": 177.956,
+      "end_s": 181.501,
+      "part_index": 1
+    },
+    {
+      "text": "Income shifts; price pivots.",
+      "start_s": 181.501,
+      "end_s": 183.785,
+      "part_index": 1
+    },
+    {
+      "text": "Can you explain why the juice intercept does not move when what rises is the price of coffee?",
+      "start_s": 183.785,
+      "end_s": 188.308,
+      "part_index": 1
+    },
+    {
+      "text": "To recap.",
+      "start_s": 188.308,
+      "end_s": 189.308,
+      "part_index": 1
+    },
+    {
+      "text": "A bundle is a point in the goods space.",
+      "start_s": 189.308,
+      "end_s": 191.49,
+      "part_index": 1
+    },
+    {
+      "text": "The budget set is the region you can afford, and the line is its boundary.",
+      "start_s": 191.49,
+      "end_s": 195.66,
+      "part_index": 1
+    },
+    {
+      "text": "The intercepts come from spending your entire income on a single good.",
+      "start_s": 195.66,
+      "end_s": 199.263,
+      "part_index": 1
+    },
+    {
+      "text": "And the slope is the relative price, which tells you how much of one good you give up for one unit of the other.",
+      "start_s": 199.263,
+      "end_s": 204.638,
+      "part_index": 1
+    },
+    {
+      "text": "Change income and the line shifts; change a price and it pivots around the intercept of the good whose price did not change.",
+      "start_s": 204.638,
+      "end_s": 211.444,
+      "part_index": 1
     }
   ]
 }
