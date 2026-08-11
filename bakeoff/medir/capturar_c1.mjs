@@ -53,12 +53,21 @@ const ctx = await browser.newContext({viewport: {width: 1280, height: 860}});
 const page = await ctx.newPage();
 const clave = {};
 
-for (const t of INSTANTES) {
-  // El sorteo x/y depende del instante: memorizar "x es el vídeo" no sirve.
-  const orden = t % 2 === 0 ? VARIANTES : [...VARIANTES].reverse();
-  for (let i = 0; i < orden.length; i++) {
-    const v = orden[i];
-    const etiqueta = ['x', 'y'][i];
+for (const [i, t] of INSTANTES.entries()) {
+  // El sorteo alterna por POSICIÓN en la lista.
+  //
+  // Antes dependía de `t % 2`, y los cinco instantes elegidos por la rúbrica resultaron
+  // ser todos pares: `x` salió siendo A las diez veces. Un sorteo que en la práctica no
+  // sortea es peor que no tenerlo, porque se cree. Se descubrió al abrir `clave.json`.
+  //
+  // Aun así: las dos opciones se distinguen a simple vista —una es un vídeo dentro de un
+  // recuadro y la otra es SVG en la página— así que esto nunca fue una ceguera de verdad.
+  // Lo único que protege de verdad es que Kristian pueda repuntuar, y por eso las
+  // capturas y esta clave se guardan.
+  const orden = i % 2 === 0 ? VARIANTES : [...VARIANTES].reverse();
+  for (let j = 0; j < orden.length; j++) {
+    const v = orden[j];
+    const etiqueta = ['x', 'y'][j];
     await page.goto(`${URL_BASE}/?lang=es&variant=${v}&t=${t}`,
                     {waitUntil: 'domcontentloaded'});
     await page.waitForFunction('window.__tutoria !== undefined', null, {timeout: 30000});

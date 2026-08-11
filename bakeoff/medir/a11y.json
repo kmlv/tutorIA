@@ -1,0 +1,23 @@
+[
+ {
+  "variante": "A",
+  "etiqueta_accesible": "Línea presupuestaria de café y jugo de naranja. Ingreso 100, precios 3 y 1. Intercepto horizontal 33.3 de café, intercepto vertical 100 de jugo de naranja, pendiente -3.00.",
+  "nodos_de_texto": 4,
+  "muestra": [
+   "x₁ — café",
+   "x₂ — jugo de naranja",
+   "33.3",
+   "100"
+  ],
+  "escenario_es_imagen": false,
+  "pistas_de_texto": null
+ },
+ {
+  "variante": "B",
+  "etiqueta_accesible": null,
+  "nodos_de_texto": 0,
+  "muestra": [],
+  "escenario_es_imagen": true,
+  "pistas_de_texto": 0
+ }
+]

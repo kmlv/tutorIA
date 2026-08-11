@@ -54,19 +54,34 @@ const W = 1120;
 const H = 920;
 const PAD = {l: 124, r: 56, t: 68, b: 128};
 
+/**
+ * Los tokens de `app/web/src/styles.css`, copiados a mano.
+ *
+ * Copiados y no importados porque el render corre en otro proyecto de node, y las
+ * variables CSS no existen fuera del navegador. Que estén duplicados es una deuda real y
+ * es también un dato del criterio 4: un tema pre-renderizado no puede seguir al de la
+ * página.
+ *
+ * Se cambiaron del oscuro que traía el reconocimiento al claro de la app tras mirar la
+ * primera captura del criterio 1: un recuadro oscuro flotando en una página clara habría
+ * hecho perder a B por una decisión de paleta mía. Y la limitación de fondo queda escrita
+ * y no borrada: la opción A cambia de tema con el sistema —tiene su bloque
+ * `prefers-color-scheme`— y este MP4 no puede. Un alumno en modo oscuro verá exactamente
+ * el problema que esta corrección acaba de quitarle a un alumno en modo claro.
+ */
 const COLOR = {
-  fondo: '#0f1115',
-  eje: '#8a93a6',
-  linea: '#f2f4f8',
-  fantasma: '#6b7280',
-  conjunto: '#3b6fd4',
-  destaque: '#f5a524',
-  texto: '#c8cfdd',
-  tenue: '#5b657a',
+  fondo: '#fbfbf9',
+  eje: '#75756e',
+  linea: '#0b5cff',
+  fantasma: '#b9b9b2',
+  conjunto: '#0b5cff',
+  destaque: '#c2620a',
+  texto: '#22221f',
+  tenue: '#75756e',
 };
 
 export const Lesson: React.FC<LessonProps> = ({
-  beats, audio, bien1, bien2, titulo, maxX, maxY,
+  beats, audio, bien1, bien2, maxX, maxY,
 }) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
@@ -99,17 +114,23 @@ export const Lesson: React.FC<LessonProps> = ({
     <AbsoluteFill style={{backgroundColor: COLOR.fondo, fontFamily: 'Helvetica, Arial'}}>
       <Audio src={staticFile(audio)} />
       <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`}>
-        <text x={PAD.l} y={PAD.t - 20} fill={COLOR.texto} fontSize={34}>{titulo}</text>
-
+        {/* Sin título: la app ya lo pinta arriba, en DOM y seleccionable. Estaba
+            duplicado en la primera captura. */}
         {s.mostrar.ejes && (
           <g stroke={COLOR.eje} strokeWidth={3}>
             <line x1={PAD.l} y1={H - PAD.b} x2={W - PAD.r} y2={H - PAD.b} />
             <line x1={PAD.l} y1={PAD.t} x2={PAD.l} y2={H - PAD.b} />
           </g>
         )}
+        {/* El nombre del eje va en su propia línea, por debajo de donde caen los valores
+            de los interceptos. Con el ingreso a 150 el intercepto se va a 50 y su etiqueta
+            se montaba encima de "x₁ — café": las dos ilegibles. La opción A ya lo tenía
+            resuelto porque su escenario pasó revisiones de diseño y este no; corregirlo
+            antes de puntuar el criterio 1 es lo que impide que la rúbrica mida cuál de los
+            dos pulí más. */}
         {s.mostrar.ejes && (
           <g fontSize={28}>
-            <text x={W - PAD.r} y={H - PAD.b + 44} fill={COLOR.texto} textAnchor="end">
+            <text x={W - PAD.r} y={H - PAD.b + 86} fill={COLOR.texto} textAnchor="end">
               x₁ — {bien1}
             </text>
             <text x={PAD.l + 12} y={PAD.t + 6} fill={COLOR.texto}>x₂ — {bien2}</text>
@@ -167,10 +188,11 @@ export const Lesson: React.FC<LessonProps> = ({
           </text>
         )}
 
-        <text x={PAD.l} y={H - 40} fill={COLOR.texto} fontSize={32}>{b.caption}</text>
-        <text x={W - PAD.r} y={H - 40} fill={COLOR.tenue} fontSize={22} textAnchor="end">
-          {b.cue}
-        </text>
+        {/* El subtítulo NO se quema en el vídeo: la app ya tiene su banda de subtítulos,
+            que además avanza frase a frase mientras un beat dura veinte segundos. Tenerlos
+            los dos ponía dos textos distintos en pantalla a la vez, contradiciéndose —
+            visible en la primera captura del criterio 1. El id del cue era depuración del
+            reconocimiento. */}
       </svg>
     </AbsoluteFill>
   );

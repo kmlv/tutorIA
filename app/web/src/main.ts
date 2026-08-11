@@ -184,8 +184,14 @@ async function main(): Promise<void> {
    * to the DOM as soon as the student has to touch it.
    */
   function pintar(cueId?: string): void {
-    if (media.ownsStage) return;
+    // El ledger SIEMPRE se pinta. `ownsStage` significa dueño del ESCENARIO —el gráfico—
+    // y no de la pantalla: la banda de la ecuación y las fichas de los bienes viven fuera
+    // del `.stage`, el vídeo no las dibuja, y ocultarlas le quitaba a la opción B la mitad
+    // del contenido de cada instante por una decisión mía y no por una limitación suya.
+    // Visto en la primera captura del criterio 1: bajo B desaparecían la ecuación
+    // `m/p1 = 100/3 ≈ 33.3` y los precios, que es justo lo que se está explicando.
     if (cueId) paintLedger(cueId);
+    if (media.ownsStage) return;
     graph.render(estado);
   }
 
@@ -205,7 +211,7 @@ async function main(): Promise<void> {
     estado = estadoInicial(ejemplo);
     for (const c of media.cuesUntil(t)) {
       estado = aplicarCue(estado, c.id, ejemplo);
-      if (!media.ownsStage) paintLedger(c.id);
+      paintLedger(c.id);
     }
     pintar();
   }
@@ -416,7 +422,7 @@ async function main(): Promise<void> {
     for (const c of (session.media.cues ?? [])) {
       if (c.t !== null && c.t <= seekParam) {
         estado = aplicarCue(estado, c.id, ejemplo);
-        if (!media.ownsStage) paintLedger(c.id);
+        paintLedger(c.id);
       }
     }
     pintar();
