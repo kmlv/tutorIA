@@ -82,13 +82,53 @@ def health() -> dict:
     }
 
 
+#: Lo único del pack que el navegador necesita, y nada más.
+#:
+#: Esto era `pack.model_dump()` entero, y el pack entero incluye `respuesta`,
+#: `opciones[].correcta`, los `key_points` de la rúbrica del juez y el catálogo de
+#: misconceptions. O sea que **la clave de respuestas estaba en el navegador**: bastaba
+#: F12 para leer qué opción es la correcta de las 21 preguntas.
+#:
+#: Contradecía la afirmación que este mismo archivo hace unas líneas más abajo —"si el
+#: navegador conociera la respuesta, el estudiante podría leerla en el bundle"— y era
+#: cierta a medias: el VEREDICTO sí se decide aquí, pero la clave viajaba igual por otra
+#: puerta. Apareció al preguntarse qué haría falta para publicar esto en un host estático.
+#:
+#: `/next` ya hacía la proyección correcta —manda `opciones` como cadenas ya localizadas,
+#: sin `correcta`— así que el patrón existía y a esta ruta no se le había aplicado.
+def _pack_para_el_alumno(pack, lang: str) -> dict:
+    """El enunciado y las opciones de cada ítem, sin nada que revele la respuesta.
+
+    Se construye campo a campo y no filtrando el volcado: con una lista negra, un campo
+    nuevo en `Question` —el próximo `pista_si_falla`— entraría solo y se publicaría sin
+    que nadie lo decidiera. Con una lista blanca, entra si alguien lo escribe aquí.
+    """
+    return {
+        "id": pack.id,
+        "titulo": getattr(pack.titulo, lang),
+        "ejemplo": pack.ejemplo.model_dump(mode="json"),
+        "predictions": pack.predictions,
+        "questions": [
+            {
+                "id": q.id,
+                "modalidad": q.modalidad,
+                # Los dos idiomas: el cliente elige, y el guion está escrito en ambos.
+                "enunciado": q.enunciado.model_dump(),
+                "opciones": ([{"es": o.es, "en": o.en} for o in q.opciones]
+                             if q.opciones else None),
+            }
+            for q in pack.questions
+        ],
+    }
+
+
 @app.get("/api/packs/{concept_id}")
 def get_pack(concept_id: str, lang: str = "es") -> dict:
     try:
         pack = packs.get_pack(concept_id, lang)
     except FileNotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e)) from e
-    return pack.model_dump(mode="json")
+    return _pack_para_el_alumno(pack, lang)
 
 
 class NewSession(BaseModel):
