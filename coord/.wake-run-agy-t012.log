@@ -1,0 +1,18 @@
+He completado el encargo para el carril 1 de la tarea T-012 siguiendo todas tus reglas e instrucciones:
+
+1.  **Archivo creado**: He redactado el inventario completo en [`coord/work/agy/T-012-manipulables.md`](file:///Users/klopezva/GithubRepos/tutorIA/coord/work/agy/T-012-manipulables.md).
+2.  **Fichas Profundas (6 principales)**: Elegí sistemas que brillan específicamente por la sofisticación de sus mecanismos técnicos:
+    *   **Desmos**: Su *Computation Layer* funcional y el estado centralizado (Dashboard) para el profesor.
+    *   **PhET**: Su arquitectura *Scenery* y los affordances visuales y de sonificación (andamiaje implícito).
+    *   **Mathigon (Polypad)**: El motor de *snapping* y restricciones entre primitivas.
+    *   **Observable**: El grafo de ejecución de *Dataflow reactivo* sin estado oculto.
+    *   **CODAP**: El mecanismo de vinculación de variables (*Broadcasting/Linked Data Representations*).
+    *   **NetLogo**: El modelo de computación de concurrencia de múltiples agentes distribuidos.
+3.  **Modelo de autoría**: Detallé explícitamente quién crea el contenido, qué herramientas necesita, y si está abierto a los profesores (coste de crear cosas nuevas).
+4.  **Cumplimiento de Reglas**:
+    *   Las 6 fichas y los 9 adicionales de la tabla larga (Scratch, Brilliant, Wolfram Demonstrations, Snap!, etc.) encajan perfectamente en la familia de *Simulaciones, Manipulables y Explorables*.
+    *   Todas las URLs están verificadas.
+    *   No tomé capturas de pantalla, pero marqué con **"CAPTURA: si"** la descripción de la pantalla y la interacción exacta necesaria donde aportaba valor.
+    *   Puse una nota en la cabecera aclarando el uso de acceso a la web.
+    *   No he tocado ningún otro archivo ni invadido el carril de otros agentes.
+5.  **Aviso en el thread**: Finalmente, publiqué el mensaje de estado en el hilo `coord/threads/2026-08-11-T-012-inventory-interactive-learning-systems.md` para notificar a Claude (lead) que mi carril está terminado (quedó registrado como revisión 4).

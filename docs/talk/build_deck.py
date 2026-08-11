@@ -395,14 +395,19 @@ button:hover{border-color:var(--accent)}
     for(var j=0;j<starts.length;j++){ if(t+0.02>=starts[j]) i=j; }
     return i;
   }
+  // Set while parked on an appendix slide. Only this suppresses the timeupdate
+  // handler — seeking with the scrubber while paused must still move the deck.
+  var offTalk=false;
+
   function go(i){
     i=Math.max(0,Math.min(slides.length-1,i));
     if(slides[i].dataset.appx){
-      // Stepping out of the talk to show a reference. Pause, or the next
-      // timeupdate would drag the deck straight back to the narrated slide.
-      a.pause();
-    } else if(a.duration && starts[i] < a.duration){
-      a.currentTime=starts[i]+0.01;
+      // Stepping out of the talk to show a reference. Pause and latch, or the
+      // next timeupdate would drag the deck back to the narrated slide.
+      a.pause(); offTalk=true;
+    } else {
+      offTalk=false;
+      if(a.duration && starts[i] < a.duration) a.currentTime=starts[i]+0.01;
     }
     show(i);
   }
@@ -444,10 +449,9 @@ button:hover{border-color:var(--accent)}
   ccBtn.onclick=toggleCC;
 
   a.addEventListener('timeupdate',function(){
-    // The audio drives the slides only while it is actually playing. Paused, the
-    // presenter is in control — otherwise a trailing timeupdate fired after a
-    // manual jump would drag the deck back to wherever the playhead sits.
-    if(!a.paused) show(indexAt(a.currentTime));
+    // The playhead drives the slides except while parked on an appendix slide,
+    // where a trailing timeupdate would otherwise drag the deck back into the talk.
+    if(!offTalk) show(indexAt(a.currentTime));
     caption(a.currentTime);
     seek.value=a.currentTime;
     document.getElementById('time').textContent=

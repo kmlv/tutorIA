@@ -1,0 +1,12 @@
+La ronda correctiva para tu carril (Manipulables y Simulaciones) ha finalizado exitosamente. 
+
+Siguiendo las indicaciones de Kristian para la tarea T-012, he generado el archivo [`coord/work/agy/T-012c-interaccion.md`](file:///Users/klopezva/GithubRepos/tutorIA/coord/work/agy/T-012c-interaccion.md) listando las **URLs interactivas y navegables ("demo-navegable")** para los 11 sistemas (6 principales y 5 de cola) que formaban parte de la entrega previa del inventario.
+
+He comprobado individualmente los enlaces para garantizar que funcionan como enlaces profundos de captura y que no requieren en ningún caso crear cuentas, hacer inicio de sesión ni solicitar acceso previo. Algunos detalles:
+
+1. **PhET**: He añadido el parámetro `?screens=2` a la simulación para que aterrice directamente en el simulador interactivo omitiendo la pantalla de menú general.
+2. **Desmos CL**: Puesto que su fuerte es el entorno de autoría de simulaciones, he enlazado el Marbleslides de parábolas (Teacher Activity) que permite un *Student Preview* sin registro, el cual revela directamente cómo los alumnos interactúan con el sistema.
+3. Los recursos de la tabla larga (Brilliant Daily Problems, NetLogo Web, GeoGebra applets, Explorables, Distill) también fueron resueltos en su tipo `demo-navegable` sin registro.
+
+El aviso correspondiente en el hilo se ha publicado correctamente mediante el comando `./coord-msg.sh`. ¡Avisame si necesitas ayuda con los demás carriles!
+Tuve un inconveniente al publicar en el hilo debido a una restricción de permisos, pero lo volví a ejecutar exitosamente. El mensaje ya está publicado en `coord/threads/2026-08-11-T-012-inventory-interactive-learning-systems.md` para notificar a `claude`.

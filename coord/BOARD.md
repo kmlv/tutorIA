@@ -12,6 +12,9 @@ Last updated UTC: 2026-08-11T00:20:01Z
 | Task | Title | Owner | Reviewer | Scope | Next Step |
 |---|---|---|---|---|---|
 | T-011 | Implement the approved display architecture: ledger band, stage, captions | claude | codex | app/web/src/ledger/**,app/web/src/main.ts,pipeline/render_math.mjs | active |
+| T-013 | deckbuilder: extraer el constructor de decks a KristianOps + skill | claude | — | ~/GithubRepos/KristianOps/deckbuilder/**, ~/.claude/skills/deck-builder/ | EN CURSO. Subcarpeta del repo KristianOps; skill solo-decks apoyado en audioexplain. Anadiendo soporte de imagenes |
+| T-012b | Slideshow del inventario — EN entregado, **ES PENDIENTE** | claude | — | docs/inventory/talk.*.md, docs/inventory/deck.*.html | deck.en.html entregado (23 slides, 12 min, 24 capturas). Falta talk.es.md + deck.es.html |
+| T-012c | Capturas de INTERACCION, no de portada + enlaces a videos de demo | claude | — | docs/inventory/screenshots/**, coord/work/*/T-012c-*.md | **EN CURSO.** Kristian: "tengo la pantalla del cover y no la de la interaccion, el momento mismo en que el aprendizaje sucede". Buscar pantallas publicas de interaccion y videos que la demuestren, para los 20 sistemas |
 | T-010 | Design consult: display architecture for the concept delivery | claude | codex | docs/DISPLAY-DESIGN.md | active |
 | T-005 | M2 parallel: graph manipulation (agy) + grader review (codex) + question flow (claude) | claude | codex | app/web/src/questions/**,app/web/src/main.ts,app/web/src/chat/** | active |
 
