@@ -1,0 +1,50 @@
+# tutorIA en el servidor de Hetzner.
+#
+#   docker compose up -d --build
+#
+# Dos contenedores: la app y Caddy delante. Caddy está por el HTTPS: pide y renueva el
+# certificado de Let's Encrypt solo, y es la diferencia entre una dirección que puedes
+# mandar por correo y una que el navegador marca en rojo.
+#
+# La app NO publica puerto al exterior. Solo Caddy escucha en 80 y 443, y habla con la app
+# por la red interna de compose. Así el servidor no queda con un uvicorn expuesto por si
+# alguien se olvida del cortafuegos.
+
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      # Se leen del archivo .env que está JUNTO a este, en el servidor y no en git.
+      OPENAI_API_KEY: ${OPENAI_API_KEY:?falta OPENAI_API_KEY en .env}
+      TUTORIA_LIMITE_USD_DIA: ${TUTORIA_LIMITE_USD_DIA:-5}
+      TUTORIA_DB: /data/tutoria.sqlite
+    volumes:
+      # La base sobrevive a `docker compose down` y a reconstruir la imagen. Si esto fuera
+      # un bind mount a un directorio del repositorio, un `git clean` se llevaría por
+      # delante lo que hayan escrito los estudiantes.
+      - datos:/data
+    expose:
+      - "8080"
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      # Con dominio, certificado real. Sin dominio, `:80` y Caddy sirve por HTTP sin
+      # pedir nada — útil para probar por IP antes de tener el DNS.
+      DOMINIO: ${DOMINIO:-:80}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+
+volumes:
+  datos:
+  caddy_data:
+  caddy_config:

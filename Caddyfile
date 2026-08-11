@@ -1,0 +1,23 @@
+# Caddy delante de tutorIA. Una línea de configuración y el HTTPS se gestiona solo.
+{$DOMINIO} {
+	# `app` es el nombre del servicio en compose; lo resuelve la red interna.
+	reverse_proxy app:8080
+
+	encode gzip
+
+	# El MP3 de la lección y el JS compilado no cambian entre despliegues, y son lo único
+	# que pesa. Sin esto, cada estudiante que recarga se baja otra vez los 1,9 MB de voz.
+	@estaticos path /media/* /assets/*
+	header @estaticos Cache-Control "public, max-age=604800"
+
+	# La API no se cachea NUNCA. Es la que sabe si una respuesta es correcta y cuál es el
+	# ítem siguiente; una respuesta cacheada aquí le daría a un estudiante el veredicto de
+	# otro.
+	@api path /api/*
+	header @api Cache-Control "no-store"
+
+	log {
+		output file /data/acceso.log
+		format console
+	}
+}
