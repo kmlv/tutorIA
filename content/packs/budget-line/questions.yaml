@@ -103,16 +103,25 @@ questions:
     enunciado:
       es: "Explica con tus palabras qué significa que la pendiente sea {{slope}}. No uses la fórmula: dímelo en café y jugo."
       en: "Explain in your own words what a slope of {{slope}} means. Don't use the formula: tell me in coffee and juice."
+    # FUSIONADO 2026-08-11 (Kristian). Antes eran tres puntos y dos de ellos pedían casi
+    # lo mismo: `kp_tradeoff` (renunciar a N litros por un kilo) y `kp_relative_price`
+    # (conectarlo con el precio relativo). Un alumno que dice "cada kilo de café me
+    # cuesta tres litros de jugo" ya está diciendo las dos cosas, así que separarlas
+    # obligaba al corrector a decidir si la segunda frase existía además de la primera.
+    # En los datos se veía: era el punto de rúbrica con peor acuerdo de los seis, 76%,
+    # y dos auditores lo señalaron por su cuenta. No era el juez — dos correctores
+    # humanos tampoco habrían coincidido.
     key_points:
       - id: kp_tradeoff
-        es: identifica que hay que renunciar a {{slope_abs}} litros de jugo por un kilo más de café
-        en: identifies giving up {{slope_abs}} liters of juice for one more kilo of coffee
+        es: >-
+          lee la pendiente como una tasa de intercambio: un kilo más de café cuesta
+          {{slope_abs}} litros de jugo, o sea lo que cuesta el café medido en jugo
+        en: >-
+          reads the slope as an exchange rate: one more kilo of coffee costs
+          {{slope_abs}} liters of juice — what coffee costs measured in juice
       - id: kp_sign
         es: el signo negativo refleja que un bien sube y el otro baja
         en: the negative sign reflects one good rising as the other falls
-      - id: kp_relative_price
-        es: lo conecta con el precio relativo o el costo de oportunidad
-        en: connects it to relative price or opportunity cost
     misconceptions_vigilar: [BL-M1, BL-M5]
 
   # ---------------------------------------------------------------- BL.FEAS
@@ -250,9 +259,13 @@ questions:
       - id: kp_intercept_formula
         es: ese intercepto es m/p2 y ni m ni p2 cambiaron
         en: that intercept is m/p2 and neither m nor p2 changed
+      # Ojo: el intercepto del jugo es la esquina donde se gasta todo en JUGO. Decía
+      # "café" en ambos idiomas, que es justo la afirmación contraria a la correcta;
+      # como key_points es la rúbrica que ve el juez, esa línea habría hecho que el
+      # juez premiara la confusión que la pregunta quiere detectar.
       - id: kp_corner_meaning
-        es: gastar todo en cafés no involucra el precio del café
-        en: spending everything on coffee does not involve the price of coffee
+        es: gastar todo el ingreso en jugo no involucra al precio del café
+        en: spending the whole income on juice does not involve the price of coffee
     misconceptions_vigilar: [BL-M3, BL-M2]
 
   # ---------------------------------------------------------------- BL.EQ
