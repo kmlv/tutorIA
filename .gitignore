@@ -20,3 +20,6 @@ __pycache__/
 .pytest_cache/
 node_modules/
 app/web/dist/
+
+# salida del compilador para los tests de node del cue engine
+app/web/dist-test/

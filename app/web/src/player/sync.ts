@@ -155,16 +155,25 @@ export class CueEngine {
       this.telemetria.push(f);
       for (const h of this.handlers) h(f);
 
-      // A `prediction` cue BLOCKS, and the engine enforces it rather than trusting the
-      // handler to call holdRest(). A prediction shares its timestamp with the cue whose
-      // narration reveals the answer — that is how it lands first — so if the loop
-      // continued, the graph would show the answer while the question is on screen,
-      // which destroys the only thing a prediction is for.
+      // Any cue that HANDS CONTROL AWAY blocks the rest of the tick, and the engine
+      // enforces it rather than trusting the handler to call holdRest(). A prediction
+      // shares its timestamp with the cue whose narration reveals the answer — that is
+      // how it lands first — so if the loop continued, the graph would show the answer
+      // while the question is on screen, which destroys the only thing a prediction is
+      // for.
       //
       // The cooperative version (handler calls holdRest) did not work and cost two
       // rounds of wrong guesses. Ownership belongs here: the engine knows the cue type,
       // so it should not need anyone's cooperation to honour it.
-      if (c.type === "prediction") {
+      //
+      // Widened from `prediction` to every non-graph cue after an audit of the M4 seam.
+      // Checkpoints pause and hand control to the dock exactly as predictions do, but
+      // only predictions blocked. No checkpoint shares a timestamp today, so nothing was
+      // leaking — but the invariant held by accident, and the compiler assigns a shared
+      // timestamp to any mark that has no narration after it. An author writing a
+      // checkpoint immediately before its reveal cue would have shipped the answer next
+      // to the question with nothing to catch it.
+      if (c.type !== "graph") {
         this.blocked = true;
         // minus epsilon, NOT c.t: the next tick uses `c.t > desde`, so parking exactly
         // on the timestamp makes the deferred cue fail that test forever and the reveal
