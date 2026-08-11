@@ -16,7 +16,12 @@ services:
     restart: unless-stopped
     environment:
       # Se leen del archivo .env que está JUNTO a este, en el servidor y no en git.
-      OPENAI_API_KEY: ${OPENAI_API_KEY:?falta OPENAI_API_KEY en .env}
+      # Vacía es válido: la lección funciona ENTERA menos el chat del tutor, y eso es
+      # exactamente lo que quieres para enseñarla sin gastar saldo. Antes esto era `:?`,
+      # que aborta con la variable vacía y contradecía al propio docs/PUBLICAR.md.
+      # Reventar el arranque por una función opcional es la clase de rigidez que obliga a
+      # poner la clave antes de haber visto si la cosa siquiera levanta.
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       TUTORIA_LIMITE_USD_DIA: ${TUTORIA_LIMITE_USD_DIA:-5}
       TUTORIA_DB: /data/tutoria.sqlite
     volumes:
