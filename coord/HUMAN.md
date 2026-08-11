@@ -24,6 +24,25 @@ se hacen.
 yo; las lee un alumno tuyo antes de contestar. Faltan cinco, y con dos el experimento solo
 alcanza 2 pares por sesion — medido, no estimado.
 
+### H-007 — 2026-08-11: D-3 medido, y una pregunta que sale de la medicion
+
+El guion del grafico ya es datos (`content/packs/budget-line/graph.yaml`) y un modelo lo
+escribe contra el esquema. Tres modelos, seis corridas, cero documentos invalidos: el
+formato aguanta. El acuerdo con el guion que escribi a mano es 8/10 con los modelos
+fuertes.
+
+**Lo que necesita tu ojo:** dos de las diferencias que quedan apuntan a que el modelo lo
+hizo mejor que yo, y son decisiones pedagogicas tuyas, no mias:
+
+1. En `budget_set` la narracion pregunta *"¿que puntos de ese mapa puedes pagar?"*. Los
+   modelos muestran la region y NO la recta. Mi guion enciende la recta ahi. ¿Cual es la
+   correcta?
+2. En `income_shift` la narracion dice *"se desplaza, pero no gira"*. Los modelos dejan la
+   pendiente destacada; mi guion la apaga. La regla que yo mismo escribi dice que hay que
+   destacar lo que NO se mueve, asi que los modelos siguen mi regla y yo no.
+
+Detalle completo en `docs/D3-GUION-GRAFICO.md`.
+
 ### H-005 — 2026-08-11: el gold set NO se etiqueta a mano en el PoC
 
 **Decision de Kristian, textual:** *"no voy a etiquetar. porque este contenido es para
