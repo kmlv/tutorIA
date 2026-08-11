@@ -23,6 +23,9 @@ import { render, type ManipValue, type QuestionSpec, type Respuesta } from "./in
  * open question correctly.
  */
 export interface Verdict {
+  /** La respuesta correcta, cuando el SERVIDOR decide revelarla. Nunca la calcula el
+   *  cliente: la clave de respuestas no vive en el navegador. */
+  revelacion?: string;
   correcta?: boolean;
   score?: number;
   socratica?: string;
@@ -32,8 +35,12 @@ export interface Verdict {
 }
 
 const T = {
-  es: { bien: "Correcto.", pensemos: "Vamos a pensarlo distinto.", error: "No pude enviar tu respuesta." },
-  en: { bien: "Correct.", pensemos: "Let's think about it differently.", error: "I couldn't submit your answer." },
+  // `pensemos` es lo que se dice cuando el error del alumno no está en el catálogo y no
+  // hay sonda socrática. Decía "Vamos a pensarlo distinto", que ANUNCIA una reformulación
+  // que nunca llegaba — el alumno se quedaba esperando. Ahora dice lo que de verdad pasa e
+  // invita a la única acción que sí funciona: preguntarle al tutor.
+  es: { bien: "Correcto.", pensemos: "Esa no es. Prueba otra vez, o pregúntame y lo vemos juntos.", error: "No pude enviar tu respuesta." },
+  en: { bien: "Correct.", pensemos: "Not that one. Try again, or ask me and we'll work through it.", error: "I couldn't submit your answer." },
 };
 
 export class QuestionFlow {
@@ -116,6 +123,11 @@ export class QuestionFlow {
     // R1 of the remediation table: a named misconception on its first appearance gets a
     // socratic probe, never a correction. The student is not told they were wrong in so
     // many words — they are asked something that makes the contradiction visible.
+    //
+    // Y si el servidor manda la revelación —segundo intento sobre el mismo ítem— se
+    // enseña DESPUÉS de la sonda. Antes no se enseñaba nunca: el alumno se quedaba con
+    // «Vamos a pensarlo distinto», una frase que anuncia una reformulación que no llegaba.
     this.dock.decir(v.socratica ?? T[this.lang].pensemos);
+    if (v.revelacion) this.dock.decir(v.revelacion);
   }
 }

@@ -26,8 +26,25 @@ import type { QuestionSpec, ManipValue } from "./questions";
 import { NOTES } from "./generated/formulas";
 import type { Ejemplo, GraphState, Lang, SessionInfo } from "./types";
 
-const lang: Lang = (new URLSearchParams(location.search).get("lang") as Lang) || "en";
-const variant = new URLSearchParams(location.search).get("variant") || "A";
+/** El idioma, saneado.
+ *
+ *  `?lang=fr` dejaba la página COMPLETAMENTE en blanco: el diccionario `T` se indexa por
+ *  idioma, `T[lang]` salía `undefined`, y el primer `.cargando` reventaba antes de pintar
+ *  nada. Ni título, ni mensaje, ni forma de saber qué pasó. Un enlace mal copiado —o un
+ *  navegador que añade la región, `es-MX`— y el profesor ve una pantalla vacía.
+ *
+ *  Se cae al inglés en vez de mostrar un error porque un idioma que no tenemos no es un
+ *  fallo del alumno: es contenido que no existe todavía. */
+const IDIOMAS = ["es", "en"] as const;
+const pedido = (new URLSearchParams(location.search).get("lang") || "").slice(0, 2).toLowerCase();
+const lang: Lang = (IDIOMAS as readonly string[]).includes(pedido) ? (pedido as Lang) : "en";
+
+/** La variante, saneada. `?variant=b` en minúscula lanzaba desde el adaptador y dejaba una
+ *  página que SE VEÍA entera —fichas, botón «Empezar» habilitado— pero sin lección detrás.
+ *  Peor que la pantalla en blanco: parece que funciona. */
+const VARIANTES = ["A", "B"] as const;
+const variantePedida = (new URLSearchParams(location.search).get("variant") || "A").toUpperCase();
+const variant = (VARIANTES as readonly string[]).includes(variantePedida) ? variantePedida : "A";
 /** `?t=95` jumps straight to a moment on load. A capture affordance: it is how the
  *  design review screenshots are taken, and it will be how the M4 bake-off captures the
  *  same instant across all four media options. */
@@ -36,6 +53,8 @@ const seekParam = Number(new URLSearchParams(location.search).get("t"));
  *  measurement uses it; see the constructor of `CueEngine` for why it has to exist. */
 const relojGrosero =
   new URLSearchParams(location.search).get("reloj") === "grosero";
+/** `?debug=1` enseña la instrumentación interna. Por defecto, no. */
+const depurar = new URLSearchParams(location.search).get("debug") === "1";
 
 /** El mismo momento y la misma variante, en el otro idioma. */
 function otroIdiomaHref(): string {
@@ -116,6 +135,10 @@ async function main(): Promise<void> {
       <div class="captions-band"></div>
     </div>`;
 
+  // El <html lang> estaba fijo en "es", así que la lección en inglés se declaraba como
+  // española: un lector de pantalla la lee con fonética equivocada, palabra por palabra.
+  document.documentElement.lang = lang;
+
   const escenario = app.querySelector(".escenario") as HTMLElement;
   const ledger = new Ledger(app.querySelector(".bands") as HTMLElement, ejemplo, lang);
   const graph = new BudgetGraph(app.querySelector(".lienzo") as HTMLElement, ejemplo, lang);
@@ -183,8 +206,21 @@ async function main(): Promise<void> {
     const v = await new Promise<Verdict>((resolve) => {
       confirmar.addEventListener("click", () => {
         confirmar.disabled = true;
-        if (!valor) { resolve({ correcta: false, score: 0 }); return; }
-        void flow.submitManip(q.id, valor).then(resolve);
+        // Sin arrastrar, se manda la posición TAL COMO ESTÁ, que es exactamente lo que el
+        // alumno está afirmando: "la recta no se mueve". Antes se resolvía aquí mismo un
+        // veredicto falso sin llamar al servidor, y eso era el peor callejón del barrido:
+        // el servidor nunca se enteraba, volvía a servir el MISMO ítem, y el alumno podía
+        // pulsar «Listo» cuarenta veces recibiendo cero palabras. De paso quemaba el
+        // presupuesto de práctica entero y dejaba treinta y nueve fallos en el expediente
+        // de un alumno que no había contestado ni una vez.
+        //
+        // Un arrastre equivocado y un no-arrastre son los dos incorrectos; que uno avance
+        // con su sonda socrática y el otro encierre al alumno era la incoherencia.
+        const enviado: ManipValue = valor ?? (
+          modo === "point"
+            ? { x1: 0, x2: 0 } as ManipValue
+            : { p1: estado.p1, p2: estado.p2, m: estado.m } as ManipValue);
+        void flow.submitManip(q.id, enviado).then(resolve);
       });
     });
     teardown();
@@ -311,8 +347,13 @@ async function main(): Promise<void> {
       media.holdRest();   // the reveal shares this timestamp; it must wait for the answer
       void askPrediction(f.cue.id);
     }
+    // El desfase de cues es instrumentación del bake-off, no información para un alumno.
+    // Salía en la barra del reproductor como «p95 12ms», que a un profesor le parece —con
+    // razón— que se le coló algo de dentro. Se queda accesible en `__tutoria.lag()` y en
+    // la telemetría, que es donde hace falta, y solo se pinta con `?debug=1`.
     const d = media.lagSummary();
-    (document.getElementById("desfase") as HTMLElement).textContent = d.n ? `p95 ${d.p95}ms` : "";
+    (document.getElementById("desfase") as HTMLElement).textContent =
+      (depurar && d.n) ? `p95 ${d.p95}ms` : "";
   });
 
   /** Each checkpoint declares its question in pack.yaml; there is no hardcoded text. */
@@ -409,6 +450,26 @@ async function main(): Promise<void> {
     evento("student.asked", {});
   });
 
+  /** Qué le dice al tutor cada chip de ayuda.
+   *
+   *  Los cuatro chips no hacían NADA: pintaban la burbuja del alumno, mandaban telemetría,
+   *  y no llamaban al tutor jamás. Cinco de los fallos del barrido eran ese silencio visto
+   *  desde cinco superficies distintas, y lo peor es que escribir esas mismas palabras a
+   *  mano SÍ contestaba — así que el alumno concluye que el botón está roto, no que el
+   *  tutor no sabe.
+   *
+   *  Son frases y no ids porque lo que viaja al tutor es lenguaje: el servidor le da el
+   *  enunciado del ítem en curso, y "explícamelo de otra forma" con ese contexto delante
+   *  es una petición que se puede atender. Un id no lo sería. */
+  const DICE: Record<string, Record<Lang, string>> = {
+    no_entiendo: { es: "No entiendo esto. ¿Puedes explicármelo de otra forma?",
+                   en: "I don't get this. Can you explain it another way?" },
+    otro_ejemplo: { es: "¿Me das otro ejemplo?", en: "Can you give me another example?" },
+    mas_despacio: { es: "Vamos más despacio, por favor. Explícamelo paso a paso.",
+                    en: "Let's go slower, please. Walk me through it step by step." },
+    por_que: { es: "¿Por qué? Explícame el motivo.", en: "Why? Explain the reason." },
+  };
+
   dock.onIntencion((id) => {
     // time to first action after a checkpoint IS the attention signal
     if (pausedAt) {
@@ -424,8 +485,15 @@ async function main(): Promise<void> {
     if (id === "listo") {
       dock.setEstado("oculto");
       dock.decir(T.retomar);
-      void media.play();
+      // NO reanudar si la práctica ya empezó. `media.play()` sobre una narración
+      // terminada la rearranca desde 0:00, esconde la pregunta que el alumno tenía
+      // delante y lo deja mirando una lección que ya vio — dos fallos del barrido, uno
+      // en práctica y otro en idioma, con esta misma línea detrás.
+      if (!practice.active) void media.play();
+      return;
     }
+    const texto = DICE[id]?.[lang];
+    if (texto) void composer.preguntar(texto);
   });
 
   function evento(type: string, payload: Record<string, unknown>): void {
@@ -443,6 +511,22 @@ async function main(): Promise<void> {
   // without playing anything. That is also what the M4 bake-off needs: capture the same
   // instant across four media technologies, three of which are pre-rendered video.
   if (Number.isFinite(seekParam) && seekParam > 0) {
+    // Mover TAMBIÉN el audio, no solo el dibujo.
+    //
+    // `?t=` nació como affordance de captura: pintaba el estado de ese instante sin tocar
+    // el medio, para poder fotografiarlo en Chrome headless donde el audio no carga. Para
+    // un alumno o para quien enseña esto, es una contradicción: la pantalla muestra el
+    // minuto 1:30 y el reloj marca 0:00, y al pulsar «Empezar» la narración arranca desde
+    // el principio contra un gráfico que ya va por la mitad. Cinco de los sesenta y ocho
+    // fallos eran esta misma línea vista desde cinco superficies.
+    //
+    // Se hace con tolerancia a que el medio aún no tenga duración: en headless nunca la
+    // tendrá, y ahí el comportamiento viejo —pintar sin mover— sigue siendo el correcto.
+    const irAlMedio = (): void => {
+      if (media.duration() > 0) media.seek(Math.min(seekParam, media.duration() - 0.1));
+    };
+    irAlMedio();
+    media.on("loadedmetadata", irAlMedio);
     // When something else owns the picture, showing an instant means MOVING it there.
     // Replaying cues into a hidden DOM stage would leave the video sitting at zero while
     // the app reported the right state — and `?t=` is precisely how the bake-off captures

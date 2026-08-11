@@ -34,7 +34,10 @@
 .card-h { grid-column: 1 / -1; display: flex; align-items: center; gap: .4rem;
   font-size: .82rem; font-weight: 600; margin-bottom: .35rem; }
 .mark { color: var(--hue); font-size: .9em; }
-.card-name { text-transform: capitalize; }
+/* `capitalize` pone en mayúscula CADA palabra, así que "jugo de naranja" salía como
+   "Jugo De Naranja", con la preposición en mayúscula. El nombre del bien viene del pack y
+   ya está escrito como se debe leer; la única mayúscula que falta es la primera. */
+.card-name::first-letter { text-transform: uppercase; }
 
 .glyph { width: 40px; height: 40px; color: var(--hue); }
 .stations { margin: 0; display: grid; gap: .12rem; align-content: start; }

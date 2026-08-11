@@ -198,11 +198,15 @@ notes:
   income_shift:
     en: Income up ⇒ parallel shift. Prices did not change, so the slope did not either.
     es: Sube el ingreso ⇒ desplazamiento paralelo. Los precios no cambiaron, la pendiente tampoco.
-    formula: 'm: 100 \to 150 \qquad \text{slope} = -3 \ \text{(unchanged)}'
+    # Sin palabras dentro de la fórmula: decían "slope" y "(unchanged)" en INGLÉS y se
+    # colaban tal cual en la versión española, porque el KaTeX se genera una sola vez para
+    # los dos idiomas. La notación `a \to a` dice "no cambió" sin idioma, y además pone la
+    # pendiente en la MISMA forma que el ingreso justo al lado: el contraste se ve solo.
+    formula: 'm: 100 \to 150 \qquad -\frac{p_1}{p_2}: -3 \to -3'
   price_pivot:
     en: One price up ⇒ pivot. The other good's intercept stays put.
     es: Sube un precio ⇒ pivote. El intercepto del otro bien no se mueve.
-    formula: 'p_1: 3 \to 4 \qquad \frac{m}{p_2} = 100 \ \text{(unchanged)}'
+    formula: 'p_1: 3 \to 4 \qquad \frac{m}{p_2}: 100 \to 100'
   recap:
     en: Income shifts the line; a price pivots it around the other intercept.
     es: El ingreso desplaza la línea; un precio la gira sobre el otro intercepto.

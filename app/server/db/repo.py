@@ -321,6 +321,19 @@ class Repo:
             self.conn.commit()
             return row["n"]
 
+    def intentos(self, session_id: str, question_id: str) -> int:
+        """Cuántas veces se ha contestado ya este ítem en esta sesión.
+
+        Cuenta TODAS las filas, incluidas las del juez en sombra: el alumno intentó, aunque
+        su respuesta no cuente para dominio. Lo usa la revelación de la respuesta correcta,
+        que se decide por número de intentos y no por acierto."""
+        with self._lock:
+            r = self.conn.execute(
+                "SELECT COUNT(*) AS n FROM answers WHERE session_id = ? AND question_id = ?",
+                (session_id, question_id),
+            ).fetchone()
+            return int(r["n"])
+
     def evidence(self, session_id: str) -> list[sqlite3.Row]:
         """Las respuestas que SÍ cuentan para dominio. En modo sombra el juez escribe en
         `answers` pero nunca aparece aquí; ese es todo el mecanismo."""

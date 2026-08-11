@@ -193,6 +193,7 @@ def post_answer(session_id: str, body: AnswerIn) -> dict:
                        con_andamiaje=body.con_andamiaje)
         return r.student_payload
 
+    intento = repo.intentos(session_id, q.id) + 1
     v = grade(q, body.valor, pack.ejemplo)
     # El brazo se lee del log, no de lo que diga el cliente. Si el navegador pudiera
     # declarar su propio brazo, la asignación dejaría de estar aleatorizada en el momento
@@ -231,7 +232,50 @@ def post_answer(session_id: str, body: AnswerIn) -> dict:
         # el estudiante NO ve el id: ve la sonda socrática ya escrita en el catálogo.
         # El id crudo es para el instructor (decisión 6).
         out["socratica"] = getattr(m.socratic_probe, row["lang"])
+
+    # A la SEGUNDA equivocación en el mismo ítem, se dice cuál era.
+    #
+    # Instrucción de Kristian tras probarlo él: "contesté mal... no me da la respuesta
+    # correcta. Creo que eso debería corregirse." El barrido lo confirmó desde tres
+    # superficies distintas: un alumno podía fallar y quedarse mirando una frase genérica
+    # —"Vamos a pensarlo distinto"— que anuncia una reformulación que nunca llega.
+    #
+    # A la SEGUNDA y no a la primera porque la primera es donde vive la sonda socrática, y
+    # revelar antes de eso convierte el sistema en un solucionario. Y lo decide el SERVIDOR
+    # porque la respuesta correcta no puede estar en el navegador: es la misma frontera por
+    # la que /api/packs dejó de mandar el pack entero.
+    if not v.correcta and intento >= 2:
+        out["revelacion"] = _revelar(q, pack, row["lang"])
     return out
+
+
+def _revelar(q, pack, lang: str) -> str:
+    """Cómo se dice la respuesta correcta, según la forma del ítem.
+
+    Se construye desde el pack y no desde una plantilla con el número dentro, para que un
+    ítem nuevo no necesite tocar esto. Y dice el POR QUÉ cuando el pack lo tiene: soltar el
+    número sin más no enseña, solo cierra el trámite.
+    """
+    cabecera = {"es": "La respuesta era: ", "en": "The answer was: "}[lang]
+    if q.modalidad == "mcq" and q.opciones:
+        buena = next((o for o in q.opciones if o.correcta), None)
+        if buena is not None:
+            return cabecera + getattr(buena, lang)
+    if q.modalidad == "numeric" and q.respuesta:
+        from app.server.core.judge.deterministic import eval_expr
+        e = pack.ejemplo
+        try:
+            val = eval_expr(q.respuesta["expr"], {"p1": e.p1, "p2": e.p2, "m": e.m})
+        except Exception:
+            return cabecera.rstrip(": ") + "."
+        return cabecera + (f"{val:.10g}")
+    if q.modalidad == "manip":
+        return {"es": "Fíjate en el gráfico: mira dónde queda la recta cuando cambia lo "
+                      "que dice el enunciado.",
+                "en": "Look at the graph: see where the line ends up when what the stem "
+                      "says changes."}[lang]
+    return {"es": "Sigamos, y lo vemos otra vez más adelante.",
+            "en": "Let's carry on; we will come back to it."}[lang]
 
 
 class EventIn(BaseModel):

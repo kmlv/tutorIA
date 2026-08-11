@@ -92,3 +92,38 @@ def test_el_texto_crudo_tampoco_los_lleva(cliente) -> None:
     for aguja in ('"correcta"', '"respuesta"', '"key_points"', "tolerancia"):
         assert aguja not in cuerpo, f"{aguja} aparece en el JSON público"
     json.loads(cuerpo)
+
+
+def test_la_respuesta_se_revela_al_segundo_fallo_y_no_antes(cliente) -> None:
+    """Instrucción de Kristian tras probarlo: "contesté mal... no me da la respuesta
+    correcta. Creo que eso debería corregirse."
+
+    Al SEGUNDO fallo y no al primero: la primera equivocación es donde vive la sonda
+    socrática, y revelar antes convierte el tutor en un solucionario. Y lo decide el
+    servidor, porque la clave no puede estar en el navegador."""
+    sid = cliente.post("/api/session",
+                       json={"concept_id": "budget-line", "lang": "es"}).json()["session_id"]
+
+    def fallar():
+        return cliente.post(f"/api/session/{sid}/answer",
+                            json={"question_id": "q_cp1_income_direction", "valor": 3}).json()
+
+    primera = fallar()
+    assert primera["correcta"] is False
+    assert "revelacion" not in primera, "no debe revelar al primer intento"
+
+    segunda = fallar()
+    assert segunda["correcta"] is False
+    assert "revelacion" in segunda, "al segundo fallo tiene que decir cuál era"
+    assert "desplaza hacia afuera" in segunda["revelacion"], segunda["revelacion"]
+
+
+def test_acertar_nunca_revela(cliente) -> None:
+    """Si revelara al acertar, el mensaje sobraría; y si revelara SIEMPRE, el ítem
+    quedaría quemado para el resto de la sesión."""
+    sid = cliente.post("/api/session",
+                       json={"concept_id": "budget-line", "lang": "es"}).json()["session_id"]
+    r = cliente.post(f"/api/session/{sid}/answer",
+                     json={"question_id": "q_cp1_income_direction", "valor": 0}).json()
+    assert r["correcta"] is True
+    assert "revelacion" not in r

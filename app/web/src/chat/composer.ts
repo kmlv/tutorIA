@@ -109,6 +109,18 @@ export class Composer {
     this.boton.textContent = b ? T[this.lang].pensando : T[this.lang].enviar;
   }
 
+  /** Manda un texto como si el alumno lo hubiera escrito.
+   *
+   *  Existe porque los cuatro chips de ayuda del panel —«No entiendo», «Otro ejemplo»,
+   *  «Más despacio», «¿Por qué?»— no hacían NADA: pintaban la burbuja del alumno, mandaban
+   *  telemetría, y nunca llamaban al tutor. Cinco de los sesenta y ocho fallos del barrido
+   *  eran ese mismo silencio visto desde cinco sitios distintos. Escribir las mismas
+   *  palabras a mano sí contestaba, lo que lo hacía especialmente desconcertante. */
+  async preguntar(texto: string): Promise<void> {
+    this.input.value = texto;
+    await this.send();
+  }
+
   private async send(): Promise<void> {
     const q = this.input.value.trim();
     if (!q || this.busy) return;
