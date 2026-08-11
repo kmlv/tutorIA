@@ -1,19 +1,17 @@
 # Matriz del bake-off M4.
 #
-# ESTADO: PROVISIONAL. Ningún brazo se ha construido todavía. Estos valores salen del
-# reconocimiento —cuatro agentes que instalaron y ejecutaron cada tecnología en esta
-# máquina— y NO de medir el producto terminado. Cada celda dice de dónde viene.
+# ESTADO: MEDIDA para A y B. C y D se quedan con las estimaciones del reconocimiento y no
+# se construyeron como brazos — el razonamiento está en `00-barrido-provisional.md` y
+# Kristian puede revocarlo.
 #
-# Existe ahora, antes de construir nada, porque el plan de M4 pide correr el barrido de
-# ponderaciones con estimaciones antes de gastar un timebox: si el símplex ya tiene un
-# ganador estable, los brazos que siguen son intentos de FALSARLO con un blanco concreto,
-# y no una pesca. Y tiene que ocurrir antes de que existan resultados, o no es un
-# pre-registro.
+# Cada celda dice de dónde sale su número. Las de A y B vienen de instrumentos que están
+# en `medir/` y se pueden volver a correr; las de C y D, del reconocimiento. Mezclar las
+# dos cosas en una tabla sin decirlo sería lo peor que puede hacer este archivo.
 #
-# c1 se deja SIN MEDIR a propósito. Es la única celda que el reconocimiento no puede
-# responder —si una lección renderizada enseña mejor que la de SVG— y rellenarla con una
-# corazonada sería justo la racionalización que el pre-registro intenta evitar. El
-# marcador renormaliza sobre lo medido y lo dice.
+# Los PESOS están pre-registrados en `docs/M4-PREREGISTRO.md`, en un commit anterior a
+# cualquier medición. Las REGLAS DE PUNTUACIÓN de abajo se escribieron después de ver los
+# datos, y por eso van con los números crudos al lado: si Kristian puntúa distinto, el
+# marcador recalcula sin tocar nada más.
 
 criteria:
   c1:
@@ -39,43 +37,54 @@ criteria:
 
 options:
 
-  # A — lo que ya existe y está en producción: audio MP3 + escenario DOM/SVG movido por
-  # el cue engine. Es el único con números medidos de verdad.
+  # A — audio MP3 + escenario DOM/SVG movido por el cue engine. Lo que ya estaba en
+  # producción, más el sondeo con rAF que el propio bake-off obligó a añadir.
   A-dom-svg:
-    c1: null          # sin medir: hace falta la rúbrica a ciegas
-    c2: 9             # cambiar m, p1 y el nombre del bien es editar pack.yaml; el
-                      # loader ya sustituye plantillas y el validador rechaza las malas
-    c3: 0.5           # horas por concepto: guion + marcas de cue + compilar audio
-    c4: 9             # el texto es DOM, no píxeles; una errata se arregla en un .md
-    c5: 6             # muta SVG en cada cue: es el que más trabajo pone en el hilo
-                      # principal de los cuatro
+    c1: 4.8           # rúbrica de RUBRICA-C1.md, puntuada en 01-criterio-1.md.
+                      # NO fue a ciegas y está dicho allí; Kristian puede repuntuar.
+    c2: 9             # medido: 0,15 s desde editar `m` en pack.yaml hasta que el pack
+                      # sirve los interceptos nuevos (medir/c2.json)
+    c3: 0.5           # guion + marcas de cue + compilar audio
+    c4: 9             # medido: el SVG expone un aria-label con ingreso, precios, los dos
+                      # interceptos y la pendiente, más 4 nodos de texto seleccionables
+                      # (medir/a11y.json). Una errata se arregla editando un .md
+    c5: 9             # medido sobre la lección entera a velocidad real: 1,57-1,99 MB por
+                      # la red, 0 ms de bloqueo del hilo principal a 1x, 51 ms a 4x, y
+                      # desfase de cues p95 85 ms. Ni un fotograma perdido
 
-  # B — Remotion: componentes React renderizados a MP4 por un navegador headless.
-  # El reconocimiento lo instaló y renderizó: 2.5 MB de MP4 contra 1.69 MB del MP3 que A
-  # ya envía, o sea +0.85 MB por toda la imagen en movimiento, y MENOS trabajo en el hilo
-  # principal que A porque la decodificación va por hardware.
+  # B — Remotion: componentes React renderizados a MP4. Construido y medido dentro de la
+  # app real, no como demo aparte: `?variant=B` sirve la lección entera con sus
+  # checkpoints, su chat y su práctica.
   B-remotion:
-    c1: null
-    c2: 2             # personalizar exige una cadena de render por alumno y variación
-    c3: 3             # estimación del explorador, sin medir
-    c4: 2             # el texto es píxeles: sin lector de pantalla, sin arreglar erratas
-                      # editando un .md
-    c5: 8             # decodificación por hardware, casi nada de JS
+    c1: 3.6           # misma rúbrica, tras corregir tres defectos que eran andamiaje mío
+                      # y no de Remotion (ver 01-criterio-1.md)
+    c2: 3             # medido: 79,3 s, de los cuales 78,4 son el render. Sube de 2 a 3
+                      # respecto del reconocimiento porque la mitad de autoría SÍ está
+                      # resuelta: los beats se regeneran solos desde la misma máquina de
+                      # estados (0,9 s), sin editar nada
+    c3: 1.5           # el componente de Remotion son ~200 líneas y se escribe una vez;
+                      # de ahí en adelante es el costo de A más 78 s de render. ESTIMACIÓN
+                      # mía del tiempo de autoría, no un cronómetro
+    c4: 1             # medido: sin aria-label, 0 nodos de texto en el escenario, 0 pistas
+                      # de texto. El gráfico no existe para un lector de pantalla. Y el
+                      # MP4 no puede seguir el tema claro/oscuro de la página
+    c5: 5             # medido: empata con A en fotogramas y en bloqueo del hilo, y pierde
+                      # 10x en bytes — 17,9-22,2 MB contra 1,86. El MP4 pesa 10,5 MB y el
+                      # navegador transfiere 1,7-2x eso porque la lección pausa en cada
+                      # checkpoint y rebuferea. Si c5 se lee ESTRICTAMENTE como CPU, esto
+                      # sería un 8 y el criterio dejaría de discriminar
 
-  # C — Manim: motor de animación en Python. Su explorador lo instaló y renderizó.
+  # C — Manim. Sin construir: estimaciones del reconocimiento.
   C-manim:
     c1: null
-    c2: 1             # el artefacto que un modelo tendría que emitir es Python
-                      # arbitrario, donde una llamada mal escrita es un no-op silencioso
-                      # y un signo cambiado renderiza precioso
+    c2: 1             # el artefacto que un modelo tendría que emitir es Python arbitrario,
+                      # donde una llamada mal escrita es un no-op silencioso
     c3: 4
     c4: 2
     c5: 8
 
-  # D — Híbrido: vídeo pre-renderizado para la narración pura, DOM/SVG vivo para lo
-  # interactivo. El explorador concluyó que nada lo mata técnicamente, y que eso mismo
-  # lo descalifica como CONTENDIENTE: es una técnica de composición, no una tecnología
-  # que competir contra las otras.
+  # D — Híbrido. Sin construir: es una técnica de composición, no una tecnología contra la
+  # que competir. Se aplica sobre el ganador, después.
   D-hibrido:
     c1: null
     c2: 4
