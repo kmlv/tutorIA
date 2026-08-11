@@ -1,0 +1,4 @@
+
+# artefactos de compilación de las pruebas
+dist-test/
+dist-golden/
