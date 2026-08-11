@@ -70,7 +70,10 @@ cues:
 # `destacar: []` apaga todo, y es deliberado en `budget_line`: ese momento es el morfismo
 # de `<=` a `=`, y cualquier término encendido compite con él.
 ledger:
+  # El foco sigue a la narración (T-011 ronda 2). Solo se declara donde CAMBIA: un cue
+  # sin `foco` hereda el anterior, igual que las capas.
   consumo:
+    - foco: objeto
     - revelar: {bien: g1, estaciones: [glyph]}
     - revelar: {bien: g2, estaciones: [glyph]}
 
@@ -84,7 +87,9 @@ ledger:
     - revelar: {bien: g2, estaciones: [symbol]}
     - destacar: [x1, x2]
 
+  # Aquí aparece el plano y pasa a ser el suceso.
   budget_set:
+    - foco: grafico
     - revelar: {bien: g1, estaciones: [price]}
     - revelar: {bien: g2, estaciones: [price]}
     - destacar: [p1, p2, m]
@@ -97,11 +102,16 @@ ledger:
 
   # Aquí empieza la compresión progresiva: el andamiaje encoge según se interioriza,
   # pero nunca desaparece.
+  # La derivación es la idea nueva: la ecuación se reparte el sitio con el gráfico en vez
+  # de quedarse aplastada en una cinta de cabecera.
   slope:
+    - foco: algebra
     - destacar: [p1, p2]
     - comprimir: true
 
+  # Explicada la razón, el álgebra se repliega y el plano vuelve a mandar.
   income_shift:
+    - foco: grafico
     - destacar: [m]
 
   price_pivot:

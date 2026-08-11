@@ -103,14 +103,34 @@ console.log(`  script validation ok: ${casos.length} formas de romperlo, todas d
     highlight: (...a) => llamadas.push(["highlight", ...a]),
     compress: (...a) => llamadas.push(["compress", ...a]),
     morphPrice: (...a) => llamadas.push(["morphPrice", ...a]),
+    setFoco: (...a) => llamadas.push(["setFoco", ...a]),
   };
 
   for (const [cue, esperado] of Object.entries(goldenLedger)) {
     llamadas.length = 0;
     aplicarLedger(guion.ledger[cue] ?? [], espia, e);
-    assert.deepEqual(llamadas, esperado,
+    // `setFoco` se filtra: es comportamiento NUEVO de T-011 ronda 2, añadido después de
+    // capturar el golden. El golden se queda como el registro intacto de lo que hacía el
+    // `switch` original — si le hubiera añadido las llamadas nuevas dejaría de servir
+    // para lo único que sirve, que es no haber sido tocado.
+    const viejas = llamadas.filter((c) => c[0] !== "setFoco");
+    assert.deepEqual(viejas, esperado,
       `el ledger del cue ${cue} hace llamadas distintas a las del switch original`);
   }
+
+  // Y el foco, aparte: qué cues lo cambian y a qué.
+  const focos = {};
+  for (const [cue, ops] of Object.entries(guion.ledger)) {
+    llamadas.length = 0;
+    aplicarLedger(ops, espia, e);
+    const f = llamadas.filter((c) => c[0] === "setFoco");
+    if (f.length) focos[cue] = f.map((c) => c[1]);
+  }
+  assert.deepEqual(focos, {
+    consumo: ["objeto"], budget_set: ["grafico"],
+    slope: ["algebra"], income_shift: ["grafico"],
+  }, `la coreografía del foco cambió: ${JSON.stringify(focos)}`);
+  console.log("  foco ok: objeto -> grafico -> algebra -> grafico");
   const n = Object.keys(goldenLedger).length;
   assert.ok(n >= 10, `se esperaban al menos 10 cues en el golden, hay ${n}`);
   console.log(`  ledger golden ok: ${n} cues idénticos al switch original`);
@@ -124,6 +144,7 @@ console.log(`  script validation ok: ${casos.length} formas de romperlo, todas d
     [{ destacar: "p1" }, "lista"],
     [{ comprimir: "si" }, "true o false"],
     [{ precio: { bien: "g1", valor: "p1 * p2 * m" } }, "gramática"],
+    [{ foco: "geometria" }, "foco"],
     [{ resaltar: [] }, "desconocida"],
   ];
   for (const [op, esperado] of malos) {

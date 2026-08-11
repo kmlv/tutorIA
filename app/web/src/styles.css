@@ -20,11 +20,85 @@ body[data-dock="oculto"] #app { grid-template-columns: 1fr 0; }
    instead of pushing them past the fold. */
 .escenario { display:grid; grid-template-rows:auto auto 1fr auto auto; height:100vh;
   overflow:hidden; transition:opacity .2s ease; }
+
+/* --- Foco: la prominencia sigue a la narración (T-011 ronda 2) -----------------------
+ *
+ * Kristian, textual: "no necesitamos sitios fijos para la ecuación y el gráfico. Es mejor
+ * ir y venir entre los dos, o darles tamaños distintos según van tomando distinta
+ * importancia relativa en la narración."
+ *
+ * Las tres bandas de tamaño fijo reservaban el mismo espacio para el ledger tanto si el
+ * momento iba de los bienes como si iba de la geometría. En la captura del pivote, dos
+ * fichas casi vacías y la ecuación varada se comían el tercio superior mientras el
+ * gráfico —que ERA el suceso— ocupaba un tercio.
+ *
+ * Qué cambia y qué NO: cambia el REPARTO del alto entre la banda del ledger y el
+ * escenario. No cambia el orden ni la existencia de nada, así que la lección sigue siendo
+ * legible en cualquier estado y un navegador sin `:has()` o sin transiciones la ve
+ * completa, solo que sin la coreografía.
+ *
+ * Se anima `grid-template-rows` y la escala, no posiciones absolutas: nada salta de sitio,
+ * que es lo que exige la regla del fotograma estático. */
+.escenario { transition:opacity .2s ease, grid-template-rows .5s cubic-bezier(.4,0,.2,1); }
+
+/* La palanca es el ANCHO del ledger, no una escala.
+ *
+ * La primera versión escalaba la banda con `transform`, y a ancho completo eso la sacaba
+ * del viewport: la ficha de la izquierda quedaba cortada por el borde. Visto en la
+ * captura, no leyendo el CSS. Y ampliar la fila tampoco servía: la banda mide lo que mide
+ * su contenido, así que darle más alto solo añadía vacío alrededor de dos fichas
+ * pequeñas — exactamente el espacio muerto del que se quejaba la reseña.
+ *
+ * El ledger es una rejilla de tres columnas a ancho completo: ficha, ecuación, ficha. A
+ * 1280 px eso empuja las fichas a las esquinas y deja la ecuación varada en medio de un
+ * hueco. Estrecharlo las junta, y entonces bien-símbolo-ecuación se lee como UN grupo. */
+.ledger { max-width:100%; margin:0 auto;
+  transition:max-width .5s cubic-bezier(.4,0,.2,1), padding .35s ease; }
+
+/* Los bienes y la notación son el sujeto; el plano aún no existe.
+ *
+ * El alto NO es la palanca: una sola fila `fr` se queda todo el sobrante, así que poner
+ * `.55fr` en vez de `1fr` no cambia absolutamente nada — comprobado en la captura, donde
+ * el eje vacío seguía ocupando media pantalla. La palanca es el TAMAÑO del gráfico, que
+ * es literalmente lo que pedía la reseña: "darles tamaños distintos según van tomando
+ * distinta importancia relativa". Un plano vacío pequeño no compite; uno grande sí. */
+.escenario[data-foco="objeto"] .ledger { max-width:min(880px, 100%); }
+.escenario[data-foco="objeto"] .lienzo,
+.escenario[data-foco="objeto"] .video-escenario { max-width:min(400px, 100%); }
+
+/* La derivación es la idea nueva: la ecuación gana sitio sin que el gráfico desaparezca. */
+.escenario[data-foco="algebra"] .ledger { max-width:min(1080px, 100%); }
+.escenario[data-foco="algebra"] .lienzo,
+.escenario[data-foco="algebra"] .video-escenario { max-width:min(560px, 100%); }
+
+/* La geometría es el suceso: el plano es lo más grande que llega a ser en toda la
+ * lección. Lleva regla propia porque sin ella heredaba el máximo base de 620 px y salía
+ * MÁS PEQUEÑO que en el estado de álgebra — medido, no supuesto, y exactamente al revés
+ * de lo que la coreografía dice. El andamiaje encoge pero nunca se va, así que la banda
+ * sigue ahí para recuperar qué era x1 en el minuto tres. */
+.escenario[data-foco="grafico"] .lienzo,
+.escenario[data-foco="grafico"] .video-escenario { max-width:min(860px, 100%); }
+
+.lienzo, .video-escenario { transition:max-width .5s cubic-bezier(.4,0,.2,1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .escenario, .bands, .lienzo, .video-escenario { transition:none; }
+}
 .titulo { font-size:1.1rem; margin:0; padding:.7rem 1.1rem .1rem; }
-.stage { padding:.6rem 1.1rem; display:grid; justify-items:center; align-items:center;
+.stage { padding:.6rem 1.1rem; display:grid; place-items:center;
   min-height:0; overflow:hidden; }
-.lienzo { max-width:min(620px, 100%); width:100%; height:100%;
-  display:grid; align-items:center; }
+/* Caja con proporción fija en vez de `height: 100%`.
+ *
+ * El fallo era este: `.stage` es una fila `1fr` que, cuando la banda de la ecuación crece
+ * —el álgebra tiene dos líneas— se queda en 19 px, y `height: 100%` sobre una fila sin
+ * altura definida no resuelve: el lienzo se quedaba en 251 px, desbordaba, y el
+ * `overflow: hidden` del escenario le cortaba la etiqueta del eje. MEDIDO en el
+ * navegador, después de dos intentos de deducirlo del CSS que fallaron los dos.
+ *
+ * Con `aspect-ratio` y los dos máximos, la caja nunca puede ser mayor que su hueco, y el
+ * SVG la llena entera. Sobra borde; no falta dibujo. */
+.lienzo { aspect-ratio:560 / 460; width:100%; max-width:min(620px, 100%);
+  max-height:100%; height:auto; margin:auto; min-height:0; }
 .bgraph { max-height:100%; }
 
 /* Opción B del bake-off. `contain` y no `cover`: recortar un gráfico para que llene la
@@ -43,8 +117,19 @@ body[data-dock="oculto"] #app { grid-template-columns: 1fr 0; }
 body[data-dock="abierto-activo"] .escenario { opacity:.55; }
 
 .titulo { font-size:1.3rem; margin:0 0 1rem; }
-.lienzo { max-width:620px; }
-.bgraph { width:100%; height:auto; display:block; }
+
+/* Acotado por los DOS lados. Solo por ancho, el SVG crece en alto en la misma
+   proporción y se sale de su fila: en la captura del pivote el eje horizontal y el
+   intercepto del café quedaban por debajo del borde, con la lección aparentemente
+   intacta. Con `max-height` el alto disponible manda, que es lo que de verdad limita
+   aquí — a 1280 de ancho, la fila del escenario se agota antes que el ancho. */
+/* 100% de ancho Y de alto, y que el `preserveAspectRatio` por defecto del SVG lo encaje.
+   Con `auto` el SVG toma el ancho disponible y crece en alto en proporción, así que se
+   sale de su fila por abajo: en la captura del álgebra la etiqueta `x₁ — café` quedaba
+   cortada por el borde, y en la del pivote se iban el eje horizontal y el intercepto.
+   Ninguna de las dos daba error; solo se veían mirando. Con ambos al 100% el SVG hace el
+   encaje él mismo y sobra borde en vez de faltar dibujo. */
+.bgraph { width:100%; height:100%; display:block; }
 
 .eje { stroke:var(--muted); stroke-width:1.5; }
 .eje-label { fill:var(--muted); font-size:13px; }

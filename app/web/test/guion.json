@@ -85,6 +85,9 @@
  "ledger": {
   "consumo": [
    {
+    "foco": "objeto"
+   },
+   {
     "revelar": {
      "bien": "g1",
      "estaciones": [
@@ -151,6 +154,9 @@
   ],
   "budget_set": [
    {
+    "foco": "grafico"
+   },
+   {
     "revelar": {
      "bien": "g1",
      "estaciones": [
@@ -190,6 +196,9 @@
   ],
   "slope": [
    {
+    "foco": "algebra"
+   },
+   {
     "destacar": [
      "p1",
      "p2"
@@ -200,6 +209,9 @@
    }
   ],
   "income_shift": [
+   {
+    "foco": "grafico"
+   },
    {
     "destacar": [
      "m"

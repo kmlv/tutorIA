@@ -53,6 +53,28 @@ export const BIENES = ["g1", "g2"] as const;
 export const ESTACIONES = ["glyph", "unit", "symbol", "price"] as const;
 export const TERMINOS = ["x1", "x2", "p1", "p2", "m"] as const;
 
+/**
+ * Qué manda en la pantalla en este momento de la lección (T-011, ronda 2).
+ *
+ * Kristian, textual: *"no necesitamos sitios fijos para la ecuación y el gráfico. Es
+ * mejor ir y venir entre los dos, O darles tamaños distintos según van tomando distinta
+ * importancia relativa en la narración."* Las tres bandas de tamaño fijo reservaban el
+ * mismo espacio para el ledger tanto si el momento iba de los bienes como si iba de la
+ * geometría, y las capturas lo enseñaban: en el pivote, dos fichas casi vacías y la
+ * ecuación varada se comían el tercio superior mientras el gráfico —que ERA el suceso—
+ * ocupaba un tercio.
+ *
+ * Es una operación del guion y no una regla en el CSS a propósito: la coreografía es
+ * parte de cómo se cuenta ESTA lección, así que vive donde viven los demás efectos del
+ * cue y un pack generado puede traer la suya.
+ *
+ *   objeto   los bienes y la notación son el sujeto; el plano aún no existe
+ *   algebra  la derivación es la idea nueva; ecuación y gráfico se reparten
+ *   grafico  la geometría es el suceso; el plano se lo queda casi todo
+ */
+export const FOCOS = ["objeto", "algebra", "grafico"] as const;
+export type Foco = (typeof FOCOS)[number];
+
 export type Bien = (typeof BIENES)[number];
 export type Estacion = (typeof ESTACIONES)[number];
 export type Termino = (typeof TERMINOS)[number];
@@ -64,7 +86,8 @@ export type LedgerOp =
   //: morfismo de `<=` a `=` y cualquier término encendido compite con él.
   | { destacar: Termino[] }
   | { comprimir: boolean }
-  | { precio: { bien: Bien; valor: string | number } };
+  | { precio: { bien: Bien; valor: string | number } }
+  | { foco: Foco };
 
 export type Capa = (typeof CAPAS)[number];
 export type Destacado = (typeof DESTACADOS)[number];
@@ -177,6 +200,8 @@ export interface LedgerLike {
   highlight(...terms: string[]): void;
   compress(on?: boolean): void;
   morphPrice(g: string, valor: number): void;
+  /** Cambia qué manda en la pantalla. Lo implementa `main.ts` poniendo un atributo. */
+  setFoco?(f: string): void;
 }
 
 /** Ejecuta las operaciones del ledger de un cue. */
@@ -196,6 +221,8 @@ export function aplicarLedger(ops: LedgerOp[], ledger: LedgerLike, base: Ejemplo
       ledger.compress(op.comprimir);
     } else if ("precio" in op) {
       ledger.morphPrice(op.precio.bien, evaluar(op.precio.valor, base));
+    } else if ("foco" in op) {
+      ledger.setFoco?.(op.foco);
     } else {
       throw new ScriptError(`operación de ledger desconocida: ${claves[0]}`);
     }
@@ -320,6 +347,11 @@ export function revisar(script: GraphScript, base: Ejemplo,
       } else if (k === "comprimir") {
         if (typeof (op as { comprimir: unknown }).comprimir !== "boolean") {
           errs.push(`${donde}: comprimir debe ser true o false`);
+        }
+      } else if (k === "foco") {
+        const v = (op as { foco: string }).foco;
+        if (!(FOCOS as readonly string[]).includes(v)) {
+          errs.push(`${donde}: foco "${v}"; solo ${FOCOS.join(", ")}`);
         }
       } else if (k === "precio") {
         const v = (op as { precio: { bien: string; valor: string | number } }).precio;

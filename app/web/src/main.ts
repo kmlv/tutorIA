@@ -257,7 +257,15 @@ async function main(): Promise<void> {
     if (n && (n.formulaHtml || n.formulaDimHtml)) {
       ledger.setEquation(n.formulaHtml, n.formulaDimHtml);
     }
-    aplicarLedger(guion.ledger?.[cueId] ?? [], ledger, ejemplo);
+    aplicarLedger(guion.ledger?.[cueId] ?? [], {
+      reveal: (g, ...est) => ledger.reveal(g as never, ...est as never[]),
+      highlight: (...t) => ledger.highlight(...t),
+      compress: (on) => ledger.compress(on),
+      morphPrice: (g, v) => ledger.morphPrice(g as never, v),
+      // El foco es un atributo y no una clase: el CSS reacciona a `[data-foco=...]` y la
+      // transición la hace el navegador. Nada de JS midiendo ni animando.
+      setFoco: (f) => { escenario.dataset.foco = f; },
+    }, ejemplo);
   }
 
   media.onCue((f: CueFiring) => {
