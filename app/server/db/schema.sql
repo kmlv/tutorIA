@@ -61,6 +61,12 @@ CREATE TABLE IF NOT EXISTS answers (
   model             TEXT,                       -- columnas, NO enterradas en el blob:
   prompt_version    TEXT,                       -- sin esto los datos historicos no son comparables
   latency_ms        INTEGER,
+  cost_usd          REAL,                       -- costo por veredicto (decision 17)
+  -- 1 = el juez emitio veredicto pero NO cuenta como evidencia. Es una columna y no una
+  -- convencion en `grader` para que la consulta de mastery pueda excluirlo con un WHERE
+  -- explicito: en modo sombra el juez tiene que ser incapaz de mover el dominio, y eso
+  -- debe verse en el esquema, no depender de que nadie olvide el filtro.
+  shadow            INTEGER NOT NULL DEFAULT 0,
   created_at        TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_answers_session ON answers(session_id);
