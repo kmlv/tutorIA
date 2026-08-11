@@ -63,7 +63,26 @@ Reglas de la lección:
 
 Esa última regla existe porque la narración no la dice en voz alta y aun así el alumno
 tiene que salir viendo el caso original: es una convención de la lección, no algo que se
-pueda deducir del texto hablado."""
+pueda deducir del texto hablado.
+
+Además del gráfico escribes el LEDGER: una banda con la ecuación del presupuesto y dos
+fichas, una por bien, que se van rellenando según la narración menciona cada cosa.
+
+- revelar: {bien: g1|g2, estaciones: [...]} — enciende partes de una ficha. Las estaciones
+  son glyph (el icono), unit (en qué se mide), symbol (cómo se llama la cantidad) y price
+  (cuánto cuesta). Se revelan cuando la narración las nombra por primera vez.
+- destacar: [terminos] — enciende esos símbolos a la vez en la ecuación y en la ficha que
+  los contiene. Los términos son x1, x2, p1, p2, m. La LISTA VACÍA apaga todo, y es lo
+  correcto cuando el momento de la narración es la ecuación entera y no un símbolo suyo.
+- comprimir: true|false — encoge las fichas para dar sitio al gráfico. Se comprime cuando
+  la lección ya no necesita el andamiaje al mismo tamaño, y se descomprime al recapitular.
+- precio: {bien, valor} — cambia un precio EN LA FICHA, con la misma gramática de
+  expresiones. Va junto al `set` del gráfico cuando la narración sube un precio: la ficha y
+  la recta cuentan el mismo cambio.
+
+Reglas del ledger:
+- Una estación revelada sigue revelada; no hace falta repetirla.
+- Destaca lo que la narración está nombrando en ese segundo, no todo lo que se ve."""
 
 
 def user_prompt(cues: list[dict], ejemplo: dict) -> str:
@@ -80,11 +99,19 @@ def user_prompt(cues: list[dict], ejemplo: dict) -> str:
     return "\n".join(lineas)
 
 
-def frase_en(transcript: list[dict], t: float, cuantas: int = 2) -> str:
-    """Lo que se dice desde ese instante. Dos frases: una sola suele ser el arranque de la
-    idea y deja al modelo adivinando qué se está comparando con qué."""
-    posteriores = [s for s in transcript if s["end_s"] >= t]
-    return " ".join(s["text"] for s in posteriores[:cuantas]).strip()
+def frase_en(transcript: list[dict], t: float, hasta: float | None = None) -> str:
+    """TODO lo que se dice desde este cue hasta el siguiente.
+
+    Empezó siendo dos frases y era demasiado poco, de una forma que solo se vio al medir el
+    ledger. Las fichas de los bienes se rellenan cuando la narración nombra cada cosa por
+    primera vez —"se mide en kilos", "tres dólares el kilo"— y con dos frases por cue el
+    modelo sencillamente **no puede saber** dónde cae esa primera mención. Acertaba 1 o 2
+    de 10, y era un problema de la entrada y no del modelo: yo le estaba pidiendo que
+    dedujera de un texto que no le había dado.
+    """
+    trozo = [s for s in transcript
+             if s["end_s"] >= t and (hasta is None or s["start_s"] < hasta)]
+    return " ".join(s["text"] for s in trozo).strip()
 
 
 def revisar_con_node(doc: dict, ejemplo: dict, cue_ids: list[str]) -> list[str]:
@@ -142,6 +169,32 @@ def estados_de(doc: dict, ejemplo: dict, cue_ids: list[str]) -> list[dict]:
         return json.loads(r.stdout)
 
 
+def llamadas_ledger(ops: list, ejemplo: dict) -> list:
+    """Traduce las operaciones del ledger a la lista de llamadas que producirían.
+
+    En Python y no llamando al intérprete de TypeScript: aquí no se ejecuta nada, solo se
+    reescribe una forma en otra para poder compararla con el golden. Si divergiera del
+    intérprete real, `script.golden.mjs` lo cazaría — ese sí lo ejecuta.
+    """
+    fuera = []
+    for op in ops:
+        if "revelar" in op:
+            fuera.append(["reveal", op["revelar"]["bien"], *op["revelar"]["estaciones"]])
+        elif "destacar" in op:
+            fuera.append(["highlight", *op["destacar"]])
+        elif "comprimir" in op:
+            fuera.append(["compress", op["comprimir"]])
+        elif "precio" in op:
+            v = op["precio"]["valor"]
+            if isinstance(v, str):
+                t = v.replace(" ", "")
+                for k in ("p1", "p2", "m"):
+                    t = t.replace(k, str(ejemplo[k]))
+                v = eval(t, {"__builtins__": {}}, {})   # noqa: S307 - solo dígitos y +-*/
+            fuera.append(["morphPrice", op["precio"]["bien"], v])
+    return fuera
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("pack", nargs="?", default="budget-line")
@@ -169,8 +222,10 @@ def main() -> int:
         return 2
 
     transcript = [s.model_dump() for s in tl.transcript]
-    cues = [{"id": c.id, "t": c.t, "dice": frase_en(transcript, c.t)}
-            for c in tl.cues if c.type == "graph" and c.t is not None]
+    grafico = [c for c in tl.cues if c.type == "graph" and c.t is not None]
+    siguientes = [c.t for c in grafico[1:]] + [None]
+    cues = [{"id": c.id, "t": c.t, "dice": frase_en(transcript, c.t, sig)}
+            for c, sig in zip(grafico, siguientes)]
     ids = [c["id"] for c in cues]
     e = pack.ejemplo
     ejemplo = {"p1": e.p1, "p2": e.p2, "m": e.m}
@@ -221,6 +276,37 @@ def main() -> int:
         print(f"  escrito en {args.escribir}")
 
     if args.contra_golden:
+        # El ledger se compara aparte porque su golden son LLAMADAS y no estados: la banda
+        # no tiene estado propio que inspeccionar, así que lo comprobable es qué se le pidió.
+        gl = json.loads(
+            (ROOT / "app/web/test/golden-ledger.json").read_text(encoding="utf-8"))
+
+        # Dos cuentas, porque una sola engaña. `compress` y `morphPrice` en un mismo cue
+        # conmutan —el resultado en pantalla es idéntico— así que exigir el mismo orden
+        # cuenta como fallo algo que no lo es. La estricta se da igual porque el orden SÍ
+        # importa entre `reveal` y `highlight` cuando destacan el mismo término.
+        def norm(v):
+            # `repr` distingue 3.0 de 3 y `==` no, así que la cuenta "laxa" salía MENOR
+            # que la estricta — imposible por construcción, y la señal de que el
+            # comparador estaba mal. Los números se normalizan antes de comparar.
+            return [float(x) if isinstance(x, (int, float)) and not isinstance(x, bool)
+                    else x for x in v]
+
+        def multiset(x):
+            return sorted(repr(norm(v)) for v in x)
+
+        estricta = sum(1 for cue, esp in gl.items()
+                       if llamadas_ledger(doc.get("ledger", {}).get(cue, []), ejemplo) == esp)
+        laxa = sum(1 for cue, esp in gl.items()
+                   if multiset(llamadas_ledger(doc.get("ledger", {}).get(cue, []), ejemplo))
+                   == multiset(esp))
+        print(f"\n  ledger: {estricta}/{len(gl)} idénticos, "
+              f"{laxa}/{len(gl)} salvo el orden de operaciones que conmutan")
+        for cue, esp in gl.items():
+            mio = llamadas_ledger(doc.get("ledger", {}).get(cue, []), ejemplo)
+            if multiset(mio) != multiset(esp):
+                print(f"      {cue}: {mio}  !=  {esp}")
+
         golden = json.loads(
             (ROOT / "app/web/test/golden-estados.json").read_text(encoding="utf-8"))
         obtenido = estados_de(doc, ejemplo, [g["cue"] for g in golden])

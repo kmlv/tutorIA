@@ -85,3 +85,51 @@ assert.ok(conCues.some((x) => x.includes("no existe ningún cue")), conCues.join
 assert.deepEqual(revisar(guion, e), [], "el guion del pack debe estar limpio");
 assert.ok(yamlCrudo.includes("version: 1"));
 console.log(`  script validation ok: ${casos.length} formas de romperlo, todas detectadas`);
+
+// --- 4. el ledger, mismo trato ----------------------------------------------------
+//
+// `golden-ledger.json` se capturó ejecutando el `switch` de `paintLedger` tal cual estaba
+// en main.ts, extrayéndolo por emparejamiento de llaves y corriéndolo contra un espía.
+// Extraído y no transcrito: una transcripción a mano tiene exactamente el mismo problema
+// que el código que sustituye — nadie comprueba que sea fiel.
+{
+  const { aplicarLedger } = await import("../dist-test/graph/script.js");
+  const goldenLedger = JSON.parse(
+    readFileSync(path.join(aqui, "golden-ledger.json"), "utf8"));
+
+  const llamadas = [];
+  const espia = {
+    reveal: (...a) => llamadas.push(["reveal", ...a]),
+    highlight: (...a) => llamadas.push(["highlight", ...a]),
+    compress: (...a) => llamadas.push(["compress", ...a]),
+    morphPrice: (...a) => llamadas.push(["morphPrice", ...a]),
+  };
+
+  for (const [cue, esperado] of Object.entries(goldenLedger)) {
+    llamadas.length = 0;
+    aplicarLedger(guion.ledger[cue] ?? [], espia, e);
+    assert.deepEqual(llamadas, esperado,
+      `el ledger del cue ${cue} hace llamadas distintas a las del switch original`);
+  }
+  const n = Object.keys(goldenLedger).length;
+  assert.ok(n >= 10, `se esperaban al menos 10 cues en el golden, hay ${n}`);
+  console.log(`  ledger golden ok: ${n} cues idénticos al switch original`);
+
+  // Y las formas de romperlo.
+  const malos = [
+    [{ revelar: { bien: "g3", estaciones: ["glyph"] } }, "bien"],
+    [{ revelar: { bien: "g1", estaciones: ["glifo"] } }, "estación"],
+    [{ revelar: { bien: "g1", estaciones: [] } }, "sin estaciones"],
+    [{ destacar: ["p3"] }, "término"],
+    [{ destacar: "p1" }, "lista"],
+    [{ comprimir: "si" }, "true o false"],
+    [{ precio: { bien: "g1", valor: "p1 * p2 * m" } }, "gramática"],
+    [{ resaltar: [] }, "desconocida"],
+  ];
+  for (const [op, esperado] of malos) {
+    const errs = revisar({ version: 1, cues: {}, ledger: { x: [op] } }, e);
+    assert.ok(errs.some((x) => x.includes(esperado)),
+      `${JSON.stringify(op)}: se esperaba "${esperado}", salió ${JSON.stringify(errs)}`);
+  }
+  console.log(`  ledger validation ok: ${malos.length} formas de romperlo, todas detectadas`);
+}

@@ -114,15 +114,65 @@ cambia qué significa el 8 de 10.
 
 La compuerta que lo protege es `pipeline/check_cues.py`, que ahora comprueba dos cosas
 distintas: que cada cue del gráfico esté en `cues` **o** declarado en `narracion` —un cue
-mudo a propósito y uno que el modelo se saltó tienen que poder distinguirse— y que siga
-pintando el ledger, que sigue siendo un `switch` en `main.ts`.
+mudo a propósito y uno que el modelo se saltó tienen que poder distinguirse— y que tenga
+entrada en `ledger`.
+
+## El ledger, y el hallazgo que sale de medirlo
+
+La banda de la ecuación y las fichas de los bienes eran el último `switch` de la lección.
+Ya no: `graph.yaml` lleva una sección `ledger` con su propio vocabulario cerrado —revelar
+estaciones de una ficha, destacar términos, comprimir, cambiar un precio— y el mismo
+tratamiento de golden. `app/web/test/golden-ledger.json` se capturó **extrayendo** el
+`switch` de `main.ts` por emparejamiento de llaves y ejecutándolo contra un espía;
+extraído y no transcrito, porque una transcripción a mano tiene el mismo problema que el
+código que sustituye: nadie comprueba que sea fiel.
+
+Con eso, la lección entera corre desde datos. Un pack generado por un modelo ya puede
+dibujar su gráfico **y** su ecuación.
+
+### Pero el ledger NO se emite bien, y eso enseña algo
+
+| | gráfico | ledger (idéntico) | ledger (salvo orden) |
+|---|--:|--:|--:|
+| gpt-5.6-sol | **8 / 10** | 3 / 10 | 4 / 10 |
+| gpt-5.6-terra | 7–8 / 10 | 0 / 10 | 1 / 10 |
+
+Probé dos arreglos y **ninguno cerró la brecha**, cosa que digo porque el resultado
+negativo es parte de la medición:
+
+1. **Darle toda la narración de cada cue** en vez de dos frases. La hipótesis era que el
+   modelo no podía saber dónde se nombra "kilos" por primera vez. Con el texto completo el
+   ledger siguió en 1–3 de 10.
+2. **Comparar sin exigir el orden** de operaciones que conmutan —`compress` y `morphPrice`
+   dan el mismo resultado en pantalla en cualquier orden—. Sube uno o dos cues, no diez.
+
+Al mirar las diferencias concretas, el patrón es consistente entre modelos: **amontonan
+todas las revelaciones en uno o dos cues** en vez de repartirlas, y eligen otro orden de
+estaciones. No es que se equivoquen en qué; es que eligen otro *cuándo*.
+
+Y esa es la distinción que vale la pena llevarse:
+
+> Las operaciones del **gráfico** están **implicadas causalmente** por lo que la narración
+> dice. *"Si sube el precio del café, de tres a cuatro, la línea gira"* determina
+> `set: {p1: p1 + 1}`. No hay margen.
+>
+> Las operaciones del **ledger** son **decisiones pedagógicas de ritmo**. Que la ficha se
+> rellene poco a poco —primero el icono, luego la unidad, luego el símbolo, luego el
+> precio— es un andamiaje que elegimos nosotros, y la narración no lo determina. Un modelo
+> no puede deducir una convención que no está escrita en ninguna parte.
+
+O sea que D-3 se cumple para el gráfico y no para el ledger, y el motivo no es la
+capacidad del modelo sino que la entrada no contiene la respuesta. Las salidas posibles, en
+orden de coste: escribir el calendario de revelaciones como parte del guion hablado; darle
+al emisor un ejemplo de pack ya escrito; o aceptar que el ledger lo teclea un humano y solo
+el gráfico se genera — que sigue siendo la mitad más grande.
 
 ## Qué queda abierto
 
-- **El ledger sigue en código.** La banda de la ecuación y las fichas de los bienes se
-  pintan con un `switch` en `main.ts`. Es el siguiente candidato al mismo tratamiento, y
-  es más difícil: sus operaciones son sobre KaTeX y no sobre tres números.
-- **Una revisión humana sigue haciendo falta.** El 8 de 10 con dos diferencias defendibles
-  es un buen punto de partida para que un profesor corrija, no para publicar sin mirar.
+- **El calendario del ledger es una convención sin escribir.** Ver arriba. Es la decisión
+  que desbloquea la otra mitad de D-3.
+- **Una revisión humana sigue haciendo falta.** El 8 de 10 del gráfico con dos diferencias
+  defendibles es un buen punto de partida para que un profesor corrija, no para publicar
+  sin mirar.
 - **La convención del recap debería estar en el esquema, no en el prompt.** Hoy es una
   frase en `emit_graph.py`. Si un pack se genera con otra herramienta, se pierde.

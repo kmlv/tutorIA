@@ -27,6 +27,12 @@ CAPAS = ["ejes", "linea", "interceptos", "conjunto", "pendiente"]
 DESTACADOS = ["ninguno", "intercepto_x1", "intercepto_x2", "pendiente"]
 FANTASMAS = ["base", "ninguno"]
 VARIABLES = ["p1", "p2", "m"]
+#: Vocabulario del ledger. Los términos son los que `pipeline/render_math.mjs` etiqueta
+#: dentro del KaTeX en tiempo de compilación: si esta lista y aquella se separan, un
+#: `destacar` apunta a un símbolo que no existe y no pasa nada visible.
+BIENES = ["g1", "g2"]
+ESTACIONES = ["glyph", "unit", "symbol", "price"]
+TERMINOS = ["x1", "x2", "p1", "p2", "m"]
 
 
 def _op_schema() -> dict:
@@ -79,6 +85,54 @@ def _op_schema() -> dict:
     }
 
 
+def _ledger_op_schema() -> dict:
+    """Una operación del ledger.
+
+    `destacar` es una lista y la lista vacía significa "apaga todo": es lo que hace el cue
+    del morfismo `<=` -> `=`, donde cualquier término encendido compite con el momento. Sin
+    esa convención, "apagar" habría necesitado un verbo aparte que un modelo tendría que
+    acertar a usar.
+    """
+    def solo(nombre: str, valor: dict) -> dict:
+        return {
+            "type": "object",
+            "properties": {nombre: valor},
+            "required": [nombre],
+            "additionalProperties": False,
+        }
+
+    return {
+        "anyOf": [
+            solo("revelar", {
+                "type": "object",
+                "properties": {
+                    "bien": {"type": "string", "enum": BIENES},
+                    "estaciones": {
+                        "type": "array",
+                        "items": {"type": "string", "enum": ESTACIONES},
+                    },
+                },
+                "required": ["bien", "estaciones"],
+                "additionalProperties": False,
+            }),
+            solo("destacar", {
+                "type": "array",
+                "items": {"type": "string", "enum": TERMINOS},
+            }),
+            solo("comprimir", {"type": "boolean"}),
+            solo("precio", {
+                "type": "object",
+                "properties": {
+                    "bien": {"type": "string", "enum": BIENES},
+                    "valor": {"type": "string"},
+                },
+                "required": ["bien", "valor"],
+                "additionalProperties": False,
+            }),
+        ]
+    }
+
+
 def build_schema(cue_ids: list[str]) -> dict:
     """El esquema para ESTOS cues. `strict`-compatible.
 
@@ -88,6 +142,7 @@ def build_schema(cue_ids: list[str]) -> dict:
     distinguir un cue mudo a propósito de uno que el modelo se saltó.
     """
     op = _op_schema()
+    lop = _ledger_op_schema()
     return {
         "type": "object",
         "properties": {
@@ -100,7 +155,15 @@ def build_schema(cue_ids: list[str]) -> dict:
                 "required": list(cue_ids),
                 "additionalProperties": False,
             },
+            "ledger": {
+                "type": "object",
+                "properties": {
+                    cid: {"type": "array", "items": lop} for cid in cue_ids
+                },
+                "required": list(cue_ids),
+                "additionalProperties": False,
+            },
         },
-        "required": ["version", "cues"],
+        "required": ["version", "cues", "ledger"],
         "additionalProperties": False,
     }

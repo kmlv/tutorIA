@@ -1,0 +1,121 @@
+{
+ "consumo": [
+  [
+   "reveal",
+   "g1",
+   "glyph"
+  ],
+  [
+   "reveal",
+   "g2",
+   "glyph"
+  ]
+ ],
+ "canasta": [
+  [
+   "reveal",
+   "g1",
+   "unit"
+  ],
+  [
+   "reveal",
+   "g2",
+   "unit"
+  ],
+  [
+   "highlight",
+   "x1",
+   "x2"
+  ]
+ ],
+ "espacio": [
+  [
+   "reveal",
+   "g1",
+   "symbol"
+  ],
+  [
+   "reveal",
+   "g2",
+   "symbol"
+  ],
+  [
+   "highlight",
+   "x1",
+   "x2"
+  ]
+ ],
+ "budget_set": [
+  [
+   "reveal",
+   "g1",
+   "price"
+  ],
+  [
+   "reveal",
+   "g2",
+   "price"
+  ],
+  [
+   "highlight",
+   "p1",
+   "p2",
+   "m"
+  ]
+ ],
+ "budget_line": [
+  [
+   "highlight"
+  ]
+ ],
+ "intercepts": [
+  [
+   "highlight",
+   "m",
+   "p1",
+   "p2"
+  ]
+ ],
+ "slope": [
+  [
+   "highlight",
+   "p1",
+   "p2"
+  ],
+  [
+   "compress",
+   true
+  ]
+ ],
+ "income_shift": [
+  [
+   "highlight",
+   "m"
+  ]
+ ],
+ "price_pivot": [
+  [
+   "morphPrice",
+   "g1",
+   4
+  ],
+  [
+   "highlight",
+   "p1"
+  ]
+ ],
+ "recap": [
+  [
+   "compress",
+   false
+  ],
+  [
+   "morphPrice",
+   "g1",
+   3
+  ],
+  [
+   "highlight"
+  ]
+ ]
+}

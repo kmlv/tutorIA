@@ -39,6 +39,33 @@ export const FANTASMAS = ["base", "ninguno"] as const;
 export const VARIABLES = ["p1", "p2", "m"] as const;
 export const OPERADORES = ["+", "-", "*", "/"] as const;
 
+// --- vocabulario del ledger ---------------------------------------------------------
+//
+// La banda de la ecuación y las fichas de los bienes eran el último `switch` que le
+// quedaba a la lección. Mientras estuviera en código, un pack generado por un modelo
+// podía dibujar su gráfico y no su ecuación, así que la promesa de D-3 —el concepto
+// número veinte sale barato— estaba a medias.
+//
+// Los términos son los que `pipeline/render_math.mjs` etiqueta dentro del KaTeX: si esta
+// lista y aquella se separan, un `destacar` apunta a un símbolo que no existe y no pasa
+// nada visible. `test_d3_graph_script.py` compara las dos.
+export const BIENES = ["g1", "g2"] as const;
+export const ESTACIONES = ["glyph", "unit", "symbol", "price"] as const;
+export const TERMINOS = ["x1", "x2", "p1", "p2", "m"] as const;
+
+export type Bien = (typeof BIENES)[number];
+export type Estacion = (typeof ESTACIONES)[number];
+export type Termino = (typeof TERMINOS)[number];
+
+/** Una operación del ledger. Mismas reglas que las del gráfico: una sola clave. */
+export type LedgerOp =
+  | { revelar: { bien: Bien; estaciones: Estacion[] } }
+  //: Lista vacía = apagar todo. Es lo que hace `budget_line`, donde el momento es el
+  //: morfismo de `<=` a `=` y cualquier término encendido compite con él.
+  | { destacar: Termino[] }
+  | { comprimir: boolean }
+  | { precio: { bien: Bien; valor: string | number } };
+
 export type Capa = (typeof CAPAS)[number];
 export type Destacado = (typeof DESTACADOS)[number];
 
@@ -60,6 +87,8 @@ export interface GraphScript {
   version: 1;
   /** cue id -> operaciones, en orden. Un cue sin entrada no cambia nada. */
   cues: Record<string, Op[]>;
+  /** cue id -> operaciones del ledger. Opcional: un pack sin ecuación no lo necesita. */
+  ledger?: Record<string, LedgerOp[]>;
 }
 
 export class ScriptError extends Error {}
@@ -141,6 +170,38 @@ export function aplicarOps(s: GraphState, ops: Op[], base: Ejemplo): GraphState 
   return n;
 }
 
+/** Lo que el ledger tiene que saber hacer. Una interfaz y no la clase `Ledger`, para
+ *  que el intérprete se pueda probar sin DOM. */
+export interface LedgerLike {
+  reveal(g: string, ...estaciones: string[]): void;
+  highlight(...terms: string[]): void;
+  compress(on?: boolean): void;
+  morphPrice(g: string, valor: number): void;
+}
+
+/** Ejecuta las operaciones del ledger de un cue. */
+export function aplicarLedger(ops: LedgerOp[], ledger: LedgerLike, base: Ejemplo): void {
+  for (const op of ops) {
+    const claves = Object.keys(op);
+    if (claves.length !== 1) {
+      throw new ScriptError(
+        `una operación del ledger lleva exactamente una clave, lleva ${claves.length}`);
+    }
+    if ("revelar" in op) {
+      ledger.reveal(op.revelar.bien, ...op.revelar.estaciones);
+    } else if ("destacar" in op) {
+      // Sin argumentos apaga todo, que es lo que significa la lista vacía.
+      ledger.highlight(...op.destacar);
+    } else if ("comprimir" in op) {
+      ledger.compress(op.comprimir);
+    } else if ("precio" in op) {
+      ledger.morphPrice(op.precio.bien, evaluar(op.precio.valor, base));
+    } else {
+      throw new ScriptError(`operación de ledger desconocida: ${claves[0]}`);
+    }
+  }
+}
+
 /**
  * Comprueba un documento entero SIN ejecutarlo, y devuelve todos los errores.
  *
@@ -211,6 +272,67 @@ export function revisar(script: GraphScript, base: Ejemplo,
         }
       } else {
         errs.push(`${donde}: operación desconocida "${k}"`);
+      }
+    });
+  }
+
+  for (const [cue, ops] of Object.entries(script.ledger ?? {})) {
+    if (cuesConocidos && !cuesConocidos.has(cue)) {
+      errs.push(`ledger.${cue}: no existe ningún cue con ese id en la timeline`);
+    }
+    if (!Array.isArray(ops)) {
+      errs.push(`ledger.${cue}: las operaciones deben ser una lista`);
+      continue;
+    }
+    ops.forEach((op, i) => {
+      const donde = `ledger.${cue}[${i}]`;
+      const claves = Object.keys(op ?? {});
+      if (claves.length !== 1) {
+        errs.push(`${donde}: una operación lleva exactamente una clave, lleva ${claves.length}`);
+        return;
+      }
+      const k = claves[0];
+      if (k === "revelar") {
+        const v = (op as { revelar: { bien: string; estaciones: string[] } }).revelar;
+        if (!(BIENES as readonly string[]).includes(v?.bien)) {
+          errs.push(`${donde}: bien "${v?.bien}"; solo ${BIENES.join(", ")}`);
+        }
+        if (!Array.isArray(v?.estaciones) || !v.estaciones.length) {
+          errs.push(`${donde}: revelar sin estaciones no hace nada`);
+        } else {
+          for (const e of v.estaciones) {
+            if (!(ESTACIONES as readonly string[]).includes(e)) {
+              errs.push(`${donde}: estación "${e}"; solo ${ESTACIONES.join(", ")}`);
+            }
+          }
+        }
+      } else if (k === "destacar") {
+        const v = (op as { destacar: string[] }).destacar;
+        if (!Array.isArray(v)) {
+          errs.push(`${donde}: destacar debe ser una lista (vacía = apagar todo)`);
+        } else {
+          for (const t of v) {
+            if (!(TERMINOS as readonly string[]).includes(t)) {
+              errs.push(`${donde}: término "${t}"; solo ${TERMINOS.join(", ")}`);
+            }
+          }
+        }
+      } else if (k === "comprimir") {
+        if (typeof (op as { comprimir: unknown }).comprimir !== "boolean") {
+          errs.push(`${donde}: comprimir debe ser true o false`);
+        }
+      } else if (k === "precio") {
+        const v = (op as { precio: { bien: string; valor: string | number } }).precio;
+        if (!(BIENES as readonly string[]).includes(v?.bien)) {
+          errs.push(`${donde}: bien "${v?.bien}"; solo ${BIENES.join(", ")}`);
+        }
+        try {
+          evaluar(v?.valor, base);
+        } catch (e) {
+          errs.push(`${donde}: ${(e as Error).message}`);
+        }
+      } else {
+        errs.push(`${donde}: operación de ledger desconocida "${k}"`);
       }
     });
   }

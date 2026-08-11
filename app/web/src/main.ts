@@ -14,7 +14,7 @@ import { createAdapter, type MediaAdapter } from "./player/adapter";
 import type { CueFiring } from "./player/sync";
 import { BudgetGraph } from "./graph/budget_graph";
 import { aplicarCue, estadoInicial } from "./graph/state";
-import { revisar, type GraphScript } from "./graph/script";
+import { aplicarLedger, revisar, type GraphScript } from "./graph/script";
 import { Dock } from "./chat/dock";
 import { Composer } from "./chat/composer";
 import { Ledger } from "./ledger/goods";
@@ -238,44 +238,26 @@ async function main(): Promise<void> {
   }
 
   /**
-   * The ledger is what each cue paints, per docs/DISPLAY-DESIGN.md §5. This replaces the
-   * notes sidebar: the equation is a structural spine between the two good cards, not a
-   * column of commentary beside the graph.
+   * El ledger es lo que cada cue pinta en la banda de la ecuación, según
+   * `docs/DISPLAY-DESIGN.md` §5: la ecuación es una espina estructural entre las dos
+   * fichas, no una columna de comentarios al lado del gráfico.
+   *
+   * Las operaciones vienen de `graph.yaml` (D-3) y ya no de un `switch`. Era el último
+   * trozo de la lección que vivía en código: mientras estuviera aquí, un pack generado
+   * por un modelo podía dibujar su gráfico y no su ecuación, y la promesa de que el
+   * concepto número veinte sale barato estaba a medias.
+   *
+   * La ecuación EN SÍ sigue viniendo de `NOTES`, que `pipeline/render_math.mjs` genera
+   * renderizando KaTeX en tiempo de compilación. Eso no es configuración: es el resultado
+   * de compilar la fórmula del pack, y ponerlo en un documento que escribe un modelo
+   * sería pedirle que emita HTML de KaTeX.
    */
   function paintLedger(cueId: string): void {
     const n = NOTES[cueId];
     if (n && (n.formulaHtml || n.formulaDimHtml)) {
       ledger.setEquation(n.formulaHtml, n.formulaDimHtml);
     }
-    switch (cueId) {
-      case "consumo":
-        ledger.reveal("g1", "glyph"); ledger.reveal("g2", "glyph"); break;
-      case "canasta":
-        ledger.reveal("g1", "unit"); ledger.reveal("g2", "unit");
-        ledger.highlight("x1", "x2"); break;
-      case "espacio":
-        ledger.reveal("g1", "symbol"); ledger.reveal("g2", "symbol");
-        ledger.highlight("x1", "x2"); break;
-      case "budget_set":
-        ledger.reveal("g1", "price"); ledger.reveal("g2", "price");
-        ledger.highlight("p1", "p2", "m"); break;
-      case "budget_line":
-        ledger.highlight(); break;          // the moment is the <= -> = morph, nothing else
-      case "intercepts":
-        ledger.highlight("m", "p1", "p2"); break;
-      case "slope":
-        ledger.highlight("p1", "p2");
-        ledger.compress(true); break;        // progressive compression starts here
-      case "income_shift":
-        ledger.highlight("m"); break;
-      case "price_pivot":
-        ledger.morphPrice("g1", ejemplo.p1 + 1);
-        ledger.highlight("p1"); break;
-      case "recap":
-        ledger.compress(false);
-        ledger.morphPrice("g1", ejemplo.p1);
-        ledger.highlight(); break;
-    }
+    aplicarLedger(guion.ledger?.[cueId] ?? [], ledger, ejemplo);
   }
 
   media.onCue((f: CueFiring) => {

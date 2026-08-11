@@ -57,3 +57,58 @@ cues:
     - fantasma: ninguno
     - set: {p1: p1, m: m}
     - destacar: ninguno
+
+
+# La banda de la ecuación y las fichas de los bienes. Era el último `switch` de la
+# lección: mientras estuviera en código, un pack generado podía dibujar su gráfico y no su
+# ecuación, y la promesa de D-3 estaba a medias.
+#
+# La ecuación en sí NO va aquí: sale de `app/web/src/generated/formulas.ts`, que
+# `pipeline/render_math.mjs` produce a partir del pack renderizando KaTeX en tiempo de
+# compilación. Esto es solo qué se enciende, qué se destaca y qué se comprime.
+#
+# `destacar: []` apaga todo, y es deliberado en `budget_line`: ese momento es el morfismo
+# de `<=` a `=`, y cualquier término encendido compite con él.
+ledger:
+  consumo:
+    - revelar: {bien: g1, estaciones: [glyph]}
+    - revelar: {bien: g2, estaciones: [glyph]}
+
+  canasta:
+    - revelar: {bien: g1, estaciones: [unit]}
+    - revelar: {bien: g2, estaciones: [unit]}
+    - destacar: [x1, x2]
+
+  espacio:
+    - revelar: {bien: g1, estaciones: [symbol]}
+    - revelar: {bien: g2, estaciones: [symbol]}
+    - destacar: [x1, x2]
+
+  budget_set:
+    - revelar: {bien: g1, estaciones: [price]}
+    - revelar: {bien: g2, estaciones: [price]}
+    - destacar: [p1, p2, m]
+
+  budget_line:
+    - destacar: []
+
+  intercepts:
+    - destacar: [m, p1, p2]
+
+  # Aquí empieza la compresión progresiva: el andamiaje encoge según se interioriza,
+  # pero nunca desaparece.
+  slope:
+    - destacar: [p1, p2]
+    - comprimir: true
+
+  income_shift:
+    - destacar: [m]
+
+  price_pivot:
+    - precio: {bien: g1, valor: p1 + 1}
+    - destacar: [p1]
+
+  recap:
+    - comprimir: false
+    - precio: {bien: g1, valor: p1}
+    - destacar: []

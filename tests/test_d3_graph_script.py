@@ -35,6 +35,7 @@ def _lista_ts(nombre: str) -> list[str]:
 @pytest.mark.parametrize("nombre,py", [
     ("CAPAS", gs.CAPAS), ("DESTACADOS", gs.DESTACADOS),
     ("FANTASMAS", gs.FANTASMAS), ("VARIABLES", gs.VARIABLES),
+    ("BIENES", gs.BIENES), ("ESTACIONES", gs.ESTACIONES), ("TERMINOS", gs.TERMINOS),
 ])
 def test_el_vocabulario_no_se_ha_separado(nombre: str, py: list[str]) -> None:
     """El esquema está en Python y el intérprete en TypeScript, así que el vocabulario
@@ -100,6 +101,29 @@ def test_set_admite_nulos_y_los_exige_todos() -> None:
         assert "null" in v["type"]
 
 
+def test_los_terminos_del_ledger_existen_en_el_katex_generado() -> None:
+    """`destacar` apunta a símbolos que `pipeline/render_math.mjs` etiquetó dentro del
+    KaTeX en tiempo de compilación. Si el vocabulario y las etiquetas se separan, el
+    destacado no enciende nada y no hay ningún error: el fallo es exactamente invisible."""
+    formulas = (ROOT / "app/web/src/generated/formulas.ts").read_text(encoding="utf-8")
+    etiquetados = set(re.findall(r'data-term=\\"([a-z0-9]+)', formulas))
+    assert etiquetados, "no encontré ningún data-term en formulas.ts"
+    assert etiquetados <= set(gs.TERMINOS), (
+        f"el KaTeX etiqueta términos que el vocabulario no conoce: "
+        f"{sorted(etiquetados - set(gs.TERMINOS))}"
+    )
+
+
+def test_el_guion_del_ledger_solo_usa_terminos_etiquetados() -> None:
+    import yaml
+    g = yaml.safe_load(
+        (ROOT / "content/packs/budget-line/graph.yaml").read_text(encoding="utf-8"))
+    usados = {t for ops in (g.get("ledger") or {}).values()
+              for op in ops for t in (op.get("destacar") or [])}
+    assert usados, "el guion del ledger no destaca nada: la prueba no comprobaría nada"
+    assert usados <= set(gs.TERMINOS), sorted(usados - set(gs.TERMINOS))
+
+
 def test_el_guion_del_pack_cubre_todos_sus_cues(pack) -> None:
     """La misma comprobación que hace la compuerta, aquí para que rompa la suite y no solo
     un script que alguien tiene que acordarse de correr."""
@@ -111,8 +135,13 @@ def test_el_guion_del_pack_cubre_todos_sus_cues(pack) -> None:
         tl = pack.timeline(lang, "A")
         if tl is None:
             continue
-        faltan = {c.id for c in tl.cues if c.type == "graph"} - declarados
+        del_grafico = {c.id for c in tl.cues if c.type == "graph"}
+        faltan = del_grafico - declarados
         assert not faltan, f"{lang}: cues sin declarar en graph.yaml: {sorted(faltan)}"
+        # Y el ledger: todo cue de gráfico tiene que pintar su banda, incluidos los que
+        # solo narran — ahí es justo donde se revelan las fichas.
+        sin_ledger = del_grafico - set(g.get("ledger") or {})
+        assert not sin_ledger, f"{lang}: cues sin ledger: {sorted(sin_ledger)}"
 
 
 def test_el_pack_expone_el_guion(pack) -> None:

@@ -1,5 +1,9 @@
 {
  "version": 1,
+ "narracion": [
+  "consumo",
+  "canasta"
+ ],
  "cues": {
   "espacio": [
    {
@@ -75,6 +79,158 @@
    },
    {
     "destacar": "ninguno"
+   }
+  ]
+ },
+ "ledger": {
+  "consumo": [
+   {
+    "revelar": {
+     "bien": "g1",
+     "estaciones": [
+      "glyph"
+     ]
+    }
+   },
+   {
+    "revelar": {
+     "bien": "g2",
+     "estaciones": [
+      "glyph"
+     ]
+    }
+   }
+  ],
+  "canasta": [
+   {
+    "revelar": {
+     "bien": "g1",
+     "estaciones": [
+      "unit"
+     ]
+    }
+   },
+   {
+    "revelar": {
+     "bien": "g2",
+     "estaciones": [
+      "unit"
+     ]
+    }
+   },
+   {
+    "destacar": [
+     "x1",
+     "x2"
+    ]
+   }
+  ],
+  "espacio": [
+   {
+    "revelar": {
+     "bien": "g1",
+     "estaciones": [
+      "symbol"
+     ]
+    }
+   },
+   {
+    "revelar": {
+     "bien": "g2",
+     "estaciones": [
+      "symbol"
+     ]
+    }
+   },
+   {
+    "destacar": [
+     "x1",
+     "x2"
+    ]
+   }
+  ],
+  "budget_set": [
+   {
+    "revelar": {
+     "bien": "g1",
+     "estaciones": [
+      "price"
+     ]
+    }
+   },
+   {
+    "revelar": {
+     "bien": "g2",
+     "estaciones": [
+      "price"
+     ]
+    }
+   },
+   {
+    "destacar": [
+     "p1",
+     "p2",
+     "m"
+    ]
+   }
+  ],
+  "budget_line": [
+   {
+    "destacar": []
+   }
+  ],
+  "intercepts": [
+   {
+    "destacar": [
+     "m",
+     "p1",
+     "p2"
+    ]
+   }
+  ],
+  "slope": [
+   {
+    "destacar": [
+     "p1",
+     "p2"
+    ]
+   },
+   {
+    "comprimir": true
+   }
+  ],
+  "income_shift": [
+   {
+    "destacar": [
+     "m"
+    ]
+   }
+  ],
+  "price_pivot": [
+   {
+    "precio": {
+     "bien": "g1",
+     "valor": "p1 + 1"
+    }
+   },
+   {
+    "destacar": [
+     "p1"
+    ]
+   }
+  ],
+  "recap": [
+   {
+    "comprimir": false
+   },
+   {
+    "precio": {
+     "bien": "g1",
+     "valor": "p1"
+    }
+   },
+   {
+    "destacar": []
    }
   ]
  }
