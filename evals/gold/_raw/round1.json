@@ -1,0 +1,751 @@
+{
+ "pool": [
+  {
+   "lang": "es",
+   "answer": "cada kilo de cafe = 3 litros de jugo menos, por eso sale negativo, ese es el precio del cafe pero medido en jugo",
+   "archetype": "correct_terse",
+   "key_points_present": [
+    "kp_sign",
+    "kp_tradeoff"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Right on all three points but compressed into one comma-spliced line with an equals sign instead of prose, the way a student texts an answer.",
+   "question_id": "q_slope_open",
+   "cluster": "right",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "kp_sign rests entirely on the telegraphic \"por eso sale negativo\" with no statement that one good rises as the other falls, so a strict grader could withhold it while a lenient one credits it; the closing clause also reuses the same \"precio del cafe medido en jugo\" formula as [1] and [4], which is template leakage across the set.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "ok so basically what it means is that the market lets you swap coffee and juice at 3 to 1, like if i grab one more kilo of coffee thats 3 dollars gone from my 100 and 3 dollars buys 3 liters of juice so those 3 liters are gone. its negative because you cant have more of both, one goes up and the other has to come down, thats why the line falls. anyway what im trying to say is the -3 is the price of coffee but written in juice instead of money, i think the prof called it the opportunity cost of a kilo of coffee. sorry this got long",
+   "archetype": "correct",
+   "key_points_present": [
+    "kp_sign",
+    "kp_tradeoff"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Correct and complete but rambling, unstructured and self-apologising, and it sneaks the price arithmetic back in even though the prompt asked not to.",
+   "question_id": "q_slope_open",
+   "cluster": "right",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "Plausible but sits at the edge: the disfluency markers (\"ok so basically\", \"anyway what im trying to say is\", \"sorry this got long\") are stacked around an otherwise flawless three-point answer with correct dollar arithmetic, which is the signature of simulated-student writing rather than the real thing.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "Que el cafe es tres veces mas caro que el jugo. Entonces cada vez que meto un kilo de cafe al carrito tengo que sacar tres litros de jugo, sino no me alcanza la plata. Nunca puedo llevar mas de los dos a la vez, si uno sube el otro baja, por eso va con menos.",
+   "archetype": "correct_informal",
+   "key_points_present": [
+    "kp_sign",
+    "kp_tradeoff"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Fully correct using only shopping-cart language, no technical terms and no symbols, with dropped accents typical of a phone-typed answer.",
+   "question_id": "q_slope_open",
+   "cluster": "right",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "It means the line goes downhill as you move right. Every time you put one more kilo of coffee in the basket you have to take three liters of juice back out, and that is exactly why the slope has a minus in front of it, coffee going up forces juice to go down, they can't both increase. So the -3 is telling you how big that drop is: three liters for every single kilo.",
+   "archetype": "partial",
+   "key_points_present": [
+    "kp_tradeoff",
+    "kp_sign"
+   ],
+   "misconception": "NINGUNA",
+   "note": "The confident near-miss: the trade-off and the sign are stated cleanly but nothing ever connects the 3 to relative price or opportunity cost, so it must be graded incorrect.",
+   "question_id": "q_slope_open",
+   "cluster": "right",
+   "audit_realistic": false,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "Prose is fully punctuated and rhetorically organised (\"and that is exactly why\", \"So the -3 is telling you how big that drop is\"), reading like a textbook gloss rather than a student — and worse, it is the archetype=partial item yet is written more cleanly than the items labelled correct; separately, graders will split on whether \"how big that drop is: three liters for every single kilo\" already constitutes opportunity cost and thus earns kp_relative_price, since kp_tradeoff and kp_relative_price overlap almost completely in this rubric.",
+   "audit_rewrite": "the line goes down as you move to the right. every time i put one more kilo of coffee in the basket i have to take out 3 liters of juice, thats why theres a minus sign on it, coffee up means juice down, they cant both go up. so the 3 is just how many liters go away for each kilo"
+  },
+  {
+   "lang": "es",
+   "answer": "...o sea yo lo veo como un tipo de cambio entre los dos. si me antojo de un kilo mas de cafe, el jugo me baja 3 litros, siempre 3, no importa en que parte de la recta este. el menos es porque uno sube y el otro tiene q bajar, con los mismos 100 no puedo tener mas de los dos. y el 3 es lo caro que sale el cafe comparado con el jugo, no en dolares sino en jugo.",
+   "archetype": "correct",
+   "key_points_present": [
+    "kp_sign",
+    "kp_tradeoff"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Correct and complete but starts mid-thought with hedging, chat abbreviation (q) and a Latin American conversational register distinct from the other answers.",
+   "question_id": "q_slope_open",
+   "cluster": "right",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "Content-wise this is the third Spanish answer in a row making the same three moves and closing with the same \"lo caro que sale el cafe comparado con el jugo, no en dolares sino en jugo\" formulation as [0] and [1], so the set is near-duplicated rather than varied — and with 4 of 5 items at full credit, 1 partial, and zero items displaying BL-M1 or BL-M5, this gold set cannot test misconception detection at all.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "O sea la pendiente muestra el intercambio entre el cafe y el jugo. Al ser negativa te dice que si quiero mas de uno tengo que sacrificar del otro, no puedo subir los dos a la vez porque la plata es la misma. Y el 3 es la tasa a la que cambias: por cada litro de jugo que dejo de comprar me alcanza para 3 kilos mas de cafe. Ese es el costo de oportunidad de un litro de jugo.",
+   "archetype": "misconception",
+   "key_points_present": [
+    "kp_sign",
+    "kp_tradeoff"
+   ],
+   "misconception": "BL-M1",
+   "note": "Suena seguro y bien redactado y hasta acierta el signo y el costo de oportunidad, pero invierte la razon de intercambio (3 kilos de cafe por litro de jugo en vez de 3 litros por kilo).",
+   "question_id": "q_slope_open",
+   "cluster": "wrong",
+   "audit_realistic": false,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "The prose is too clean and walks the rubric in order (trade-off framing, then sign, then rate, then the term \"costo de oportunidad\"), which reads generated rather than written by a student who simultaneously inverts the ratio; and crediting kp_relative_price for an opportunity-cost label attached to an inverted rate is something two graders would split on.",
+   "audit_rewrite": "la pendiente negativa es porque si agarro mas de uno tengo que bajar el otro, con los 100 no me da para los dos. el 3 seria cuanto ganas: si dejo 1 litro de jugo me compro 3 kilos de cafe mas. o sea lo que me cuesta el jugo pero en cafe, el costo de oportunidad."
+  },
+  {
+   "lang": "en",
+   "answer": "for every liter of juice i give up i can get 3 more kilos of coffee. thats all it means",
+   "archetype": "misconception",
+   "key_points_present": [],
+   "misconception": "BL-M1",
+   "note": "Two-line answer that states the trade exactly backwards and says nothing about the sign or relative prices.",
+   "question_id": "q_slope_open",
+   "cluster": "wrong",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "The BL-M1 catalog wording (\"one kilo of coffee per 3 liters of juice\") actually describes the correct trade rather than the inverted one, so this answer is being matched against a broken definition; and the empty key-point list conflicts with [4], where the equally implicit \"more coffee means less juice\" is credited kp_sign.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "you trade 3 liters of juice for 1 kilo of coffee, thats what the 3 is telling you. i dont think its actually negative tho, both prices are positive numbers so the ratio comes out positive too, the minus is just how the formula is written down.",
+   "archetype": "misconception",
+   "key_points_present": [
+    "kp_tradeoff"
+   ],
+   "misconception": "BL-M5",
+   "note": "Gets the trade-off right in the correct direction but explicitly argues the slope is positive because prices are positive, so the sign point fails independently.",
+   "question_id": "q_slope_open",
+   "cluster": "wrong",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "que el cafe cuesta 3 veces lo que cuesta el jugo pues, la relacion es 3 a 1. el signo yo creo que no cambia nada, la pendiente igual es 3, eso del menos es solo porque el dibujo va para abajo.",
+   "archetype": "misconception",
+   "key_points_present": [
+    "kp_tradeoff"
+   ],
+   "misconception": "BL-M5",
+   "note": "Corta y coloquial, capta bien el precio relativo pero descarta el signo negativo como si fuera solo un detalle del grafico.",
+   "question_id": "q_slope_open",
+   "cluster": "wrong",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "\"la relacion es 3 a 1\" can be read as the quantity trade-off, so withholding kp_tradeoff is contestable, and the student's stated reason (\"el dibujo va para abajo\") concedes the line falls, which sits awkwardly with a \"positive slope\" misconception label.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "mmm creo que significa que por 1 kilo de cafe entregas como un tercio de litro de jugo, porque 1 entre 3... no estoy segura si es asi o al reves la verdad. lo que si es que si compro mas cafe me queda menos jugo.",
+   "archetype": "misconception",
+   "key_points_present": [
+    "kp_sign"
+   ],
+   "misconception": "BL-M1",
+   "note": "Insegura y a media idea: usa 1/3 en vez de 3 (pendiente invertida) aunque sí reconoce que mas cafe implica menos jugo.",
+   "question_id": "q_slope_open",
+   "cluster": "wrong",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "The student explicitly hedges (\"no estoy segura si es asi o al reves\"), so a grader could call this uncertainty rather than a committed BL-M1, and kp_sign is credited from an implicit rise/fall statement that never mentions the sign.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "Bueno, lo que significa que la pendiente sea -3 es basicamente eso, que la pendiente de la recta de presupuesto entre el cafe y el jugo es de -3. O sea el numero -3 es la pendiente y por eso la recta se ve inclinada asi. Con el cafe y el jugo pasa exactamente lo mismo que dice la pendiente de -3.",
+   "archetype": "degenerate",
+   "key_points_present": [],
+   "misconception": "NINGUNA",
+   "note": "Fluent, confident-sounding restatement of the question that loops back on itself and never says anything about trading juice for coffee.",
+   "question_id": "q_slope_open",
+   "cluster": "edge",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "slope = -p1/p2 = -3/1 = -3",
+   "archetype": "degenerate",
+   "key_points_present": [],
+   "misconception": "NINGUNA",
+   "note": "Correct formula and correct number, zero explanation, and it does exactly what the question told the student not to do.",
+   "question_id": "q_slope_open",
+   "cluster": "edge",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "The bare formula is a genuine borderline case: a lenient grader can read -p1/p2 as satisfying kp_relative_price and the minus sign as kp_sign, so the empty key-point list is defensible but contestable (and the 'en' language tag is meaningless for a text with no words).",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "creo que significa que si quiero un kilo mas de cafe tengo que give up como 3 litros de jugo, I think. y sale negativo porque uno sube y el otro tiene que bajar, no me pueden subir los dos al mismo tiempo con los 100 dolares. creo tambien que es porque el cafe cuesta 3 veces lo que cuesta el jugo, o sea es el precio relativo pero no estoy 100% segura",
+   "archetype": "correct_informal",
+   "key_points_present": [
+    "kp_sign",
+    "kp_tradeoff"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Substantively complete answer, but code-switches mid-sentence and hedges every single claim with creo que / I think.",
+   "question_id": "q_slope_open",
+   "cluster": "edge",
+   "audit_realistic": false,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "Reads as authored rather than written: it marches through the three rubric ids in exactly rubric order, one per clause, each with a hedge glued on, uses the textbook term 'precio relativo', and the English insertions ('give up', 'I think') feel dropped in rather than like natural bilingual speech.",
+   "audit_rewrite": "o sea si compro un kilo mas de cafe me quedo sin como 3 litros de jugo, porque el cafe sale 3 veces mas caro que el jugo entonces cada kilo me cuesta 3 litros. por eso es negativo, con los 100 no me alcanza para subir los dos, si me llevo mas cafe me tengo que llevar menos jugo"
+  },
+  {
+   "lang": "es",
+   "answer": "Bienes sustitutos.",
+   "archetype": "off_topic",
+   "key_points_present": [],
+   "misconception": "NINGUNA",
+   "note": "Two words, answers a different question entirely (goods classification instead of the meaning of the slope).",
+   "question_id": "q_slope_open",
+   "cluster": "edge",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "Taxonomy inconsistency with [4]: 'bienes sustitutos' is a substantive wrong idea outside the catalogue, so a second grader could reasonably tag it FUERA_DE_CATALOGO rather than NINGUNA, and the two-word length makes the off_topic vs out_of_catalogue call arbitrary.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "it means that for every extra kilo of coffee i buy, i lose 3 dollars, so the line drops by 3 dollars each time until the 100 is gone. thats why its negative, the money goes down.",
+   "archetype": "out_of_catalogue",
+   "key_points_present": [],
+   "misconception": "FUERA_DE_CATALOGO",
+   "note": "Reads the slope in dollars instead of liters of juice, collapsing it into the price of coffee, an error neither BL-M1 nor BL-M5 covers.",
+   "question_id": "q_slope_open",
+   "cluster": "edge",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "Solid out-of-catalogue axis confusion (slope read in dollars, not liters), but a lenient grader could partially credit kp_sign since the student does state why it is negative and gives a falling-quantity reason, just with money instead of juice.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "La linea es solo el borde, el conjunto es tambien todo lo de adentro donde te sobra plata.",
+   "archetype": "correct_terse",
+   "key_points_present": [
+    "kp_boundary",
+    "kp_interior"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Una sola clausula sin ejemplos ni numeros que igual acierta los dos puntos requeridos, el caso minimo correcto.",
+   "question_id": "q_feas_open",
+   "cluster": "right",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "ok so the budget set is like all the bundles you can actually buy with the 100 dollars, and the budget line is the part where you spend exactly all of it, like if i buy 20 kilos of coffee thats 60 and then 20 liters of juice thats another 20 so 80 total and i still got 20 bucks in my pocket, that bundle is still in the budget set right its just not on the line, the line is only the edge of the set so basically the set is the whole triangle and the line is the outside edge of the triangle, thats the difference i guess",
+   "archetype": "correct",
+   "key_points_present": [
+    "kp_boundary",
+    "kp_interior"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Respuesta correcta pero desordenada, un solo run-on con la aritmetica en medio y la conclusion recien al final.",
+   "question_id": "q_feas_open",
+   "cluster": "right",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "Piensa que entras a la tienda con cien soles. Todo lo que te puedes llevar sin quedarte debiendo es el conjunto, y ahi entran tambien las compras donde sales con vuelto. La linea es nada mas el caso en que sales con el bolsillo vacio. O sea la linea es la orillita de todo eso, no es todo.",
+   "archetype": "correct_informal",
+   "key_points_present": [
+    "kp_boundary",
+    "kp_interior"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Correcta en lenguaje totalmente cotidiano (vuelto, bolsillo vacio, orillita), sin simbolos ni vocabulario tecnico mas alla de nombrar la linea y el conjunto.",
+   "question_id": "q_feas_open",
+   "cluster": "right",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "Breaks the pack's canonical setup by switching the currency to 'cien soles' instead of 100 dollars (and drops the coffee/juice goods entirely), so the item is off-canon relative to every other answer; fix by changing 'cien soles' to 'cien dolares'.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "The budget set is the collection of all the bundles the consumer can afford given the prices and her income, so it definitely includes bundles that cost less than the full 100: if I buy 10 kilos of coffee and 30 liters of juice I've spent 30 + 30 = 60 and I still have 40 dollars left over, and that bundle is affordable, so it's in the set. The budget line is the equation 3x1 + x2 = 100, and what it does is describe the tradeoff between the two goods, since giving up one kilo of coffee lets you buy 3 more liters of juice. So one of them is an equation and the other one is a collection of bundles, that's the difference.",
+   "archetype": "partial",
+   "key_points_present": [
+    "kp_interior"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Suena segura y bien escrita y acierta el interior con ejemplo numerico, pero nunca dice que la linea sea la frontera del conjunto (la presenta como 'una ecuacion' frente a 'una coleccion'), asi que le falta kp_boundary.",
+   "question_id": "q_feas_open",
+   "cluster": "right",
+   "audit_realistic": false,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "Reads like a textbook/LLM rather than a student (verbatim definition 'the collection of all the bundles the consumer can afford given the prices and her income', 'her income', x1/x2 notation, clean colon-and-semicolon prose, flawless arithmetic and tradeoff derivation), and it is genuinely borderline for kp_boundary since a lenient grader could read 'the line is the equation 3x1 + x2 = 100' versus 'the set is all affordable bundles' as an implicit boundary claim.",
+   "audit_rewrite": "the budget set is basically everything you can afford with the 100. like if i buy 10 kilos of coffee thats 30 and 30 liters of juice is another 30, so 60 total and i still have 40 left, and that is definitely something i can afford so its in the set. the budget line is the equation 3x1 + x2 = 100 and what it tells you is the tradeoff, if you give up a kilo of coffee you can get 3 more liters of juice instead. so i guess one of them is an equation and the other one is a bunch of bundles, thats the difference."
+  },
+  {
+   "lang": "es",
+   "answer": "La restriccion es 3C + J = 100 y esa ecuacion es la linea presupuestria, o sea solo el borde. El conjunto es 3C + J <= 100, la linea mas todo lo que queda debajo, y ahi caen las canastas donde no gastas los 100 completos, por ejemplo 10 kilos de cafe y 20 litros de jugo son 50 y te queda plata. Por eso el conjunto es el triangulo entero y la linea es nomas su filo.",
+   "archetype": "correct",
+   "key_points_present": [
+    "kp_boundary",
+    "kp_interior"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Correcta y compacta con notacion y un typo ('presupuestria'), distingue la igualdad de la desigualdad y aterriza el interior con un ejemplo del canon.",
+   "question_id": "q_feas_open",
+   "cluster": "right",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "Borderline on realism (fluent inequality notation and a fully organised four-sentence answer), but the typo 'presupuestria' and the informal 'nomas su filo' keep it plausible as a strong student's answer.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "la linea presupuestaria y el conjunto presupuestario son basicamente lo mismo, uno es el dibujo y el otro el nombre tecnico. son todas las combinaciones de cafe y jugo que cuestan los 100 dolares exactos. si te sobra plata esa canasta ya no cuenta porque no estas usando todo tu ingreso",
+   "archetype": "misconception",
+   "key_points_present": [],
+   "misconception": "BL-M4",
+   "note": "Short, dismissive answer that collapses the two concepts outright and explicitly excludes bundles that leave money over.",
+   "question_id": "q_feas_open",
+   "cluster": "wrong",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "The budget line is the graphical representation and the budget set is the same thing written algebraically, p1x1 + p2x2 = m. With coffee at 3 and juice at 1 and income of 100 the set is every bundle satisfying 3x1 + x2 = 100, so 33.3 kilos of coffee and no juice, 100 liters of juice and no coffee, or any combination in between along that line. A bundle like 10 kilos and 30 liters only costs 60, so it is not in the budget set, the consumer has not spent his income and the budget set contains the bundles he can actually purchase with the full 100 dollars.",
+   "archetype": "misconception",
+   "key_points_present": [],
+   "misconception": "BL-M4",
+   "note": "The fluent, confident, well-organised wrong answer: correct notation and correct intercepts wrapped around the claim that the set is only the line.",
+   "question_id": "q_feas_open",
+   "cluster": "wrong",
+   "audit_realistic": false,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "Reads like a textbook or an LLM: full sentences, correct algebra, both intercepts computed and stated cleanly, a verified arithmetic check (3*10+30=60), third-person 'the consumer', and a tidy closing clause — nobody who genuinely confuses the line with the set writes this fluently; it is also near-duplicate content with [3] and [0], so the item set is four BL-M4 answers saying almost the same thing.",
+   "audit_rewrite": "the budget line is the picture and the budget set is the same thing but in the formula 3x1 + x2 = 100. so if coffee is 3 and juice is 1 you can do like 33 kilos of coffee or all juice (100 liters) or stuff in between, thats the set. i think if u buy 10 coffee and 30 juice thats only 60 bucks so that one isnt in the set, ur not spending the 100"
+  },
+  {
+   "lang": "es",
+   "answer": "La recta presupuestaria es el borde del conjunto presupuestario, o sea el limite de hasta donde puedes llegar comprando con tus 100. Ahora, el conjunto son las canastas que agotan el ingreso, porque si compras 5 kilos de cafe y 10 litros de jugo gastas 25 nomas y esa canasta no es alcanzable en el sentido del conjunto, te quedarian 75 dolares sin asignar. Por eso en clase siempre trabajamos sobre la recta.",
+   "archetype": "misconception",
+   "key_points_present": [
+    "kp_boundary"
+   ],
+   "misconception": "BL-M4",
+   "note": "Gets the boundary point genuinely right and then still denies the interior, forcing the judge to score the rubric point and the misconception independently.",
+   "question_id": "q_feas_open",
+   "cluster": "wrong",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "kp_boundary is credited on a sentence the answer immediately contradicts (it says the line is the borde of the set and then defines the set as exactly the bundles that exhaust income, i.e. the set = the line), so one grader would credit the explicit boundary phrase and another would say the contradiction voids it.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "the line is p1x1+p2x2=m and the set is basically those same points. like if u buy 20 kilos of coffee and 20 liters of juice thats 3(20)+20 = 80 which is < 100 so that bundle is outside the budget set, it has to add up to 100 to be in it",
+   "archetype": "misconception",
+   "key_points_present": [],
+   "misconception": "BL-M4",
+   "note": "Two-line lowercase answer that does the arithmetic correctly and then draws exactly the wrong conclusion from it.",
+   "question_id": "q_feas_open",
+   "cluster": "wrong",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "Content is a near-duplicate of [1] (same language, same misconception, same 'costs less than 100 so it is outside the set' move with only the numbers changed), which inflates the pack without adding discriminating power.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "El conjunto presupuestario son todas las canastas que puedo pagar con mis 100, incluyendo las que me dejan vuelto, tipo 10 kilos de cafe y 20 litros. La linea es cuando gasto los 100 justos. Y como todas las del conjunto ya son alcanzables, cualquiera me da el maximo de utilidad igual, aunque la mejor obviamente es la que gasta todo el ingreso.",
+   "archetype": "out_of_catalogue",
+   "key_points_present": [
+    "kp_interior"
+   ],
+   "misconception": "FUERA_DE_CATALOGO",
+   "note": "Handles the interior correctly but slides into feasible-equals-optimal (BL-M7), which is not on this item's watch list, so it is a genuine out-of-catalogue error sitting on top of a real rubric point.",
+   "question_id": "q_feas_open",
+   "cluster": "wrong",
+   "audit_realistic": true,
+   "audit_label_ok": false,
+   "audit_ambiguous": true,
+   "audit_problem": "kp_boundary is arguably earned and not credited — 'la linea es cuando gasto los 100 justos' set against a set that includes bundles with change is exactly the line-is-not-the-whole-set contrast, and since [2] gets kp_boundary for a claim it then contradicts, the item is internally inconsistent about what counts as boundary; the FUERA_DE_CATALOGO / BL-M7 call itself is right, though the text recites both halves of the BL-M7 definition (any feasible bundle is optimal AND the best is the one that spends everything) in one breath, which reads written-to-the-catalogue.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "Bueno, la diferencia entre la linea presupuestaria y el conjunto presupuestario esta justamente en eso, en que son dos cosas distintas dentro del presupuesto del consumidor. La linea presupuestaria tiene que ver con el presupuesto que uno tiene y el conjunto presupuestario tambien tiene que ver con el presupuesto pero visto de otra forma, entonces la diferencia esta en la manera en que se define cada uno segun los precios del cafe y del jugo y el ingreso de 100.",
+   "archetype": "degenerate",
+   "key_points_present": [],
+   "misconception": "NINGUNA",
+   "note": "Fluent, well-connected prose that restates the question and the setup without ever saying anything about boundary or interior; a lenient grader could be fooled by the confident tone.",
+   "question_id": "q_feas_open",
+   "cluster": "edge",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "budget line: p1x1 + p2x2 = m -> 3x1 + x2 = 100\nbudget set: p1x1 + p2x2 <= m -> 3x1 + x2 <= 100\nthats the difference",
+   "archetype": "degenerate",
+   "key_points_present": [],
+   "misconception": "NINGUNA",
+   "note": "Correct symbols copied straight from the notes with zero explanation, so it tests whether the grader credits an equality/inequality pair as 'in your own words' (strictly it never states that the line bounds the set or that interior bundles are affordable).",
+   "question_id": "q_feas_open",
+   "cluster": "edge",
+   "audit_realistic": true,
+   "audit_label_ok": false,
+   "audit_ambiguous": true,
+   "audit_problem": "This is not degenerate and the empty key_points list is wrong: writing '= m' for the line against '<= m' for the set states kp_boundary and kp_interior in symbols, so a grader who reads notation will credit at least kp_interior while a grader who demands prose will credit nothing.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "Bienes sustitutos.",
+   "archetype": "off_topic",
+   "key_points_present": [],
+   "misconception": "NINGUNA",
+   "note": "Two words from a completely different topic, the classic blank-out answer that a grader must not read charitably as a partial response.",
+   "question_id": "q_feas_open",
+   "cluster": "edge",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "Labels are right, but a two-word non-answer exercises almost nothing beyond 'judge does not hallucinate key points', and it duplicates the discriminating power of item 0.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "the budget set is all the bundles that exist in the market, like every combination of coffee and juice you could imagine even the ones that cost 300 dollars, and the line is just the mark that shows where the 100 dollars ends. so the set is way bigger than what you can pay for, the line is the part you can actually pay.",
+   "archetype": "out_of_catalogue",
+   "key_points_present": [],
+   "misconception": "FUERA_DE_CATALOGO",
+   "note": "Clear conceptual error in the opposite direction from BL-M4: the student inflates the budget set to the entire consumption space including unaffordable bundles, an error no catalogued misconception covers.",
+   "question_id": "q_feas_open",
+   "cluster": "edge",
+   "audit_realistic": true,
+   "audit_label_ok": false,
+   "audit_ambiguous": true,
+   "audit_problem": "The claimed FUERA_DE_CATALOGO is wrong: saying 'the line is the part you can actually pay' is exactly BL-M4's observable signal (treating the line as the whole affordable set), and BL-M4 is on this item's watch list, so the intended out-of-catalogue case is actually an in-catalogue miss with an extra consumption-set-vs-budget-set confusion layered on top.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "creo que la linea es como el borde del conjunto, I think. o sea la linea son las canastas donde gastas exactamente los 100 dolares, y el conjunto es esa linea mas everything under it, creo. tipo si compro 10 kilos de cafe y 20 litros de jugo gasto 50 nomas, no gasto todo el ingreso pero igual i think eso esta dentro del conjunto, no queda fuera solo porque me sobro plata.",
+   "archetype": "correct_informal",
+   "key_points_present": [
+    "kp_boundary",
+    "kp_interior"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Substantively correct on both key points but hedged with 'creo'/'I think' in every clause and code-switching mid-sentence, so it probes whether hedging or Spanglish depresses the grade.",
+   "question_id": "q_feas_open",
+   "cluster": "edge",
+   "audit_realistic": false,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "The code-switching is a generator artifact, not student Spanglish: the same hedge is duplicated in two languages ('creo que ... I think', 'igual i think'), and the answer hits both rubric points in rubric order plus the 10 kg / 20 L / 50 example lifted verbatim from q_feas_mcq, which makes it too complete for an answer archetyped as informal.",
+   "audit_rewrite": "o sea la linea es como el borde nomas, ahi es donde gastas los 100 justos, ni mas ni menos. y el conjunto creo que es todo lo de abajo tambien, no solo el borde. por ejemplo si compro 10 kilos de cafe y 20 litros de jugo me gasto 50, me sobra plata pero igual lo puedo comprar, entonces esa canasta si esta en el conjunto aunque no este en la linea."
+  },
+  {
+   "lang": "es",
+   "answer": "porque si gasto todo en jugo son 100/1 = 100 litros y el precio del cafe no aparece por ningun lado ahi",
+   "archetype": "correct_terse",
+   "key_points_present": [
+    "kp_intercept_formula",
+    "kp_corner_meaning"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Una sola clausula corrida que igual mete el calculo m/p2 y la idea de que en esa esquina no se compra cafe.",
+   "question_id": "q_cp2_why_intercept_fixed",
+   "cluster": "right",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "kp_intercept_formula is credited on the bare computation 100/1 = 100: the answer never says that m and p2 are unchanged, so a strict grader reading the rubric text ('neither m nor p2 changed') could withhold it and mark this partial.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "ok so the intercept on the juice axis is m/p2 and when p1 went from 3 to 4 nothing happened to m or p2, m is still 100 and juice is still 1 dollar a liter. the slope does change obviously because slope is -p1/p2 so it gets steeper. but the point where you only buy juice, i mean where coffee is zero, there youre putting the whole 100 into juice so it doesnt matter at all what coffee costs, you still end up with 100 liters. thats why it pivots from that point instead of moving the whole line. the one that moves is the coffee one, 100/3 goes down to 100/4",
+   "archetype": "correct",
+   "key_points_present": [
+    "kp_intercept_formula",
+    "kp_corner_meaning"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Correcta pero desordenada: mezcla pendiente, intercepto y pivote en un parrafo sin puntuacion, aunque llega a las dos ideas.",
+   "question_id": "q_cp2_why_intercept_fixed",
+   "cluster": "right",
+   "audit_realistic": false,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "Reads as an LLM imitating a student: the lowercase/no-apostrophe register is cosmetic while the content marches through every rubric point in canonical order plus the slope, the pivot, and both exact intercepts (100/3 -> 100/4), and it also imports a new price p1 = 4 that the stem as written never states.",
+   "audit_rewrite": "the juice intercept is m/p2 and neither of those changed, m is still 100 and juice is still 1 a liter, so its still 100 liters. if im putting all the money into juice im buying zero coffee, so what coffee costs cant matter at that point. the coffee side is the one that moves."
+  },
+  {
+   "lang": "es",
+   "answer": "o sea si toda mi plata la meto en jugo nomas, me llevo la misma cantidad de jugo que antes, porque ni la plata que tengo ni lo que cuesta el jugo cambiaron. lo unico que subio fue el cafe, y justo en ese punto yo no estoy llevando ni un poquito de cafe, asi que me da igual cuanto cueste",
+   "archetype": "correct_informal",
+   "key_points_present": [
+    "kp_intercept_formula",
+    "kp_corner_meaning"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Correcta en lenguaje totalmente coloquial, sin simbolos ni la palabra intercepto, pero dice que ni el ingreso ni el precio del jugo cambiaron.",
+   "question_id": "q_cp2_why_intercept_fixed",
+   "cluster": "right",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "kp_intercept_formula rests entirely on the verbal 'ni la plata ni lo que cuesta el jugo cambiaron' plus 'la misma cantidad de jugo' — no m/p2 ratio and no 100 liters — so graders will split on whether that is the formula or only a gesture at it.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "The line rotates instead of shifting, and every rotation has an anchor. The anchor here is the corner where the consumer buys juice and nothing else, and a bundle that contains zero coffee simply cannot be affected by what coffee costs, so that corner stays exactly where it is while the rest of the line swings inward.",
+   "archetype": "partial",
+   "key_points_present": [
+    "kp_corner_meaning"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Suena segura y bien escrita y da bien la idea de la esquina, pero nunca dice que el intercepto es m/p2 ni que m y p2 no cambiaron, asi que le falta un punto requerido.",
+   "question_id": "q_cp2_why_intercept_fixed",
+   "cluster": "right",
+   "audit_realistic": false,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "Not student writing at all: one polished periodic sentence with textbook framing ('every rotation has an anchor', 'swings inward'), flawless punctuation and no hesitation, which is exactly the tell that makes a synthetic set useless.",
+   "audit_rewrite": "the line doesnt slide over, it kind of tilts. and the point it tilts around is the corner where you only buy juice and no coffee at all. if youre not buying coffee there then the coffee price cant change anything for you at that point, so that corner stays where it is and the rest of the line comes inward."
+  },
+  {
+   "lang": "es",
+   "answer": "El intercepto vertical es m/p2 = 100/1 = 100 litros. Ahi no aparece p1, entonses aunque el cafe suba a 4 ese numero no se mueve, mi ingreso sigue siendo 100 y el jugo sigue costando 1. El que baja es el del cafe, de 100/3 a 100/4. En ese eje estoy gastando todo mi ingreso en jugo y no compro nada de cafe, por eso su precio no me afecta.",
+   "archetype": "correct",
+   "key_points_present": [
+    "kp_intercept_formula",
+    "kp_corner_meaning"
+   ],
+   "misconception": "NINGUNA",
+   "note": "La mas ordenada del grupo, con numeros y un typo ('entonses'), cubre las dos ideas requeridas.",
+   "question_id": "q_cp2_why_intercept_fixed",
+   "cluster": "right",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "Content-wise it is a straight Spanish clone of [1] (same formula, same 100/3 -> 100/4, same corner argument), so the pack pays twice for one signal, and like [1] it assumes p1 = 4, a number the stem does not give.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "Bueno, yo diria que en realidad si se mueve. Cuando el cafe sube de 3 a 6 tu presupuesto se te encoge, con los mismos 100 dolares ya no compras la misma canasta que antes, entonces toda la recta se recorta hacia adentro y el punto donde solo compras jugo tambien baja. Es el efecto de perder poder adquisitivo, por eso el intercepto del jugo cae aunque el precio del jugo siga en 1.",
+   "archetype": "misconception",
+   "key_points_present": [],
+   "misconception": "BL-M3",
+   "note": "Fluent, confident and completely wrong: dresses up BL-M3 in real-income language so it sounds like a textbook explanation while denying the premise of the question.",
+   "question_id": "q_cp2_why_intercept_fixed",
+   "cluster": "wrong",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "Reads a touch tidier than a struggling student (clean claim-evidence-restatement arc, invented 3-to-6 price change), but the BL-M3 display is unmistakable and no key point is even gestured at, so the empty key_points list is right.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "it goes down. coffee is more expensive now so you have less money left over for juice, so the juice intercept has to fall too. maybe not by alot but it definitly moves",
+   "archetype": "misconception",
+   "key_points_present": [],
+   "misconception": "BL-M3",
+   "note": "Two-line, lowercase, typo-carrying version of BL-M3 with no rubric content at all.",
+   "question_id": "q_cp2_why_intercept_fixed",
+   "cluster": "wrong",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "Only mild concern is the sprinkled-typo styling ('alot', 'definitly' in one clause) reading as deliberate scruffiness; content, BL-M3 and the empty key_points are all correct.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "El intercepto del jugo es m/p2 = 100/1 = 100 litros y ahi p1 ni aparece, ni el ingreso ni el precio del jugo cambiaron asi que se queda en 100. Lo que si movería los interceptos es el ingreso, o sea si m sube a 200 la recta se pone mas plana y rota hacia afuera.",
+   "archetype": "misconception",
+   "key_points_present": [
+    "kp_intercept_formula"
+   ],
+   "misconception": "BL-M2",
+   "note": "Gets the m/p2 point genuinely right and then volunteers BL-M2 in the second sentence, forcing the judge to score rubric point and misconception independently.",
+   "question_id": "q_cp2_why_intercept_fixed",
+   "cluster": "wrong",
+   "audit_realistic": false,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "Surface tell of generated text: the whole answer is unaccented ('cafe', 'mas', 'asi', 'ahi') except the single accented 'movería', and the income tangent is bolted on to carry BL-M2 rather than answering what was asked; separately, graders could disagree over whether '100 litros ... p1 ni aparece' also earns kp_corner_meaning, which the labels omit.",
+   "audit_rewrite": "El intercepto del jugo sale de m/p2 = 100/1 = 100 litros, ahi el precio del cafe ni aparece, y como no cambio ni el ingreso ni el precio del jugo pues se queda en 100. Lo que siempre confundo es el ingreso, porque si m sube a 200 la recta se pone mas plana y rota hacia afuera."
+  },
+  {
+   "lang": "en",
+   "answer": "if you put all 100 on juice you get 100 liters and the coffee price doesnt even show up in that calculation. but still i think the intercept comes down a bit because coffee going up makes you poorer in real terms, so like 90 liters instead of 100",
+   "archetype": "misconception",
+   "key_points_present": [
+    "kp_corner_meaning"
+   ],
+   "misconception": "BL-M3",
+   "note": "States the corner meaning correctly and then contradicts itself with BL-M3, the messy self-undermining pattern real students produce.",
+   "question_id": "q_cp2_why_intercept_fixed",
+   "cluster": "wrong",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "The student states the corner reasoning correctly and then immediately contradicts its implication ('90 liters instead of 100'), so careful graders will split on whether kp_corner_meaning is genuinely present or merely recited before being abandoned.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "Porque los precios no mueven interceptos, mueven la pendiente. El que mueve los interceptos es el ingreso, y si el ingreso sube la recta se vuelve mas plana.",
+   "archetype": "misconception",
+   "key_points_present": [],
+   "misconception": "BL-M2",
+   "note": "Short and blunt: reaches the right conclusion for the wrong reason and adds the classic BL-M2 claim that higher income flattens the line.",
+   "question_id": "q_cp2_why_intercept_fixed",
+   "cluster": "wrong",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "BL-M2 is literally present ('si el ingreso sube la recta se vuelve mas plana') and the empty key_points list is right, but the answer's load-bearing error is an uncatalogued misconception ('prices never move intercepts, only the slope') that yields the right conclusion for a wrong reason and has no id in this question's misconception list.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "The juice intercept doesnt move when the coffee price goes up because the coffee price going up doesnt move the juice intercept. thats pretty much it, the intercept for juice stays where its at even though coffee is more expensive now, so it doesnt move.",
+   "archetype": "degenerate",
+   "key_points_present": [],
+   "misconception": "NINGUNA",
+   "note": "A fluent, confident-sounding circular restatement of the question that never gives a reason, so it should score zero on both key points despite reading like an answer.",
+   "question_id": "q_cp2_why_intercept_fixed",
+   "cluster": "edge",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "Fine as written (circular padding is genuine student behaviour and the empty labels match), but it and [2] are both contentless, so two of five items in this question's gold set carry no discriminating signal.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "en",
+   "answer": "Juice intercept = m/p2 = 100/1 = 100 liters. p1 is not in that expression. Still 100.",
+   "archetype": "partial",
+   "key_points_present": [
+    "kp_intercept_formula"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Correct formula stated bare with no explanation in the student's own words, so it earns the formula point but says nothing about what the corner actually means.",
+   "question_id": "q_cp2_why_intercept_fixed",
+   "cluster": "edge",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "Sits exactly on the credit boundary for kp_intercept_formula: it states m/p2 and that p1 is absent, but never says in words that m and p2 are unchanged, so a strict grader could withhold the point that a lenient one gives on 'Still 100'.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "Ceteris paribus.",
+   "archetype": "off_topic",
+   "key_points_present": [],
+   "misconception": "NINGUNA",
+   "note": "Two-word jargon drop that is a non sequitur here, the kind of thing a student writes when they remember a term from class but not the argument.",
+   "question_id": "q_cp2_why_intercept_fixed",
+   "cluster": "edge",
+   "audit_realistic": false,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "A bare two-word Latin phrase is a fixture stub rather than an answer a student would submit, it is language-neutral so tagging it 'es' buys the set no Spanish coverage, and the archetype is wrong (it is vacuous/degenerate, not off-topic) — meanwhile 'ceteris paribus' is close enough to 'nothing else changed' that graders will split on kp_intercept_formula.",
+   "audit_rewrite": "sinceramente no me acuerdo bien de esta parte, creo que el profe dijo algo de que todo lo demas se queda igual y por eso no pasa nada. yo estudie mas la parte de las curvas de indiferencia y el optimo, esto de los interceptos lo tengo que repasar"
+  },
+  {
+   "lang": "es",
+   "answer": "porque el intercepto del jugo esta sobre el eje y los ejes son fijos, like they are drawn first en el grafico, o sea el axis no se mueve nunca aunque cambien los precios. el 100 de litros es parte del dibujo, no de la recta, so no tiene por que moverse cuando sube el cafe",
+   "archetype": "out_of_catalogue",
+   "key_points_present": [],
+   "misconception": "FUERA_DE_CATALOGO",
+   "note": "Code-switches mid-sentence and shows a clear error none of the listed misconceptions covers: it treats the intercept as a fixed feature of the axes or the drawing rather than a point determined by m and p2.",
+   "question_id": "q_cp2_why_intercept_fixed",
+   "cluster": "edge",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": true,
+   "audit_problem": "Genuinely borderline between FUERA_DE_CATALOGO and NINGUNA — the conclusion is right and 'the axis is fixed' is trivially true, so a lenient grader would call it merely bad reasoning rather than a conceptual error — and it is the only misconception-bearing item here, leaving BL-M3 and BL-M2 (the two this question exists to detect) with zero exemplars and unmeasurable recall.",
+   "audit_rewrite": ""
+  },
+  {
+   "lang": "es",
+   "answer": "creo que es porque el intercepto del jugo sale de m/p2 y ahi no aparece el precio del cafe para nada, o sea sigo teniendo 100 soles y el jugo me sigue costando 1, entonces I think que sigue saliendo 100 litros. y creo que tambien es porque si gasto toda mi plata en jugo no compro nada de cafe, asi que me da igual si el cafe subio a 5, no estoy tan segura pero creo que va por ahi",
+   "archetype": "correct_informal",
+   "key_points_present": [
+    "kp_intercept_formula",
+    "kp_corner_meaning"
+   ],
+   "misconception": "NINGUNA",
+   "note": "Substantively correct on both key points but hedged with creo que and I think in almost every clause, testing whether the grader penalizes low confidence rather than wrong content.",
+   "question_id": "q_cp2_why_intercept_fixed",
+   "cluster": "edge",
+   "audit_realistic": true,
+   "audit_label_ok": true,
+   "audit_ambiguous": false,
+   "audit_problem": "Says '100 soles' when the canonical example the whole pack is built on is 100 dollars, a fixture slip (not a student error) that should be changed to 'dolares' so the gold set does not drift from pack.yaml; the shared Spanglish tic with [3] ('I think que' / 'like ... so') is also an authorship fingerprint across the Spanish items.",
+   "audit_rewrite": ""
+  }
+ ],
+ "critic": "**1. Under-powered watched misconceptions (n < 3)**\n\n- **BL-M5 (positive slope): 2 instances** — [7] (en), [8] (es). Cannot measure recall.\n- **BL-M2 (income changes the slope): 2 instances** — [37] (es), [39] (es). Worse than it looks: [37] is a *correct* intercept explanation with a BL-M2 slip bolted on at the end, so pure-BL-M2 is effectively n=1 ([39]), and both are Spanish — zero English BL-M2.\n\nBorderline, at the floor: **BL-M1 = 3** ([5], [6], [9]) and **BL-M3 = 3** ([35], [36], [38]) — but [38] is again a partially-correct answer with the misconception appended, so clean BL-M3 is effectively 2. Only **BL-M4 = 4** ([20]–[23]) is comfortable. Each of BL-M5 and BL-M2 needs 2–3 more, at least one in each language, and at least one in \"clean\" form (misconception without a correct scaffold around it).\n\n**2. Missing grader failure mode: hallucinated evidence / false-positive misconception on a correct answer**\n\nEvery correct-band answer in the pool is *lexically clean* — no correct answer contains misconception-shaped surface cues. There is no item that (a) names a misconception in order to reject it (\"it's not that one liter buys you 3 kilos, it's the other way round\"), (b) states a correct counterfactual that resembles a misconception (\"if instead the income rose, the line would shift out in parallel\" — the honest twin of BL-M2), or (c) is correct on the concept but carries an irrelevant slip (arithmetic, e.g. writing 30 kilos instead of 33.3, or a wrong good name). The closest is [31], and it isn't a trap. Consequence: the gold set can measure misconception *recall* but cannot measure misconception *precision* against keyword-triggered false positives — a naive grader that flags \"1/3\", \"shift\", \"income\", or \"positive\" would score perfectly here. The other six modes are covered: fluency ([21], [25], [40], [10]), informality ([2], [12], [17], [29], [32], [44]), over-claiming on incomplete ([3], [18], [33], [41]), wrong-vs-misconception ([14], [24], [28], [43]), language ([1], [16], [31] + code-switching), terse-correct ([0], [15], [30]).\n\n**3. Near-duplicates that add nothing**\n\n- **[2] and [4]** — both Spanish, informal register, all three KPs, same \"coffee is 3x juice / one up one down\" construction. Drop one.\n- **[21] and [23]** — both English BL-M4, both use \"line is the equation / set is the same points\" plus a sub-100 numeric bundle declared outside the set. [23] is [21] compressed. Drop one (or repurpose to BL-M5/BL-M2, which are starving).\n- **[13] and [27]** — literally the same string, \"Bienes sustitutos.\" Keep one; make the other an English off-topic.\n- **[5] and [6]** — same BL-M1 claim (\"give up 1 liter → 3 more kilos\"); they differ only in length and language. Defensible while BL-M1 sits at 3, but they are not independent evidence.\n- **[10] / [25] / [40]** — the identical \"restate the question\" tautology template three times (es, es, en). Two suffice; the third slot is better spent on BL-M2/BL-M5.\n- Milder: **[30] is a strict subset of [34]** (same content, terse vs full) — intentional if the terse/full contrast is the point, redundant otherwise.\n\n**4. Spanish/English balance**\n\nAt the question level it is uniform and adequate: 9 es / 6 en for each of the three questions ([0]–[14], [15]–[29], [30]–[44]). At the *band* level it is badly confounded. All three `correct_terse` ([0], [15], [30]) and all six `correct_informal` ([2], [12], [17], [29], [32], [44]) are Spanish; each question has exactly **one** fully-correct English answer ([1], [16], [31]), and all three are long, discursive and formula-free. All three `off_topic` items are Spanish. English instead carries the formula-only items ([11], [26], [41]).\n\nSo if the grader marks English answers lower, you cannot tell that apart from it marking informal or terse answers lower — register and language move together. Fix cheaply by flipping one Spanish item per question to English inside the correct band (e.g. [4] or [2], [29] or [17], [44] or [32]), adding one English `correct_terse`, and adding one English `off_topic` — without changing the 9/6 totals."
+}
