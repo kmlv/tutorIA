@@ -60,13 +60,13 @@ async function main(): Promise<void> {
       <h1 class="titulo">${session.titulo}</h1>
       <div class="bands"></div>
       <div class="stage"><div class="lienzo"></div></div>
-      <div class="captions-band"></div>
       <div class="controles">
         <button id="play" class="primario">${T.empezar}</button>
         <button id="ask" class="secundario">${T.preguntar}</button>
         <span id="reloj" class="reloj">0:00</span>
         <span id="desfase" class="desfase" title="internal cue lag"></span>
       </div>
+      <div class="captions-band"></div>
     </div>`;
 
   const escenario = app.querySelector(".escenario") as HTMLElement;

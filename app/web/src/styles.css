@@ -15,11 +15,18 @@ body { margin:0; background:var(--bg); color:var(--fg);
 #app { display:grid; grid-template-columns: 1fr var(--dock-w); min-height:100vh; }
 body[data-dock="oculto"] #app { grid-template-columns: 1fr 0; }
 
-.escenario { display:grid; grid-template-rows:auto auto 1fr; min-height:100vh;
-  transition:opacity .2s ease; }
-.titulo { font-size:1.15rem; margin:0; padding:.9rem 1.1rem .2rem; }
-.stage { padding:1rem 1.1rem; display:grid; justify-items:center; align-content:start; }
-.lienzo { max-width:620px; width:100%; }
+/* Three bands plus a control strip. `1fr` on the stage and `auto` everywhere else is
+   what keeps the controls and the captions on screen: the graph absorbs the slack
+   instead of pushing them past the fold. */
+.escenario { display:grid; grid-template-rows:auto auto 1fr auto auto; height:100vh;
+  overflow:hidden; transition:opacity .2s ease; }
+.titulo { font-size:1.1rem; margin:0; padding:.7rem 1.1rem .1rem; }
+.stage { padding:.6rem 1.1rem; display:grid; justify-items:center; align-items:center;
+  min-height:0; overflow:hidden; }
+.lienzo { max-width:min(620px, 100%); width:100%; height:100%;
+  display:grid; align-items:center; }
+.bgraph { max-height:100%; }
+.controles { padding:.5rem 1.1rem; margin-top:0; border-top:1px solid var(--line); }
 body[data-dock="abierto-activo"] .escenario { opacity:.55; }
 
 .titulo { font-size:1.3rem; margin:0 0 1rem; }

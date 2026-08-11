@@ -54,3 +54,13 @@
 .muestra-punto.afuera  { fill: none; stroke: var(--muted); stroke-width: 2;
                          stroke-dasharray: 2.5 2.5; }
 .muestra-etiqueta { font-size: 11px; fill: var(--muted); }
+
+
+/* Axis-end shape markers.
+   agy drew them as solid dots in the good's hue, which makes them read as DATA POINTS
+   — the orange dot at the right end of the x-axis looks exactly like the x-intercept,
+   and it teaches something false. They are labels for the axis, not values on it:
+   muted, hollow, and clearly smaller than a real intercept. */
+.marker { fill: none; stroke: currentColor; stroke-width: 1.4; opacity: .55; }
+.marker.good1 { color: var(--g1); }
+.marker.good2 { color: var(--g2); }

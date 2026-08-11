@@ -6,9 +6,9 @@
       "runtimeExecutable": "bash",
       "runtimeArgs": [
         "-lc",
-        "source .venv/bin/activate && (pkill -f 'uvicorn app.server.main' || true) && (TUTORIA_DB=/tmp/tutoria-dev.sqlite python -m uvicorn app.server.main:app --port 8000 --reload --log-level warning &) && sleep 2 && cd app/web && npx vite --port 5173 --strictPort"
+        "source .venv/bin/activate && (lsof -ti :8000 >/dev/null 2>&1 || (TUTORIA_DB=/tmp/tutoria-dev.sqlite nohup python -m uvicorn app.server.main:app --port 8000 --reload --log-level warning >/tmp/uvicorn.log 2>&1 &)) && sleep 2 && cd app/web && exec npx vite"
       ],
-      "port": 5173
+      "autoPort": true
     }
   ]
 }

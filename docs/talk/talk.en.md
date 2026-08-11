@@ -59,9 +59,15 @@ my students.
   <div class="step"><b>4 · This talk</b><span>Every slide labels which of the three it
     is showing you</span></div>
 </div>
-<p class="note">The label in the corner of each slide: <span class="prov prov-paper">MEASURED
-· paper</span> <span class="prov prov-review">FOUND · our review</span>
-<span class="prov prov-mine">INFERENCE · mine</span></p>
+<p class="note">Every claim on these slides carries one of four labels:</p>
+<div class="eyebrow-row">
+  <span class="prov prov-e">Evidence <span class="src">· author, year</span></span>
+  <span class="prov prov-s">Our synthesis <span class="src">· based on A + B</span></span>
+  <span class="prov prov-r">Our recommendation</span>
+  <span class="prov prov-p">Our project <span class="src">· not yet evaluated</span></span>
+</div>
+<div class="provbar"><b>Taxonomy:</b> <span class="chain">designed by codex ·
+provenance audit of all slides in coord/work/codex/T-006-procedencia.md</span></div>
 -->
 
 Before any of the evidence, thirty seconds on where this talk comes from, because you
@@ -81,13 +87,21 @@ Underneath that sits an earlier review of this same literature from three separa
 angles: the intelligent tutoring tradition, the interface and authoring side, and the
 language-model tutors that are actually deployed today.
 
-So from here on, every slide carries a small label in the corner.
+So from here on, every claim on these slides carries one of four labels.
 
-It tells you whether what you are looking at was measured in a study, turned up in our
-own review, or is an inference of mine.
+Evidence, with the author and the year, means somebody measured it.
 
-The third kind is the one you should argue with, and I have tried to make it easy to
-find.
+Our synthesis means we built the conclusion by comparing sources. The citation proves the
+inputs, not the conclusion.
+
+Our recommendation means it is a judgement about what you should do, and no experiment
+established it.
+
+And our project means it is a fact about the thing we are building, which is not the same
+as a result.
+
+The middle two are the ones you should argue with, and I have tried to make them easy to
+find rather than easy to miss.
 
 ## SLIDE 2 — The experiment
 
@@ -103,6 +117,7 @@ find.
 </div>
 <p class="note">≈1,000 high-school mathematics students, randomly assigned.
 Practice <b>with</b> the tool. Then the tool is removed and everyone sits the same exam.</p>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· Bastani et al. 2025, PNAS</span></span> <span class="chain">Primary source → researched in T-002 (claude) → cited here</span></div>
 -->
 
 Nearly a thousand high school mathematics students were randomly assigned to three
@@ -135,6 +150,7 @@ after the help is gone.
 </table>
 <p class="note">Both relative to the control group. Safeguards removed the harm.
 They did not produce an advantage.</p>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· Bastani et al. 2025, PNAS</span></span> <span class="chain">Primary source → verified in T-002 (claude)</span></div>
 -->
 
 During the practice sessions, the unrestricted group performed forty-eight per cent
@@ -161,6 +177,7 @@ not do was produce any measurable learning advantage of its own.
   <p class="sub">The number that looked most like success was the number that predicted
   it least.</p>
 </div>
+<div class="provbar"><span class="prov prov-s">Our synthesis <span class="src">· based on Bastani + the ITS literature</span></span> <span class="chain">No paper states this in these words; the inference is mine</span></div>
 -->
 
 I want to be careful about what this does and does not show.
@@ -199,6 +216,7 @@ wonderful.
 <p class="note">A real effect. Above the median for field interventions in education.
 Not a revolution. <b>Read the base honestly:</b> a World Bank working paper, not yet
 peer-reviewed; 14 studies; no included study from a low-income country.</p>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· Burneo et al. 2026, World Bank</span></span> <span class="chain">Working paper, not peer-reviewed → verified in T-006 (fable) · the “not a revolution” judgement is mine</span></div>
 -->
 
 So, does any of it work? Yes, on average, modestly, and the honest number is not
@@ -250,6 +268,7 @@ on top of the first.
   generations rather than resolving it”</em> — and “the experimental record to date shows
   no advantage for the newer technology.”</p>
 </div>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· Burneo et al. 2026 — authors’ own wording</span></span> <span class="chain">Primary source → verified in T-006 (fable) · “still the benchmark” is my reading</span></div>
 -->
 
 Here is the number that almost never appears in a product presentation.
@@ -281,12 +300,14 @@ been beaten.
       <td>AI + extra time + teachers present + students working in pairs</td></tr>
   <tr><td>Sierra Leone, school-scale</td><td class="up">+0.258 SD</td>
       <td>teacher-led classes; teachers set the objectives</td></tr>
-  <tr><td>Access to a reading tutor</td><td class="flat">≈ 0</td>
-      <td>licences handed out; no sequence, no required time</td></tr>
+  <tr><td>AI reading tutor + a human<br>to drive engagement</td><td class="flat">≈ 0</td>
+      <td><b>both arms had the platform</b>; what was randomised was adding a person whose
+      job was engagement, not teaching</td></tr>
 </table>
 <p class="note">Read each honestly: the physics result is two lessons with an immediate
 test at one elite university; Nigeria lost 569 of 1,328 students before the final test;
 Sierra Leone is a provider report, not peer-reviewed.</p>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· Kestin 2025 · De Simone 2025 · LearnLM/Fab AI 2026 · Robinson 2026</span></span> <span class="chain">All four verified in T-006 (fable) · Sierra Leone is a provider report</span></div>
 -->
 
 The average is the least interesting part of that meta-analysis, because the spread
@@ -298,8 +319,12 @@ An after-school programme in Nigeria found about three tenths.
 
 A school-scale deployment in Sierra Leone found a quarter of a standard deviation.
 
-And trials that simply gave students access to an AI reading tutor found essentially
-nothing.
+And a pair of trials on an AI reading tutor found essentially nothing on reading.
+
+That last row needs a caveat, and I would rather give it to you than have you find it
+afterwards. In those trials both groups already had the platform. What was randomised was
+adding a human being whose job was to keep students engaged with it. So the null is about
+the human support, not about access itself.
 
 Same broad technology. Completely different outcomes. So the interesting question is not
 whether AI works. It is what distinguishes the top row from the bottom one.
@@ -319,6 +344,7 @@ whether AI works. It is what distinguishes the top row from the bottom one.
   <p class="sub">Copying the brand does not reproduce the treatment.
   Neither does copying the prompt.</p>
 </div>
+<div class="provbar"><span class="prov prov-s">Our synthesis <span class="src">· based on Kestin + Nigeria + Sierra Leone</span></span> <span class="chain">The ingredients are measured; that they form a necessary recipe is not</span></div>
 -->
 
 Look at what was actually deployed in these four cases, and a pattern appears.
@@ -349,27 +375,31 @@ the treatment. And copying the prompt does not reproduce it either.
 
 <!--visual
 <h2>The metric that moved, and the one that didn't</h2>
+<p class="lede">Two RCTs, ≈350 primary students. <b>Both arms had the AI tutor.</b> What
+was randomised: adding an in-person tutor whose role was engagement, not instruction.</p>
 <div class="stat-row">
   <div class="stat"><span class="stat-n">+71–80%</span>
-    <span class="stat-l">engagement<br><b>the number in the deck</b></span></div>
+    <span class="stat-l">engagement<br><b>the number that goes in the deck</b></span></div>
   <div class="stat"><span class="stat-n">+1 to 4</span>
     <span class="stat-l">minutes of actual use<br>per week &nbsp;·&nbsp; <b>the real dose</b></span></div>
   <div class="stat"><span class="stat-n">0</span>
     <span class="stat-l">improvement<br>in reading</span></div>
 </div>
-<p class="note">Two randomised trials, ≈350 primary students, with human support added.
-<b>A licence is not a dose — and a percentage is not minutes.</b></p>
+<p class="note">Descriptive, not randomised: in the access-only arm nearly half never
+opened the platform, and those who did averaged 2–5 minutes a week.
+<b>A percentage is not minutes.</b></p>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· Robinson et al. 2026</span></span> <span class="chain">Correction trail: source report said 4.4 min → primary abstract says 1–4 → corrected after verification in T-006 (fable)</span></div>
 -->
 
 The most useful result in this area is a null one, and it is the least discussed.
 
-Two randomised trials gave primary school students access to an AI reading tutor, and
-added human support on top.
+Two randomised trials, around three hundred and fifty primary school children. Both
+groups had the AI reading tutor. The thing being tested was adding a person whose job was
+to keep them using it.
 
 Engagement rose by between seventy-one and eighty per cent.
 
-That is the number that would appear in the slide deck. Now here is the same result in
-absolute terms.
+That is the number that goes in the deck. Now the same result in absolute terms.
 
 Average use went up by one to four minutes per week.
 
@@ -378,12 +408,17 @@ And reading did not improve at all.
 I find this the most clarifying pair of numbers in the whole literature, because both are
 true and they tell opposite stories.
 
-A relative increase in engagement of eighty per cent sounds like adoption. One to four
+A relative rise in engagement of eighty per cent sounds like adoption. One to four
 minutes a week is not a dose of anything.
 
+There is one more number here, and I want to label it carefully because it is descriptive
+rather than randomised. In the arm that had the platform and no human support, nearly half
+the students never opened it at all, and those who did averaged two to five minutes a
+week.
+
 So keep this one in your pocket for the next time someone proposes buying licences for
-everybody. A system nobody opens has no effect, and take-up is not an implementation
-detail. It is part of the treatment, and it has to be planned and measured like one.
+everybody. Take-up is not an implementation detail. It is part of the treatment, and it
+has to be planned and measured like one.
 
 ## SLIDE 10 — What is under the conversation
 
@@ -398,6 +433,7 @@ detail. It is part of the treatment, and it has to be planned and measured like 
   <div class="layer">Domain model — concepts, prerequisites, worked solutions</div>
   <div class="layer base">Human orchestration and independent measurement</div>
 </div>
+<div class="provbar"><span class="prov prov-s">Our synthesis <span class="src">· design framework, condensed from the source report §3</span></span> <span class="chain">A recommended architecture, not a measured effect</span></div>
 -->
 
 If the effects come from packages, it is worth asking what a package actually contains.
@@ -451,6 +487,7 @@ measuring itself that is not its own opinion.
       <span class="tag rare">evidence thin</span></li>
 </ol>
 <p class="note big">Remembering your name is not the same as estimating what you know.</p>
+<div class="provbar"><span class="prov prov-s">Our framework <span class="src">· our taxonomy, not a validated one</span></span> <span class="chain">Public causal evidence does not isolate levels 3–4; the split is ours</span></div>
 -->
 
 The word personalized is doing a great deal of unearned work in this field, so it helps
@@ -493,6 +530,7 @@ all about what you know.
   <li>Calculation and fact-checking done by tools, outside the language model</li>
   <li>Evidence on your population, on your outcome, measured without the tool present</li>
 </ol>
+<div class="provbar"><span class="prov prov-r">Our recommendation <span class="src">· my 5-point shortlist, condensed from the report’s 10 requirements</span></span> <span class="chain">Normative. No experiment established this list</span></div>
 -->
 
 So here is what I would ask for, and it fits on a single slide.
@@ -539,6 +577,7 @@ out before the end of the first week.
   productivity. Worth tracking. Not the outcome.</p>
   <p class="note big">And count real minutes of use. A licence is not a dose.</p>
 </div>
+<div class="provbar"><span class="prov prov-r">Our measurement rule <span class="src">· informed by Bastani + the evaluation framework</span></span> <span class="chain">A standard we recommend, not an estimate</span></div>
 -->
 
 And on that last point, the measurement rule is short enough to remember on the way out.
@@ -553,6 +592,175 @@ Those are worth tracking. I track them. They are simply not the outcome, and the
 experiment I showed you is what happens when they are treated as one.
 
 And count real minutes of use, by student. Not licences issued, not accounts created.
+
+## SLIDE 13b — Three questions nobody has answered
+
+<!--visual
+<h2>Three questions nobody has answered</h2>
+<p class="lede">Not a wish-list. Each one is unanswered, would change what you do next
+semester, and has a reason it has not been asked.</p>
+<ol class="questions">
+  <li><b>Does the model add anything beyond the package it ships in?</b>
+    <span>No trial has an active control: same extra time, same structure, same adult
+    supervision, without the AI.</span></li>
+  <li><b>Generative or the previous generation — which, for the same content and time?</b>
+    <span>The head-to-head trial does not exist. Our headline 0.022 is a cross-study
+    comparison, not a race.</span></li>
+  <li><b>Is take-up itself the treatment?</b>
+    <span>Nobody has held the tool constant and randomised how it enters the classroom.</span></li>
+</ol>
+<div class="provbar"><span class="prov prov-s">Our synthesis <span class="src">· gaps identified in T-006 (fable)</span></span> <span class="chain">Each gap checked against the studies in the record</span></div>
+-->
+
+I want to end the evidence part with the three questions that nobody has answered, because
+for this audience they are more useful than the answers we do have.
+
+Each one had to clear a bar: no study in the record answers it, an answer would change
+what you do next semester, and I can tell you why it has not been asked.
+
+## SLIDE 13c — Question one: the missing control
+
+<!--visual
+<div class="big-idea">
+  <p class="kicker">Question one</p>
+  <h2>Does the model add anything beyond the package it ships in?</h2>
+</div>
+<div class="qgrid">
+  <div><b>The gap</b><span>Every large positive effect is a bundle — AI <em>plus</em> extra
+    scheduled time, structure and adult attention — measured against a control that got no
+    extra anything. Nigeria's control received no intervention; treatment got 18 extra hours
+    of supervised sessions. Rori added two 30-minute sessions on top of normal class.</span></div>
+  <div><b>Why it matters to you</b><span>If most of the gain is the scheduled, supervised
+    practice block, you can run that block without buying anything. If it is the AI, the
+    licence is the cheapest ingredient. Opposite budget decisions.</span></div>
+  <div><b>Why it is unanswered</b><span>An active control roughly doubles cost and answers a
+    question neither vendors nor implementing researchers are motivated to ask — in the
+    meta-analysis, researchers implemented 16 of 19 interventions.</span></div>
+</div>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· De Simone 2025 · Henkel 2024 · Burneo 2026</span></span> <span class="chain">Designs are from the papers; that the gap matters for your budget is my inference</span></div>
+-->
+
+Question one. Does the model add anything beyond the package it ships in?
+
+Every large positive effect in this literature is a bundle. The AI, plus extra scheduled
+time, plus structure, plus adult attention — measured against a control group that got no
+extra anything.
+
+In Nigeria the control received no intervention at all, while the treatment group got
+eighteen extra hours of supervised sessions. In Ghana it was two extra half-hour sessions
+a week on top of normal class.
+
+So nobody has run the arm that would settle it: same extra time, same structure, same
+adult supervision, and no AI.
+
+And notice why this matters for your budget. If most of that third of a standard deviation
+comes from the scheduled, supervised practice block, then you can run that block without
+buying anything at all. If it comes from the software, the licence is the cheapest
+ingredient in the recipe.
+
+Those are opposite decisions, and today the evidence cannot separate them.
+
+Why has nobody done it? An active control roughly doubles the cost of the study, and it
+answers a question that neither the vendors nor the implementing researchers are
+especially motivated to ask. In the meta-analysis I showed you, the researchers themselves
+implemented sixteen of the nineteen interventions.
+
+## SLIDE 13d — Question two: the race that was never run
+
+<!--visual
+<div class="big-idea">
+  <p class="kicker">Question two</p>
+  <h2>Generative, or the previous generation — for the same content, in the same time?</h2>
+</div>
+<div class="qgrid">
+  <div><b>The gap</b><span>No study randomises students between a pre-LLM adaptive platform
+    and a generative tutor teaching the same curriculum in the same time. The 0.022 from
+    earlier is a <em>cross-study</em> estimate: different trials, populations, subjects and
+    dosages.</span></div>
+  <div><b>Why it matters to you</b><span>This is the actual procurement decision. The
+    auditable, cheaper, non-conversational lineage benchmarks at +0.18 to +0.37 SD. Today
+    the choice between them is made on demos.</span></div>
+  <div><b>Why it is unanswered</b><span>It needs two production-grade systems on identical
+    content, and it settles a comparison no vendor wants to lose. A meta-analysis can only
+    synthesise the experiments that exist.</span></div>
+</div>
+<div class="provbar"><span class="prov prov-e">Evidence <span class="src">· Burneo 2026 · Muralidharan 2019 · Roschelle 2016</span></span> <span class="chain">The absence of a head-to-head trial was established in T-006 (fable)</span></div>
+-->
+
+Question two. Generative, or the previous generation, for the same content in the same
+time?
+
+I showed you zero point zero two two earlier, and I owe you a clarification about what
+kind of number that is. It is a cross-study comparison — different trials, different
+populations, different subjects, different dosages — not a race between two systems.
+
+The race has never been run. No study randomises students between a pre-language-model
+adaptive platform and a generative tutor teaching the same curriculum in the same amount
+of time.
+
+And this is the actual purchasing decision on the table. The older, auditable, cheaper,
+non-conversational lineage benchmarks between about zero point one eight and zero point
+three seven of a standard deviation. That is not a weak competitor.
+
+So today the choice between the two generations gets made on the strength of a
+demonstration, because the head-to-head number does not exist.
+
+It is unanswered because it needs two production-grade systems built on identical content,
+which is expensive, and because it settles a comparison that no vendor wants to lose.
+
+## SLIDE 13e — Question three: is take-up the treatment?
+
+<!--visual
+<div class="big-idea">
+  <p class="kicker">Question three</p>
+  <h2>Is take-up itself the treatment?</h2>
+</div>
+<div class="qgrid">
+  <div><b>The gap</b><span>Integration mode tracks outcomes almost perfectly — mandated,
+    teacher-led, scheduled use gives +0.26 to +0.31 SD; optional access gives near-zero use.
+    But that comparison runs across different tools, subjects and countries, so integration
+    is confounded with everything.</span></div>
+  <div><b>Why it matters to you</b><span>It answers whether putting a link in the syllabus is
+    an intervention or a placebo — and whether the scarce resource to plan for is the tool
+    or the protected time in which students must use it.</span></div>
+  <div><b>Why it is unanswered</b><span>The field logs usage as an implementation covariate
+    instead of designing it as the treatment. And randomising timetable policy inside one
+    school raises fairness objections that after-school add-ons quietly avoid.</span></div>
+</div>
+<div class="provbar"><span class="prov prov-s">Our synthesis <span class="src">· based on Sierra Leone + Nigeria + Robinson</span></span> <span class="chain">Integration mode is confounded across studies — that is the point, not a finding</span></div>
+-->
+
+Question three, and it is the one I would most like someone in this room to answer. Is
+take-up itself the treatment?
+
+Across these studies, how the tool enters the classroom tracks the outcome almost
+perfectly. Mandated, teacher-led, scheduled use gives you a quarter to a third of a
+standard deviation. Optional access gives you almost no use at all.
+
+But that comparison runs across different tools, different subjects and different
+countries, so the integration mode is confounded with everything else.
+
+Nobody has held the tool constant and randomised the policy: scheduled use inside class,
+against recommended optional access.
+
+For a department, that is the question with money attached. It tells you whether putting a
+link in the syllabus is a real intervention or a placebo, and whether the scarce resource
+you should be protecting is not the software at all, but the timetabled hour in which
+students are actually required to use it.
+
+It is unanswered partly through a blind spot — the field records usage as an
+implementation detail rather than designing it as the treatment — and partly because
+randomising timetable policy inside one school raises fairness objections that an
+after-school add-on quietly avoids.
+
+And there is a fourth question I will mention only in passing, because it is the one that
+should embarrass all of us. The proposition that motivates this entire literature is that
+personalisation can be delivered at a fraction of the cost of human tutoring. Only two of
+the fourteen studies report per-student costs on a comparable basis. Human tutoring pools
+at around zero point two nine of a standard deviation, against zero point one two for the
+AI subgroup. Whether AI wins per dollar — which is the only frame in which a department
+actually decides — has essentially never been measured next to the effects it is meant to
+justify.
 
 ## SLIDE 14 — Applying it to our own work
 
@@ -570,6 +778,7 @@ and a judge that diagnoses misconceptions by name.</p>
   <li><b>An unassisted check at the end of each concept</b> — no grade, never shown to
   the student as an assessment, feeding only the instructor's diagnosis.</li>
 </ol>
+<div class="provbar"><span class="prov prov-p">Our project <span class="src">· evidence-informed decisions, not results</span></span> <span class="chain">tutorIA has not been evaluated. No trial has been run</span></div>
 -->
 
 Let me close by applying this to my own work, because it is easy to give this talk and
@@ -618,6 +827,7 @@ we finished the thing it measures — and I would ask the same of anyone selling
   why it chose the next step, when it should stay quiet — and, without being the judge of
   its own work, whether the student actually learned.</p>
 </div>
+<div class="provbar"><span class="prov prov-s">Our conclusion</span> <span class="chain">No paper identifies “the decisive advance”. This one is mine</span></div>
 -->
 
 If you take one sentence away from this, I would like it to be this one.
@@ -629,3 +839,70 @@ next step, when it ought to stay quiet, and — without being the judge of its o
 whether the student actually learned.
 
 Thank you.
+
+## SLIDE A1 — References
+
+<!--visual
+<h2>References</h2>
+<div class="refs">
+<p><b>Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakcı, Ö., &amp; Mariman, R.</b> (2025).
+Generative AI without guardrails can harm learning: Evidence from high school mathematics.
+<i>PNAS</i>, 122(26), e2422633122. doi.org/10.1073/pnas.2422633122</p>
+<p><b>Burneo, A., Dinarte-Diaz, L., Lopez, C., &amp; Molina, E.</b> (2026). Can EdTech Close
+Learning Gaps? Global Evidence from Digital Interventions. Background paper, <i>World
+Development Report 2026</i>, World Bank. Working paper, not peer-reviewed.</p>
+<p><b>Kestin, G., Miller, K., Klales, A., Milbourne, T., &amp; Ponti, G.</b> (2025). AI tutoring
+outperforms in-class active learning: An RCT introducing a novel research-based design in an
+authentic educational setting. <i>Scientific Reports</i>, 15, 17458.
+doi.org/10.1038/s41598-025-97652-6</p>
+<p><b>De Simone, M., Tiberti, F., Barron Rodriguez, M., Manolio, F., Mosuro, W., &amp;
+Dikoru, E. J.</b> (2025). From Chalkboards to Chatbots: Evaluating the Impact of Generative AI
+on Learning Outcomes in Nigeria. World Bank Policy Research Working Paper 11125.</p>
+<p><b>LearnLM Team, Google &amp; Fab AI</b> (2026). Teaching with Gemini: Measuring the impact
+of Guided Learning on student mathematics progress in Sierra Leone. Technical report
+(provider-produced, not peer-reviewed).</p>
+<p><b>Robinson, C. D., Gormley, D., Trindade Ribeiro, A., &amp; Loeb, S.</b> (2026). Access is
+Not Enough: Human Support Improves Engagement with AI Tutoring. EdWorkingPaper 26-1451,
+Annenberg Institute, Brown University. doi.org/10.26300/pz7p-p388</p>
+<p><b>Muralidharan, K., Singh, A., &amp; Ganimian, A. J.</b> (2019). Disrupting Education?
+Experimental Evidence on Technology-Aided Instruction in India. <i>American Economic Review</i>,
+109(4), 1426–1460. doi.org/10.1257/aer.20171112</p>
+<p><b>Henkel, O., Horne-Robinson, H., Kozhakhmetova, N., &amp; Lee, A.</b> (2024). Effective and
+Scalable Math Support: Evidence on the Impact of an AI-Tutor on Math Achievement in Ghana.
+arXiv:2402.09809. Preprint.</p>
+<p><b>Roschelle, J., Feng, M., Murphy, R. F., &amp; Mason, C. A.</b> (2016). Online Mathematics
+Homework Increases Student Achievement. <i>AERA Open</i>, 2(4), 1–12.
+doi.org/10.1177/2332858416673968</p>
+<p><b>Wang, R. E., Ribeiro, A. T., Robinson, C. D., Loeb, S., &amp; Demszky, D.</b> (2024).
+Tutor CoPilot: A Human-AI Approach for Scaling Real-Time Expertise. arXiv:2410.03017.</p>
+<p><b>LearnLM Team, Google, &amp; Eedi</b> (2025). AI tutoring can safely and effectively
+support students: An exploratory RCT in UK classrooms. arXiv:2512.23633.</p>
+</div>
+-->
+
+## SLIDE A2 — How this talk was made
+
+<!--visual
+<h2>How this talk was made</h2>
+<div class="method">
+<p>The source report was developed by <b>Kristian with ChatGPT</b>. Because it came from a
+language model, no figure reached a slide until it had been checked against the primary
+source.</p>
+<p class="role">Numerical claims checked against primary sources by <b>fable</b> (task T-006).
+Nine headline figures: eight held, one was corrected — Robinson's usage figure is
+“1 to 4 minutes”, not 4.4. Nigeria's English effect is 0.23 SD, not 0.24. Sierra Leone is
+quoted at its ITT of 0.258, not its ToT.</p>
+<p class="role">Research questions, study contrasts and the three open questions compiled by
+<b>fable</b> (T-006), who also caught that Robinson randomised <i>added human support</i>, not
+access — which corrected two slides.</p>
+<p class="role">Prior-art research by <b>codex</b>, <b>claude</b> and <b>agy</b> (task T-002),
+across three disjoint lanes: tutoring-system internals, interfaces and authoring, and deployed
+LLM tutors.</p>
+<p class="role">Provenance taxonomy and the audit of every claim on these slides by
+<b>codex</b> (T-006), which raised seven blockers against earlier drafts — all applied.</p>
+<p class="role">Talk selection, synthesis and delivery by <b>claude</b> and Kristian.
+<b>Kristian is the principal and the presenter.</b></p>
+<p>Naming the tools is not a flourish. If a number on a slide is wrong, this is the trail you
+would follow to find out why.</p>
+</div>
+-->

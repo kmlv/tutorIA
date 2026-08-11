@@ -260,6 +260,38 @@ ol.checks{margin:10px 0 0;padding-left:1.4em;font-size:21px;display:flex;
   flex-direction:column;gap:9px;color:var(--fg)}
 ol.changes{margin:8px 0 0;padding-left:1.4em;font-size:20px;display:flex;
   flex-direction:column;gap:12px}
+/* Provenance, per codex's T-006 design. Four collapsed labels, recognised by text
+   and shape rather than colour alone. The claim block is the unit — not the slide,
+   not the sentence. `.provbar` is the one-line chain strip at the foot of a slide. */
+.prov{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:99px;
+  white-space:nowrap}
+.prov .src{font-weight:500;letter-spacing:.02em;text-transform:none;opacity:.85}
+.prov-e{background:var(--rule);color:var(--fg)}
+.prov-s{border:1.5px solid var(--accent);color:var(--accent)}
+.prov-r{border:1.5px dashed var(--accent);color:var(--accent)}
+.prov-p{border:1.5px solid var(--muted);color:var(--muted)}
+.provbar{position:absolute;left:72px;right:72px;bottom:26px;font-size:14px;
+  color:var(--muted);border-top:1px solid var(--rule);padding-top:10px;
+  display:flex;gap:10px;flex-wrap:wrap;align-items:baseline}
+.provbar b{font-weight:600;color:var(--fg)}
+.provbar .chain{opacity:.85}
+.eyebrow-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:2px}
+.qgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px}
+.qgrid>div{background:var(--bg);border:1px solid var(--rule);border-radius:10px;
+  padding:18px;display:flex;flex-direction:column;gap:8px;font-size:16px}
+.qgrid b{font-size:14px;color:var(--accent);letter-spacing:.05em;text-transform:uppercase}
+.qgrid span{color:var(--muted);line-height:1.45}
+.qgrid em{color:var(--fg);font-style:normal;font-weight:600}
+ol.questions{margin:8px 0 0;padding-left:1.4em;font-size:21px;display:flex;
+  flex-direction:column;gap:14px}
+ol.questions span{display:block;font-size:17px;color:var(--muted);margin-top:5px;
+  line-height:1.45}
+.refs{font-size:15px;line-height:1.5;column-count:2;column-gap:36px;margin-top:8px}
+.refs p{margin:0 0 11px;break-inside:avoid;color:var(--muted)}
+.refs b{color:var(--fg);font-weight:600}
+.method{font-size:18px;line-height:1.6;max-width:52em;color:var(--fg)}
+.method .role{color:var(--muted)}
 .pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:10px 0}
 .step{background:var(--bg);border:1px solid var(--rule);border-radius:10px;padding:18px;
   display:flex;flex-direction:column;gap:7px;font-size:17px}
