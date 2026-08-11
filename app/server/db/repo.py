@@ -208,6 +208,33 @@ class Repo:
                 "SELECT * FROM chat_messages WHERE session_id = ? ORDER BY id", (session_id,)
             ).fetchall()
 
+    def tokens_hoy(self) -> list[dict]:
+        """Tokens gastados hoy, por modelo, sumando el chat y el juez.
+
+        Devuelve tokens y no dólares a propósito: los precios viven en `config/models.yaml`
+        y el repositorio no tiene por qué saber de ellos. Quien convierte es quien ya tiene
+        el `Router` delante.
+
+        `date(created_at)` compara en UTC, que es como se guardan las marcas. Un tope
+        diario que se reinicia a medianoche UTC y no a la de Lima es una imprecisión
+        deliberada: la alternativa es meter una zona horaria en el esquema para mover un
+        límite de gasto unas horas.
+        """
+        with self._lock:
+            filas = self.conn.execute(
+                "SELECT model, SUM(COALESCE(tokens_in,0)) AS ti, "
+                "       SUM(COALESCE(tokens_out,0)) AS to_ "
+                "FROM chat_messages WHERE date(created_at) = date('now') "
+                "  AND model IS NOT NULL GROUP BY model"
+            ).fetchall()
+            juez = self.conn.execute(
+                "SELECT model, SUM(COALESCE(cost_usd,0)) AS usd FROM answers "
+                "WHERE date(created_at) = date('now') AND cost_usd IS NOT NULL GROUP BY model"
+            ).fetchall()
+        return ([{"model": r["model"], "tokens_in": r["ti"], "tokens_out": r["to_"]}
+                 for r in filas]
+                + [{"model": r["model"], "usd": r["usd"]} for r in juez])
+
     def chat_turns(self, session_id: str) -> int:
         """Turnos del ALUMNO. El presupuesto de preguntas es suyo; contar tambien las
         respuestas del tutor lo reduciria a la mitad sin decirselo a nadie."""

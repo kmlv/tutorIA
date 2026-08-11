@@ -59,6 +59,17 @@ class Router:
     def roles(self) -> list[str]:
         return sorted(self._roles)
 
+    def precio(self, model: str) -> tuple[float, float] | None:
+        """Precios de un modelo por su NOMBRE, sin pasar por un rol.
+
+        Lo necesita el tope de gasto: la base guarda qué modelo respondió cada mensaje, no
+        con qué rol se pidió, y un modelo puede haber servido a dos roles. Devuelve `None`
+        y no lanza porque un modelo retirado de la tabla de precios no debe tumbar el
+        contador de gasto — solo debe dejar de sumar, y eso se ve en el total.
+        """
+        p = self._prices.get(model)
+        return (float(p["input"]), float(p["output"])) if p else None
+
     def spec(self, role: str, *, model: str | None = None) -> ModelSpec:
         """`model` overrides the configured choice — that is how the bake-off in the
         concordance harness runs the same gold set through two models without editing

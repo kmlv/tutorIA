@@ -37,6 +37,13 @@ const seekParam = Number(new URLSearchParams(location.search).get("t"));
 const relojGrosero =
   new URLSearchParams(location.search).get("reloj") === "grosero";
 
+/** El mismo momento y la misma variante, en el otro idioma. */
+function otroIdiomaHref(): string {
+  const q = new URLSearchParams(location.search);
+  q.set("lang", (q.get("lang") || "en") === "es" ? "en" : "es");
+  return `?${q}`;
+}
+
 const T = {
   es: { empezar: "Empezar", preguntar: "✋ Preguntar", pausa: "Pausa", seguir: "Seguir",
         cargando: "Cargando…", notas: "Notas",
@@ -98,6 +105,13 @@ async function main(): Promise<void> {
         <button id="ask" class="secundario">${T.preguntar}</button>
         <span id="reloj" class="reloj">0:00</span>
         <span id="desfase" class="desfase" title="internal cue lag"></span>
+        <!-- El idioma era solo un parámetro de URL, que vale para desarrollar y no para
+             enseñárselo a nadie. Es un enlace y no un botón con JS: recargar es lo
+             correcto aquí, porque el idioma decide qué audio y qué timeline se sirven, y
+             cambiarlos en caliente sería reconstruir la sesión entera para ahorrar una
+             recarga. -->
+        <a class="idioma" href="${otroIdiomaHref()}" hreflang="${lang === "es" ? "en" : "es"}"
+           >${lang === "es" ? "English" : "Español"}</a>
       </div>
       <div class="captions-band"></div>
     </div>`;

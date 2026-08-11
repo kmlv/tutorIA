@@ -113,7 +113,11 @@ body[data-dock="oculto"] #app { grid-template-columns: 1fr 0; }
 .video-escenario { max-width:min(620px, 100%); width:100%; height:100%;
   object-fit:contain; display:block; margin:0 auto; min-height:0; }
 
-.controles { padding:.5rem 1.1rem; margin-top:0; border-top:1px solid var(--line); }
+.controles { padding:.5rem 1.1rem; margin-top:0; border-top:1px solid var(--line);
+  display:flex; align-items:center; gap:.6rem; }
+.idioma { margin-left:auto; color:var(--muted); font-size:.85rem; text-decoration:none;
+  border:1px solid var(--line); border-radius:6px; padding:.25rem .6rem; }
+.idioma:hover { color:var(--fg); border-color:var(--muted); }
 body[data-dock="abierto-activo"] .escenario { opacity:.55; }
 
 .titulo { font-size:1.3rem; margin:0 0 1rem; }

@@ -7,9 +7,11 @@ devuelve en `/api/health`, ni la escribe en la base.
 from __future__ import annotations
 
 import os
+import pathlib
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from app.server.config import load_dotenv
@@ -31,6 +33,31 @@ repo = Repo(os.environ.get("TUTORIA_DB") or None)
 router = Router()
 provider = default_provider()
 
+#: Tope de gasto diario, en dólares. Existe porque un enlace que circula es tu saldo.
+#:
+#: Corta el CHAT y no el juez. El chat es lo único que un desconocido puede disparar a
+#: voluntad; el juez solo corre cuando alguien contesta un ítem abierto, y cortarlo
+#: dejaría de recoger evidencia en silencio, que es peor que gastar unos centavos.
+#:
+#: Cero o negativo desactiva el tope, para no obligar a nadie a inventarse un número.
+LIMITE_USD_DIA = float(os.environ.get("TUTORIA_LIMITE_USD_DIA", "5") or 0)
+
+
+def gasto_hoy() -> float:
+    """Lo gastado hoy, en dólares, sumando chat y juez."""
+    total = 0.0
+    for fila in repo.tokens_hoy():
+        if "usd" in fila:
+            total += float(fila["usd"] or 0)
+            continue
+        precio = router.precio(fila["model"])
+        if precio is None:
+            continue
+        usd_in, usd_out = precio
+        total += ((fila["tokens_in"] or 0) * usd_in
+                  + (fila["tokens_out"] or 0) * usd_out) / 1e6
+    return total
+
 
 @app.get("/api/health")
 def health() -> dict:
@@ -45,6 +72,12 @@ def health() -> dict:
             "provider": provider.name,
             "model": spec.model,
             "effort": spec.effort,
+        },
+        # Visible aquí y no solo en los logs: si el tope corta el chat, quien enseñe la
+        # demo tiene que poder saber POR QUÉ en una consulta de un segundo.
+        "gasto": {
+            "hoy_usd": round(gasto_hoy(), 4),
+            "limite_usd_dia": LIMITE_USD_DIA or None,
         },
     }
 
@@ -222,6 +255,20 @@ def post_chat(session_id: str, body: ChatIn) -> dict:
     pack = packs.get_pack(row["concept_id"], row["lang"])
     lang = row["lang"]
 
+    if LIMITE_USD_DIA > 0 and gasto_hoy() >= LIMITE_USD_DIA:
+        # Se degrada con una frase, no con un error. Quien esté mirando la demo no tiene
+        # por qué entender un 429, y la lección entera menos el chat sigue funcionando.
+        return {
+            "respuesta": {
+                "es": "El tutor no está disponible ahora mismo. La lección sigue "
+                      "funcionando: puedes seguir y responder.",
+                "en": "The tutor is unavailable right now. The lesson still works: "
+                      "you can carry on and answer.",
+            }[row["lang"]],
+            "limite_alcanzado": True,
+            "restantes": 0,
+        }
+
     pending = next((q for q in pack.questions if q.id == body.question_id), None)
     states = mastery.compute(pack, repo.evidence(session_id))
     history = [{"role": r["role"], "content": r["content"]} for r in repo.chat(session_id)]
@@ -395,3 +442,21 @@ def read_session(session_id: str) -> dict:
         "media_variant": row["media_variant"],
         "events": len(repo.events(session_id)),
     }
+
+
+# ---- el cliente compilado ---------------------------------------------------------
+#
+# En desarrollo esto no se usa: Vite sirve el cliente y hace de proxy al API. En
+# producción NO queremos dos procesos ni un nginx delante, así que el mismo servidor que
+# corrige sirve la página. Publicar pasa a ser un comando.
+#
+# Va montado AL FINAL, después de todas las rutas de API, porque monta en `/` y se
+# quedaría con todo lo que llegue antes que él.
+#
+# Si no hay `dist/` no se monta y no pasa nada: es el caso de desarrollo, y fallar aquí
+# obligaría a compilar el cliente para poder correr los tests del servidor.
+_DIST = pathlib.Path(__file__).resolve().parents[2] / "app" / "web" / "dist"
+if _DIST.is_dir():
+    # `html=True` sirve index.html para cualquier ruta desconocida, que es lo que hace que
+    # recargar en `/?lang=en` no dé un 404.
+    app.mount("/", StaticFiles(directory=str(_DIST), html=True), name="cliente")
