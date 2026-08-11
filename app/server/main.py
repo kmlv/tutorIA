@@ -76,7 +76,7 @@ def create_session(body: NewSession) -> dict:
         concept_id=pack.id, pack_version=pack.version,
         lang=body.lang, media_variant=body.media_variant,
     )
-    tl = pack.timelines.get(body.lang)
+    tl = pack.timeline(body.lang, body.media_variant)
     return {
         "session_id": sid,
         "concept_id": pack.id,

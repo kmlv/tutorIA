@@ -194,6 +194,20 @@ class TranscriptSegment(BaseModel):
 
 
 class Timeline(BaseModel):
+    """Lo que el cliente necesita para reproducir una lección.
+
+    `variant` y `video` existen por M4. El bake-off promete que cada tecnología puede
+    traer SU PROPIO ritmo y su propia estructura de escena — y eso era inalcanzable
+    mientras las timelines se guardaran por idioma y nada más, porque las cuatro opciones
+    compartían obligatoriamente la del camino HTML. Con esto, `timeline.es.B.json` puede
+    tener cues distintos y duración distinta de `timeline.es.json`.
+
+    `video` es opcional en vez de sobrecargar `audio` con un `.mp4`. Sobrecargarlo habría
+    sido más corto y habría hecho que un cliente viejo intentara meter un MP4 en un
+    `<audio>`, que falla en silencio: el elemento carga, no muestra nada, y el reloj
+    corre igual.
+    """
+
     pack: str
     lang: Lang
     audio: str
@@ -201,6 +215,10 @@ class Timeline(BaseModel):
     sync_granularity: str
     cues: list[Cue]
     transcript: list[TranscriptSegment] = Field(default_factory=list)
+    #: Qué opción del bake-off produjo esta timeline. "A" es el camino DOM/SVG.
+    variant: str = "A"
+    #: Nombre del MP4 en `media/`, cuando la opción es de vídeo pre-renderizado.
+    video: str | None = None
 
 
 class Pack(BaseModel):
@@ -285,6 +303,16 @@ class Pack(BaseModel):
         if errs:
             raise ValueError("pack incoherente:\n  - " + "\n  - ".join(errs))
         return self
+
+    def timeline(self, lang: str, variant: str = "A") -> Timeline | None:
+        """La timeline de esa variante, con fallback a A.
+
+        El fallback no es cortesía: sin él, pedir `?variant=B` antes de que exista la
+        timeline de B devolvería `None` y la app diría "este pack no tiene media
+        compilada", que es un mensaje sobre el pack y no sobre lo que pasó.
+        """
+        return (self.timelines.get(f"{lang}/{variant}")
+                or self.timelines.get(f"{lang}/A"))
 
     def sub_skill(self, sid: str) -> SubSkill:
         return next(s for s in self.sub_skills if s.id == sid)

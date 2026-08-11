@@ -59,10 +59,16 @@ class FilesystemPackSource:
         timelines: dict[str, Timeline] = {}
         media = d / "media"
         if media.is_dir():
+            # `timeline.<lang>.json` es la variante A; `timeline.<lang>.<X>.json` es la
+            # de la opción X del bake-off. La clave es "<lang>/<variant>" para que una
+            # opción pueda traer su propio ritmo sin pisar a las demás.
             for tl in sorted(media.glob("timeline.*.json")):
                 import json
+                partes = tl.name.split(".")          # timeline, lang, [variant], json
                 t = Timeline.model_validate(json.loads(tl.read_text(encoding="utf-8")))
-                timelines[t.lang] = t
+                if len(partes) == 4 and t.variant == "A":
+                    t.variant = partes[2]            # el nombre manda si el JSON calla
+                timelines[f"{t.lang}/{t.variant}"] = t
         data["timelines"] = timelines
 
         # `salidas` e `iesa_micro` son metadatos de autoría, no los consume el runtime

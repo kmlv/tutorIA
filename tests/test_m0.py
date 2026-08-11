@@ -38,16 +38,29 @@ def test_el_enum_del_juez_lleva_los_escapes(pack: Pack) -> None:
 
 def test_los_timelines_estan_alineados(pack: Pack) -> None:
     """Sin número mágico: los dos idiomas deben tener LOS MISMOS cues, y todos alineados.
-    Un conteo fijo solo dice que alguien editó el guion, no que algo esté mal."""
-    assert set(pack.timelines) == {"es", "en"}
-    ids = {lang: [c.id for c in tl.cues] for lang, tl in pack.timelines.items()}
-    assert ids["es"] == ids["en"], "los guiones divergen en cues entre idiomas"
-    for lang, tl in pack.timelines.items():
+    Un conteo fijo solo dice que alguien editó el guion, no que algo esté mal.
+
+    La comparación es DENTRO de cada variante. Entre variantes los cues pueden diferir
+    a propósito: que cada tecnología traiga su propio ritmo es justo lo que M4 quiere
+    poder medir. Lo que nunca puede diferir es el español contra el inglés de la misma
+    variante, porque eso sería un guion traducido a medias.
+    """
+    assert {k.split("/")[0] for k in pack.timelines} == {"es", "en"}
+    por_variante: dict[str, dict[str, list[str]]] = {}
+    for clave, tl in pack.timelines.items():
+        lang, variante = clave.split("/")
+        por_variante.setdefault(variante, {})[lang] = [c.id for c in tl.cues]
+
         sin_alinear = [c.id for c in tl.cues if c.t is None]
-        assert not sin_alinear, f"{lang}: cues sin alinear {sin_alinear}"
-        # los cues deben ir en orden temporal estricto
+        assert not sin_alinear, f"{clave}: cues sin alinear {sin_alinear}"
         ts = [c.t for c in tl.cues]
-        assert ts == sorted(ts), f"{lang}: cues desordenados"
+        assert ts == sorted(ts), f"{clave}: cues desordenados"
+
+    for variante, ids in por_variante.items():
+        if len(ids) == 2:
+            assert ids["es"] == ids["en"], (
+                f"variante {variante}: los guiones divergen en cues entre idiomas"
+            )
 
 
 def test_cada_subskill_esencial_puede_alcanzar_dominio(pack: Pack) -> None:
