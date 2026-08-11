@@ -1,0 +1,14 @@
+.git
+.venv
+node_modules
+app/web/node_modules
+app/web/dist
+app/web/dist-test
+bakeoff/remotion/node_modules
+bakeoff/medir/node_modules
+deliverables
+data
+*.sqlite
+.env
+# El MP4 de la variante B son 10,5 MB y el bake-off ya decidió que gana la A.
+content/packs/*/media/*.mp4

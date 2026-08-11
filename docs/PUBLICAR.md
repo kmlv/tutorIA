@@ -59,6 +59,31 @@ credenciales de nadie —el PoC usa un único estudiante local— pero **son tex
 escribió**. Si el enlace circula, el archivo `.sqlite` acumula lo que hayan tecleado.
 Decide dónde vive y quién lo ve.
 
+## En contenedor (lo que sirve para cualquier host)
+
+```bash
+docker build -t tutoria .
+```
+
+```bash
+docker run -p 8080:8080 -e OPENAI_API_KEY=... -v tutoria-datos:/data tutoria
+```
+
+211 MB de imagen. Dos etapas: node compila el cliente y desaparece, así que la imagen
+final no lleva node_modules ni TypeScript. **La clave no va en la imagen**: se inyecta como
+secreto del servicio.
+
+Sin `OPENAI_API_KEY` arranca igual y todo funciona menos el chat del tutor — útil para
+enseñarlo sin gastar nada.
+
+### Por qué el MP3 de la lección ahora sí está en git
+
+Estaba ignorado como "artefacto de compilación", y no lo es. La `timeline.json` que **sí**
+está versionada contiene los segundos exactos de cada cue medidos contra ESE archivo de
+audio; regenerarlo con TTS da otra duración y otros tiempos, así que el par audio+timeline
+solo es coherente si viajan juntos. Además, sin él no se puede desplegar desde un git push:
+el contenedor arrancaría mudo. Son 3,5 MB entre los dos idiomas.
+
 ## Cómo darle una dirección pública
 
 Ninguna de estas la puedo hacer yo por ti: todas piden una cuenta tuya o abrir tu máquina.
@@ -67,10 +92,24 @@ Ninguna de estas la puedo hacer yo por ti: todas piden una cuenta tuya o abrir t
   `ngrok http 8080`). Es lo más rápido y no hace falta desplegar nada. La contrapartida es
   que tu máquina tiene que estar encendida y el enlace muere cuando la cierras. Ninguno de
   los dos está instalado ahora mismo.
-- **Un host pequeño** (Fly, Render, Railway, un VPS). Sube el repositorio, compila el
-  cliente en el build, arranca el mismo comando de arriba, y pon `OPENAI_API_KEY` y
-  `TUTORIA_LIMITE_USD_DIA` como variables de entorno del servicio. **La clave nunca en el
-  repositorio.**
+- **Hugging Face Spaces**, SDK Docker. Gratis, sin tarjeta, secreto para la clave, y sale
+  en `kmlv-tutoria.hf.space`. Se duerme sin uso y despierta en unos segundos. Es el que
+  mejor encaja con "que lo vean unos colegas".
+- **Fly.io**. Franja gratuita pero pide tarjeta en el archivo. Más despierto y con volumen
+  persistente para la base.
+- **Render**, servicio web gratuito y sin tarjeta. Se apaga a los 15 minutos sin uso y el
+  arranque en frío tarda cerca de un minuto.
+- **Un VPS de la universidad**, si UCSC o PUCP te dan uno. Es la mejor opción a largo plazo
+  y la única donde los datos no salen de una institución.
+
+En todos: `OPENAI_API_KEY` y `TUTORIA_LIMITE_USD_DIA` como variables del servicio. **La
+clave nunca en el repositorio.**
+
+### Y la página de Quarto
+
+`kmlv.github.io` es Jekyll y `ExperimentalEconomics` es Quarto: los dos estáticos, los dos
+en GitHub Pages. Ninguno puede ejecutar esto. Lo que sí encaja es **enlazar** desde
+`_teaching/2023-intermediate_microeconomics.md` a la dirección donde viva el tutor.
 
 En los dos casos, el `.env` local no viaja: es solo para desarrollo y está en
 `.gitignore`.

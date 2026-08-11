@@ -5,7 +5,17 @@
 .audio/
 
 # media generada por el pipeline: se reconstruye con pipeline/cues.py
+#
+# EXCEPTO el audio de la lección. Estaba ignorado como "artefacto de compilación" y no lo
+# es: la `timeline.json` que SÍ está versionada contiene los segundos exactos de cada cue,
+# medidos contra ESE archivo de audio. Regenerarlo con TTS da otra duración y otros
+# tiempos, así que el par audio+timeline solo es coherente si viajan juntos. Además sin él
+# no se puede desplegar desde un git push: el contenedor arrancaría sin voz.
+#
+# Son 3,5 MB entre los dos idiomas.
 content/packs/*/media/*.mp3
+!content/packs/*/media/*budget-line-es.mp3
+!content/packs/*/media/*budget-line-en.mp3
 # el MP4 de la opcion B: lo reconstruye pipeline/render_b.py, y son 11 MB por idioma
 content/packs/*/media/*.mp4
 content/packs/*/media/*.player.html
