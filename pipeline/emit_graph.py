@@ -82,7 +82,20 @@ fichas, una por bien, que se van rellenando según la narración menciona cada c
 
 Reglas del ledger:
 - Una estación revelada sigue revelada; no hace falta repetirla.
-- Destaca lo que la narración está nombrando en ese segundo, no todo lo que se ve."""
+- Destaca lo que la narración está nombrando en ese segundo, no todo lo que se ve.
+
+Calendario de revelaciones. La ficha se rellena POCO A POCO, una estación por cue, y NO
+todas de golpe: es un andamiaje que acompaña a la narración, y adelantarlo lo convierte en
+una tabla de datos que el alumno tiene que ignorar hasta que le sirva. En el primer cue
+donde la narración introduce cada cosa:
+
+  1. glyph   cuando la narración habla de los bienes por primera vez
+  2. unit    cuando dice o implica en qué se miden
+  3. symbol  cuando les pone nombre a las cantidades
+  4. price   cuando aparecen los precios y el ingreso
+
+Cada uno de esos pasos va en un cue DISTINTO, en ese orden, aunque la narración de un cue
+mencione dos. Si la lección tiene más cues que estaciones, los sobrantes no revelan nada."""
 
 
 def user_prompt(cues: list[dict], ejemplo: dict) -> str:

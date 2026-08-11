@@ -134,17 +134,32 @@ dibujar su gráfico **y** su ecuación.
 
 | | gráfico | ledger (idéntico) | ledger (salvo orden) |
 |---|--:|--:|--:|
-| gpt-5.6-sol | **8 / 10** | 3 / 10 | 4 / 10 |
-| gpt-5.6-terra | 7–8 / 10 | 0 / 10 | 1 / 10 |
+| gpt-5.6-sol, sin convención | **8 / 10** | 3 / 10 | 4 / 10 |
+| gpt-5.6-sol, **con convención escrita** | **8 / 10** | **4 / 10** | **6 / 10** |
+| gpt-5.6-terra, con convención | 7–8 / 10 | 1 / 10 | 2 / 10 |
 
-Probé dos arreglos y **ninguno cerró la brecha**, cosa que digo porque el resultado
-negativo es parte de la medición:
+Probé tres arreglos. Los dos primeros **no cerraron nada**, cosa que digo porque un
+resultado negativo es parte de la medición:
 
 1. **Darle toda la narración de cada cue** en vez de dos frases. La hipótesis era que el
    modelo no podía saber dónde se nombra "kilos" por primera vez. Con el texto completo el
    ledger siguió en 1–3 de 10.
 2. **Comparar sin exigir el orden** de operaciones que conmutan —`compress` y `morphPrice`
    dan el mismo resultado en pantalla en cualquier orden—. Sube uno o dos cues, no diez.
+3. **Escribir el calendario de revelaciones como convención explícita** en el prompt: una
+   estación por cue, en el orden icono → unidad → símbolo → precio. Esto **sí** movió a
+   sol, de 3 a **4 idénticos y 6 salvo orden**, y sobre todo le hizo acertar el calendario
+   casi entero. terra siguió mal: desplazó la secuencia un cue y arrastró el error.
+
+Con la convención escrita, lo que queda mal ya no son las revelaciones sino los
+`destacar`: qué término se enciende en cada momento. Y ahí mi guion es el correcto —
+cuando la narración pone nombre a las cantidades, lo que hay que encender es `x1, x2`, y
+el modelo enciende `p1, p2, m`.
+
+**Paré ahí a propósito.** El siguiente paso obvio era añadir otra regla, y otra, hasta
+subir el número; pero afinando el prompt contra el único pack que existe estaría ajustando
+al ejemplo, y el resultado dejaría de significar nada para el concepto número veinte. La
+medición vale porque se puede repetir sobre un pack que no vio nadie.
 
 Al mirar las diferencias concretas, el patrón es consistente entre modelos: **amontonan
 todas las revelaciones en uno o dos cues** en vez de repartirlas, y eligen otro orden de
