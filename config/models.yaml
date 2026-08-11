@@ -1,0 +1,61 @@
+# Model selection by role, and the price table that turns tokens into dollars.
+#
+# This file is the whole cost policy. It lives in config/ and not in code because the
+# question "which model judged this answer, and what did it cost" has to be answerable
+# from data, and because Kristian must be able to change the judge's model without a
+# code review.
+#
+# Provider: OpenAI (Kristian, 2026-08-11). The seam is `LLMProvider`, so switching back
+# to Anthropic is a provider swap plus a re-run of the concordance gate — concordance
+# is measured per model and does not transfer.
+#
+# ON "TEMPERATURE 0". `temperature` is deliberately unset. On the gpt-5 reasoning family
+# it is frequently rejected, and it was never what made a grader reproducible. What we
+# send instead is a fixed `seed`, a rubric that does not vary, an output schema the
+# model cannot leave, and a versioned prompt whose fingerprint is stored beside every
+# verdict. Set `temperature: 0` on a role only if you have checked that model takes it.
+#
+# `effort` maps to OpenAI's `reasoning_effort`: none|minimal|low|medium|high|xhigh|max.
+#
+# Prices are USD per million tokens, read from developers.openai.com/api/docs/pricing on
+# 2026-08-11. Cached input is exactly 0.1x input across this line, which is what
+# `ModelSpec.cost_usd` assumes. If prices drift, the reports lie about cost and nothing
+# else breaks.
+
+version: 2
+
+roles:
+
+  # The open-response judge. The one place where being wrong is expensive: a bad verdict
+  # feeds a false diagnosis into mastery. Strongest model, medium effort.
+  judge_open:
+    model: gpt-5.6-sol
+    effort: medium
+    max_tokens: 4000
+
+  # The student-facing tutor chat. High volume, low stakes per message, and latency is
+  # felt directly by the student. 25x cheaper per output token than the judge, which is
+  # the explicit instruction: "cheap for chat, strong for judging".
+  chat:
+    model: gpt-5.6-luna
+    effort: low
+    max_tokens: 1500
+
+  # Offline batch work: re-judging archived transcripts, drafting rubrics. Not on any
+  # student's critical path.
+  batch:
+    model: gpt-5.6-terra
+    effort: low
+    max_tokens: 6000
+
+prices:
+  gpt-5.6-sol:    {input: 5.00, output: 30.00}
+  gpt-5.6-terra:  {input: 2.00, output: 12.00}
+  gpt-5.6-luna:   {input: 0.20, output: 1.20}
+  gpt-5.5:        {input: 5.00, output: 30.00}
+  gpt-5.4:        {input: 2.50, output: 15.00}
+  gpt-5.4-mini:   {input: 0.75, output: 4.50}
+  gpt-5.4-nano:   {input: 0.20, output: 1.25}
+  # The fake provider used in tests is priced at zero, so a cost assertion of 0 in the
+  # test-suite means "no network call happened", not "the call was cheap".
+  fake: {input: 0.0, output: 0.0}

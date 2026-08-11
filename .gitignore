@@ -11,6 +11,8 @@ content/packs/*/media/audio-library.html
 content/packs/*/media/_clean.*.md
 
 # entorno y datos locales
+# .env lleva la API key del proveedor: NUNCA se versiona (decision 20).
+.env
 .venv/
 data/
 __pycache__/
