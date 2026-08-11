@@ -179,7 +179,8 @@ async function main(): Promise<void> {
   }
 
   const practice = new PracticeLoop(
-    session.session_id, dock, flow, lang, evento, askManip);
+    session.session_id, dock, flow, lang, evento, askManip,
+    (id) => { preguntaActiva = id; });
 
   const media: MediaAdapter = createAdapter(variant, relojGrosero);
   media.mount?.(app.querySelector(".stage") as HTMLElement);
@@ -227,7 +228,14 @@ async function main(): Promise<void> {
   let pausedAt: { cp: string; ts: number } | null = null;
 
   /** Rebuilds notes and graph from scratch. Both are pure functions of time, so a seek
-   *  just replays every cue up to `t` instead of trying to undo anything. */
+   *  just replays every cue up to `t` instead of trying to undo anything.
+   *
+   *  FALLO CONOCIDO F-001 (`docs/FALLOS-CONOCIDOS.md`): esto vale para el gráfico y NO
+   *  para el ledger. El estado del gráfico se reinicia con `estadoInicial`; al ledger
+   *  solo se le reaplican los cues, y sus operaciones son acumulativas —`revelar`
+   *  enciende y no apaga— así que un salto hacia atrás deja el precio del pivote, la
+   *  compresión puesta y todas las estaciones encendidas. Se ve como dos precios
+   *  distintos para el café en la misma pantalla. */
   function rebuild(t: number): void {
     estado = estadoInicial(ejemplo);
     for (const c of media.cuesUntil(t)) {

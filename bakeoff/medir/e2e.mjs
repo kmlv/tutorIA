@@ -128,6 +128,32 @@ const practica = await page.evaluate(`(() => ({
 ok(nNext > 0, `el bucle de práctica pidió el ítem siguiente (${nNext} vez/veces)`);
 ok(practica.lienzoVisible && !practica.ownsStage, 'el escenario DOM vuelve para la práctica');
 
+// 6b. El chat llega al servidor con el ítem del alumno.
+//
+// Humo, no demostración. La propiedad de verdad —que el bucle publica su ítem— se prueba
+// en `app/web/test/practice.contexto.mjs`, donde el tipo de ítem se ELIGE. Aquí no se
+// puede: la primera versión de esta comprobación cayó sobre un ítem de manipulación, que
+// va por otra ruta que ya funcionaba, y pasó en verde con el fallo delante.
+//
+// Se intercepta y se aborta la petición: se comprueba el cuerpo, sin gastar API.
+let cuerpoChat = null;
+await page.route('**/chat', async (route) => {
+  cuerpoChat = JSON.parse(route.request().postData() || '{}');
+  await route.abort();
+});
+await page.evaluate(`(() => {
+  const c = document.querySelector('.composer-input');
+  if (!c) return false;
+  c.value = '¿por qué?';
+  c.dispatchEvent(new Event('input', {bubbles: true}));
+  document.querySelector('.composer-enviar')?.click();
+  return true;
+})()`);
+await page.waitForTimeout(1500);
+ok(cuerpoChat !== null, 'el chat envía la pregunta del alumno');
+ok(cuerpoChat?.question_id != null,
+   `y con un ítem adjunto (question_id=${cuerpoChat?.question_id ?? 'null'})`);
+
 // 7. Nada explotó por el camino.
 ok(errores.length === 0,
    `sin errores de JS${errores.length ? ': ' + errores.slice(0,2).join(' | ') : ''}`);

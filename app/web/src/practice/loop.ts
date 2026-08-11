@@ -81,6 +81,19 @@ export class PracticeLoop {
     private lang: Lang,
     private onEvent: (type: string, payload: Record<string, unknown>) => void,
     private onManip: ManipHandler | null = null,
+    /**
+     * Publica qué ítem tiene el alumno delante. NO es opcional por comodidad: sin esto,
+     * el chat no recibe `question_id` durante toda la práctica.
+     *
+     * Dos consecuencias, y la segunda es la grave. La primera se ve: el alumno contesta,
+     * pregunta "¿por qué?", y el tutor responde sobre otra cosa porque no sabe de qué
+     * ítem le hablan — lo cazó Kristian mirando la pantalla. La segunda no se ve: la
+     * tercera capa del guardarraíl, la que revisa que la respuesta del tutor no contenga
+     * la solución, necesita el ítem para saber cuál ES la solución. Con `question_id`
+     * nulo, `layer3_applies` devuelve falso y la capa queda **inerte durante toda la
+     * fase de práctica**, que es justo cuando el alumno está intentando resolver.
+     */
+    private onPreguntaActiva: (id: string | null) => void = () => {},
   ) {}
 
   get active(): boolean {
@@ -131,6 +144,7 @@ export class PracticeLoop {
 
       this.flow.marcarPintado();
       const spec = toSpec(next.question);
+      this.onPreguntaActiva(spec.id);
       const modo = next.question.manip_modo ?? null;
 
       if (spec.modalidad === "manip") {
@@ -148,6 +162,7 @@ export class PracticeLoop {
       const v = spec.modalidad === "manip" && this.onManip && modo
         ? await this.onManip(spec, modo)
         : await this.flow.ask(spec, {});
+      this.onPreguntaActiva(null);
       this.served += 1;
       this.onEvent("practice.answered", {
         question_id: spec.id,
