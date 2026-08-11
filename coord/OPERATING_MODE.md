@@ -2,24 +2,24 @@
 
 Principal: Kristian
 
-Last updated UTC: 2026-08-10T23:38:41Z
+Last updated UTC: 2026-08-11T00:04:49Z
 Derived from: coord/STATE.md
 
 ## Current Mode
 
-- Mode: implementation
-- Active task: T-005 M2 parallel: graph manipulation (agy) + grader review (codex) + question flow (claude)
+- Mode: iteration
+- Active task: T-010 Design consult: display architecture for the concept delivery
 - Lead: claude
 - Reviewer: codex
 - Review route: full-mesh
 - Importance: principal-requested
 - Reviewers: codex,agy,fable
 - Council session: none
-- Active thread: coord/threads/2026-08-10-T-005-m2-parallel-graph-manipulation-agy-grader-review-codex-quest.md
+- Active thread: coord/threads/2026-08-11-T-010-design-consult-display-architecture-for-the-concept-delivery.md
 - Check cadence: 5m
 - Next check due: manual
-- Stop condition: manip.ts merged, grader review answered, and the four question types run end to end
-- Edit budget: implementation
+- Stop condition: four blind proposals, cross-critique, synthesis Kristian signs off
+- Edit budget: proposal-only
 - Duration limit: none
 - Codex resume target: --last
 - Wake targets:
@@ -31,20 +31,7 @@ Derived from: coord/STATE.md
 
 ## Edit Ownership
 
-STRICT: each agent owns disjoint paths. Do NOT edit outside your own set; if you need a
-change elsewhere, post it in the thread and the owner applies it.
-
-- app/web/src/graph/**            : claude (agy delivered manip.ts; ownership returned)
-- app/server/core/judge/**        : codex  (READ-ONLY review, do not edit)
-- app/server/core/content/schema.py: codex (READ-ONLY review, do not edit)
-- app/web/src/questions/**        : claude
-- app/web/src/main.ts             : claude
-- app/web/src/chat/**             : claude
-- content/**                      : claude
-
-- app/web/src/questions/**: claude
-- app/web/src/main.ts: claude
-- app/web/src/chat/**: claude
+- docs/DISPLAY-DESIGN.md: claude
 
 ## Iteration Rules
 

@@ -1,6 +1,6 @@
 # Coordination Board
 
-Last updated UTC: 2026-08-10T23:38:41Z
+Last updated UTC: 2026-08-11T00:04:49Z
 
 ## Backlog
 
@@ -11,6 +11,7 @@ Last updated UTC: 2026-08-10T23:38:41Z
 
 | Task | Title | Owner | Reviewer | Scope | Next Step |
 |---|---|---|---|---|---|
+| T-010 | Design consult: display architecture for the concept delivery | claude | codex | docs/DISPLAY-DESIGN.md | active |
 | T-005 | M2 parallel: graph manipulation (agy) + grader review (codex) + question flow (claude) | claude | codex | app/web/src/questions/**,app/web/src/main.ts,app/web/src/chat/** | active |
 
 ## Review
