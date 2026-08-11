@@ -225,6 +225,14 @@ class Timeline(BaseModel):
     variant: str = "A"
     #: Nombre del MP4 en `media/`, cuando la opción es de vídeo pre-renderizado.
     video: str | None = None
+    #: Huella de la timeline A de la que se derivó esta. Solo en variantes != A.
+    #:
+    #: `pipeline/cues.py` reescribe únicamente `timeline.<lang>.json`. Sin esta huella,
+    #: recompilar el guion dejaba la timeline de B intacta, apuntando a un MP4 renderizado
+    #: con los tiempos VIEJOS: la app dispararía los cues nuevos sobre una imagen que
+    #: cuenta otra cosa, sin excepción y sin aviso. La compuerta `pipeline/check_cues.py`
+    #: la compara.
+    derivada_de: str | None = None
 
 
 class Pack(BaseModel):

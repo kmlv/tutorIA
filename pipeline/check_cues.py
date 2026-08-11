@@ -67,6 +67,39 @@ def main() -> int:
                     f"`case \"{c['id']}\"` en main.ts — dispararía sin pintar nada"
                 )
 
+    # Segunda comprobación: una variante derivada que ya no corresponde a su original.
+    # `pipeline/cues.py` reescribe solo `timeline.<lang>.json`, así que recompilar el
+    # guion deja intactas las variantes — apuntando a un vídeo renderizado con los
+    # tiempos viejos. La app dispararía los cues nuevos sobre una imagen que cuenta otra
+    # cosa: sin excepción, sin aviso, y solo visible mirándolo.
+    import hashlib
+    originales: dict[str, str] = {}
+    for tl_path in sorted(media.glob("timeline.*.json")):
+        tl = json.loads(tl_path.read_text(encoding="utf-8"))
+        if tl.get("variant", "A") != "A":
+            continue
+        payload = json.dumps(
+            {"cues": [[c["id"], c.get("t")] for c in tl.get("cues", [])],
+             "duration_s": round(tl["duration_s"], 3)}, sort_keys=True)
+        originales[tl["lang"]] = hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
+
+    for tl_path in sorted(media.glob("timeline.*.json")):
+        tl = json.loads(tl_path.read_text(encoding="utf-8"))
+        var = tl.get("variant", "A")
+        if var == "A":
+            continue
+        esperada = originales.get(tl["lang"])
+        tiene = tl.get("derivada_de")
+        if tiene is None:
+            errs.append(f"{tl_path.name}: variante {var} sin `derivada_de`; no se puede "
+                        "saber si su vídeo corresponde al guion actual")
+        elif esperada and tiene != esperada:
+            errs.append(
+                f"{tl_path.name}: se derivó de una timeline A que ya no existe "
+                f"({tiene} != {esperada}). El guion se recompiló y el vídeo es viejo: "
+                f"vuelve a correr pipeline/render_b.py"
+            )
+
     print(f"\n  cues de gráfico comprobados: {total}")
     print(f"  ids con efecto en el cliente: {len(manejados)}")
     for e in errs:

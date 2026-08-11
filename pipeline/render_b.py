@@ -20,6 +20,7 @@ Chrome, which is why node_modules is gitignored and this is not part of the test
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import pathlib
 import shutil
@@ -74,6 +75,21 @@ def beats_via_node(cues: list[dict], ejemplo: dict) -> list[dict]:
         if r.returncode != 0:
             raise RuntimeError(f"el driver de estados falló:\n{r.stderr.strip()}")
         return json.loads(r.stdout)
+
+
+def huella(tl) -> str:
+    """Identifies the A timeline this render was derived from.
+
+    Only the cues and the duration: those are what the MP4 bakes in. A change to the
+    transcript alters the burnt-in captions and is worth re-rendering for, but it does not
+    make the existing video WRONG, and a fingerprint that fires on every typo stops being
+    read.
+    """
+    payload = json.dumps(
+        {"cues": [(c.id, c.t) for c in tl.cues], "duration_s": round(tl.duration_s, 3)},
+        sort_keys=True,
+    )
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
 
 
 def caption_for(transcript: list[dict], t: float) -> str:
@@ -161,7 +177,8 @@ def main() -> int:
     # The B timeline is A's, with the video attached. Deliberately the same cues at the
     # same seconds: the bake-off compares how the picture is drawn, and a B with its own
     # pacing would be comparing two lessons instead of two technologies.
-    b_tl = tl.model_copy(update={"variant": "B", "video": destino})
+    b_tl = tl.model_copy(update={"variant": "B", "video": destino,
+                                 "derivada_de": huella(tl)})
     (media / f"timeline.{args.lang}.B.json").write_text(
         b_tl.model_dump_json(indent=1), encoding="utf-8")
 
