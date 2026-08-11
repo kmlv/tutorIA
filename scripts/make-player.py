@@ -118,6 +118,36 @@ for kind, parts in rendered:
 data_uri = "data:audio/mpeg;base64," + base64.b64encode(mp3.read_bytes()).decode("ascii")
 mins, secs = divmod(int(duration), 60)
 
+
+def cuando(iso: str | None) -> str:
+    """Cuando se genero este audio, en hora local y en palabras.
+
+    El sidecar lo guarda en UTC con microsegundos — util para ordenar, ilegible para
+    saber si un audio es el de hace un rato o el de anoche. Con varios audios en cola,
+    esa es la unica pregunta que uno se hace al abrirlos.
+    """
+    from datetime import datetime, timezone
+    if not iso:
+        return ""
+    try:
+        dt = datetime.fromisoformat(iso).astimezone()
+    except ValueError:
+        return ""
+    ahora = datetime.now(timezone.utc).astimezone()
+    hora = dt.strftime("%H:%M")
+    dias = (ahora.date() - dt.date()).days
+    if dias == 0:
+        return f"hoy {hora}"
+    if dias == 1:
+        return f"ayer {hora}"
+    MESES = ["ene", "feb", "mar", "abr", "may", "jun",
+             "jul", "ago", "sep", "oct", "nov", "dic"]
+    fecha = f"{dt.day} {MESES[dt.month - 1]}"
+    return f"{fecha} {hora}" if dt.year == ahora.year else f"{fecha} {dt.year} {hora}"
+
+
+generado = cuando(meta.get("created_at"))
+
 out.write_text(f"""<!doctype html>
 <html lang="es"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -157,6 +187,7 @@ out.write_text(f"""<!doctype html>
   .val {{ font-size:.8rem; color:var(--muted); min-width:3.4em; text-align:center;
     font-variant-numeric:tabular-nums; }}
   .lbl {{ font-size:.72rem; color:var(--muted); margin-right:.15rem; }}
+  @media print {{ .bar {{ display:none; }} }}
   .s {{ border-radius:3px; padding:.03em 0; transition:background .18s ease; cursor:pointer; }}
   .s:hover {{ background:color-mix(in srgb, var(--accent) 12%, transparent); }}
   .s:focus-visible {{ outline:2px solid var(--accent); outline-offset:1px; }}
@@ -167,7 +198,7 @@ out.write_text(f"""<!doctype html>
     padding-top:.8rem; }}
 </style></head><body><div class="wrap">
 
-<div class="eyebrow">{mins}:{secs:02d} &middot; audio explainer</div>
+<div class="eyebrow">{mins}:{secs:02d} &middot; audio explainer{(" &middot; " + html.escape(generado)) if generado else ""}</div>
 <h1>{html.escape(title)}</h1>
 
 <div class="bar">
