@@ -1,0 +1,18 @@
+{
+  "name": "tutoria-bakeoff-remotion",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Option B of the M4 bake-off: the lesson pre-rendered to MP4.",
+  "type": "commonjs",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts Lesson out/lesson.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.507",
+    "@remotion/renderer": "^4.0.507",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "remotion": "^4.0.507"
+  }
+}

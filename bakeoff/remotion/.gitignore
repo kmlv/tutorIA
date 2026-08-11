@@ -1,0 +1,5 @@
+node_modules/
+out/
+# Generados por pipeline/render_b.py a partir del pack: no son fuente.
+props/
+public/

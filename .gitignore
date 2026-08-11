@@ -6,6 +6,8 @@
 
 # media generada por el pipeline: se reconstruye con pipeline/cues.py
 content/packs/*/media/*.mp3
+# el MP4 de la opcion B: lo reconstruye pipeline/render_b.py, y son 11 MB por idioma
+content/packs/*/media/*.mp4
 content/packs/*/media/*.player.html
 content/packs/*/media/audio-library.html
 content/packs/*/media/_clean.*.md
