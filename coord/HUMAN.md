@@ -5,6 +5,49 @@ without the principal.
 
 ## Open
 
+### H-005 — 2026-08-11: el gold set NO se etiqueta a mano en el PoC
+
+**Decision de Kristian, textual:** *"no voy a etiquetar. porque este contenido es para
+PoC. asume que esta etiquetado por ahora. en el futuro lo haremos con cuidado."*
+
+**Lo que se hizo con esa instruccion.** El campo `human` del gold set **sigue vacio**. No
+se rellena con nada, porque escribir ahi una etiqueta que Kristian no miro haria que el
+reporte imprimiera "acuerdo con Kristian" sobre una verdad inventada, y ese numero se
+citaria despues como si fuera real. En su lugar la compuerta corre en modo
+`--vs-intent`: la referencia es la INTENCION con que se escribio cada respuesta, que es
+la opinion de otro modelo.
+
+**CONSECUENCIA QUE NO SE PUEDE OLVIDAR.** El numero de M3 obtenido asi **no dice que el
+juez concuerde con Kristian**. Dice que concuerda con otro modelo sobre respuestas que
+tambien escribio un modelo. Es una prueba de que la maquinaria funciona y de que el juez
+no esta groseramente roto; no es evidencia pedagogica. El reporte lo imprime en mayusculas
+cada vez que corre en ese modo, y `evals/goldset.py` lo documenta en la cabecera.
+
+**Consecuencia operativa:** el juez se queda en **sombra**. `JUDGE_GATE_PASSED=1` no se
+pone: la compuerta no se aprobo, se simulo. Pasar a vivo es una variable de entorno el dia
+que haya etiquetado real o una cohorte.
+
+**Cuando se retome:** el etiquetado son ~35 min con `evals/label.py`, el gold set ya esta
+construido y barajado, y nada de lo hecho se pierde — `build_goldset.py` conserva las
+etiquetas humanas por id y por texto al regenerar.
+
+### H-003 — D-1 y D-3 RESUELTAS 2026-08-11; D-2 sigue abierta
+
+**D-1 (chequeo de transferencia): IMPLEMENTAR.** Kristian lo aprobo. Al cerrar un
+concepto, uno o dos items nuevos sin asistencia, sin nota y sin presentarse al alumno como
+evaluacion, cuyo resultado alimente solo el diagnostico del instructor. Motivo: hoy el PoC
+no tiene ninguna senal capaz de detectar que el tutor este resolviendo en vez de ensenar,
+y sin eso no puede afirmar que ensena, solo que gusta. Diseno en `docs/TRANSFER-CHECK.md`.
+
+**D-3 (quien escribe la capa de configuracion de los graficos): EL LLM, CONTRA UN
+ESQUEMA.** Kristian define el esquema una vez; el modelo genera el JSON de cada concepto.
+Es lo que hace barato el concepto numero 20 — y es exactamente lo que hay que probar,
+porque nadie ha medido si sale bien. Implicacion para el bake-off: el criterio 2
+(personalizacion barata) pasa a ser el criterio que decide, no un empate.
+
+**D-2 (KGJS como quinta opcion del bake-off): SIGUE ABIERTA.** No bloquea nada hasta que
+empiece M4. Se decide al abrir el bake-off, no antes.
+
 ### H-004 — RESUELTO 2026-08-10: revision de M1 por Kristian
 
 1. **Guion: APROBADO.** "me parece bien". Queda congelado como fuente del pack
