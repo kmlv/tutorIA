@@ -11,10 +11,24 @@ import type { Dock } from "../chat/dock";
 import type { Lang } from "../types";
 import { render, type ManipValue, type QuestionSpec, type Respuesta } from "./index";
 
+/**
+ * Two different replies come back from `/answer`, and conflating them was a real bug
+ * waiting to happen.
+ *
+ * A deterministic item returns `{correcta, score}`. An OPEN item, while the LLM judge is
+ * in shadow mode, returns `{registrada, mensaje}` and no verdict at all — because the
+ * judge is not trusted yet to tell a student they were wrong. Casting that second shape
+ * into the first gives `correcta === undefined`, which is falsy, and the student would
+ * have been told "let's think about it differently" every single time they answered an
+ * open question correctly.
+ */
 export interface Verdict {
-  correcta: boolean;
-  score: number;
+  correcta?: boolean;
+  score?: number;
   socratica?: string;
+  /** Present iff the judge ran in shadow: the answer was recorded, not graded. */
+  registrada?: boolean;
+  mensaje?: string;
 }
 
 const T = {
@@ -72,6 +86,13 @@ export class QuestionFlow {
   }
 
   private report(v: Verdict): void {
+    if (v.registrada) {
+      // Shadow mode: the judge produced a verdict and it is NOT shown. Saying anything
+      // evaluative here would leak an unvalidated judgement to the student, which is
+      // the exact harm shadow mode exists to prevent.
+      this.dock.decir(v.mensaje ?? "");
+      return;
+    }
     if (v.correcta) {
       this.dock.decir(T[this.lang].bien);
       return;

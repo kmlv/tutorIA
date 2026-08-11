@@ -14,10 +14,13 @@ import { createAdapter, type MediaAdapter } from "./player/adapter";
 import type { CueFiring } from "./player/sync";
 import { BudgetGraph, estadoInicial } from "./graph/budget_graph";
 import { Dock } from "./chat/dock";
+import { Composer } from "./chat/composer";
 import { Ledger } from "./ledger/goods";
 import { CaptionBand } from "./captions/captions";
-import { QuestionFlow } from "./questions/flow";
-import type { QuestionSpec } from "./questions";
+import { QuestionFlow, type Verdict } from "./questions/flow";
+import { PracticeLoop } from "./practice/loop";
+import { enableDrag } from "./graph/manip";
+import type { QuestionSpec, ManipValue } from "./questions";
 import { NOTES } from "./generated/formulas";
 import type { Ejemplo, GraphState, Lang, SessionInfo } from "./types";
 
@@ -81,6 +84,75 @@ async function main(): Promise<void> {
     session.media.transcript ?? [], lang);
   const dock = new Dock(app, lang);
   const flow = new QuestionFlow(session.session_id, dock, lang);
+
+  /** What the student is being asked right now. The composer passes it to the tutor so
+   *  help is about THIS item; the server still withholds its answer. */
+  let preguntaActiva: string | null = null;
+  let cueActual: string | null = null;
+
+  const composer = new Composer(
+    dock.pie, session.session_id, dock, lang,
+    () => preguntaActiva, () => cueActual, evento,
+  );
+  /**
+   * Manipulation items during practice. The graph lives out here, so the loop asks for
+   * this instead of reaching for it — which is also what lets the loop be exercised
+   * without a graph at all.
+   *
+   * The drag reports continuously; nothing is submitted until the student confirms.
+   * Auto-submitting on pointer-up would grade the moment they let go of the handle,
+   * which is not the moment they decided.
+   */
+  async function askManip(q: QuestionSpec, modo: "point" | "line"): Promise<Verdict> {
+    preguntaActiva = q.id;
+
+    // Practice can start without the narration ever playing, and then the stage is
+    // blank: no axes, no line, nothing to drag. Found by looking at it. The graph is a
+    // pure function of state, so showing it is a state change, not a special case.
+    estado = {
+      ...estado,
+      mostrar: { ...estado.mostrar, ejes: true, linea: true, interceptos: true },
+      fantasma: { p1: ejemplo.p1, p2: ejemplo.p2, m: ejemplo.m },
+      destacar: "ninguno",
+    };
+    graph.render(estado);
+
+    let valor: ManipValue | null = null;
+    const teardown = enableDrag(graph, estado, modo, (res) => { valor = res as ManipValue; });
+
+    const confirmar = document.createElement("button");
+    confirmar.className = "primario";
+    confirmar.textContent = lang === "es" ? "Listo" : "Done";
+
+    const node = document.createElement("div");
+    node.className = "q q-manip";
+    const p = document.createElement("p");
+    p.className = "q-enunciado";
+    p.textContent = q.enunciado[lang];
+    const nota = document.createElement("p");
+    nota.className = "q-nota";
+    nota.textContent = modo === "point"
+      ? (lang === "es" ? "Arrastra el punto en el gráfico." : "Drag the point on the graph.")
+      : (lang === "es" ? "Arrastra los extremos de la recta." : "Drag the endpoints of the line.");
+    node.append(p, nota, confirmar);
+
+    dock.setEstado("abierto-activo");
+    dock.montarPregunta(node);
+
+    const v = await new Promise<Verdict>((resolve) => {
+      confirmar.addEventListener("click", () => {
+        confirmar.disabled = true;
+        if (!valor) { resolve({ correcta: false, score: 0 }); return; }
+        void flow.submitManip(q.id, valor).then(resolve);
+      });
+    });
+    teardown();
+    preguntaActiva = null;
+    return v;
+  }
+
+  const practice = new PracticeLoop(
+    session.session_id, dock, flow, lang, evento, askManip);
 
   const media: MediaAdapter = createAdapter(variant);
   await media.load(session.media, "/media/budget-line");
@@ -146,6 +218,7 @@ async function main(): Promise<void> {
     estado = aplicarCue(estado, f.cue.id, ejemplo);
     graph.render(estado);
     paintLedger(f.cue.id);
+    cueActual = f.cue.id;
     evento("cue.fired", { id: f.cue.id, lag_ms: f.desfase_ms });
 
     if (f.cue.type === "checkpoint") {
@@ -174,14 +247,16 @@ async function main(): Promise<void> {
       dock.decir(cpId === "cp1" ? T.cp1 : T.cp2);
       return;
     }
-    if (q.modalidad === "open") {   // the LLM judge lands in M3
-      dock.setEstado("abierto-activo");
-      dock.decir(q.enunciado[lang]);
-      return;
-    }
+    // Open questions used to stop here with the stem printed and no way to answer,
+    // because the judge did not exist. It does now, in shadow: the student's answer is
+    // recorded and judged, and the verdict is deliberately not shown back to them.
+    preguntaActiva = q.id;
     const v = await flow.ask(q, {});
+    preguntaActiva = null;
     evento("checkpoint.answered", {
-      id: cpId, question_id: q.id, correcta: v.correcta,
+      id: cpId, question_id: q.id,
+      correcta: v.correcta ?? null,
+      shadow: v.registrada === true,
       latency_ms: pausedAt ? Math.round(performance.now() - pausedAt.ts) : null,
     });
     pausedAt = null;
@@ -206,7 +281,9 @@ async function main(): Promise<void> {
 
     const t0 = performance.now();
     dock.setEstado("abierto-activo");
+    preguntaActiva = q.id;
     const v = await flow.ask(q, { silent: true });
+    preguntaActiva = null;
     evento("prediction.answered", {
       id: predId, question_id: q.id, correcta: v.correcta,
       latency_ms: Math.round(performance.now() - t0),
@@ -214,6 +291,13 @@ async function main(): Promise<void> {
     dock.setEstado("oculto");
     void media.play();
   }
+
+  // The narration ending is not the lesson ending. Until now it was: the audio stopped
+  // and nothing happened, while the whole mastery engine sat on the server unreached.
+  media.on("ended", () => {
+    escenario.dataset.on = "";
+    void practice.start();
+  });
 
   media.on("seeked", () => {
     captions.update(media.currentTime());
@@ -238,6 +322,7 @@ async function main(): Promise<void> {
   document.getElementById("ask")!.addEventListener("click", () => {
     media.pause();
     dock.setEstado("abierto-pasivo");
+    composer.focus();      // the box is the point of the button; land the cursor in it
     evento("student.asked", {});
   });
 
@@ -287,7 +372,8 @@ async function main(): Promise<void> {
 
   // Instrumentation hook for browser tests and the criterion-5 measurement.
   (window as unknown as Record<string, unknown>).__tutoria = {
-    media, dock, estado: () => estado, lag: () => media.lagSummary(),
+    media, dock, composer, practice,
+    estado: () => estado, lag: () => media.lagSummary(),
   };
 }
 

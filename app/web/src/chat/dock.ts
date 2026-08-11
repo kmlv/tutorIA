@@ -56,6 +56,12 @@ export class Dock {
     this.setEstado("oculto");
   }
 
+  /** Where the free-text composer mounts. Exposed instead of building the composer here
+   *  so the dock keeps knowing nothing about the network. */
+  get pie(): HTMLElement {
+    return this.root;
+  }
+
   onIntencion(h: IntencionHandler): void {
     this.handlers.push(h);
   }

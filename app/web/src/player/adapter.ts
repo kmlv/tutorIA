@@ -17,6 +17,12 @@
 import type { Timeline } from "../types";
 import { CueEngine, type CueFiring } from "./sync";
 
+/** `ended` is what starts the practice loop. The narration finishing is a transition,
+ *  not the end of the lesson — and it was missing from this union, which is why nothing
+ *  in the app could listen for it. */
+export type MediaEvent =
+  | "play" | "pause" | "timeupdate" | "seeked" | "loadedmetadata" | "ended";
+
 export interface MediaAdapter {
   readonly variant: string;
   load(timeline: Timeline, srcBase: string): Promise<void>;
@@ -31,7 +37,7 @@ export interface MediaAdapter {
   holdRest(): void;
   /** Cues at or before `t`. Used to rebuild state after a seek. */
   cuesUntil(t: number): Array<{ id: string }>;
-  on(event: "play" | "pause" | "timeupdate" | "seeked" | "loadedmetadata", cb: () => void): void;
+  on(event: MediaEvent, cb: () => void): void;
   off?(event: string, cb: () => void): void;
   /** Internal cue lag, in ms. Replaces external screen-recording measurement. */
   lagSummary(): { n: number; p50: number; p95: number; max: number };
@@ -61,7 +67,7 @@ export class HtmlAudioAdapter implements MediaAdapter {
   holdRest(): void { this.engine?.holdRest(); }
   cuesUntil(t: number): Array<{ id: string }> { return this.engine?.hasta(t) ?? []; }
 
-  on(event: "play" | "pause" | "timeupdate" | "seeked" | "loadedmetadata",
+  on(event: MediaEvent,
      cb: () => void): void {
     this.audio.addEventListener(event, cb);
   }
