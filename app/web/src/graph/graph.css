@@ -64,3 +64,16 @@
 .marker { fill: none; stroke: currentColor; stroke-width: 1.4; opacity: .55; }
 .marker.good1 { color: var(--g1); }
 .marker.good2 { color: var(--g2); }
+
+/* Tiradores de manipulación. El área de agarre es un círculo transparente de 20 px de
+   radio; esto es solo la marca visible que le dice al alumno que ahí se puede arrastrar.
+   Van separados a propósito: agrandar la marca hasta el tamaño del área taparía la
+   recta, y encogerla al tamaño de la marca dejaría un objetivo imposible en un táctil. */
+.capa-manip .tirador {
+  fill: var(--card, #fff);
+  stroke: var(--accent, #0b5cff);
+  stroke-width: 2.5;
+  transition: r .12s ease;
+}
+.capa-manip circle[cursor]:hover + .tirador,
+.capa-manip circle[cursor]:active + .tirador { r: 11; }

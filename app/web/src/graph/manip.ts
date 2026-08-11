@@ -42,6 +42,8 @@ export function enableDrag(
   let pointEl: SVGCircleElement | null = null;
   let hitX: SVGCircleElement | null = null;
   let hitY: SVGCircleElement | null = null;
+  /** Cada objetivo de agarre con su anillo visible, para moverlos juntos. */
+  const rings: Array<[SVGCircleElement, SVGCircleElement]> = [];
 
   function updateAria() {
     if (mode === "point") {
@@ -95,8 +97,22 @@ export function enableDrag(
         texts[1].textContent = y0.toFixed(0);
       }
 
-      if (hitX) hitX.setAttribute('cx', String(xPx));
-      if (hitY) hitY.setAttribute('cy', String(yPx));
+      // AMBAS coordenadas. Antes solo se fijaba una de las dos, así que `hitX` se
+      // quedaba en cy=0 y `hitY` en cx=0: los tiradores vivían pegados al borde
+      // superior y al izquierdo, a cientos de píxeles de los extremos que el alumno ve.
+      // Como son transparentes, no se notaba mirando — solo intentando arrastrar.
+      if (hitX) {
+        hitX.setAttribute('cx', String(xPx));
+        hitX.setAttribute('cy', String(originYPx));
+      }
+      if (hitY) {
+        hitY.setAttribute('cx', String(originXPx));
+        hitY.setAttribute('cy', String(yPx));
+      }
+    }
+    for (const [target, ring] of rings) {
+      ring.setAttribute("cx", target.getAttribute("cx") ?? "0");
+      ring.setAttribute("cy", target.getAttribute("cy") ?? "0");
     }
     updateAria();
     rafId = null;
@@ -111,12 +127,23 @@ export function enableDrag(
     }
   }
 
+  /** Área de agarre generosa (20 px de radio, muy por encima del mínimo táctil) con un
+   *  anillo visible encima. Un objetivo invisible no es una afordancia: el alumno no
+   *  tiene forma de saber que ese punto se puede arrastrar, ni de saber que falló por
+   *  apuntar mal y no por estar equivocado. */
   function createHitTarget(cursor: string): SVGCircleElement {
+    const ring = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    ring.setAttribute("r", "9");
+    ring.setAttribute("class", "tirador");
+    ring.setAttribute("pointer-events", "none");
+    manipLayer.appendChild(ring);
+
     const el = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     el.setAttribute("r", "20");
     el.setAttribute("fill", "transparent");
     el.setAttribute("cursor", cursor);
     manipLayer.appendChild(el);
+    rings.push([el, ring]);
     return el;
   }
 
