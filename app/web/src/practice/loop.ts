@@ -41,6 +41,10 @@ export interface NextPayload {
     manip_modo?: "point" | "line" | null;
   };
   socratica?: string;
+  /** D-1: en qué brazo cae este ítem y, si lleva pista, el texto ya localizado.
+   *  El cliente NUNCA decide el brazo — lo lee. Si pudiera declararlo, la asignación
+   *  dejaría de estar aleatorizada en cuanto alguien abriera las herramientas. */
+  assist?: { arm: "push" | "solo" | "na"; texto?: string };
 }
 
 const T = {
@@ -117,6 +121,15 @@ export class PracticeLoop {
       // it read as an explanation of a mistake instead of a way into the next attempt.
       if (next.socratica) this.dock.decir(next.socratica);
 
+      // La pista va ANTES de montar la pregunta, o deja de ser una pista.
+      if (next.assist?.texto) {
+        this.dock.decir(next.assist.texto);
+        this.onEvent("assist.nudge_rendered", {
+          question_id: next.question.id, arm: next.assist.arm,
+        });
+      }
+
+      this.flow.marcarPintado();
       const spec = toSpec(next.question);
       const modo = next.question.manip_modo ?? null;
 

@@ -36,6 +36,20 @@ misconceptions:
       en: >
         If you buy one more kilo of coffee, how many liters of juice do you have to give up?
         Tell me with the numbers, not the formula.
+    # BORRADOR PARA KRISTIAN (D-1 / RNP). Se muestra ANTES de que el alumno conteste, en
+    # el brazo con pista. Es declarativo a proposito: la socratic_probe es una PREGUNTA
+    # escrita para despues de un error concreto, y ponerla antes del primer intento
+    # entrega un interrogatorio sin sitio donde contestar. Sin digitos y sin signos de
+    # interrogacion, y el validador lo comprueba.
+    nudge:
+      es: >
+        La pendiente es cuánto del bien del eje vertical tienes que soltar para comprar
+        una unidad más del bien del eje horizontal: el precio de uno, medido en unidades
+        del otro.
+      en: >
+        The slope is how much of the good on the vertical axis you have to give up to buy
+        one more unit of the good on the horizontal axis: the price of one, measured in
+        units of the other.
     representacion_alternativa: numerica
     caso_numerico: >
       Despejar x2 paso a paso desde 3·x1 + 1·x2 = 100, para que la pendiente aparezca
@@ -79,6 +93,14 @@ misconceptions:
       en: >
         If the price of coffee rises but you spend all your income on juice,
         how much juice can you buy now?
+    # BORRADOR PARA KRISTIAN (D-1 / RNP). Ver la nota en BL-M1.
+    nudge:
+      es: >
+        Cada intercepto depende de un solo precio: es todo el ingreso gastado en ese bien.
+        Si cambia el precio del otro bien, ese intercepto no tiene por qué moverse.
+      en: >
+        Each intercept depends on one price only: it is the whole income spent on that
+        good. If the other good's price changes, that intercept has no reason to move.
     representacion_alternativa: tabla
     caso_numerico: >
       Tabla de los dos interceptos, m/p1 y m/p2, antes y después de p1: 3 -> 4.

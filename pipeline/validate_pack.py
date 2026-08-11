@@ -20,6 +20,34 @@ REQ_MISCONCEPTION = {
 }
 
 
+def revisar_nudges(cat: dict, errs: list, warns: list) -> None:
+    """D-1: una pista se muestra ANTES de que el alumno conteste. Dos reglas duras.
+
+    Sin dígitos, porque eso hace estructuralmente imposible que la pista entregue el
+    resultado del ítem que precede — y es comprobable en una línea, a diferencia de "a un
+    revisor le pareció justo". Sin signos de interrogación, porque una pregunta antes del
+    primer intento es un interrogatorio sin sitio donde contestar, bajo una entradilla que
+    prometía una pista.
+    """
+    con = []
+    for mid, m in cat.items():
+        nudge = m.get("nudge")
+        if nudge is None:
+            continue
+        con.append(mid)
+        if set(nudge) != {"es", "en"}:
+            errs.append(f"{mid}.nudge: debe tener es y en, tiene {sorted(nudge)}")
+            continue
+        for lang in ("es", "en"):
+            t = nudge[lang]
+            if any(c.isdigit() for c in t):
+                errs.append(f"{mid}/{lang}: la pista lleva digitos y podria entregar la respuesta")
+            if "?" in t or "\u00bf" in t:
+                errs.append(f"{mid}/{lang}: la pista es una pregunta; debe ser afirmativa")
+    if con:
+        warns.append(f"D-1: {len(con)}/{len(cat)} misconceptions con pista: {sorted(con)}")
+
+
 def main() -> int:
     pack_dir = pathlib.Path(sys.argv[1])
     errs: list[str] = []
@@ -34,6 +62,7 @@ def main() -> int:
 
     skills = {s["id"]: s for s in pack["sub_skills"]}
     cat = {m["id"]: m for m in misc["misconceptions"]}
+    revisar_nudges(cat, errs, warns)
 
     # esquema de cada misconception
     for mid, m in cat.items():

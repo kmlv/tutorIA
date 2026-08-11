@@ -66,6 +66,20 @@ class Repo:
             # el INSERT fallaría en runtime con la BD local de Kristian y no en los tests.
             self._ensure_column("answers", "cost_usd", "REAL")
             self._ensure_column("answers", "shadow", "INTEGER NOT NULL DEFAULT 0")
+            # D-1 / RNP. Columnas y no campos dentro de `raw_answer`, por el mismo motivo
+            # documentado que `shadow`: la lectura tiene que poder escribir
+            # `WHERE assist_arm = 'solo'` explicitamente, y `evidence()` tiene que ser
+            # demostrablemente incapaz de verlas.
+            self._ensure_column("answers", "assist_arm", "TEXT NOT NULL DEFAULT 'na'")
+            self._ensure_column("answers", "pair_id", "TEXT")
+            self._ensure_column("answers", "pair_pos", "INTEGER")
+            self._ensure_column("answers", "probe_id", "TEXT")
+            #: milisegundos entre que se pinta el item y que se envia. NO es latency_ms,
+            #: que es la latencia del juez.
+            self._ensure_column("answers", "think_ms", "INTEGER")
+            self._ensure_column("chat_messages", "question_id", "TEXT")
+            self.conn.execute(
+                "CREATE INDEX IF NOT EXISTS idx_answers_pair ON answers(pair_id)")
             self.conn.commit()
 
     def _ensure_column(self, table: str, column: str, decl: str) -> None:
@@ -174,12 +188,17 @@ class Repo:
     # ---- chat --------------------------------------------------------------
     def record_chat(self, *, session_id: str, role: str, content: str, phase: str,
                     model: str | None = None, tokens_in: int | None = None,
-                    tokens_out: int | None = None) -> None:
+                    tokens_out: int | None = None,
+                    question_id: str | None = None) -> None:
+        """`question_id` ya viajaba en `ChatIn` y se tiraba aquí. Guardarlo da atribución
+        exacta de si el alumno pidió ayuda en ESTE ítem, sin heurísticas de ventana
+        temporal — que es lo que D-1 necesita para `assist_pulled`."""
         with self._lock:
             self.conn.execute(
                 "INSERT INTO chat_messages (session_id, role, content, phase, model, "
-                "tokens_in, tokens_out, created_at) VALUES (?,?,?,?,?,?,?,?)",
-                (session_id, role, content, phase, model, tokens_in, tokens_out, now()),
+                "tokens_in, tokens_out, question_id, created_at) VALUES (?,?,?,?,?,?,?,?,?)",
+                (session_id, role, content, phase, model, tokens_in, tokens_out,
+                 question_id, now()),
             )
             self.conn.commit()
 
@@ -249,7 +268,9 @@ class Repo:
                       con_andamiaje: bool = False, judge_json: str | None = None,
                       model: str | None = None, prompt_version: str | None = None,
                       latency_ms: int | None = None, cost_usd: float | None = None,
-                      shadow: bool = False) -> int:
+                      shadow: bool = False, assist_arm: str = "na",
+                      pair_id: str | None = None, pair_pos: int | None = None,
+                      probe_id: str | None = None, think_ms: int | None = None) -> int:
         """`model` y `prompt_version` son COLUMNAS, no campos del blob: cuando se cambie
         de modelo hay que poder saber qué diagnósticos vinieron de cuál, o los datos
         históricos dejan de ser comparables."""
@@ -261,12 +282,14 @@ class Repo:
             self.conn.execute(
                 "INSERT INTO answers (session_id, question_id, attempt, modalidad, raw_answer, "
                 "grader, score, misconception_id, con_andamiaje, judge_json, model, "
-                "prompt_version, latency_ms, cost_usd, shadow, created_at) "
-                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                "prompt_version, latency_ms, cost_usd, shadow, assist_arm, pair_id, "
+                "pair_pos, probe_id, think_ms, created_at) "
+                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                 (session_id, question_id, row["n"], modalidad,
                  json.dumps(raw_answer, ensure_ascii=False), grader, score, misconception_id,
                  1 if con_andamiaje else 0, judge_json, model, prompt_version, latency_ms,
-                 cost_usd, 1 if shadow else 0, now()),
+                 cost_usd, 1 if shadow else 0, assist_arm, pair_id, pair_pos, probe_id,
+                 think_ms, now()),
             )
             self.conn.commit()
             return row["n"]

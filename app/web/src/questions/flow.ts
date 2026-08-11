@@ -68,13 +68,29 @@ export class QuestionFlow {
     return v;
   }
 
+  /** Cuándo se pintó el ítem que el alumno tiene delante. Lo pone `ask`/`submitManip`.
+   *
+   *  Es una COVARIABLE que se guarda, nunca una entrada de ninguna regla: ningún veredicto
+   *  ni marca se condiciona a ella. Un suelo de latencia como criterio anularía verdaderos
+   *  positivos —ejecutar una receta de memoria es rápido y confundirse de verdad es lento—
+   *  y conservaría los confusores. Y NO es `latency_ms`, que es la latencia del juez. */
+  private pintadoEn: number | null = null;
+
+  marcarPintado(): void {
+    this.pintadoEn = performance.now();
+  }
+
   private async submit(r: Respuesta): Promise<Verdict> {
+    const think = this.pintadoEn === null
+      ? null : Math.round(performance.now() - this.pintadoEn);
+    this.pintadoEn = null;
     try {
       const res = await fetch(`/api/session/${this.sessionId}/answer`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           question_id: r.question_id, valor: r.valor, con_andamiaje: r.con_andamiaje,
+          think_ms: think,
         }),
       });
       if (!res.ok) throw new Error(String(res.status));

@@ -96,6 +96,12 @@ class Misconception(BaseModel):
     subskills: list[str]
     señal_observable: str
     socratic_probe: Localized
+    #: One declarative sentence shown BEFORE the student answers, in the nudged arm of
+    #: D-1. Optional: an item whose confusions have no nudge simply is not pushable.
+    #: It cannot be `socratic_probe` reused — that one is a question written for AFTER a
+    #: specific wrong answer, and asking it first hands the student an interrogation with
+    #: nowhere to reply, under a lead-in that promised a hint.
+    nudge: Localized | None = None
     representacion_alternativa: str
     caso_numerico: str
     distractor: Localized
