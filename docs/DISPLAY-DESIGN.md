@@ -4,7 +4,7 @@ Synthesis of T-010, a four-way design consult. Written by `claude` (Opus 5) as l
 from independent proposals by `agy` (Gemini), `codex` (GPT-5.6), `fable` (Fable-5) and
 claude.
 
-**Status: proposal. Kristian has not signed off, and two questions below are his.**
+**Status: APPROVED by Kristian, 2026-08-11. Both open questions resolved (§6). In implementation.**
 
 ---
 
@@ -186,7 +186,13 @@ reflows. Under `prefers-reduced-motion` every verb becomes a crossfade.
 
 ## 6. Open for Kristian
 
-### K1 · Which good is x₁?
+### K1 · RESOLVED — coffee is x₁
+
+> Kristian, 2026-08-11: *"café es x1"*. The pack does not change; coffee stays good 1
+> on the horizontal axis. What changes is that the binding must now be **shown**, which
+> is the whole point of the redesign.
+
+#### Original question, kept for the record
 
 You said *"ounces of coffee … x₂"* and *"orange juice … x₁"*, which is the **reverse** of
 the pack, where coffee is good 1. `agy` adopted your version; `codex` and `claude` flagged
@@ -200,7 +206,18 @@ Weak recommendation: keep coffee as good 1, so the expensive good is on the hori
 axis and the slope is steeper than 1, which makes the trade-off easier to see. But this
 is yours.
 
-### K2 · Is the choreography worth it?
+### K2 · RESOLVED — intermediate: states plus `morph` and `project`
+
+> Kristian, 2026-08-11: *"usa el nivel intermedio de coreografía"*.
+>
+> So: build the three bands, the cards, the assembled equation and the cross-highlighting
+> with crossfades, PLUS the two verbs that carry causal claims — `morph` (a glyph or a
+> value changing in place) and `project` (an equation term casting its geometric
+> consequence). `dock` and `clone-travel` are OUT: they communicate origin, which the
+> persistent cards already do statically, and they are what would have been expensive
+> for Remotion and Manim to reproduce in M4.
+
+#### Original question, kept for the record
 
 The provenance invariant is the best idea here, and it is also the most expensive and the
 least portable: the M4 bake-off options would have to reproduce the same motion, and

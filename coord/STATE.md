@@ -8,19 +8,21 @@ Protocol version: 0.4.22
 
 ## Active Task
 
-- Task: T-010 Design consult: display architecture for the concept delivery
+- Task: T-011 Implement the approved display architecture: ledger band, stage, captions
 - Lead: claude
 - Reviewer: codex
 - Review route: full-mesh
 - Importance: principal-requested
 - Reviewers: codex,agy,fable
 - Council session: none
-- Active thread: coord/threads/2026-08-11-T-010-design-consult-display-architecture-for-the-concept-delivery.md
+- Active thread: coord/threads/2026-08-11-T-011-implement-the-approved-display-architecture-ledger-band-stag.md
 - Status: active
 
 ## Current Ownership
 
-- docs/DISPLAY-DESIGN.md: claude
+- app/web/src/ledger/**: claude
+- app/web/src/main.ts: claude
+- pipeline/render_math.mjs: claude
 
 ## Last Validated State
 

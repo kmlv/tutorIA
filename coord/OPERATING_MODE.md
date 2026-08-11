@@ -2,37 +2,51 @@
 
 Principal: Kristian
 
-Last updated UTC: 2026-08-11T00:04:49Z
+Last updated UTC: 2026-08-11T00:20:01Z
 Derived from: coord/STATE.md
 
 ## Current Mode
 
-- Mode: iteration
-- Active task: T-010 Design consult: display architecture for the concept delivery
+- Mode: implementation
+- Active task: T-011 Implement the approved display architecture: ledger band, stage, captions
 - Lead: claude
 - Reviewer: codex
 - Review route: full-mesh
 - Importance: principal-requested
 - Reviewers: codex,agy,fable
 - Council session: none
-- Active thread: coord/threads/2026-08-11-T-010-design-consult-display-architecture-for-the-concept-delivery.md
+- Active thread: coord/threads/2026-08-11-T-011-implement-the-approved-display-architecture-ledger-band-stag.md
 - Check cadence: 5m
 - Next check due: manual
-- Stop condition: four blind proposals, cross-critique, synthesis Kristian signs off
-- Edit budget: proposal-only
+- Stop condition: the three bands render, morph and project work, and the good->unit->symbol->equation->graph chain is visible at every cue
+- Edit budget: implementation
 - Duration limit: none
 - Codex resume target: --last
 - Wake targets:
   - codex: codex exec -C {project} --skip-git-repo-check --sandbox workspace-write resume --last {prompt}
   - agy: agy --sandbox --dangerously-skip-permissions -p {prompt}
   - claude: claude -p {prompt} --permission-mode acceptEdits --allowedTools Bash(./coord-msg.sh:*),Bash(coord-msg.sh:*) --name coord-wake
-  - fable: claude -p --output-format stream-json --verbose --model claude-fable-5 --max-budget-usd 25.00 --permission-mode acceptEdits --allowedTools Bash(./coord-msg.sh:*),Bash(coord-msg.sh:*) --no-session-persistence {prompt}
 - Self-wakeable agents: claude,codex,agy,fable
 - Active loop drivers: none
 
 ## Edit Ownership
 
-- docs/DISPLAY-DESIGN.md: claude
+STRICT and disjoint — three agents editing simultaneously. Each module owns its own CSS
+file. Do not edit outside your set; post it and the owner applies it.
+
+- app/web/src/graph/**            : agy
+- app/web/src/captions/**         : codex
+- app/server/core/content/transcript.py : codex (new file)
+- pipeline/cues.py                : codex
+- app/web/src/ledger/**           : claude
+- app/web/src/main.ts             : claude
+- app/web/src/styles.css          : claude  <- the collision risk, do not touch
+- pipeline/render_math.mjs        : claude
+- content/**                      : claude
+
+- app/web/src/ledger/**: claude
+- app/web/src/main.ts: claude
+- pipeline/render_math.mjs: claude
 
 ## Iteration Rules
 

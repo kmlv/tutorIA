@@ -1,6 +1,6 @@
 # Coordination Board
 
-Last updated UTC: 2026-08-11T00:04:49Z
+Last updated UTC: 2026-08-11T00:20:01Z
 
 ## Backlog
 
@@ -11,6 +11,7 @@ Last updated UTC: 2026-08-11T00:04:49Z
 
 | Task | Title | Owner | Reviewer | Scope | Next Step |
 |---|---|---|---|---|---|
+| T-011 | Implement the approved display architecture: ledger band, stage, captions | claude | codex | app/web/src/ledger/**,app/web/src/main.ts,pipeline/render_math.mjs | active |
 | T-010 | Design consult: display architecture for the concept delivery | claude | codex | docs/DISPLAY-DESIGN.md | active |
 | T-005 | M2 parallel: graph manipulation (agy) + grader review (codex) + question flow (claude) | claude | codex | app/web/src/questions/**,app/web/src/main.ts,app/web/src/chat/** | active |
 

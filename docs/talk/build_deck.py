@@ -136,11 +136,21 @@ def cmd_deck(src: pathlib.Path, base: pathlib.Path, out: pathlib.Path):
         for i, s in enumerate(slides)
     )
 
+    # Captions come from the same sentence timings that drive the slides, so a
+    # caption can never disagree with what is being said.
+    cues = [
+        {"t": round(float(s.get("start_s", 0)), 2),
+         "e": round(float(s.get("end_s", 0)), 2),
+         "x": " ".join(str(s.get("text", "")).split())}
+        for s in segments if str(s.get("text", "")).strip()
+    ]
+
     out.write_text(
         TEMPLATE
         .replace("__TITLE__", html.escape(title))
         .replace("__SLIDES__", slides_html)
         .replace("__NAV__", nav)
+        .replace("__CAPTIONS__", json.dumps(cues, ensure_ascii=False))
         .replace("__AUDIO__", audio_b64)
         .replace("__DURATION__", f"{duration:.1f}"),
         encoding="utf-8",
@@ -240,6 +250,16 @@ ol.changes{margin:8px 0 0;padding-left:1.4em;font-size:20px;display:flex;
 .layer.base{border-color:var(--accent);color:var(--accent);font-weight:600}
 .closing h2{font-size:44px;max-width:20em}
 .closing-body{font-size:26px;line-height:1.4;color:var(--fg);max-width:32em;margin:14px 0 0}
+/* Captions get their own row rather than overlaying the slide: slide content is
+   vertically centred in a fixed 1280x720 box, so an overlay would sometimes sit
+   on top of a table. The row collapses when captions are off and the stage
+   grows back into the space. */
+#cc{flex:0 0 auto;display:none;padding:0 18px 12px;justify-content:center}
+#cc.on{display:flex}
+#cc p{margin:0;max-width:60em;text-align:center;font-size:21px;line-height:1.45;
+  background:var(--card);border:1px solid var(--rule);border-radius:10px;
+  padding:12px 20px;min-height:1.45em}
+#ccbtn.on{border-color:var(--accent);color:var(--accent);font-weight:700}
 #bar{display:flex;align-items:center;gap:14px;padding:10px 18px;
   border-top:1px solid var(--rule);background:var(--card);flex:0 0 auto}
 button{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--rule);
@@ -258,8 +278,11 @@ button:hover{border-color:var(--accent)}
 
 <div id="stage"><div id="frame">__SLIDES__</div></div>
 
+<div id="cc"><p id="cctext"></p></div>
+
 <div id="bar">
   <button id="play">Play</button>
+  <button id="ccbtn" title="Captions (c)">CC</button>
   <button data-skip="-5">−5s</button>
   <button data-skip="5">+5s</button>
   <button id="prev">◀</button>
@@ -314,8 +337,42 @@ button:hover{border-color:var(--accent)}
     s=Math.max(0,s|0); return (s/60|0)+':'+('0'+(s%60)).slice(-2);
   }
 
+  // --- captions ---------------------------------------------------------
+  var CUES=__CAPTIONS__,
+      ccBox=document.getElementById('cc'),
+      ccText=document.getElementById('cctext'),
+      ccBtn=document.getElementById('ccbtn'),
+      ccOn=false, ccLast=-1;
+
+  function caption(t){
+    if(!ccOn) return;
+    // Forward-biased scan: cues are ordered, so start from the last hit.
+    var i=ccLast>=0&&CUES[ccLast]&&t>=CUES[ccLast].t?ccLast:0;
+    if(i>0&&t<CUES[i].t) i=0;
+    var hit=-1;
+    for(;i<CUES.length;i++){
+      if(CUES[i].t<=t&&t<=CUES[i].e){ hit=i; break; }
+      if(CUES[i].t>t) break;
+    }
+    if(hit===ccLast) return;
+    ccLast=hit;
+    ccText.textContent = hit>=0 ? CUES[hit].x : '';
+  }
+  function toggleCC(){
+    ccOn=!ccOn;
+    ccBox.classList.toggle('on',ccOn);
+    ccBtn.classList.toggle('on',ccOn);
+    ccBtn.setAttribute('aria-pressed',ccOn?'true':'false');
+    if(!ccOn) ccText.textContent='';
+    else { ccLast=-1; caption(a.currentTime); }
+    fit();  // the stage just changed height; rescale the slide
+  }
+  ccBtn.setAttribute('aria-pressed','false');
+  ccBtn.onclick=toggleCC;
+
   a.addEventListener('timeupdate',function(){
     show(indexAt(a.currentTime));
+    caption(a.currentTime);
     seek.value=a.currentTime;
     document.getElementById('time').textContent=
       fmt(a.currentTime)+' / '+fmt(a.duration||0);
@@ -346,6 +403,7 @@ button:hover{border-color:var(--accent)}
     else if(e.key==='ArrowLeft'){ e.preventDefault(); go(cur-1); }
     else if(e.key==='Home'){ go(0); }
     else if(e.key==='End'){ go(slides.length-1); }
+    else if(e.key==='c'||e.key==='C'){ toggleCC(); }
   });
 
   // The synthesiser reads at ~187 wpm, which is brisk for a lecture. 0.9 lands
