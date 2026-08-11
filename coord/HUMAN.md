@@ -5,6 +5,25 @@ without the principal.
 
 ## Open
 
+### H-006 — 2026-08-11: tres cosas del bake-off que solo puedes decidir tu
+
+**1. Los pesos de los criterios.** Los mios estan pre-registrados en
+`docs/M4-PREREGISTRO.md`, en un commit ANTERIOR a cualquier medicion — eso se puede
+comprobar en git y es el unico motivo por el que los numeros significan algo. Son una
+propuesta sustituible: cambia los cinco numeros y `bakeoff/score.py` recalcula. El
+barrido ya dice cuanto importan, y hoy importan poco: A gana el 91,7% de las
+ponderaciones plausibles.
+
+**2. Si aceptas que estreche M4 sobre evidencia.** Construi B (Remotion) completo y NO
+construi C (Manim) ni D (hibrido) como brazos. El razonamiento esta en
+`bakeoff/00-barrido-provisional.md` y se puede revocar: si quieres los tres timeboxes,
+se hacen.
+
+**3. Las dos pistas de D-1.** `BL-M1` y `BL-M3` en `misconceptions.yaml` llevan un campo
+`nudge` marcado **BORRADOR PARA KRISTIAN**. Las escribio el panel de diseno y las revise
+yo; las lee un alumno tuyo antes de contestar. Faltan cinco, y con dos el experimento solo
+alcanza 2 pares por sesion — medido, no estimado.
+
 ### H-005 — 2026-08-11: el gold set NO se etiqueta a mano en el PoC
 
 **Decision de Kristian, textual:** *"no voy a etiquetar. porque este contenido es para
