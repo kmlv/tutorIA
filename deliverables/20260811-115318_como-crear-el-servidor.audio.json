@@ -1,0 +1,554 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-11T16:53:47.827517+00:00",
+  "title": "Como crear el servidor",
+  "provider": "edge",
+  "duration_s": 321.216,
+  "audio": "20260811-115318_como-crear-el-servidor.mp3",
+  "transcript": "20260811-115318_como-crear-el-servidor.md",
+  "player": "20260811-115318_como-crear-el-servidor.player.html",
+  "sync": {
+    "segments": [
+      {
+        "text": "Kristian, te lo explico desde el principio y sin jerga, porque creo que te la he estado tirando encima.",
+        "start_s": 0.1,
+        "end_s": 6.13,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y al final te digo exactamente qué botones tocar.",
+        "start_s": 6.08,
+        "end_s": 9.386,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Primero, qué es lo que tenemos.",
+        "start_s": 9.386,
+        "end_s": 12.034,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Para que tus colegas puedan abrir tutorIA desde su casa, hace falta una computadora encendida las veinticuatro horas, con dirección propia en internet.",
+        "start_s": 12.034,
+        "end_s": 20.364,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Eso es un servidor.",
+        "start_s": 20.364,
+        "end_s": 22.33,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Tú ya alquilas uno: está en Finlandia, te cuesta unos trece dólares al mes, y lleva funcionando desde marzo.",
+        "start_s": 22.33,
+        "end_s": 29.227,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Pero esa computadora no está vacía.",
+        "start_s": 29.227,
+        "end_s": 31.966,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Tiene algo tuyo corriendo dentro, que se llama openclaw, y lleva cuatro meses funcionando sin fallar.",
+        "start_s": 31.966,
+        "end_s": 38.0,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Tú me dijiste, con razón, que eso no se toca.",
+        "start_s": 38.0,
+        "end_s": 41.716,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Segundo, y esto es importante: lo que yo proponía nunca iba a apagar openclaw.",
+        "start_s": 41.716,
+        "end_s": 46.943,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Piénsalo como un edificio con muchas puertas numeradas.",
+        "start_s": 46.943,
+        "end_s": 50.682,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "openclaw usa dos puertas, la dieciocho mil setecientos ochenta y nueve y la siguiente.",
+        "start_s": 50.682,
+        "end_s": 55.852,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "tutorIA usaría otras dos, las que usan todas las páginas web.",
+        "start_s": 55.852,
+        "end_s": 60.216,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Nadie se pisa.",
+        "start_s": 60.216,
+        "end_s": 61.99,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Lo comprobé antes de proponértelo, justamente porque sabía que era la pregunta.",
+        "start_s": 61.99,
+        "end_s": 66.864,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Entonces, ¿por qué te dije que tu instinto era bueno igual?",
+        "start_s": 66.864,
+        "end_s": 70.705,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Por una razón distinta, y es la que de verdad importa.",
+        "start_s": 70.705,
+        "end_s": 74.398,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Las dos cosas compartirían el disco duro.",
+        "start_s": 74.398,
+        "end_s": 77.261,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y ese disco está casi lleno: de treinta y ocho gigas, quedan menos de seis libres.",
+        "start_s": 77.261,
+        "end_s": 82.614,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Instalar tutorIA ahí consume espacio temporalmente mientras se construye.",
+        "start_s": 82.614,
+        "end_s": 87.068,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Si en algún momento el disco se llena del todo, el que sufre no es solo lo mío: openclaw también se queda sin poder escribir, y eso sí lo tumbaría.",
+        "start_s": 87.068,
+        "end_s": 95.341,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Así que el riesgo real no eran las puertas.",
+        "start_s": 95.341,
+        "end_s": 98.477,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Era el disco.",
+        "start_s": 98.477,
+        "end_s": 100.102,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y aquí hay algo que quiero que oigas aparte, porque no tiene que ver con tutorIA: ese disco necesita limpieza de todos modos.",
+        "start_s": 100.102,
+        "end_s": 107.261,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cuatro de los seis gigas que faltan son archivos de registro acumulados.",
+        "start_s": 107.261,
+        "end_s": 111.534,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Un servidor con el disco casi lleno, corriendo algo que tú das por hecho que funciona, es un problema esperando.",
+        "start_s": 111.534,
+        "end_s": 117.886,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Eso te lo puedo limpiar hoy sin tocar openclaw, y deberías dejarme hacerlo aunque decidamos no poner tutorIA ahí.",
+        "start_s": 117.886,
+        "end_s": 124.284,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Tercero, la recomendación: alquila una segunda computadora, solo para tutorIA.",
+        "start_s": 124.284,
+        "end_s": 129.932,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cuesta entre cuatro y cinco euros al mes.",
+        "start_s": 129.932,
+        "end_s": 132.875,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Para ponerlo en perspectiva: ya pagas trece dólares de esta y unos cien de Amazon.",
+        "start_s": 132.875,
+        "end_s": 137.966,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Es ruido en tu presupuesto.",
+        "start_s": 137.966,
+        "end_s": 140.091,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y las razones, que no son de dinero.",
+        "start_s": 140.091,
+        "end_s": 142.989,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "tutorIA va a cambiar cada semana, va a recibir gente de fuera, y guarda lo que los estudiantes escriben en el chat.",
+        "start_s": 142.989,
+        "end_s": 149.511,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "openclaw es lo contrario: estable y privado.",
+        "start_s": 149.511,
+        "end_s": 152.852,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Quieres poder repartir la dirección de tutorIA sin que apunte a una máquina donde vive otra cosa tuya.",
+        "start_s": 152.852,
+        "end_s": 158.261,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y quieres que si yo rompo algo, no exista ni la posibilidad de que llegue a openclaw.",
+        "start_s": 158.261,
+        "end_s": 163.091,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Separarlas lo garantiza; compartir solo lo hace poco probable.",
+        "start_s": 163.091,
+        "end_s": 167.295,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cuarto, y esto explica por qué te pido que lo crees tú.",
+        "start_s": 167.295,
+        "end_s": 170.898,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Existe una forma de que yo cree el servidor solo: me das una llave maestra de tu cuenta de Hetzner, lo que ellos llaman un token.",
+        "start_s": 171.328,
+        "end_s": 178.414,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El problema es que esa llave no sirve solo para crear.",
+        "start_s": 178.364,
+        "end_s": 182.023,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "También sirve para borrar — incluida la computadora donde vive openclaw.",
+        "start_s": 182.023,
+        "end_s": 186.501,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Darme eso para que yo alquile una máquina de cuatro euros es entregar mucho más poder del que la tarea necesita.",
+        "start_s": 186.501,
+        "end_s": 192.535,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Tú haciendo un clic es más seguro y más rápido.",
+        "start_s": 192.535,
+        "end_s": 195.58,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Es la misma idea que con la contraseña que me pasaste antes: el acceso debe ser el mínimo que hace el trabajo, no el máximo que está a mano.",
+        "start_s": 195.58,
+        "end_s": 203.285,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y ahora, los pasos.",
+        "start_s": 203.285,
+        "end_s": 205.569,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Son cinco minutos tuyos.",
+        "start_s": 205.569,
+        "end_s": 208.023,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Uno.",
+        "start_s": 208.023,
+        "end_s": 209.252,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Entra a la consola de Hetzner, en console punto hetzner punto cloud, con tu correo de la universidad.",
+        "start_s": 209.252,
+        "end_s": 215.126,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Si todavía no cambiaste la contraseña que me pegaste en el chat, cámbiala primero.",
+        "start_s": 215.126,
+        "end_s": 220.183,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Eso es lo primero de todo.",
+        "start_s": 220.183,
+        "end_s": 222.421,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Dos.",
+        "start_s": 222.421,
+        "end_s": 223.706,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Vas a ver tus proyectos.",
+        "start_s": 223.706,
+        "end_s": 225.853,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Entra al que tiene el servidor de openclaw.",
+        "start_s": 225.853,
+        "end_s": 228.58,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Tres.",
+        "start_s": 228.58,
+        "end_s": 229.853,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Busca la sección de servidores y el botón de añadir uno nuevo.",
+        "start_s": 229.853,
+        "end_s": 233.41,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Suele decir \"Add Server\", arriba a la derecha.",
+        "start_s": 233.41,
+        "end_s": 236.648,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Cuatro.",
+        "start_s": 236.648,
+        "end_s": 237.887,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Te va a preguntar cuatro cosas.",
+        "start_s": 237.887,
+        "end_s": 240.262,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "La ubicación: elige Helsinki, que es donde ya está el otro.",
+        "start_s": 240.262,
+        "end_s": 244.614,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "La imagen, que es el sistema operativo: Ubuntu, la versión veinticuatro.",
+        "start_s": 244.614,
+        "end_s": 249.637,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El tipo de máquina: busca la categoría compartida y elige la que se llama ce equis veintidós.",
+        "start_s": 249.637,
+        "end_s": 255.546,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y lo más importante: en la parte de llaves ese hache, marca la que ya tienes, la que dice hetzner openclaw.",
+        "start_s": 255.546,
+        "end_s": 261.944,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Si no marcas esa, yo no voy a poder entrar.",
+        "start_s": 261.944,
+        "end_s": 265.194,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Cinco.",
+        "start_s": 265.194,
+        "end_s": 266.558,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Le das a crear.",
+        "start_s": 266.558,
+        "end_s": 268.296,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "En menos de un minuto te aparece una dirección numérica, cuatro números separados por puntos.",
+        "start_s": 268.296,
+        "end_s": 273.671,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Esa dirección me la pasas por aquí.",
+        "start_s": 273.671,
+        "end_s": 276.217,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "No es secreta; es como el número de la calle.",
+        "start_s": 276.217,
+        "end_s": 279.421,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y ya está.",
+        "start_s": 279.421,
+        "end_s": 280.955,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "A partir de ahí lo hago yo todo: instalar lo que haga falta, poner tutorIA, y comprobar que la lección funciona entera en español y en inglés antes de decirte que está lista.",
+        "start_s": 280.955,
+        "end_s": 290.228,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Lo único que vas a tener que hacer tú es escribir tu clave de OpenAI en un archivo dentro de ese servidor, porque esa no la toco yo.",
+        "start_s": 290.228,
+        "end_s": 297.626,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Resumo.",
+        "start_s": 297.626,
+        "end_s": 299.06,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Tu instinto era correcto aunque por otro motivo: no eran las puertas, era el disco.",
+        "start_s": 299.06,
+        "end_s": 304.126,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Alquila una segunda máquina pequeña, márcale la llave que ya tienes, y mándame la dirección.",
+        "start_s": 304.126,
+        "end_s": 309.967,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y déjame limpiar el disco del servidor de openclaw de todos modos, porque eso le hace falta a lo tuyo, no a lo mío.",
+        "start_s": 309.967,
+        "end_s": 316.66,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Si algo de esto no te cuadra, dímelo y lo desarmamos otra vez.",
+        "start_s": 316.66,
+        "end_s": 321.114,
+        "part_index": 1,
+        "speaker": null
+      }
+    ],
+    "granularity": "sentence",
+    "source": "edge-sentence-boundary",
+    "timebase": "media_seconds"
+  },
+  "tags": [],
+  "formulas": [],
+  "transcript_text": "# Como crear el servidor\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, te lo explico desde el principio y sin jerga, porque creo que te la he estado tirando encima. Y al final te digo exactamente qué botones tocar.\n\nPrimero, qué es lo que tenemos.\n\nPara que tus colegas puedan abrir tutorIA desde su casa, hace falta una computadora encendida las veinticuatro horas, con dirección propia en internet. Eso es un servidor. Tú ya alquilas uno: está en Finlandia, te cuesta unos trece dólares al mes, y lleva funcionando desde marzo.\n\nPero esa computadora no está vacía. Tiene algo tuyo corriendo dentro, que se llama openclaw, y lleva cuatro meses funcionando sin fallar. Tú me dijiste, con razón, que eso no se toca.\n\nSegundo, y esto es importante: **lo que yo proponía nunca iba a apagar openclaw.**\n\nPiénsalo como un edificio con muchas puertas numeradas. openclaw usa dos puertas, la dieciocho mil setecientos ochenta y nueve y la siguiente. tutorIA usaría otras dos, las que usan todas las páginas web. Nadie se pisa. Lo comprobé antes de proponértelo, justamente porque sabía que era la pregunta.\n\nEntonces, ¿por qué te dije que tu instinto era bueno igual? Por una razón distinta, y es la que de verdad importa.\n\nLas dos cosas compartirían el disco duro. Y ese disco está casi lleno: de treinta y ocho gigas, quedan menos de seis libres. Instalar tutorIA ahí consume espacio temporalmente mientras se construye. Si en algún momento el disco se llena del todo, el que sufre no es solo lo mío: **openclaw también se queda sin poder escribir**, y eso sí lo tumbaría.\n\nAsí que el riesgo real no eran las puertas. Era el disco.\n\nY aquí hay algo que quiero que oigas aparte, porque no tiene que ver con tutorIA: **ese disco necesita limpieza de todos modos.** Cuatro de los seis gigas que faltan son archivos de registro acumulados. Un servidor con el disco casi lleno, corriendo algo que tú das por hecho que funciona, es un problema esperando. Eso te lo puedo limpiar hoy sin tocar openclaw, y deberías dejarme hacerlo aunque decidamos no poner tutorIA ahí.\n\nTercero, la recomendación: alquila una segunda computadora, solo para tutorIA.\n\nCuesta entre cuatro y cinco euros al mes. Para ponerlo en perspectiva: ya pagas trece dólares de esta y unos cien de Amazon. Es ruido en tu presupuesto.\n\nY las razones, que no son de dinero. tutorIA va a cambiar cada semana, va a recibir gente de fuera, y guarda lo que los estudiantes escriben en el chat. openclaw es lo contrario: estable y privado. Quieres poder repartir la dirección de tutorIA sin que apunte a una máquina donde vive otra cosa tuya. Y quieres que si yo rompo algo, no exista ni la posibilidad de que llegue a openclaw. Separarlas lo garantiza; compartir solo lo hace poco probable.\n\nCuarto, y esto explica por qué te pido que lo crees tú.\n\nExiste una forma de que yo cree el servidor solo: me das una llave maestra de tu cuenta de Hetzner, lo que ellos llaman un token. El problema es que esa llave no sirve solo para crear. **También sirve para borrar** — incluida la computadora donde vive openclaw. Darme eso para que yo alquile una máquina de cuatro euros es entregar mucho más poder del que la tarea necesita. Tú haciendo un clic es más seguro y más rápido.\n\nEs la misma idea que con la contraseña que me pasaste antes: el acceso debe ser el mínimo que hace el trabajo, no el máximo que está a mano.\n\nY ahora, los pasos. Son cinco minutos tuyos.\n\nUno. Entra a la consola de Hetzner, en console punto hetzner punto cloud, con tu correo de la universidad. Si todavía no cambiaste la contraseña que me pegaste en el chat, cámbiala primero. Eso es lo primero de todo.\n\nDos. Vas a ver tus proyectos. Entra al que tiene el servidor de openclaw.\n\nTres. Busca la sección de servidores y el botón de añadir uno nuevo. Suele decir \"Add Server\", arriba a la derecha.\n\nCuatro. Te va a preguntar cuatro cosas. La ubicación: elige Helsinki, que es donde ya está el otro. La imagen, que es el sistema operativo: Ubuntu, la versión veinticuatro. El tipo de máquina: busca la categoría compartida y elige la que se llama ce equis veintidós. Y lo más importante: en la parte de llaves ese hache, **marca la que ya tienes**, la que dice hetzner openclaw. Si no marcas esa, yo no voy a poder entrar.\n\nCinco. Le das a crear. En menos de un minuto te aparece una dirección numérica, cuatro números separados por puntos. Esa dirección me la pasas por aquí. No es secreta; es como el número de la calle.\n\nY ya está. A partir de ahí lo hago yo todo: instalar lo que haga falta, poner tutorIA, y comprobar que la lección funciona entera en español y en inglés antes de decirte que está lista. Lo único que vas a tener que hacer tú es escribir tu clave de OpenAI en un archivo dentro de ese servidor, porque esa no la toco yo.\n\nResumo. Tu instinto era correcto aunque por otro motivo: no eran las puertas, era el disco. Alquila una segunda máquina pequeña, márcale la llave que ya tienes, y mándame la dirección. Y déjame limpiar el disco del servidor de openclaw de todos modos, porque eso le hace falta a lo tuyo, no a lo mío.\n\nSi algo de esto no te cuadra, dímelo y lo desarmamos otra vez.\n\n",
+  "formula_text": "",
+  "search_text": "Como crear el servidor # Como crear el servidor\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, te lo explico desde el principio y sin jerga, porque creo que te la he estado tirando encima. Y al final te digo exactamente qué botones tocar.\n\nPrimero, qué es lo que tenemos.\n\nPara que tus colegas puedan abrir tutorIA desde su casa, hace falta una computadora encendida las veinticuatro horas, con dirección propia en internet. Eso es un servidor. Tú ya alquilas uno: está en Finlandia, te cuesta unos trece dólares al mes, y lleva funcionando desde marzo.\n\nPero esa computadora no está vacía. Tiene algo tuyo corriendo dentro, que se llama openclaw, y lleva cuatro meses funcionando sin fallar. Tú me dijiste, con razón, que eso no se toca.\n\nSegundo, y esto es importante: **lo que yo proponía nunca iba a apagar openclaw.**\n\nPiénsalo como un edificio con muchas puertas numeradas. openclaw usa dos puertas, la dieciocho mil setecientos ochenta y nueve y la siguiente. tutorIA usaría otras dos, las que usan todas las páginas web. Nadie se pisa. Lo comprobé antes de proponértelo, justamente porque sabía que era la pregunta.\n\nEntonces, ¿por qué te dije que tu instinto era bueno igual? Por una razón distinta, y es la que de verdad importa.\n\nLas dos cosas compartirían el disco duro. Y ese disco está casi lleno: de treinta y ocho gigas, quedan menos de seis libres. Instalar tutorIA ahí consume espacio temporalmente mientras se construye. Si en algún momento el disco se llena del todo, el que sufre no es solo lo mío: **openclaw también se queda sin poder escribir**, y eso sí lo tumbaría.\n\nAsí que el riesgo real no eran las puertas. Era el disco.\n\nY aquí hay algo que quiero que oigas aparte, porque no tiene que ver con tutorIA: **ese disco necesita limpieza de todos modos.** Cuatro de los seis gigas que faltan son archivos de registro acumulados. Un servidor con el disco casi lleno, corriendo algo que tú das por hecho que funciona, es un problema esperando. Eso te lo puedo limpiar hoy sin tocar openclaw, y deberías dejarme hacerlo aunque decidamos no poner tutorIA ahí.\n\nTercero, la recomendación: alquila una segunda computadora, solo para tutorIA.\n\nCuesta entre cuatro y cinco euros al mes. Para ponerlo en perspectiva: ya pagas trece dólares de esta y unos cien de Amazon. Es ruido en tu presupuesto.\n\nY las razones, que no son de dinero. tutorIA va a cambiar cada semana, va a recibir gente de fuera, y guarda lo que los estudiantes escriben en el chat. openclaw es lo contrario: estable y privado. Quieres poder repartir la dirección de tutorIA sin que apunte a una máquina donde vive otra cosa tuya. Y quieres que si yo rompo algo, no exista ni la posibilidad de que llegue a openclaw. Separarlas lo garantiza; compartir solo lo hace poco probable.\n\nCuarto, y esto explica por qué te pido que lo crees tú.\n\nExiste una forma de que yo cree el servidor solo: me das una llave maestra de tu cuenta de Hetzner, lo que ellos llaman un token. El problema es que esa llave no sirve solo para crear. **También sirve para borrar** — incluida la computadora donde vive openclaw. Darme eso para que yo alquile una máquina de cuatro euros es entregar mucho más poder del que la tarea necesita. Tú haciendo un clic es más seguro y más rápido.\n\nEs la misma idea que con la contraseña que me pasaste antes: el acceso debe ser el mínimo que hace el trabajo, no el máximo que está a mano.\n\nY ahora, los pasos. Son cinco minutos tuyos.\n\nUno. Entra a la consola de Hetzner, en console punto hetzner punto cloud, con tu correo de la universidad. Si todavía no cambiaste la contraseña que me pegaste en el chat, cámbiala primero. Eso es lo primero de todo.\n\nDos. Vas a ver tus proyectos. Entra al que tiene el servidor de openclaw.\n\nTres. Busca la sección de servidores y el botón de añadir uno nuevo. Suele decir \"Add Server\", arriba a la derecha.\n\nCuatro. Te va a preguntar cuatro cosas. La ubicación: elige Helsinki, que es donde ya está el otro. La imagen, que es el sistema operativo: Ubuntu, la versión veinticuatro. El tipo de máquina: busca la categoría compartida y elige la que se llama ce equis veintidós. Y lo más importante: en la parte de llaves ese hache, **marca la que ya tienes**, la que dice hetzner openclaw. Si no marcas esa, yo no voy a poder entrar.\n\nCinco. Le das a crear. En menos de un minuto te aparece una dirección numérica, cuatro números separados por puntos. Esa dirección me la pasas por aquí. No es secreta; es como el número de la calle.\n\nY ya está. A partir de ahí lo hago yo todo: instalar lo que haga falta, poner tutorIA, y comprobar que la lección funciona entera en español y en inglés antes de decirte que está lista. Lo único que vas a tener que hacer tú es escribir tu clave de OpenAI en un archivo dentro de ese servidor, porque esa no la toco yo.\n\nResumo. Tu instinto era correcto aunque por otro motivo: no eran las puertas, era el disco. Alquila una segunda máquina pequeña, márcale la llave que ya tienes, y mándame la dirección. Y déjame limpiar el disco del servidor de openclaw de todos modos, porque eso le hace falta a lo tuyo, no a lo mío.\n\nSi algo de esto no te cuadra, dímelo y lo desarmamos otra vez.\n\n"
+}

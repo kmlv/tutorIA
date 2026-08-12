@@ -1,0 +1,386 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-11T11:21:00.745971+00:00",
+  "title": "D3 el guion del grafico medido",
+  "provider": "edge",
+  "duration_s": 246.792,
+  "audio": "20260811-062017_d3-el-guion-del-grafico-medido.mp3",
+  "transcript": "20260811-062017_d3-el-guion-del-grafico-medido.md",
+  "player": "20260811-062017_d3-el-guion-del-grafico-medido.player.html",
+  "sync": {
+    "segments": [
+      {
+        "text": "Kristian, un segundo audio, más corto.",
+        "start_s": 0.1,
+        "end_s": 3.266,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Después del bake-off implementé la decisión D tres, y salió algo que quiero que oigas antes de mirar el código.",
+        "start_s": 3.216,
+        "end_s": 9.352,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La decisión decía que el guion del gráfico —qué muestra la imagen en cada momento de la lección— lo escriba un modelo contra un esquema que tú defines una vez.",
+        "start_s": 9.352,
+        "end_s": 17.739,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y decía, con estas palabras, que es exactamente lo que hay que probar porque nadie ha medido si sale bien.",
+        "start_s": 17.739,
+        "end_s": 24.011,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ya está medido.",
+        "start_s": 24.011,
+        "end_s": 25.795,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Te cuento cómo y qué salió.",
+        "start_s": 25.795,
+        "end_s": 28.034,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Primero, el cambio.",
+        "start_s": 28.034,
+        "end_s": 30.17,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ese guion vivía dentro del código: para añadir un concepto había que escribir TypeScript, que es justo lo que hace caro el concepto número veinte.",
+        "start_s": 30.17,
+        "end_s": 38.273,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ahora es un archivo de datos en el pack, y el código es un intérprete de cincuenta líneas.",
+        "start_s": 38.273,
+        "end_s": 43.705,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y la equivalencia está demostrada, no afirmada.",
+        "start_s": 43.705,
+        "end_s": 47.136,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Antes de borrar el código viejo, capturé los diez estados que producía, cue a cue.",
+        "start_s": 47.136,
+        "end_s": 52.432,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Hay una prueba que exige que el intérprete nuevo dé exactamente los mismos.",
+        "start_s": 52.432,
+        "end_s": 56.898,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Sin eso, \"lo pasé a datos\" habría sido una afirmación, y la lección podría haber cambiado en un detalle —qué intercepto se destaca en el pivote, por ejemplo— sin que nada lo dijera, porque el gráfico seguiría dibujándose bonito.",
+        "start_s": 56.898,
+        "end_s": 69.773,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Segundo, la gramática.",
+        "start_s": 69.773,
+        "end_s": 72.136,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Es diminuta a propósito.",
+        "start_s": 72.136,
+        "end_s": 74.375,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cinco capas, cuatro tipos de destacado, dos fantasmas, tres variables.",
+        "start_s": 74.375,
+        "end_s": 79.705,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Las expresiones son de una sola operación.",
+        "start_s": 79.705,
+        "end_s": 82.636,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El parser lo escribí a mano en veinte líneas, sin usar ninguna función del lenguaje que ejecute texto... porque estos documentos vienen de un modelo, y ejecutar texto generado en el navegador de un estudiante es exactamente lo que no puede pasar nunca.",
+        "start_s": 82.636,
+        "end_s": 96.023,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Esa estrechez no es una limitación que arrastramos: es la hipótesis del proyecto.",
+        "start_s": 96.023,
+        "end_s": 100.864,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Tercero, la medición, y aquí viene lo interesante.",
+        "start_s": 100.864,
+        "end_s": 104.807,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Probé tres modelos.",
+        "start_s": 104.807,
+        "end_s": 106.83,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ninguno produjo un documento inválido, ni una sola vez, y ninguno necesitó una vuelta de corrección.",
+        "start_s": 106.83,
+        "end_s": 113.08,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El formato aguanta.",
+        "start_s": 113.08,
+        "end_s": 114.955,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El acuerdo con el guion que yo escribí a mano fue de ocho sobre diez con los dos modelos fuertes, y cinco sobre diez con el barato.",
+        "start_s": 114.955,
+        "end_s": 121.818,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Pero lo que enseñan las diferencias vale más que el número.",
+        "start_s": 121.818,
+        "end_s": 125.216,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "En la primera tanda, los tres modelos fallaron en el mismo cue.",
+        "start_s": 125.216,
+        "end_s": 129.125,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ninguno devolvía la imagen al ejemplo original en la recapitulación: dejaban el precio subido y el fantasma a la vista.",
+        "start_s": 129.125,
+        "end_s": 135.989,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Tres modelos distintos equivocándose igual no es ruido, así que fui a mirar qué se les había dado.",
+        "start_s": 135.989,
+        "end_s": 141.523,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y resulta que la narración, en ese momento, no dice en ninguna parte que la imagen vuelva al caso original.",
+        "start_s": 141.523,
+        "end_s": 147.852,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Era una decisión mía, no escrita.",
+        "start_s": 147.852,
+        "end_s": 150.682,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Los modelos no podían deducirla.",
+        "start_s": 150.682,
+        "end_s": 153.284,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Añadí una línea de convención al prompt.",
+        "start_s": 153.284,
+        "end_s": 156.102,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Los dos modelos fuertes subieron de seis y siete a ocho sobre diez, y el fallo desapareció en los tres.",
+        "start_s": 156.102,
+        "end_s": 162.125,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y de las dos diferencias que quedan, las dos apuntan a que el modelo lo hizo mejor que yo.",
+        "start_s": 162.568,
+        "end_s": 167.654,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Una: cuando la narración pregunta qué puntos del mapa puedes pagar, los modelos muestran la región y no la recta.",
+        "start_s": 167.604,
+        "end_s": 173.968,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Mi guion enciende la recta ahí.",
+        "start_s": 173.968,
+        "end_s": 176.32,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "La otra: cuando la narración dice que la línea se desplaza pero no gira, los modelos dejan la pendiente destacada.",
+        "start_s": 176.32,
+        "end_s": 182.888,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Una de las reglas que yo mismo escribí dice que hay que destacar lo que no se mueve.",
+        "start_s": 182.888,
+        "end_s": 187.286,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Los modelos siguen mi regla.",
+        "start_s": 187.286,
+        "end_s": 189.468,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Mi guion escrito a mano no.",
+        "start_s": 189.468,
+        "end_s": 191.627,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Esas dos son decisiones pedagógicas tuyas, no mías, y las dejé anotadas en el archivo de temas abiertos como H siete.",
+        "start_s": 191.627,
+        "end_s": 199.048,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Una advertencia sobre el número, para que no lo leas como más de lo que es.",
+        "start_s": 199.048,
+        "end_s": 203.559,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Son seis corridas sobre un solo concepto, y encima el concepto cuyo guion hablado describimos con más detalle porque lo escribimos sabiendo qué queríamos dibujar.",
+        "start_s": 203.559,
+        "end_s": 211.888,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "No es una tasa.",
+        "start_s": 211.888,
+        "end_s": 213.65,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y el modelo barato no vale para esto: encendió los ejes y la recta en el primer cue, antes de que la narración introduzca nada.",
+        "start_s": 213.65,
+        "end_s": 220.888,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Última cosa: la promesa de D tres está a medias.",
+        "start_s": 220.888,
+        "end_s": 224.729,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El gráfico ya es datos, pero la banda de la ecuación y las fichas de los bienes siguen pintándose con código.",
+        "start_s": 224.729,
+        "end_s": 230.854,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Un pack generado por un modelo todavía no puede dibujar su ledger.",
+        "start_s": 230.854,
+        "end_s": 234.866,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Eso es lo siguiente, y es más difícil, porque sus operaciones son sobre fórmulas y no sobre tres números.",
+        "start_s": 234.866,
+        "end_s": 241.161,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Ciento treinta y nueve tests en verde.",
+        "start_s": 241.161,
+        "end_s": 243.729,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Todo subido.",
+        "start_s": 243.729,
+        "end_s": 245.366,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Sigo.",
+        "start_s": 245.366,
+        "end_s": 246.695,
+        "part_index": 1,
+        "speaker": null
+      }
+    ],
+    "granularity": "sentence",
+    "source": "edge-sentence-boundary",
+    "timebase": "media_seconds"
+  },
+  "tags": [],
+  "formulas": [],
+  "transcript_text": "# D3 el guion del grafico medido\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, un segundo audio, más corto. Después del bake-off implementé la decisión D tres, y salió algo que quiero que oigas antes de mirar el código.\n\nLa decisión decía que el guion del gráfico —qué muestra la imagen en cada momento de la lección— lo escriba un modelo contra un esquema que tú defines una vez. Y decía, con estas palabras, que es exactamente lo que hay que probar porque nadie ha medido si sale bien.\n\nYa está medido. Te cuento cómo y qué salió.\n\nPrimero, el cambio. Ese guion vivía dentro del código: para añadir un concepto había que escribir TypeScript, que es justo lo que hace caro el concepto número veinte. Ahora es un archivo de datos en el pack, y el código es un intérprete de cincuenta líneas.\n\nY la equivalencia está demostrada, no afirmada. Antes de borrar el código viejo, capturé los diez estados que producía, cue a cue. Hay una prueba que exige que el intérprete nuevo dé exactamente los mismos. Sin eso, \"lo pasé a datos\" habría sido una afirmación, y la lección podría haber cambiado en un detalle —qué intercepto se destaca en el pivote, por ejemplo— sin que nada lo dijera, porque el gráfico seguiría dibujándose bonito.\n\nSegundo, la gramática. Es diminuta a propósito. Cinco capas, cuatro tipos de destacado, dos fantasmas, tres variables. Las expresiones son de una sola operación. El parser lo escribí a mano en veinte líneas, sin usar ninguna función del lenguaje que ejecute texto... porque estos documentos vienen de un modelo, y ejecutar texto generado en el navegador de un estudiante es exactamente lo que no puede pasar nunca. Esa estrechez no es una limitación que arrastramos: es la hipótesis del proyecto.\n\nTercero, la medición, y aquí viene lo interesante. Probé tres modelos. Ninguno produjo un documento inválido, ni una sola vez, y ninguno necesitó una vuelta de corrección. El formato aguanta. El acuerdo con el guion que yo escribí a mano fue de ocho sobre diez con los dos modelos fuertes, y cinco sobre diez con el barato.\n\nPero lo que enseñan las diferencias vale más que el número.\n\nEn la primera tanda, los tres modelos fallaron en el mismo cue. Ninguno devolvía la imagen al ejemplo original en la recapitulación: dejaban el precio subido y el fantasma a la vista. Tres modelos distintos equivocándose igual no es ruido, así que fui a mirar qué se les había dado. Y resulta que la narración, en ese momento, no dice en ninguna parte que la imagen vuelva al caso original. Era una decisión mía, no escrita. Los modelos no podían deducirla.\n\nAñadí una línea de convención al prompt. Los dos modelos fuertes subieron de seis y siete a ocho sobre diez, y el fallo desapareció en los tres.\n\nY de las dos diferencias que quedan, las dos apuntan a que el modelo lo hizo mejor que yo. Una: cuando la narración pregunta qué puntos del mapa puedes pagar, los modelos muestran la región y no la recta. Mi guion enciende la recta ahí. La otra: cuando la narración dice que la línea se desplaza pero no gira, los modelos dejan la pendiente destacada. Una de las reglas que yo mismo escribí dice que hay que destacar lo que no se mueve. Los modelos siguen mi regla. Mi guion escrito a mano no.\n\nEsas dos son decisiones pedagógicas tuyas, no mías, y las dejé anotadas en el archivo de temas abiertos como H siete.\n\nUna advertencia sobre el número, para que no lo leas como más de lo que es. Son seis corridas sobre un solo concepto, y encima el concepto cuyo guion hablado describimos con más detalle porque lo escribimos sabiendo qué queríamos dibujar. No es una tasa. Y el modelo barato no vale para esto: encendió los ejes y la recta en el primer cue, antes de que la narración introduzca nada.\n\nÚltima cosa: la promesa de D tres está a medias. El gráfico ya es datos, pero la banda de la ecuación y las fichas de los bienes siguen pintándose con código. Un pack generado por un modelo todavía no puede dibujar su ledger. Eso es lo siguiente, y es más difícil, porque sus operaciones son sobre fórmulas y no sobre tres números.\n\nCiento treinta y nueve tests en verde. Todo subido. Sigo.\n\n",
+  "formula_text": "",
+  "search_text": "D3 el guion del grafico medido # D3 el guion del grafico medido\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, un segundo audio, más corto. Después del bake-off implementé la decisión D tres, y salió algo que quiero que oigas antes de mirar el código.\n\nLa decisión decía que el guion del gráfico —qué muestra la imagen en cada momento de la lección— lo escriba un modelo contra un esquema que tú defines una vez. Y decía, con estas palabras, que es exactamente lo que hay que probar porque nadie ha medido si sale bien.\n\nYa está medido. Te cuento cómo y qué salió.\n\nPrimero, el cambio. Ese guion vivía dentro del código: para añadir un concepto había que escribir TypeScript, que es justo lo que hace caro el concepto número veinte. Ahora es un archivo de datos en el pack, y el código es un intérprete de cincuenta líneas.\n\nY la equivalencia está demostrada, no afirmada. Antes de borrar el código viejo, capturé los diez estados que producía, cue a cue. Hay una prueba que exige que el intérprete nuevo dé exactamente los mismos. Sin eso, \"lo pasé a datos\" habría sido una afirmación, y la lección podría haber cambiado en un detalle —qué intercepto se destaca en el pivote, por ejemplo— sin que nada lo dijera, porque el gráfico seguiría dibujándose bonito.\n\nSegundo, la gramática. Es diminuta a propósito. Cinco capas, cuatro tipos de destacado, dos fantasmas, tres variables. Las expresiones son de una sola operación. El parser lo escribí a mano en veinte líneas, sin usar ninguna función del lenguaje que ejecute texto... porque estos documentos vienen de un modelo, y ejecutar texto generado en el navegador de un estudiante es exactamente lo que no puede pasar nunca. Esa estrechez no es una limitación que arrastramos: es la hipótesis del proyecto.\n\nTercero, la medición, y aquí viene lo interesante. Probé tres modelos. Ninguno produjo un documento inválido, ni una sola vez, y ninguno necesitó una vuelta de corrección. El formato aguanta. El acuerdo con el guion que yo escribí a mano fue de ocho sobre diez con los dos modelos fuertes, y cinco sobre diez con el barato.\n\nPero lo que enseñan las diferencias vale más que el número.\n\nEn la primera tanda, los tres modelos fallaron en el mismo cue. Ninguno devolvía la imagen al ejemplo original en la recapitulación: dejaban el precio subido y el fantasma a la vista. Tres modelos distintos equivocándose igual no es ruido, así que fui a mirar qué se les había dado. Y resulta que la narración, en ese momento, no dice en ninguna parte que la imagen vuelva al caso original. Era una decisión mía, no escrita. Los modelos no podían deducirla.\n\nAñadí una línea de convención al prompt. Los dos modelos fuertes subieron de seis y siete a ocho sobre diez, y el fallo desapareció en los tres.\n\nY de las dos diferencias que quedan, las dos apuntan a que el modelo lo hizo mejor que yo. Una: cuando la narración pregunta qué puntos del mapa puedes pagar, los modelos muestran la región y no la recta. Mi guion enciende la recta ahí. La otra: cuando la narración dice que la línea se desplaza pero no gira, los modelos dejan la pendiente destacada. Una de las reglas que yo mismo escribí dice que hay que destacar lo que no se mueve. Los modelos siguen mi regla. Mi guion escrito a mano no.\n\nEsas dos son decisiones pedagógicas tuyas, no mías, y las dejé anotadas en el archivo de temas abiertos como H siete.\n\nUna advertencia sobre el número, para que no lo leas como más de lo que es. Son seis corridas sobre un solo concepto, y encima el concepto cuyo guion hablado describimos con más detalle porque lo escribimos sabiendo qué queríamos dibujar. No es una tasa. Y el modelo barato no vale para esto: encendió los ejes y la recta en el primer cue, antes de que la narración introduzca nada.\n\nÚltima cosa: la promesa de D tres está a medias. El gráfico ya es datos, pero la banda de la ecuación y las fichas de los bienes siguen pintándose con código. Un pack generado por un modelo todavía no puede dibujar su ledger. Eso es lo siguiente, y es más difícil, porque sus operaciones son sobre fórmulas y no sobre tres números.\n\nCiento treinta y nueve tests en verde. Todo subido. Sigo.\n\n"
+}

@@ -1,0 +1,512 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-11T19:51:35.248184+00:00",
+  "title": "Barrido de UX y arreglos",
+  "provider": "edge",
+  "duration_s": 373.32,
+  "audio": "20260811-145039_barrido-de-ux-y-arreglos.mp3",
+  "transcript": "20260811-145039_barrido-de-ux-y-arreglos.md",
+  "player": "20260811-145039_barrido-de-ux-y-arreglos.player.html",
+  "sync": {
+    "segments": [
+      {
+        "text": "Kristian, el barrido terminó.",
+        "start_s": 0.1,
+        "end_s": 2.607,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Te cuento qué monté, qué salió, qué arreglé, y qué queda.",
+        "start_s": 2.557,
+        "end_s": 6.625,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Primero, cómo lo hice, porque importa para saber cuánto creerte los números.",
+        "start_s": 6.625,
+        "end_s": 11.602,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Lancé ocho agentes en paralelo.",
+        "start_s": 11.602,
+        "end_s": 14.216,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cada uno se quedó con una superficie de la aplicación: los checkpoints de la narración, las predicciones, el bucle de práctica, el chat del tutor, los ejercicios de arrastrar, la navegación en el tiempo, el cambio de idioma y la variante de vídeo, y los primeros sesenta segundos, que es lo que ve alguien al abrirla.",
+        "start_s": 14.216,
+        "end_s": 31.261,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ninguno leyó código para adivinar.",
+        "start_s": 31.261,
+        "end_s": 34.045,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Todos condujeron el navegador de verdad: pulsar botones, arrastrar, esperar, recargar, meter parámetros absurdos en la dirección.",
+        "start_s": 34.045,
+        "end_s": 42.295,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y aquí está la parte que hace que el número signifique algo: cada fallo que reportaron pasó después por otro agente distinto, cuyo trabajo era refutarlo.",
+        "start_s": 42.295,
+        "end_s": 50.727,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Por defecto falso, salvo que lo viera reproducirse desde una carga limpia.",
+        "start_s": 50.727,
+        "end_s": 55.443,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Setenta y cuatro reportados, sesenta y ocho confirmados, seis descartados por no reproducirse o por ser en realidad la conducta correcta.",
+        "start_s": 55.443,
+        "end_s": 63.341,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Segundo, qué salió.",
+        "start_s": 63.341,
+        "end_s": 65.511,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Doce callejones sin salida, doce sitios donde el sistema simplemente no responde, treinta incoherencias, y catorce cosas que se ven rotas aunque técnicamente funcionen.",
+        "start_s": 65.511,
+        "end_s": 74.909,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Tu ejemplo era real y era peor de lo que pensabas.",
+        "start_s": 74.909,
+        "end_s": 78.227,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Pero antes de eso, déjame contarte el peor de todos, porque no lo habías visto.",
+        "start_s": 78.227,
+        "end_s": 83.341,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "En la práctica hay un ejercicio de arrastrar la recta.",
+        "start_s": 83.341,
+        "end_s": 86.705,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Si el alumno pulsa el botón \"Listo\" sin haber arrastrado nada —que es exactamente lo que hace alguien que no sabe todavía que los extremos se arrastran— el cliente se inventaba el veredicto por su cuenta y nunca llamaba al servidor.",
+        "start_s": 86.705,
+        "end_s": 98.08,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El servidor, que no se enteraba de nada, volvía a servir el mismo ejercicio.",
+        "start_s": 98.08,
+        "end_s": 102.989,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y otra vez.",
+        "start_s": 102.989,
+        "end_s": 104.591,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y otra.",
+        "start_s": 104.591,
+        "end_s": 105.966,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cuarenta clics.",
+        "start_s": 105.966,
+        "end_s": 107.682,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cero palabras del tutor.",
+        "start_s": 107.682,
+        "end_s": 109.807,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El presupuesto entero de práctica agotado en un ejercicio que jamás se contestó.",
+        "start_s": 109.807,
+        "end_s": 114.352,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y en tu panel de instructor habrían quedado registrados treinta y nueve errores de un alumno que no llegó a responder ni una sola vez.",
+        "start_s": 114.352,
+        "end_s": 121.341,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Lo que lo vuelve indudablemente un fallo y no una decisión de diseño: si el alumno arrastra mal y pulsa el mismo botón, sí funciona.",
+        "start_s": 121.341,
+        "end_s": 128.841,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Recibe su repregunta socrática y avanza.",
+        "start_s": 128.841,
+        "end_s": 131.795,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La misma equivocación, dos conductas opuestas, según si el cliente se molestó en contárselo al servidor.",
+        "start_s": 131.795,
+        "end_s": 138.057,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Tercero, tu caso.",
+        "start_s": 138.057,
+        "end_s": 140.227,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Contestaste mal y no pasó nada útil.",
+        "start_s": 140.227,
+        "end_s": 143.091,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Lo reproduje: el tutor decía \"Vamos a pensarlo distinto\", que es una frase que anuncia una reformulación que nunca llegaba.",
+        "start_s": 143.091,
+        "end_s": 150.295,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y nunca, en ningún momento, decía cuál era la correcta.",
+        "start_s": 150.295,
+        "end_s": 154.398,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El motivo es interesante.",
+        "start_s": 154.398,
+        "end_s": 156.591,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El sistema tiene una repregunta preparada solo para los errores que anticipamos en el catálogo de confusiones.",
+        "start_s": 156.591,
+        "end_s": 162.511,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Si el alumno se equivoca de una forma que no habíamos previsto, cae a esa frase de reserva y ahí se acaba todo.",
+        "start_s": 162.511,
+        "end_s": 168.909,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Lo arreglé en dos partes.",
+        "start_s": 169.336,
+        "end_s": 171.57,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "La frase de reserva ahora dice lo que de verdad pasa y ofrece la única acción que sí sirve: \"Esa no es.",
+        "start_s": 171.52,
+        "end_s": 177.634,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Prueba otra vez, o pregúntame y lo vemos juntos\".",
+        "start_s": 177.634,
+        "end_s": 181.191,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y al segundo fallo sobre el mismo ejercicio, el sistema dice cuál era la respuesta correcta.",
+        "start_s": 181.191,
+        "end_s": 186.611,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Al segundo y no al primero, a propósito: el primer intento es donde vive la repregunta socrática, que es la que enseña.",
+        "start_s": 186.611,
+        "end_s": 193.781,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Revelar antes de eso convierte el tutor en un solucionario.",
+        "start_s": 193.781,
+        "end_s": 197.497,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y la revelación la decide el servidor, nunca el navegador, por la misma frontera que ya conoces: la clave de respuestas no puede estar del lado del alumno.",
+        "start_s": 197.497,
+        "end_s": 206.225,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Cuarto, qué más arreglé.",
+        "start_s": 206.225,
+        "end_s": 208.543,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Veintiséis de los sesenta y ocho, y los agrupé por causa y no por síntoma, porque muchos eran el mismo fallo visto desde sitios distintos.",
+        "start_s": 208.543,
+        "end_s": 216.338,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Los cuatro botones de ayuda del tutor —\"No entiendo\", \"Otro ejemplo\", \"Más despacio\", \"Por qué\"— no llamaban al tutor jamás.",
+        "start_s": 216.338,
+        "end_s": 223.747,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Pintaban la burbuja del alumno, mandaban telemetría, y se acababa ahí.",
+        "start_s": 223.747,
+        "end_s": 228.372,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Cinco de los sesenta y ocho hallazgos eran ese mismo silencio.",
+        "start_s": 228.372,
+        "end_s": 232.054,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y lo desconcertante es que escribir esas mismas palabras a mano sí contestaba, así que el alumno concluye que el botón está roto.",
+        "start_s": 232.054,
+        "end_s": 239.122,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El botón \"Listo, sigamos\" durante la práctica reiniciaba la narración desde cero, escondiendo la pregunta que el alumno tenía delante.",
+        "start_s": 239.122,
+        "end_s": 246.634,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Una dirección con un idioma que no tenemos, como \"lang igual a fr\", dejaba la página completamente en blanco.",
+        "start_s": 246.634,
+        "end_s": 253.52,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Ni título, ni mensaje, nada.",
+        "start_s": 253.52,
+        "end_s": 256.429,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y \"variant igual a b\" en minúscula pintaba una página entera, con el botón de empezar habilitado, y sin lección detrás — que es peor, porque parece que funciona.",
+        "start_s": 256.429,
+        "end_s": 265.622,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El parámetro para saltar a un momento movía el dibujo pero no el audio: la pantalla decía minuto uno y medio y el reloj decía cero.",
+        "start_s": 265.622,
+        "end_s": 273.134,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Cinco hallazgos eran esa sola línea.",
+        "start_s": 273.134,
+        "end_s": 275.872,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y había palabras en inglés dentro de la versión española: \"slope\" y \"unchanged\", metidas dentro de las fórmulas matemáticas, que se generan una sola vez para los dos idiomas.",
+        "start_s": 275.872,
+        "end_s": 285.372,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Las quité usando notación en vez de palabras, y de paso quedó mejor, porque ahora la pendiente se escribe en la misma forma que el ingreso justo al lado y el contraste se ve solo.",
+        "start_s": 285.372,
+        "end_s": 294.656,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Más pequeñas: la lección en inglés se declaraba como española, así que un lector de pantalla la leía con fonética equivocada.",
+        "start_s": 294.656,
+        "end_s": 301.895,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Un instrumento de depuración del bake-off salía en la barra del alumno.",
+        "start_s": 301.895,
+        "end_s": 306.066,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y la ficha decía \"Jugo De Naranja\", con la preposición en mayúscula.",
+        "start_s": 306.066,
+        "end_s": 310.338,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Quinto, y esto es importante: quedan cuarenta y dos sin arreglar.",
+        "start_s": 310.338,
+        "end_s": 314.736,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "No los toqué por dos motivos distintos.",
+        "start_s": 314.736,
+        "end_s": 317.668,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Unos porque son decisiones pedagógicas tuyas y no mías.",
+        "start_s": 317.668,
+        "end_s": 321.361,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Por ejemplo: cuando el alumno falla todo, la práctica entra en un ciclo de tres ejercicios y a los cuarenta se detiene en silencio.",
+        "start_s": 321.361,
+        "end_s": 328.52,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Qué debería pasar ahí —rendirse, cambiar de tema, decir algo— es tuyo.",
+        "start_s": 328.52,
+        "end_s": 333.736,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y otros porque son cambios de arquitectura que quiero enseñarte antes.",
+        "start_s": 333.736,
+        "end_s": 337.85,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El más gordo: usar el chat expulsa de la pantalla el gráfico y la pregunta.",
+        "start_s": 337.85,
+        "end_s": 342.543,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Eso no se arregla con una línea.",
+        "start_s": 342.543,
+        "end_s": 344.952,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Los sesenta y ocho están escritos con sus pasos de reproducción, para que arreglar el resto no empiece por volver a encontrarlos.",
+        "start_s": 345.388,
+        "end_s": 351.895,
+        "part_index": 2,
+        "speaker": null
+      },
+      {
+        "text": "Los arreglados están tachados.",
+        "start_s": 351.845,
+        "end_s": 354.368,
+        "part_index": 2,
+        "speaker": null
+      },
+      {
+        "text": "Ciento cincuenta y un tests en verde y los cinco arreglos de interfaz verificados conduciendo la aplicación, no leyendo el código.",
+        "start_s": 354.368,
+        "end_s": 361.231,
+        "part_index": 2,
+        "speaker": null
+      },
+      {
+        "text": "Una última cosa: sigo esperando que me digas cómo levanta Codex con Claude de líder.",
+        "start_s": 361.231,
+        "end_s": 366.527,
+        "part_index": 2,
+        "speaker": null
+      },
+      {
+        "text": "La siguiente vuelta se beneficiaría mucho de que él y Gemini revisen lo que acabo de tocar, en vez de revisarme yo solo.",
+        "start_s": 366.527,
+        "end_s": 373.22,
+        "part_index": 2,
+        "speaker": null
+      }
+    ],
+    "granularity": "sentence",
+    "source": "edge-sentence-boundary",
+    "timebase": "media_seconds"
+  },
+  "tags": [],
+  "formulas": [],
+  "transcript_text": "# Barrido de UX y arreglos\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, el barrido terminó. Te cuento qué monté, qué salió, qué arreglé, y qué queda.\n\nPrimero, cómo lo hice, porque importa para saber cuánto creerte los números.\n\nLancé ocho agentes en paralelo. Cada uno se quedó con una superficie de la aplicación: los checkpoints de la narración, las predicciones, el bucle de práctica, el chat del tutor, los ejercicios de arrastrar, la navegación en el tiempo, el cambio de idioma y la variante de vídeo, y los primeros sesenta segundos, que es lo que ve alguien al abrirla.\n\nNinguno leyó código para adivinar. Todos condujeron el navegador de verdad: pulsar botones, arrastrar, esperar, recargar, meter parámetros absurdos en la dirección.\n\nY aquí está la parte que hace que el número signifique algo: cada fallo que reportaron pasó después por otro agente distinto, cuyo trabajo era **refutarlo**. Por defecto falso, salvo que lo viera reproducirse desde una carga limpia. Setenta y cuatro reportados, sesenta y ocho confirmados, seis descartados por no reproducirse o por ser en realidad la conducta correcta.\n\nSegundo, qué salió. Doce callejones sin salida, doce sitios donde el sistema simplemente no responde, treinta incoherencias, y catorce cosas que se ven rotas aunque técnicamente funcionen.\n\nTu ejemplo era real y era peor de lo que pensabas. Pero antes de eso, déjame contarte el peor de todos, porque no lo habías visto.\n\nEn la práctica hay un ejercicio de arrastrar la recta. Si el alumno pulsa el botón \"Listo\" sin haber arrastrado nada —que es exactamente lo que hace alguien que no sabe todavía que los extremos se arrastran— el cliente se inventaba el veredicto por su cuenta y **nunca llamaba al servidor**. El servidor, que no se enteraba de nada, volvía a servir el mismo ejercicio. Y otra vez. Y otra.\n\nCuarenta clics. Cero palabras del tutor. El presupuesto entero de práctica agotado en un ejercicio que jamás se contestó. Y en tu panel de instructor habrían quedado registrados treinta y nueve errores de un alumno que no llegó a responder ni una sola vez.\n\nLo que lo vuelve indudablemente un fallo y no una decisión de diseño: si el alumno arrastra mal y pulsa el mismo botón, sí funciona. Recibe su repregunta socrática y avanza. La misma equivocación, dos conductas opuestas, según si el cliente se molestó en contárselo al servidor.\n\nTercero, tu caso. Contestaste mal y no pasó nada útil. Lo reproduje: el tutor decía \"Vamos a pensarlo distinto\", que es una frase que **anuncia una reformulación que nunca llegaba**. Y nunca, en ningún momento, decía cuál era la correcta.\n\nEl motivo es interesante. El sistema tiene una repregunta preparada solo para los errores que anticipamos en el catálogo de confusiones. Si el alumno se equivoca de una forma que no habíamos previsto, cae a esa frase de reserva y ahí se acaba todo.\n\nLo arreglé en dos partes. La frase de reserva ahora dice lo que de verdad pasa y ofrece la única acción que sí sirve: \"Esa no es. Prueba otra vez, o pregúntame y lo vemos juntos\". Y al **segundo** fallo sobre el mismo ejercicio, el sistema dice cuál era la respuesta correcta.\n\nAl segundo y no al primero, a propósito: el primer intento es donde vive la repregunta socrática, que es la que enseña. Revelar antes de eso convierte el tutor en un solucionario. Y la revelación la decide el servidor, nunca el navegador, por la misma frontera que ya conoces: la clave de respuestas no puede estar del lado del alumno.\n\nCuarto, qué más arreglé. Veintiséis de los sesenta y ocho, y los agrupé por causa y no por síntoma, porque muchos eran el mismo fallo visto desde sitios distintos.\n\nLos cuatro botones de ayuda del tutor —\"No entiendo\", \"Otro ejemplo\", \"Más despacio\", \"Por qué\"— **no llamaban al tutor jamás**. Pintaban la burbuja del alumno, mandaban telemetría, y se acababa ahí. Cinco de los sesenta y ocho hallazgos eran ese mismo silencio. Y lo desconcertante es que escribir esas mismas palabras a mano sí contestaba, así que el alumno concluye que el botón está roto.\n\nEl botón \"Listo, sigamos\" durante la práctica **reiniciaba la narración desde cero**, escondiendo la pregunta que el alumno tenía delante.\n\nUna dirección con un idioma que no tenemos, como \"lang igual a fr\", dejaba la página **completamente en blanco**. Ni título, ni mensaje, nada. Y \"variant igual a b\" en minúscula pintaba una página entera, con el botón de empezar habilitado, y sin lección detrás — que es peor, porque parece que funciona.\n\nEl parámetro para saltar a un momento movía el dibujo pero no el audio: la pantalla decía minuto uno y medio y el reloj decía cero. Cinco hallazgos eran esa sola línea.\n\nY había palabras en inglés dentro de la versión española: \"slope\" y \"unchanged\", metidas dentro de las fórmulas matemáticas, que se generan una sola vez para los dos idiomas. Las quité usando notación en vez de palabras, y de paso quedó mejor, porque ahora la pendiente se escribe en la misma forma que el ingreso justo al lado y el contraste se ve solo.\n\nMás pequeñas: la lección en inglés se declaraba como española, así que un lector de pantalla la leía con fonética equivocada. Un instrumento de depuración del bake-off salía en la barra del alumno. Y la ficha decía \"Jugo De Naranja\", con la preposición en mayúscula.\n\nQuinto, y esto es importante: **quedan cuarenta y dos sin arreglar.**\n\nNo los toqué por dos motivos distintos. Unos porque son decisiones pedagógicas tuyas y no mías. Por ejemplo: cuando el alumno falla todo, la práctica entra en un ciclo de tres ejercicios y a los cuarenta se detiene en silencio. Qué debería pasar ahí —rendirse, cambiar de tema, decir algo— es tuyo.\n\nY otros porque son cambios de arquitectura que quiero enseñarte antes. El más gordo: usar el chat expulsa de la pantalla el gráfico y la pregunta. Eso no se arregla con una línea.\n\nLos sesenta y ocho están escritos con sus pasos de reproducción, para que arreglar el resto no empiece por volver a encontrarlos. Los arreglados están tachados.\n\nCiento cincuenta y un tests en verde y los cinco arreglos de interfaz verificados conduciendo la aplicación, no leyendo el código.\n\nUna última cosa: sigo esperando que me digas cómo levanta Codex con Claude de líder. La siguiente vuelta se beneficiaría mucho de que él y Gemini revisen lo que acabo de tocar, en vez de revisarme yo solo.\n\n",
+  "formula_text": "",
+  "search_text": "Barrido de UX y arreglos # Barrido de UX y arreglos\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, el barrido terminó. Te cuento qué monté, qué salió, qué arreglé, y qué queda.\n\nPrimero, cómo lo hice, porque importa para saber cuánto creerte los números.\n\nLancé ocho agentes en paralelo. Cada uno se quedó con una superficie de la aplicación: los checkpoints de la narración, las predicciones, el bucle de práctica, el chat del tutor, los ejercicios de arrastrar, la navegación en el tiempo, el cambio de idioma y la variante de vídeo, y los primeros sesenta segundos, que es lo que ve alguien al abrirla.\n\nNinguno leyó código para adivinar. Todos condujeron el navegador de verdad: pulsar botones, arrastrar, esperar, recargar, meter parámetros absurdos en la dirección.\n\nY aquí está la parte que hace que el número signifique algo: cada fallo que reportaron pasó después por otro agente distinto, cuyo trabajo era **refutarlo**. Por defecto falso, salvo que lo viera reproducirse desde una carga limpia. Setenta y cuatro reportados, sesenta y ocho confirmados, seis descartados por no reproducirse o por ser en realidad la conducta correcta.\n\nSegundo, qué salió. Doce callejones sin salida, doce sitios donde el sistema simplemente no responde, treinta incoherencias, y catorce cosas que se ven rotas aunque técnicamente funcionen.\n\nTu ejemplo era real y era peor de lo que pensabas. Pero antes de eso, déjame contarte el peor de todos, porque no lo habías visto.\n\nEn la práctica hay un ejercicio de arrastrar la recta. Si el alumno pulsa el botón \"Listo\" sin haber arrastrado nada —que es exactamente lo que hace alguien que no sabe todavía que los extremos se arrastran— el cliente se inventaba el veredicto por su cuenta y **nunca llamaba al servidor**. El servidor, que no se enteraba de nada, volvía a servir el mismo ejercicio. Y otra vez. Y otra.\n\nCuarenta clics. Cero palabras del tutor. El presupuesto entero de práctica agotado en un ejercicio que jamás se contestó. Y en tu panel de instructor habrían quedado registrados treinta y nueve errores de un alumno que no llegó a responder ni una sola vez.\n\nLo que lo vuelve indudablemente un fallo y no una decisión de diseño: si el alumno arrastra mal y pulsa el mismo botón, sí funciona. Recibe su repregunta socrática y avanza. La misma equivocación, dos conductas opuestas, según si el cliente se molestó en contárselo al servidor.\n\nTercero, tu caso. Contestaste mal y no pasó nada útil. Lo reproduje: el tutor decía \"Vamos a pensarlo distinto\", que es una frase que **anuncia una reformulación que nunca llegaba**. Y nunca, en ningún momento, decía cuál era la correcta.\n\nEl motivo es interesante. El sistema tiene una repregunta preparada solo para los errores que anticipamos en el catálogo de confusiones. Si el alumno se equivoca de una forma que no habíamos previsto, cae a esa frase de reserva y ahí se acaba todo.\n\nLo arreglé en dos partes. La frase de reserva ahora dice lo que de verdad pasa y ofrece la única acción que sí sirve: \"Esa no es. Prueba otra vez, o pregúntame y lo vemos juntos\". Y al **segundo** fallo sobre el mismo ejercicio, el sistema dice cuál era la respuesta correcta.\n\nAl segundo y no al primero, a propósito: el primer intento es donde vive la repregunta socrática, que es la que enseña. Revelar antes de eso convierte el tutor en un solucionario. Y la revelación la decide el servidor, nunca el navegador, por la misma frontera que ya conoces: la clave de respuestas no puede estar del lado del alumno.\n\nCuarto, qué más arreglé. Veintiséis de los sesenta y ocho, y los agrupé por causa y no por síntoma, porque muchos eran el mismo fallo visto desde sitios distintos.\n\nLos cuatro botones de ayuda del tutor —\"No entiendo\", \"Otro ejemplo\", \"Más despacio\", \"Por qué\"— **no llamaban al tutor jamás**. Pintaban la burbuja del alumno, mandaban telemetría, y se acababa ahí. Cinco de los sesenta y ocho hallazgos eran ese mismo silencio. Y lo desconcertante es que escribir esas mismas palabras a mano sí contestaba, así que el alumno concluye que el botón está roto.\n\nEl botón \"Listo, sigamos\" durante la práctica **reiniciaba la narración desde cero**, escondiendo la pregunta que el alumno tenía delante.\n\nUna dirección con un idioma que no tenemos, como \"lang igual a fr\", dejaba la página **completamente en blanco**. Ni título, ni mensaje, nada. Y \"variant igual a b\" en minúscula pintaba una página entera, con el botón de empezar habilitado, y sin lección detrás — que es peor, porque parece que funciona.\n\nEl parámetro para saltar a un momento movía el dibujo pero no el audio: la pantalla decía minuto uno y medio y el reloj decía cero. Cinco hallazgos eran esa sola línea.\n\nY había palabras en inglés dentro de la versión española: \"slope\" y \"unchanged\", metidas dentro de las fórmulas matemáticas, que se generan una sola vez para los dos idiomas. Las quité usando notación en vez de palabras, y de paso quedó mejor, porque ahora la pendiente se escribe en la misma forma que el ingreso justo al lado y el contraste se ve solo.\n\nMás pequeñas: la lección en inglés se declaraba como española, así que un lector de pantalla la leía con fonética equivocada. Un instrumento de depuración del bake-off salía en la barra del alumno. Y la ficha decía \"Jugo De Naranja\", con la preposición en mayúscula.\n\nQuinto, y esto es importante: **quedan cuarenta y dos sin arreglar.**\n\nNo los toqué por dos motivos distintos. Unos porque son decisiones pedagógicas tuyas y no mías. Por ejemplo: cuando el alumno falla todo, la práctica entra en un ciclo de tres ejercicios y a los cuarenta se detiene en silencio. Qué debería pasar ahí —rendirse, cambiar de tema, decir algo— es tuyo.\n\nY otros porque son cambios de arquitectura que quiero enseñarte antes. El más gordo: usar el chat expulsa de la pantalla el gráfico y la pregunta. Eso no se arregla con una línea.\n\nLos sesenta y ocho están escritos con sus pasos de reproducción, para que arreglar el resto no empiece por volver a encontrarlos. Los arreglados están tachados.\n\nCiento cincuenta y un tests en verde y los cinco arreglos de interfaz verificados conduciendo la aplicación, no leyendo el código.\n\nUna última cosa: sigo esperando que me digas cómo levanta Codex con Claude de líder. La siguiente vuelta se beneficiaría mucho de que él y Gemini revisen lo que acabo de tocar, en vez de revisarme yo solo.\n\n"
+}

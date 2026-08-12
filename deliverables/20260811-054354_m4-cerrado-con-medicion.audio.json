@@ -1,0 +1,589 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-11T10:44:34.521423+00:00",
+  "title": "M4 cerrado con medicion",
+  "provider": "edge",
+  "duration_s": 371.04,
+  "audio": "20260811-054354_m4-cerrado-con-medicion.mp3",
+  "transcript": "20260811-054354_m4-cerrado-con-medicion.md",
+  "player": "20260811-054354_m4-cerrado-con-medicion.player.html",
+  "sync": {
+    "segments": [
+      {
+        "text": "Kristian, buenos días.",
+        "start_s": 0.1,
+        "end_s": 2.414,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "M4 está cerrado, y esta vez con números medidos en vez de estimados.",
+        "start_s": 2.364,
+        "end_s": 7.148,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Te cuento tres cosas: qué ganó el bake-off, qué me enseñó construir el brazo perdedor, y qué te espera a ti.",
+        "start_s": 7.148,
+        "end_s": 13.545,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Primero, el resultado.",
+        "start_s": 13.545,
+        "end_s": 15.83,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Gana la opción A, la que ya teníamos: audio más gráfico dibujado en la página.",
+        "start_s": 15.83,
+        "end_s": 21.0,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Gana en el cien por ciento de las ponderaciones plausibles.",
+        "start_s": 21.0,
+        "end_s": 24.682,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ningún criterio, ni llevándose todo el peso, cambia el ganador.",
+        "start_s": 24.682,
+        "end_s": 29.091,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Antes de construir nada, el barrido daba noventa y dos por ciento.",
+        "start_s": 29.091,
+        "end_s": 33.33,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Medir lo subió a cien.",
+        "start_s": 33.33,
+        "end_s": 35.352,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Eso es lo contrario de lo que suele pasar cuando alguien construye algo y luego lo puntúa, así que te explico por qué.",
+        "start_s": 35.352,
+        "end_s": 41.58,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Las tres celdas que se movieron al medir se movieron en contra de lo que yo acababa de construir.",
+        "start_s": 41.58,
+        "end_s": 46.67,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La calidad visual del vídeo era su única esperanza, y con la rúbrica delante se quedó en tres coma seis sobre cinco, contra cuatro coma ocho del gráfico en página.",
+        "start_s": 46.67,
+        "end_s": 55.341,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La accesibilidad del vídeo bajó de dos a uno: el gráfico dentro de un vídeo simplemente no existe para un lector de pantalla.",
+        "start_s": 55.341,
+        "end_s": 62.545,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cero etiquetas, cero texto seleccionable.",
+        "start_s": 62.545,
+        "end_s": 65.852,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y la versatilidad entre equipos de la opción A subió de seis a nueve, porque el reconocimiento la había penalizado por mutar el gráfico en cada marca... y medido, eso son diez cambios en cuatro minutos.",
+        "start_s": 65.852,
+        "end_s": 76.341,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "No cuesta nada.",
+        "start_s": 76.341,
+        "end_s": 78.068,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Segundo, lo que aprendí construyendo el brazo que perdió.",
+        "start_s": 78.068,
+        "end_s": 81.602,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y aquí está lo que de verdad valió la pena.",
+        "start_s": 81.602,
+        "end_s": 84.443,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La hipótesis que habíamos registrado decía que el vídeo gana en equipos modestos.",
+        "start_s": 84.443,
+        "end_s": 89.341,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Está refutada.",
+        "start_s": 89.341,
+        "end_s": 91.102,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Estrangulé la CPU cuatro veces y reproduje la lección entera en tiempo real: ninguna de las dos opciones pierde fotogramas.",
+        "start_s": 91.102,
+        "end_s": 98.443,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Dos de veintiocho mil, en el peor caso.",
+        "start_s": 98.443,
+        "end_s": 101.341,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "No hay nada que ganar porque no hay nada que sufrir.",
+        "start_s": 101.341,
+        "end_s": 104.602,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La otra mitad de la hipótesis, que el vídeo pesa mucho, sí se confirma, y peor de lo que pensábamos.",
+        "start_s": 104.602,
+        "end_s": 111.023,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El reconocimiento había reportado ochocientos cincuenta kilobytes de más.",
+        "start_s": 111.023,
+        "end_s": 115.568,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El artefacto que la aplicación sirve de verdad son ocho coma siete megabytes de más.",
+        "start_s": 115.568,
+        "end_s": 120.489,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Un alumno con datos móviles descarga diez veces más por la misma lección.",
+        "start_s": 120.489,
+        "end_s": 125.023,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Pero el hallazgo que más me gusta es otro.",
+        "start_s": 125.023,
+        "end_s": 127.739,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Al medir la sincronía de las marcas con el audio, la opción A daba medio segundo de retraso y el vídeo daba cien milisegundos.",
+        "start_s": 127.739,
+        "end_s": 134.83,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cinco veces mejor.",
+        "start_s": 134.83,
+        "end_s": 136.795,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Era tentador anotarlo como una ventaja del vídeo... y no lo era.",
+        "start_s": 136.795,
+        "end_s": 140.989,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Era un fallo nuestro.",
+        "start_s": 140.989,
+        "end_s": 142.83,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La etiqueta de vídeo tiene una función del navegador que avisa en cada fotograma, y la de audio no.",
+        "start_s": 142.83,
+        "end_s": 148.386,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Pero el reloj del audio se puede leer igual de bien en cada fotograma.",
+        "start_s": 148.386,
+        "end_s": 152.318,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Diez líneas de código.",
+        "start_s": 152.318,
+        "end_s": 154.42,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ahora la opción A va en ochenta y cinco milisegundos, por debajo del vídeo.",
+        "start_s": 154.42,
+        "end_s": 159.17,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "O sea: el bake-off le arregló medio segundo de desfase al producto, y ese arreglo se queda aunque el vídeo se descarte.",
+        "start_s": 159.17,
+        "end_s": 166.068,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Hubo dos más de ese estilo.",
+        "start_s": 166.504,
+        "end_s": 168.795,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Una compuerta que ahora detecta si el vídeo se generó con un guion que ya cambió, porque eso fallaba en silencio.",
+        "start_s": 168.745,
+        "end_s": 174.915,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y un bucle infinito que encontré de paso, y este es serio: con el juez en modo sombra, una pregunta abierta se contestaba, se juzgaba, y no contaba como evidencia.",
+        "start_s": 174.915,
+        "end_s": 184.643,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El selector entonces la servía otra vez... y otra... hasta cuarenta veces.",
+        "start_s": 184.643,
+        "end_s": 189.37,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y como esa habilidad nunca alcanzaba dominio, el concepto entero era inalcanzable.",
+        "start_s": 189.37,
+        "end_s": 194.54,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Lo encontré recorriendo una sesión completa contestando bien, no leyendo código.",
+        "start_s": 194.54,
+        "end_s": 199.336,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Tercero, lo que también construí anoche: el transfer check, la decisión D uno.",
+        "start_s": 199.336,
+        "end_s": 204.631,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Es el experimento que pregunta si la ayuda del tutor transfiere a un ejercicio que el tutor no tocó.",
+        "start_s": 204.631,
+        "end_s": 209.949,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Funciona así.",
+        "start_s": 209.949,
+        "end_s": 211.688,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Los ejercicios de práctica se emparejan de dos en dos dentro de una misma habilidad.",
+        "start_s": 211.688,
+        "end_s": 216.415,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Una moneda con semilla decide cuál de los dos lleva una pista antes de contestar.",
+        "start_s": 216.415,
+        "end_s": 221.211,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y lo que se compara no son la pista contra la nada: son los dos ejercicios sin pista, el que vino antes y el que vino después.",
+        "start_s": 221.211,
+        "end_s": 228.234,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Los dos sin ayuda.",
+        "start_s": 228.234,
+        "end_s": 230.086,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Solo cambia la posición, y la posición la decidió la moneda.",
+        "start_s": 230.086,
+        "end_s": 234.109,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Tres cosas están comprobadas por tests y no confiadas a la memoria.",
+        "start_s": 234.109,
+        "end_s": 238.097,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "No es un examen: ningún ejercicio nuevo, ninguna ayuda retirada, el chat sigue abierto igual en los dos casos.",
+        "start_s": 238.097,
+        "end_s": 245.268,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "No puede alimentar el criterio de dominio: hay una prueba que exige que el motor de dominio ni siquiera mencione este módulo.",
+        "start_s": 245.268,
+        "end_s": 251.699,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y los brazos son recuperables del registro, con semilla y orden, porque sin eso la asignación es un relato y no un experimento.",
+        "start_s": 251.699,
+        "end_s": 258.881,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El rendimiento real, medido: dos pares por sesión.",
+        "start_s": 258.881,
+        "end_s": 262.802,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Es el extremo bajo de lo que la especificación predijo, y pasa porque solo hay dos pistas escritas de siete.",
+        "start_s": 262.802,
+        "end_s": 268.927,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Sin pista, un ejercicio no es empujable.",
+        "start_s": 268.927,
+        "end_s": 272.165,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y eso me lleva a lo que te espera.",
+        "start_s": 272.165,
+        "end_s": 274.574,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Tres decisiones, todas en el archivo de temas abiertos.",
+        "start_s": 274.574,
+        "end_s": 278.518,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "La primera son tus pesos de los criterios.",
+        "start_s": 278.518,
+        "end_s": 281.381,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Los míos están registrados en git con fecha anterior a cualquier medición, y eso se puede comprobar.",
+        "start_s": 281.381,
+        "end_s": 287.165,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Son una propuesta sustituible: cambias cinco números y el marcador recalcula.",
+        "start_s": 287.165,
+        "end_s": 292.006,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Aunque te aviso que hoy dan igual: A gana con cualquier ponderación.",
+        "start_s": 292.006,
+        "end_s": 296.177,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "La segunda es si aceptas que estreché el bake-off.",
+        "start_s": 296.177,
+        "end_s": 299.313,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Construí el vídeo completo y no construí Manim ni el híbrido como brazos, sobre evidencia.",
+        "start_s": 299.313,
+        "end_s": 304.836,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Se puede revocar.",
+        "start_s": 304.836,
+        "end_s": 306.665,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "La tercera es la que de verdad necesita tu ojo.",
+        "start_s": 306.665,
+        "end_s": 309.893,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Las dos pistas de D uno están marcadas como borrador para ti, y las va a leer un alumno tuyo antes de contestar.",
+        "start_s": 309.893,
+        "end_s": 316.256,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Faltan cinco.",
+        "start_s": 316.256,
+        "end_s": 318.029,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y una última cosa que tienes que saber de mí, no del código.",
+        "start_s": 318.029,
+        "end_s": 322.006,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "La rúbrica de calidad visual la escribí antes de mirar las capturas, y monté un sorteo para no saber cuál era cuál.",
+        "start_s": 322.006,
+        "end_s": 328.552,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El sorteo no funcionó: dependía de si el instante era par, y los cinco instantes que elegí resultaron ser pares.",
+        "start_s": 328.552,
+        "end_s": 335.688,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Así que puntué sabiendo cuál era cada uno.",
+        "start_s": 335.688,
+        "end_s": 338.62,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Está dicho en el informe, las capturas están guardadas, y puedes repuntuar.",
+        "start_s": 338.62,
+        "end_s": 343.484,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Un sorteo que en la práctica no sortea es peor que no tenerlo, porque uno se lo cree.",
+        "start_s": 343.484,
+        "end_s": 348.336,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Resumo.",
+        "start_s": 348.772,
+        "end_s": 350.202,
+        "part_index": 2,
+        "speaker": null
+      },
+      {
+        "text": "M4 cerrado, gana lo que ya teníamos, y las seis horas del brazo perdedor compraron medio segundo de desfase arreglado, dos compuertas nuevas, un bucle infinito cazado, y la confirmación con números de que la costura admite otra tecnología sin reescribir la aplicación.",
+        "start_s": 350.152,
+        "end_s": 364.82,
+        "part_index": 2,
+        "speaker": null
+      },
+      {
+        "text": "Ciento treinta tests en verde.",
+        "start_s": 364.82,
+        "end_s": 367.172,
+        "part_index": 2,
+        "speaker": null
+      },
+      {
+        "text": "Todo subido a tu rama.",
+        "start_s": 367.172,
+        "end_s": 369.217,
+        "part_index": 2,
+        "speaker": null
+      },
+      {
+        "text": "Que descanses.",
+        "start_s": 369.217,
+        "end_s": 370.945,
+        "part_index": 2,
+        "speaker": null
+      }
+    ],
+    "granularity": "sentence",
+    "source": "edge-sentence-boundary",
+    "timebase": "media_seconds"
+  },
+  "tags": [],
+  "formulas": [],
+  "transcript_text": "# M4 cerrado con medicion\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, buenos días. M4 está cerrado, y esta vez con números medidos en vez de estimados. Te cuento tres cosas: qué ganó el bake-off, qué me enseñó construir el brazo perdedor, y qué te espera a ti.\n\nPrimero, el resultado. Gana la opción A, la que ya teníamos: audio más gráfico dibujado en la página. Gana en el cien por ciento de las ponderaciones plausibles. Ningún criterio, ni llevándose todo el peso, cambia el ganador.\n\nAntes de construir nada, el barrido daba noventa y dos por ciento. Medir lo subió a cien. Eso es lo contrario de lo que suele pasar cuando alguien construye algo y luego lo puntúa, así que te explico por qué. Las tres celdas que se movieron al medir se movieron en contra de lo que yo acababa de construir.\n\nLa calidad visual del vídeo era su única esperanza, y con la rúbrica delante se quedó en tres coma seis sobre cinco, contra cuatro coma ocho del gráfico en página. La accesibilidad del vídeo bajó de dos a uno: el gráfico dentro de un vídeo simplemente no existe para un lector de pantalla. Cero etiquetas, cero texto seleccionable. Y la versatilidad entre equipos de la opción A subió de seis a nueve, porque el reconocimiento la había penalizado por mutar el gráfico en cada marca... y medido, eso son diez cambios en cuatro minutos. No cuesta nada.\n\nSegundo, lo que aprendí construyendo el brazo que perdió. Y aquí está lo que de verdad valió la pena.\n\nLa hipótesis que habíamos registrado decía que el vídeo gana en equipos modestos. Está refutada. Estrangulé la CPU cuatro veces y reproduje la lección entera en tiempo real: ninguna de las dos opciones pierde fotogramas. Dos de veintiocho mil, en el peor caso. No hay nada que ganar porque no hay nada que sufrir.\n\nLa otra mitad de la hipótesis, que el vídeo pesa mucho, sí se confirma, y peor de lo que pensábamos. El reconocimiento había reportado ochocientos cincuenta kilobytes de más. El artefacto que la aplicación sirve de verdad son ocho coma siete megabytes de más. Un alumno con datos móviles descarga diez veces más por la misma lección.\n\nPero el hallazgo que más me gusta es otro. Al medir la sincronía de las marcas con el audio, la opción A daba medio segundo de retraso y el vídeo daba cien milisegundos. Cinco veces mejor. Era tentador anotarlo como una ventaja del vídeo... y no lo era. Era un fallo nuestro. La etiqueta de vídeo tiene una función del navegador que avisa en cada fotograma, y la de audio no. Pero el reloj del audio se puede leer igual de bien en cada fotograma. Diez líneas de código. Ahora la opción A va en ochenta y cinco milisegundos, por debajo del vídeo. O sea: el bake-off le arregló medio segundo de desfase al producto, y ese arreglo se queda aunque el vídeo se descarte.\n\nHubo dos más de ese estilo. Una compuerta que ahora detecta si el vídeo se generó con un guion que ya cambió, porque eso fallaba en silencio. Y un bucle infinito que encontré de paso, y este es serio: con el juez en modo sombra, una pregunta abierta se contestaba, se juzgaba, y no contaba como evidencia. El selector entonces la servía otra vez... y otra... hasta cuarenta veces. Y como esa habilidad nunca alcanzaba dominio, el concepto entero era inalcanzable. Lo encontré recorriendo una sesión completa contestando bien, no leyendo código.\n\nTercero, lo que también construí anoche: el transfer check, la decisión D uno. Es el experimento que pregunta si la ayuda del tutor transfiere a un ejercicio que el tutor no tocó.\n\nFunciona así. Los ejercicios de práctica se emparejan de dos en dos dentro de una misma habilidad. Una moneda con semilla decide cuál de los dos lleva una pista antes de contestar. Y lo que se compara no son la pista contra la nada: son los dos ejercicios sin pista, el que vino antes y el que vino después. Los dos sin ayuda. Solo cambia la posición, y la posición la decidió la moneda.\n\nTres cosas están comprobadas por tests y no confiadas a la memoria. No es un examen: ningún ejercicio nuevo, ninguna ayuda retirada, el chat sigue abierto igual en los dos casos. No puede alimentar el criterio de dominio: hay una prueba que exige que el motor de dominio ni siquiera mencione este módulo. Y los brazos son recuperables del registro, con semilla y orden, porque sin eso la asignación es un relato y no un experimento.\n\nEl rendimiento real, medido: dos pares por sesión. Es el extremo bajo de lo que la especificación predijo, y pasa porque solo hay dos pistas escritas de siete. Sin pista, un ejercicio no es empujable.\n\nY eso me lleva a lo que te espera. Tres decisiones, todas en el archivo de temas abiertos.\n\nLa primera son tus pesos de los criterios. Los míos están registrados en git con fecha anterior a cualquier medición, y eso se puede comprobar. Son una propuesta sustituible: cambias cinco números y el marcador recalcula. Aunque te aviso que hoy dan igual: A gana con cualquier ponderación.\n\nLa segunda es si aceptas que estreché el bake-off. Construí el vídeo completo y no construí Manim ni el híbrido como brazos, sobre evidencia. Se puede revocar.\n\nLa tercera es la que de verdad necesita tu ojo. Las dos pistas de D uno están marcadas como borrador para ti, y las va a leer un alumno tuyo antes de contestar. Faltan cinco.\n\nY una última cosa que tienes que saber de mí, no del código. La rúbrica de calidad visual la escribí antes de mirar las capturas, y monté un sorteo para no saber cuál era cuál. El sorteo no funcionó: dependía de si el instante era par, y los cinco instantes que elegí resultaron ser pares. Así que puntué sabiendo cuál era cada uno. Está dicho en el informe, las capturas están guardadas, y puedes repuntuar. Un sorteo que en la práctica no sortea es peor que no tenerlo, porque uno se lo cree.\n\nResumo. M4 cerrado, gana lo que ya teníamos, y las seis horas del brazo perdedor compraron medio segundo de desfase arreglado, dos compuertas nuevas, un bucle infinito cazado, y la confirmación con números de que la costura admite otra tecnología sin reescribir la aplicación. Ciento treinta tests en verde. Todo subido a tu rama.\n\nQue descanses.\n\n",
+  "formula_text": "",
+  "search_text": "M4 cerrado con medicion # M4 cerrado con medicion\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, buenos días. M4 está cerrado, y esta vez con números medidos en vez de estimados. Te cuento tres cosas: qué ganó el bake-off, qué me enseñó construir el brazo perdedor, y qué te espera a ti.\n\nPrimero, el resultado. Gana la opción A, la que ya teníamos: audio más gráfico dibujado en la página. Gana en el cien por ciento de las ponderaciones plausibles. Ningún criterio, ni llevándose todo el peso, cambia el ganador.\n\nAntes de construir nada, el barrido daba noventa y dos por ciento. Medir lo subió a cien. Eso es lo contrario de lo que suele pasar cuando alguien construye algo y luego lo puntúa, así que te explico por qué. Las tres celdas que se movieron al medir se movieron en contra de lo que yo acababa de construir.\n\nLa calidad visual del vídeo era su única esperanza, y con la rúbrica delante se quedó en tres coma seis sobre cinco, contra cuatro coma ocho del gráfico en página. La accesibilidad del vídeo bajó de dos a uno: el gráfico dentro de un vídeo simplemente no existe para un lector de pantalla. Cero etiquetas, cero texto seleccionable. Y la versatilidad entre equipos de la opción A subió de seis a nueve, porque el reconocimiento la había penalizado por mutar el gráfico en cada marca... y medido, eso son diez cambios en cuatro minutos. No cuesta nada.\n\nSegundo, lo que aprendí construyendo el brazo que perdió. Y aquí está lo que de verdad valió la pena.\n\nLa hipótesis que habíamos registrado decía que el vídeo gana en equipos modestos. Está refutada. Estrangulé la CPU cuatro veces y reproduje la lección entera en tiempo real: ninguna de las dos opciones pierde fotogramas. Dos de veintiocho mil, en el peor caso. No hay nada que ganar porque no hay nada que sufrir.\n\nLa otra mitad de la hipótesis, que el vídeo pesa mucho, sí se confirma, y peor de lo que pensábamos. El reconocimiento había reportado ochocientos cincuenta kilobytes de más. El artefacto que la aplicación sirve de verdad son ocho coma siete megabytes de más. Un alumno con datos móviles descarga diez veces más por la misma lección.\n\nPero el hallazgo que más me gusta es otro. Al medir la sincronía de las marcas con el audio, la opción A daba medio segundo de retraso y el vídeo daba cien milisegundos. Cinco veces mejor. Era tentador anotarlo como una ventaja del vídeo... y no lo era. Era un fallo nuestro. La etiqueta de vídeo tiene una función del navegador que avisa en cada fotograma, y la de audio no. Pero el reloj del audio se puede leer igual de bien en cada fotograma. Diez líneas de código. Ahora la opción A va en ochenta y cinco milisegundos, por debajo del vídeo. O sea: el bake-off le arregló medio segundo de desfase al producto, y ese arreglo se queda aunque el vídeo se descarte.\n\nHubo dos más de ese estilo. Una compuerta que ahora detecta si el vídeo se generó con un guion que ya cambió, porque eso fallaba en silencio. Y un bucle infinito que encontré de paso, y este es serio: con el juez en modo sombra, una pregunta abierta se contestaba, se juzgaba, y no contaba como evidencia. El selector entonces la servía otra vez... y otra... hasta cuarenta veces. Y como esa habilidad nunca alcanzaba dominio, el concepto entero era inalcanzable. Lo encontré recorriendo una sesión completa contestando bien, no leyendo código.\n\nTercero, lo que también construí anoche: el transfer check, la decisión D uno. Es el experimento que pregunta si la ayuda del tutor transfiere a un ejercicio que el tutor no tocó.\n\nFunciona así. Los ejercicios de práctica se emparejan de dos en dos dentro de una misma habilidad. Una moneda con semilla decide cuál de los dos lleva una pista antes de contestar. Y lo que se compara no son la pista contra la nada: son los dos ejercicios sin pista, el que vino antes y el que vino después. Los dos sin ayuda. Solo cambia la posición, y la posición la decidió la moneda.\n\nTres cosas están comprobadas por tests y no confiadas a la memoria. No es un examen: ningún ejercicio nuevo, ninguna ayuda retirada, el chat sigue abierto igual en los dos casos. No puede alimentar el criterio de dominio: hay una prueba que exige que el motor de dominio ni siquiera mencione este módulo. Y los brazos son recuperables del registro, con semilla y orden, porque sin eso la asignación es un relato y no un experimento.\n\nEl rendimiento real, medido: dos pares por sesión. Es el extremo bajo de lo que la especificación predijo, y pasa porque solo hay dos pistas escritas de siete. Sin pista, un ejercicio no es empujable.\n\nY eso me lleva a lo que te espera. Tres decisiones, todas en el archivo de temas abiertos.\n\nLa primera son tus pesos de los criterios. Los míos están registrados en git con fecha anterior a cualquier medición, y eso se puede comprobar. Son una propuesta sustituible: cambias cinco números y el marcador recalcula. Aunque te aviso que hoy dan igual: A gana con cualquier ponderación.\n\nLa segunda es si aceptas que estreché el bake-off. Construí el vídeo completo y no construí Manim ni el híbrido como brazos, sobre evidencia. Se puede revocar.\n\nLa tercera es la que de verdad necesita tu ojo. Las dos pistas de D uno están marcadas como borrador para ti, y las va a leer un alumno tuyo antes de contestar. Faltan cinco.\n\nY una última cosa que tienes que saber de mí, no del código. La rúbrica de calidad visual la escribí antes de mirar las capturas, y monté un sorteo para no saber cuál era cuál. El sorteo no funcionó: dependía de si el instante era par, y los cinco instantes que elegí resultaron ser pares. Así que puntué sabiendo cuál era cada uno. Está dicho en el informe, las capturas están guardadas, y puedes repuntuar. Un sorteo que en la práctica no sortea es peor que no tenerlo, porque uno se lo cree.\n\nResumo. M4 cerrado, gana lo que ya teníamos, y las seis horas del brazo perdedor compraron medio segundo de desfase arreglado, dos compuertas nuevas, un bucle infinito cazado, y la confirmación con números de que la costura admite otra tecnología sin reescribir la aplicación. Ciento treinta tests en verde. Todo subido a tu rama.\n\nQue descanses.\n\n"
+}

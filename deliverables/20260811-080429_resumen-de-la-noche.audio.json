@@ -1,0 +1,456 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-11T13:05:16.600619+00:00",
+  "title": "Resumen de la noche",
+  "provider": "edge",
+  "duration_s": 321.792,
+  "audio": "20260811-080429_resumen-de-la-noche.mp3",
+  "transcript": "20260811-080429_resumen-de-la-noche.md",
+  "player": "20260811-080429_resumen-de-la-noche.player.html",
+  "sync": {
+    "segments": [
+      {
+        "text": "Kristian, buenos días.",
+        "start_s": 0.1,
+        "end_s": 2.414,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Este es el resumen de la noche entera, para que sepas qué hay y qué necesita tu ojo antes de mirar nada.",
+        "start_s": 2.364,
+        "end_s": 8.239,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Se cerraron cuatro cosas.",
+        "start_s": 8.239,
+        "end_s": 10.5,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Te las cuento en orden de importancia.",
+        "start_s": 10.5,
+        "end_s": 12.989,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La primera: el bake-off de renderizado, M cuatro, está cerrado con medición.",
+        "start_s": 12.989,
+        "end_s": 18.364,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Gana la opción que ya teníamos —audio más gráfico dibujado en la página— en el cien por ciento de las ponderaciones plausibles.",
+        "start_s": 18.364,
+        "end_s": 25.489,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Construí el brazo de vídeo completo y lo medí dentro de la aplicación real, no como demo aparte.",
+        "start_s": 25.489,
+        "end_s": 31.08,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La hipótesis que habíamos registrado, la de que el vídeo gana en equipos modestos, queda refutada: con la CPU estrangulada cuatro veces ninguna de las dos pierde fotogramas.",
+        "start_s": 31.08,
+        "end_s": 41.102,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y la otra mitad, la de que pesa mucho, queda confirmada y peor de lo previsto: diez veces más bytes por la misma lección.",
+        "start_s": 41.102,
+        "end_s": 48.523,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Lo que de verdad compró construir el brazo perdedor fue otra cosa.",
+        "start_s": 48.523,
+        "end_s": 52.614,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Al medir la sincronía descubrí que el medio segundo de retraso de nuestra opción era un fallo nuestro, no un límite del enfoque.",
+        "start_s": 52.614,
+        "end_s": 59.318,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Diez líneas lo bajaron a ochenta y cinco milisegundos.",
+        "start_s": 59.318,
+        "end_s": 62.966,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ese arreglo se queda aunque el vídeo se descarte.",
+        "start_s": 62.966,
+        "end_s": 66.091,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La segunda: el chequeo de transferencia, la decisión D uno, está implementado en su mitad de recogida.",
+        "start_s": 66.091,
+        "end_s": 72.557,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El experimento que pregunta si la ayuda del tutor transfiere a un ejercicio que el tutor no tocó.",
+        "start_s": 72.557,
+        "end_s": 77.716,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Los brazos son recuperables del registro, con semilla y orden, y hay una prueba estructural que exige que el motor de dominio ni siquiera mencione ese módulo.",
+        "start_s": 77.716,
+        "end_s": 86.034,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El rendimiento real, medido, son dos pares por sesión: el extremo bajo de lo previsto, porque solo hay dos pistas escritas de siete.",
+        "start_s": 86.034,
+        "end_s": 94.136,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La tercera: la decisión D tres.",
+        "start_s": 94.136,
+        "end_s": 96.875,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Toda la lección corre ahora desde datos.",
+        "start_s": 96.875,
+        "end_s": 99.773,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Qué dibuja el gráfico en cada momento, y qué hace la banda de la ecuación, eran dos bloques de código; ahora son un archivo del pack.",
+        "start_s": 99.773,
+        "end_s": 107.33,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La equivalencia está demostrada, no afirmada: capturé lo que hacía el código viejo antes de borrarlo, y hay pruebas que exigen que el intérprete nuevo haga exactamente lo mismo.",
+        "start_s": 107.33,
+        "end_s": 116.807,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y lo medí, que era lo que la decisión pedía.",
+        "start_s": 116.807,
+        "end_s": 119.943,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Tres modelos, cero documentos inválidos, cero vueltas de corrección.",
+        "start_s": 119.943,
+        "end_s": 124.682,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El gráfico lo emiten bien: ocho de diez.",
+        "start_s": 124.682,
+        "end_s": 127.864,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El ledger no: entre cero y seis.",
+        "start_s": 127.864,
+        "end_s": 130.727,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y la diferencia enseña algo que te va a interesar.",
+        "start_s": 130.727,
+        "end_s": 133.989,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Las operaciones del gráfico están implicadas causalmente por lo que la narración dice —\"sube de tres a cuatro\" determina el cambio, sin margen—.",
+        "start_s": 133.989,
+        "end_s": 141.67,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Las del ledger son decisiones pedagógicas de ritmo: que la ficha se rellene poco a poco es un andamiaje que elegimos nosotros, y la narración no lo determina.",
+        "start_s": 141.67,
+        "end_s": 150.318,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Un modelo no puede deducir una convención que no está escrita en ninguna parte.",
+        "start_s": 150.318,
+        "end_s": 154.784,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La cuarta: tu revisión visual.",
+        "start_s": 155.224,
+        "end_s": 157.799,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Encontré en el archivo de coordinación que la tarea seguía viva y nunca se había aplicado, con tu veredicto textual y dos propuestas esperando.",
+        "start_s": 157.749,
+        "end_s": 165.397,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Implementé la mitad que las dos comparten: la prominencia sigue a la narración.",
+        "start_s": 165.397,
+        "end_s": 170.101,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Cuando los bienes son el sujeto, el plano se encoge; cuando la geometría es el suceso, el plano manda.",
+        "start_s": 170.101,
+        "end_s": 176.351,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y no está en el código: es una operación más del guion, así que viaja con el pack.",
+        "start_s": 176.351,
+        "end_s": 181.454,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Lo que no hice, y quiero que sepas por qué.",
+        "start_s": 181.454,
+        "end_s": 184.533,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "No maté las fichas.",
+        "start_s": 184.533,
+        "end_s": 186.522,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Dijiste que sobran, y las dos propuestas que tenías esperando difieren en qué ponerlas en su lugar: una inyecta el icono dentro del término de la ecuación, la otra usa una etiqueta reutilizada en tres sitios.",
+        "start_s": 186.522,
+        "end_s": 197.704,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Elegir yo de madrugada, sin tu ojo, es exactamente donde se equivocó la ronda anterior.",
+        "start_s": 197.704,
+        "end_s": 203.419,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Te dejé cuatro capturas para que juzgues por imagen, como pediste.",
+        "start_s": 203.419,
+        "end_s": 207.601,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Ahora, lo que necesita decisión tuya.",
+        "start_s": 207.601,
+        "end_s": 210.647,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Son cuatro cosas y están todas anotadas en el archivo de temas abiertos.",
+        "start_s": 210.647,
+        "end_s": 215.249,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Una: tus pesos de los criterios del bake-off.",
+        "start_s": 215.249,
+        "end_s": 218.397,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Los míos están registrados en git con fecha anterior a cualquier medición.",
+        "start_s": 218.397,
+        "end_s": 222.76,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Cambias cinco números y todo se recalcula.",
+        "start_s": 222.76,
+        "end_s": 225.863,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Aunque te aviso que hoy dan igual, porque gana con cualquier ponderación.",
+        "start_s": 225.863,
+        "end_s": 230.044,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Dos: si aceptas que estreché el bake-off a un solo brazo sobre evidencia, en vez de gastar tres plazos confirmando una decisión ya tomada.",
+        "start_s": 230.044,
+        "end_s": 237.829,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Tres: las dos pistas del experimento de transferencia.",
+        "start_s": 237.829,
+        "end_s": 241.624,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Están marcadas como borrador y las va a leer un alumno tuyo antes de contestar.",
+        "start_s": 241.624,
+        "end_s": 246.272,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Faltan cinco.",
+        "start_s": 246.272,
+        "end_s": 248.044,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Cuatro, y esta es la más interesante: en dos momentos de la lección, el modelo y mi guion escrito a mano discrepan, y en los dos el modelo tiene argumento.",
+        "start_s": 248.044,
+        "end_s": 256.885,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Cuando la narración pregunta qué puntos del mapa puedes pagar, el modelo muestra la región y no la recta.",
+        "start_s": 256.885,
+        "end_s": 262.658,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y cuando dice que la línea se desplaza pero no gira, el modelo deja la pendiente destacada, siguiendo una regla que yo mismo escribí y que mi guion no sigue.",
+        "start_s": 262.658,
+        "end_s": 270.954,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Son decisiones pedagógicas tuyas.",
+        "start_s": 270.954,
+        "end_s": 273.726,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Última cosa, y es sobre cómo trabajé, no sobre el código.",
+        "start_s": 273.726,
+        "end_s": 277.829,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Varias comprobaciones que escribí esta noche pasaban en verde sin comprobar nada.",
+        "start_s": 277.829,
+        "end_s": 282.51,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Un arnés de medición que informó de percentiles perfectamente creíbles medidos sobre un segundo de lección.",
+        "start_s": 282.51,
+        "end_s": 288.385,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Un sorteo para puntuar a ciegas que no sorteaba porque todos los instantes que elegí eran pares.",
+        "start_s": 288.385,
+        "end_s": 293.965,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y tres versiones seguidas de una misma aserción sobre la práctica, las tres verdes y las tres vacías, cada una escrita para arreglar la anterior.",
+        "start_s": 293.965,
+        "end_s": 301.772,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Las cacé todas midiendo, ninguna leyendo el código.",
+        "start_s": 301.772,
+        "end_s": 305.499,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Están escritas donde ocurrieron, porque un verde que no significa nada es peor que un rojo.",
+        "start_s": 305.499,
+        "end_s": 310.954,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Ciento cuarenta y cuatro pruebas en verde, las compuertas limpias, el recorrido completo del estudiante verificado en las dos variantes, y todo subido a tu rama.",
+        "start_s": 310.954,
+        "end_s": 319.829,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Que aproveches el día.",
+        "start_s": 319.829,
+        "end_s": 321.692,
+        "part_index": 1,
+        "speaker": null
+      }
+    ],
+    "granularity": "sentence",
+    "source": "edge-sentence-boundary",
+    "timebase": "media_seconds"
+  },
+  "tags": [],
+  "formulas": [],
+  "transcript_text": "# Resumen de la noche\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, buenos días. Este es el resumen de la noche entera, para que sepas qué hay y qué necesita tu ojo antes de mirar nada.\n\nSe cerraron cuatro cosas. Te las cuento en orden de importancia.\n\nLa primera: el bake-off de renderizado, M cuatro, está cerrado con medición. Gana la opción que ya teníamos —audio más gráfico dibujado en la página— en el cien por ciento de las ponderaciones plausibles. Construí el brazo de vídeo completo y lo medí dentro de la aplicación real, no como demo aparte. La hipótesis que habíamos registrado, la de que el vídeo gana en equipos modestos, queda refutada: con la CPU estrangulada cuatro veces ninguna de las dos pierde fotogramas. Y la otra mitad, la de que pesa mucho, queda confirmada y peor de lo previsto: diez veces más bytes por la misma lección.\n\nLo que de verdad compró construir el brazo perdedor fue otra cosa. Al medir la sincronía descubrí que el medio segundo de retraso de nuestra opción era un fallo nuestro, no un límite del enfoque. Diez líneas lo bajaron a ochenta y cinco milisegundos. Ese arreglo se queda aunque el vídeo se descarte.\n\nLa segunda: el chequeo de transferencia, la decisión D uno, está implementado en su mitad de recogida. El experimento que pregunta si la ayuda del tutor transfiere a un ejercicio que el tutor no tocó. Los brazos son recuperables del registro, con semilla y orden, y hay una prueba estructural que exige que el motor de dominio ni siquiera mencione ese módulo. El rendimiento real, medido, son dos pares por sesión: el extremo bajo de lo previsto, porque solo hay dos pistas escritas de siete.\n\nLa tercera: la decisión D tres. Toda la lección corre ahora desde datos. Qué dibuja el gráfico en cada momento, y qué hace la banda de la ecuación, eran dos bloques de código; ahora son un archivo del pack. La equivalencia está demostrada, no afirmada: capturé lo que hacía el código viejo antes de borrarlo, y hay pruebas que exigen que el intérprete nuevo haga exactamente lo mismo.\n\nY lo medí, que era lo que la decisión pedía. Tres modelos, cero documentos inválidos, cero vueltas de corrección. El gráfico lo emiten bien: ocho de diez. El ledger no: entre cero y seis. Y la diferencia enseña algo que te va a interesar. Las operaciones del gráfico están implicadas causalmente por lo que la narración dice —\"sube de tres a cuatro\" determina el cambio, sin margen—. Las del ledger son decisiones pedagógicas de ritmo: que la ficha se rellene poco a poco es un andamiaje que elegimos nosotros, y la narración no lo determina. Un modelo no puede deducir una convención que no está escrita en ninguna parte.\n\nLa cuarta: tu revisión visual. Encontré en el archivo de coordinación que la tarea seguía viva y nunca se había aplicado, con tu veredicto textual y dos propuestas esperando. Implementé la mitad que las dos comparten: la prominencia sigue a la narración. Cuando los bienes son el sujeto, el plano se encoge; cuando la geometría es el suceso, el plano manda. Y no está en el código: es una operación más del guion, así que viaja con el pack.\n\nLo que no hice, y quiero que sepas por qué. No maté las fichas. Dijiste que sobran, y las dos propuestas que tenías esperando difieren en qué ponerlas en su lugar: una inyecta el icono dentro del término de la ecuación, la otra usa una etiqueta reutilizada en tres sitios. Elegir yo de madrugada, sin tu ojo, es exactamente donde se equivocó la ronda anterior. Te dejé cuatro capturas para que juzgues por imagen, como pediste.\n\nAhora, lo que necesita decisión tuya. Son cuatro cosas y están todas anotadas en el archivo de temas abiertos.\n\nUna: tus pesos de los criterios del bake-off. Los míos están registrados en git con fecha anterior a cualquier medición. Cambias cinco números y todo se recalcula. Aunque te aviso que hoy dan igual, porque gana con cualquier ponderación.\n\nDos: si aceptas que estreché el bake-off a un solo brazo sobre evidencia, en vez de gastar tres plazos confirmando una decisión ya tomada.\n\nTres: las dos pistas del experimento de transferencia. Están marcadas como borrador y las va a leer un alumno tuyo antes de contestar. Faltan cinco.\n\nCuatro, y esta es la más interesante: en dos momentos de la lección, el modelo y mi guion escrito a mano discrepan, y en los dos el modelo tiene argumento. Cuando la narración pregunta qué puntos del mapa puedes pagar, el modelo muestra la región y no la recta. Y cuando dice que la línea se desplaza pero no gira, el modelo deja la pendiente destacada, siguiendo una regla que yo mismo escribí y que mi guion no sigue. Son decisiones pedagógicas tuyas.\n\nÚltima cosa, y es sobre cómo trabajé, no sobre el código. Varias comprobaciones que escribí esta noche pasaban en verde sin comprobar nada. Un arnés de medición que informó de percentiles perfectamente creíbles medidos sobre un segundo de lección. Un sorteo para puntuar a ciegas que no sorteaba porque todos los instantes que elegí eran pares. Y tres versiones seguidas de una misma aserción sobre la práctica, las tres verdes y las tres vacías, cada una escrita para arreglar la anterior. Las cacé todas midiendo, ninguna leyendo el código. Están escritas donde ocurrieron, porque un verde que no significa nada es peor que un rojo.\n\nCiento cuarenta y cuatro pruebas en verde, las compuertas limpias, el recorrido completo del estudiante verificado en las dos variantes, y todo subido a tu rama.\n\nQue aproveches el día.\n\n",
+  "formula_text": "",
+  "search_text": "Resumen de la noche # Resumen de la noche\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, buenos días. Este es el resumen de la noche entera, para que sepas qué hay y qué necesita tu ojo antes de mirar nada.\n\nSe cerraron cuatro cosas. Te las cuento en orden de importancia.\n\nLa primera: el bake-off de renderizado, M cuatro, está cerrado con medición. Gana la opción que ya teníamos —audio más gráfico dibujado en la página— en el cien por ciento de las ponderaciones plausibles. Construí el brazo de vídeo completo y lo medí dentro de la aplicación real, no como demo aparte. La hipótesis que habíamos registrado, la de que el vídeo gana en equipos modestos, queda refutada: con la CPU estrangulada cuatro veces ninguna de las dos pierde fotogramas. Y la otra mitad, la de que pesa mucho, queda confirmada y peor de lo previsto: diez veces más bytes por la misma lección.\n\nLo que de verdad compró construir el brazo perdedor fue otra cosa. Al medir la sincronía descubrí que el medio segundo de retraso de nuestra opción era un fallo nuestro, no un límite del enfoque. Diez líneas lo bajaron a ochenta y cinco milisegundos. Ese arreglo se queda aunque el vídeo se descarte.\n\nLa segunda: el chequeo de transferencia, la decisión D uno, está implementado en su mitad de recogida. El experimento que pregunta si la ayuda del tutor transfiere a un ejercicio que el tutor no tocó. Los brazos son recuperables del registro, con semilla y orden, y hay una prueba estructural que exige que el motor de dominio ni siquiera mencione ese módulo. El rendimiento real, medido, son dos pares por sesión: el extremo bajo de lo previsto, porque solo hay dos pistas escritas de siete.\n\nLa tercera: la decisión D tres. Toda la lección corre ahora desde datos. Qué dibuja el gráfico en cada momento, y qué hace la banda de la ecuación, eran dos bloques de código; ahora son un archivo del pack. La equivalencia está demostrada, no afirmada: capturé lo que hacía el código viejo antes de borrarlo, y hay pruebas que exigen que el intérprete nuevo haga exactamente lo mismo.\n\nY lo medí, que era lo que la decisión pedía. Tres modelos, cero documentos inválidos, cero vueltas de corrección. El gráfico lo emiten bien: ocho de diez. El ledger no: entre cero y seis. Y la diferencia enseña algo que te va a interesar. Las operaciones del gráfico están implicadas causalmente por lo que la narración dice —\"sube de tres a cuatro\" determina el cambio, sin margen—. Las del ledger son decisiones pedagógicas de ritmo: que la ficha se rellene poco a poco es un andamiaje que elegimos nosotros, y la narración no lo determina. Un modelo no puede deducir una convención que no está escrita en ninguna parte.\n\nLa cuarta: tu revisión visual. Encontré en el archivo de coordinación que la tarea seguía viva y nunca se había aplicado, con tu veredicto textual y dos propuestas esperando. Implementé la mitad que las dos comparten: la prominencia sigue a la narración. Cuando los bienes son el sujeto, el plano se encoge; cuando la geometría es el suceso, el plano manda. Y no está en el código: es una operación más del guion, así que viaja con el pack.\n\nLo que no hice, y quiero que sepas por qué. No maté las fichas. Dijiste que sobran, y las dos propuestas que tenías esperando difieren en qué ponerlas en su lugar: una inyecta el icono dentro del término de la ecuación, la otra usa una etiqueta reutilizada en tres sitios. Elegir yo de madrugada, sin tu ojo, es exactamente donde se equivocó la ronda anterior. Te dejé cuatro capturas para que juzgues por imagen, como pediste.\n\nAhora, lo que necesita decisión tuya. Son cuatro cosas y están todas anotadas en el archivo de temas abiertos.\n\nUna: tus pesos de los criterios del bake-off. Los míos están registrados en git con fecha anterior a cualquier medición. Cambias cinco números y todo se recalcula. Aunque te aviso que hoy dan igual, porque gana con cualquier ponderación.\n\nDos: si aceptas que estreché el bake-off a un solo brazo sobre evidencia, en vez de gastar tres plazos confirmando una decisión ya tomada.\n\nTres: las dos pistas del experimento de transferencia. Están marcadas como borrador y las va a leer un alumno tuyo antes de contestar. Faltan cinco.\n\nCuatro, y esta es la más interesante: en dos momentos de la lección, el modelo y mi guion escrito a mano discrepan, y en los dos el modelo tiene argumento. Cuando la narración pregunta qué puntos del mapa puedes pagar, el modelo muestra la región y no la recta. Y cuando dice que la línea se desplaza pero no gira, el modelo deja la pendiente destacada, siguiendo una regla que yo mismo escribí y que mi guion no sigue. Son decisiones pedagógicas tuyas.\n\nÚltima cosa, y es sobre cómo trabajé, no sobre el código. Varias comprobaciones que escribí esta noche pasaban en verde sin comprobar nada. Un arnés de medición que informó de percentiles perfectamente creíbles medidos sobre un segundo de lección. Un sorteo para puntuar a ciegas que no sorteaba porque todos los instantes que elegí eran pares. Y tres versiones seguidas de una misma aserción sobre la práctica, las tres verdes y las tres vacías, cada una escrita para arreglar la anterior. Las cacé todas midiendo, ninguna leyendo el código. Están escritas donde ocurrieron, porque un verde que no significa nada es peor que un rojo.\n\nCiento cuarenta y cuatro pruebas en verde, las compuertas limpias, el recorrido completo del estudiante verificado en las dos variantes, y todo subido a tu rama.\n\nQue aproveches el día.\n\n"
+}

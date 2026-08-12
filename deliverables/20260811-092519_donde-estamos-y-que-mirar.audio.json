@@ -1,0 +1,421 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-11T14:25:43.001120+00:00",
+  "title": "Donde estamos y que mirar",
+  "provider": "edge",
+  "duration_s": 263.664,
+  "audio": "20260811-092519_donde-estamos-y-que-mirar.mp3",
+  "transcript": "20260811-092519_donde-estamos-y-que-mirar.md",
+  "player": "20260811-092519_donde-estamos-y-que-mirar.player.html",
+  "sync": {
+    "segments": [
+      {
+        "text": "Kristian, tres preguntas: dónde estamos, hasta dónde llegamos, y qué puedes mirar.",
+        "start_s": 0.1,
+        "end_s": 5.811,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Te las contesto en ese orden, y la tercera con detalle porque es la accionable.",
+        "start_s": 5.761,
+        "end_s": 10.295,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Dónde estamos.",
+        "start_s": 10.295,
+        "end_s": 12.047,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El plan tiene seis hitos, de M cero a M cinco.",
+        "start_s": 12.047,
+        "end_s": 15.773,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Los cuatro primeros están construidos, el quinto no ha empezado, y hay un matiz importante en el tercero.",
+        "start_s": 15.773,
+        "end_s": 22.227,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "M cero, el esqueleto.",
+        "start_s": 22.227,
+        "end_s": 24.58,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "M uno, el guion y el catálogo, que tú aprobaste.",
+        "start_s": 24.58,
+        "end_s": 28.398,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "M dos, el bucle completo de la opción A: audio, gráfico, checkpoints y los cuatro tipos de pregunta.",
+        "start_s": 28.398,
+        "end_s": 34.909,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "M tres, los correctores deterministas más el juez en modo sombra... y aquí el matiz: la compuerta de concordancia no pasó, se simuló.",
+        "start_s": 34.909,
+        "end_s": 43.136,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "No hay etiquetas tuyas, así que la referencia fue la intención de otro modelo sobre respuestas que también escribió un modelo.",
+        "start_s": 43.136,
+        "end_s": 49.795,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Eso dice que la maquinaria funciona; no dice nada sobre pedagogía.",
+        "start_s": 49.795,
+        "end_s": 54.318,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El juez sigue en sombra por eso.",
+        "start_s": 54.318,
+        "end_s": 56.705,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y M cuatro, el bake-off de renderizado, cerrado anoche con medición.",
+        "start_s": 56.705,
+        "end_s": 61.477,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Hasta dónde llegamos, entonces: hasta el final de M cuatro.",
+        "start_s": 61.477,
+        "end_s": 65.716,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Lo que queda es M cinco, y es el hito interesante, porque su criterio de éxito es literalmente \"el pack de curva de indiferencia sin tocar código\".",
+        "start_s": 65.716,
+        "end_s": 73.807,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Concepto dos cerrado solo con contenido.",
+        "start_s": 73.807,
+        "end_s": 76.795,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y aquí está la conexión que quiero que veas.",
+        "start_s": 76.795,
+        "end_s": 79.807,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La decisión D tres, que implementé anoche, es exactamente lo que hace M cinco posible.",
+        "start_s": 79.807,
+        "end_s": 85.42,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Antes, añadir un concepto exigía escribir TypeScript: qué dibuja el gráfico en cada momento y qué hace la banda de la ecuación vivían dentro del código.",
+        "start_s": 85.42,
+        "end_s": 93.875,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ahora son un archivo de datos del pack.",
+        "start_s": 93.875,
+        "end_s": 96.67,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "O sea que M cinco pasó de ser \"escribe contenido y también código\" a ser \"escribe contenido\".",
+        "start_s": 96.67,
+        "end_s": 101.966,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Que es la promesa entera del proyecto: el concepto número veinte tiene que salir barato.",
+        "start_s": 101.966,
+        "end_s": 107.057,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Tercero, qué puedes mirar.",
+        "start_s": 107.057,
+        "end_s": 109.534,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Te lo ordeno de más a menos interesante.",
+        "start_s": 109.534,
+        "end_s": 112.409,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Lo primero, la aplicación, que está corriendo ahora mismo.",
+        "start_s": 112.409,
+        "end_s": 116.511,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Te dejo la dirección escrita.",
+        "start_s": 116.511,
+        "end_s": 118.739,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Tres cosas que probar dentro:",
+        "start_s": 118.739,
+        "end_s": 120.955,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Una, añádele \"interrogante t igual a ciento ochenta\" a la dirección y verás el momento del pivote sin tener que reproducir nada.",
+        "start_s": 120.955,
+        "end_s": 127.898,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ese parámetro pinta cualquier instante de la lección directamente.",
+        "start_s": 127.898,
+        "end_s": 131.818,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Prueba también ciento treinta, que es la derivación de la pendiente, y setenta, que es cuando aparece la región.",
+        "start_s": 131.818,
+        "end_s": 138.182,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Dos, fíjate en cómo cambia el tamaño del gráfico entre esos tres momentos.",
+        "start_s": 138.182,
+        "end_s": 143.102,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Eso es lo que pediste en tu revisión: que la prominencia siga a la narración en vez de tener sitios fijos.",
+        "start_s": 143.102,
+        "end_s": 149.0,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cuando los bienes son el sujeto, el plano se encoge.",
+        "start_s": 149.0,
+        "end_s": 152.466,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cuando la geometría es el suceso, manda.",
+        "start_s": 152.466,
+        "end_s": 155.443,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y no está en el código: es una línea del archivo de datos del pack, así que viaja con el contenido.",
+        "start_s": 155.443,
+        "end_s": 161.432,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Tres, añade \"variante igual a B\" y verás la misma lección como vídeo pre-renderizado.",
+        "start_s": 161.432,
+        "end_s": 166.875,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Es el brazo que construí para el bake-off.",
+        "start_s": 166.875,
+        "end_s": 169.545,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Funciona entero: se detiene en los checkpoints, la práctica arranca igual.",
+        "start_s": 169.545,
+        "end_s": 174.489,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Perdió, pero perdió midiendo.",
+        "start_s": 174.489,
+        "end_s": 176.989,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Lo segundo que puedes mirar son las capturas.",
+        "start_s": 177.424,
+        "end_s": 180.488,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Hay cuatro de la coreografía del foco, una por cada momento, para que juzgues por imagen como pediste.",
+        "start_s": 180.438,
+        "end_s": 186.551,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y hay diez del criterio uno: los mismos cinco instantes en las dos tecnologías, con la clave de cuál es cuál guardada aparte.",
+        "start_s": 186.551,
+        "end_s": 193.71,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Puedes repuntuarlas; mi nota fue cuatro coma ocho contra tres coma seis, y te aviso otra vez de que no fue a ciegas porque el sorteo que monté no sorteaba.",
+        "start_s": 193.71,
+        "end_s": 202.165,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Lo tercero, tres informes cortos.",
+        "start_s": 202.165,
+        "end_s": 205.21,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El del bake-off, con las cifras medidas y qué cambió respecto de lo estimado.",
+        "start_s": 205.21,
+        "end_s": 209.688,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El de D tres, que cuenta qué pasó cuando le pedí a tres modelos que escribieran el guion del gráfico.",
+        "start_s": 209.688,
+        "end_s": 215.165,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y el del chequeo de transferencia, con lo que se recoge y lo que deliberadamente no se analiza todavía.",
+        "start_s": 215.165,
+        "end_s": 221.074,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y lo cuarto, el archivo de temas abiertos, que es lo único que te bloquea a ti.",
+        "start_s": 221.074,
+        "end_s": 226.097,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Cuatro decisiones.",
+        "start_s": 226.097,
+        "end_s": 228.063,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Los pesos de los criterios, aunque hoy dan igual.",
+        "start_s": 228.063,
+        "end_s": 231.347,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Si aceptas que estreché el bake-off.",
+        "start_s": 231.347,
+        "end_s": 233.949,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Las cinco pistas que faltan del experimento de transferencia.",
+        "start_s": 233.949,
+        "end_s": 237.642,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y las dos discrepancias donde el modelo tiene mejor argumento que mi guion escrito a mano.",
+        "start_s": 237.642,
+        "end_s": 242.404,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Si quieres que siga, lo más valioso que puedo hacer sin ti es prepararle el terreno a M cinco: el esqueleto del pack de curva de indiferencia, el catálogo de misconceptions como hipótesis marcada, y el banco de preguntas.",
+        "start_s": 242.404,
+        "end_s": 254.324,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Lo que no puedo escribir es el guion hablado, porque esa es tu voz y tus notas de clase.",
+        "start_s": 254.324,
+        "end_s": 259.188,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Eso es todo.",
+        "start_s": 259.188,
+        "end_s": 260.835,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "La aplicación está viva ahora mismo.",
+        "start_s": 260.835,
+        "end_s": 263.563,
+        "part_index": 1,
+        "speaker": null
+      }
+    ],
+    "granularity": "sentence",
+    "source": "edge-sentence-boundary",
+    "timebase": "media_seconds"
+  },
+  "tags": [],
+  "formulas": [],
+  "transcript_text": "# Donde estamos y que mirar\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, tres preguntas: dónde estamos, hasta dónde llegamos, y qué puedes mirar. Te las contesto en ese orden, y la tercera con detalle porque es la accionable.\n\nDónde estamos. El plan tiene seis hitos, de M cero a M cinco. Los cuatro primeros están construidos, el quinto no ha empezado, y hay un matiz importante en el tercero.\n\nM cero, el esqueleto. M uno, el guion y el catálogo, que tú aprobaste. M dos, el bucle completo de la opción A: audio, gráfico, checkpoints y los cuatro tipos de pregunta. M tres, los correctores deterministas más el juez en modo sombra... y aquí el matiz: la compuerta de concordancia **no pasó, se simuló**. No hay etiquetas tuyas, así que la referencia fue la intención de otro modelo sobre respuestas que también escribió un modelo. Eso dice que la maquinaria funciona; no dice nada sobre pedagogía. El juez sigue en sombra por eso.\n\nY M cuatro, el bake-off de renderizado, cerrado anoche con medición.\n\nHasta dónde llegamos, entonces: hasta el final de M cuatro. Lo que queda es M cinco, y es el hito interesante, porque su criterio de éxito es literalmente \"el pack de curva de indiferencia **sin tocar código**\". Concepto dos cerrado solo con contenido.\n\nY aquí está la conexión que quiero que veas. La decisión D tres, que implementé anoche, es exactamente lo que hace M cinco posible. Antes, añadir un concepto exigía escribir TypeScript: qué dibuja el gráfico en cada momento y qué hace la banda de la ecuación vivían dentro del código. Ahora son un archivo de datos del pack. O sea que M cinco pasó de ser \"escribe contenido y también código\" a ser \"escribe contenido\". Que es la promesa entera del proyecto: el concepto número veinte tiene que salir barato.\n\nTercero, qué puedes mirar. Te lo ordeno de más a menos interesante.\n\nLo primero, la aplicación, que está corriendo ahora mismo. Te dejo la dirección escrita. Tres cosas que probar dentro:\n\nUna, añádele \"interrogante t igual a ciento ochenta\" a la dirección y verás el momento del pivote sin tener que reproducir nada. Ese parámetro pinta cualquier instante de la lección directamente. Prueba también ciento treinta, que es la derivación de la pendiente, y setenta, que es cuando aparece la región.\n\nDos, fíjate en cómo cambia el tamaño del gráfico entre esos tres momentos. Eso es lo que pediste en tu revisión: que la prominencia siga a la narración en vez de tener sitios fijos. Cuando los bienes son el sujeto, el plano se encoge. Cuando la geometría es el suceso, manda. Y no está en el código: es una línea del archivo de datos del pack, así que viaja con el contenido.\n\nTres, añade \"variante igual a B\" y verás la misma lección como vídeo pre-renderizado. Es el brazo que construí para el bake-off. Funciona entero: se detiene en los checkpoints, la práctica arranca igual. Perdió, pero perdió midiendo.\n\nLo segundo que puedes mirar son las capturas. Hay cuatro de la coreografía del foco, una por cada momento, para que juzgues por imagen como pediste. Y hay diez del criterio uno: los mismos cinco instantes en las dos tecnologías, con la clave de cuál es cuál guardada aparte. Puedes repuntuarlas; mi nota fue cuatro coma ocho contra tres coma seis, y te aviso otra vez de que **no fue a ciegas** porque el sorteo que monté no sorteaba.\n\nLo tercero, tres informes cortos. El del bake-off, con las cifras medidas y qué cambió respecto de lo estimado. El de D tres, que cuenta qué pasó cuando le pedí a tres modelos que escribieran el guion del gráfico. Y el del chequeo de transferencia, con lo que se recoge y lo que deliberadamente no se analiza todavía.\n\nY lo cuarto, el archivo de temas abiertos, que es lo único que te bloquea a ti. Cuatro decisiones. Los pesos de los criterios, aunque hoy dan igual. Si aceptas que estreché el bake-off. Las cinco pistas que faltan del experimento de transferencia. Y las dos discrepancias donde el modelo tiene mejor argumento que mi guion escrito a mano.\n\nSi quieres que siga, lo más valioso que puedo hacer sin ti es prepararle el terreno a M cinco: el esqueleto del pack de curva de indiferencia, el catálogo de misconceptions como hipótesis marcada, y el banco de preguntas. Lo que no puedo escribir es el guion hablado, porque esa es tu voz y tus notas de clase.\n\nEso es todo. La aplicación está viva ahora mismo.\n\n",
+  "formula_text": "",
+  "search_text": "Donde estamos y que mirar # Donde estamos y que mirar\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, tres preguntas: dónde estamos, hasta dónde llegamos, y qué puedes mirar. Te las contesto en ese orden, y la tercera con detalle porque es la accionable.\n\nDónde estamos. El plan tiene seis hitos, de M cero a M cinco. Los cuatro primeros están construidos, el quinto no ha empezado, y hay un matiz importante en el tercero.\n\nM cero, el esqueleto. M uno, el guion y el catálogo, que tú aprobaste. M dos, el bucle completo de la opción A: audio, gráfico, checkpoints y los cuatro tipos de pregunta. M tres, los correctores deterministas más el juez en modo sombra... y aquí el matiz: la compuerta de concordancia **no pasó, se simuló**. No hay etiquetas tuyas, así que la referencia fue la intención de otro modelo sobre respuestas que también escribió un modelo. Eso dice que la maquinaria funciona; no dice nada sobre pedagogía. El juez sigue en sombra por eso.\n\nY M cuatro, el bake-off de renderizado, cerrado anoche con medición.\n\nHasta dónde llegamos, entonces: hasta el final de M cuatro. Lo que queda es M cinco, y es el hito interesante, porque su criterio de éxito es literalmente \"el pack de curva de indiferencia **sin tocar código**\". Concepto dos cerrado solo con contenido.\n\nY aquí está la conexión que quiero que veas. La decisión D tres, que implementé anoche, es exactamente lo que hace M cinco posible. Antes, añadir un concepto exigía escribir TypeScript: qué dibuja el gráfico en cada momento y qué hace la banda de la ecuación vivían dentro del código. Ahora son un archivo de datos del pack. O sea que M cinco pasó de ser \"escribe contenido y también código\" a ser \"escribe contenido\". Que es la promesa entera del proyecto: el concepto número veinte tiene que salir barato.\n\nTercero, qué puedes mirar. Te lo ordeno de más a menos interesante.\n\nLo primero, la aplicación, que está corriendo ahora mismo. Te dejo la dirección escrita. Tres cosas que probar dentro:\n\nUna, añádele \"interrogante t igual a ciento ochenta\" a la dirección y verás el momento del pivote sin tener que reproducir nada. Ese parámetro pinta cualquier instante de la lección directamente. Prueba también ciento treinta, que es la derivación de la pendiente, y setenta, que es cuando aparece la región.\n\nDos, fíjate en cómo cambia el tamaño del gráfico entre esos tres momentos. Eso es lo que pediste en tu revisión: que la prominencia siga a la narración en vez de tener sitios fijos. Cuando los bienes son el sujeto, el plano se encoge. Cuando la geometría es el suceso, manda. Y no está en el código: es una línea del archivo de datos del pack, así que viaja con el contenido.\n\nTres, añade \"variante igual a B\" y verás la misma lección como vídeo pre-renderizado. Es el brazo que construí para el bake-off. Funciona entero: se detiene en los checkpoints, la práctica arranca igual. Perdió, pero perdió midiendo.\n\nLo segundo que puedes mirar son las capturas. Hay cuatro de la coreografía del foco, una por cada momento, para que juzgues por imagen como pediste. Y hay diez del criterio uno: los mismos cinco instantes en las dos tecnologías, con la clave de cuál es cuál guardada aparte. Puedes repuntuarlas; mi nota fue cuatro coma ocho contra tres coma seis, y te aviso otra vez de que **no fue a ciegas** porque el sorteo que monté no sorteaba.\n\nLo tercero, tres informes cortos. El del bake-off, con las cifras medidas y qué cambió respecto de lo estimado. El de D tres, que cuenta qué pasó cuando le pedí a tres modelos que escribieran el guion del gráfico. Y el del chequeo de transferencia, con lo que se recoge y lo que deliberadamente no se analiza todavía.\n\nY lo cuarto, el archivo de temas abiertos, que es lo único que te bloquea a ti. Cuatro decisiones. Los pesos de los criterios, aunque hoy dan igual. Si aceptas que estreché el bake-off. Las cinco pistas que faltan del experimento de transferencia. Y las dos discrepancias donde el modelo tiene mejor argumento que mi guion escrito a mano.\n\nSi quieres que siga, lo más valioso que puedo hacer sin ti es prepararle el terreno a M cinco: el esqueleto del pack de curva de indiferencia, el catálogo de misconceptions como hipótesis marcada, y el banco de preguntas. Lo que no puedo escribir es el guion hablado, porque esa es tu voz y tus notas de clase.\n\nEso es todo. La aplicación está viva ahora mismo.\n\n"
+}

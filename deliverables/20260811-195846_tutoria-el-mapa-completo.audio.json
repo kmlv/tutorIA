@@ -1,0 +1,568 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-12T00:59:23.913099+00:00",
+  "title": "tutorIA - el mapa completo",
+  "provider": "edge",
+  "duration_s": 354.576,
+  "audio": "20260811-195846_tutoria-el-mapa-completo.mp3",
+  "transcript": "20260811-195846_tutoria-el-mapa-completo.md",
+  "player": "20260811-195846_tutoria-el-mapa-completo.player.html",
+  "sync": {
+    "segments": [
+      {
+        "text": "Kristian, para.",
+        "start_s": 0.1,
+        "end_s": 1.948,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Si estás perdido, la culpa es mía: llevo días contándote esto en el idioma del debate en vez de en el tuyo.",
+        "start_s": 1.898,
+        "end_s": 8.432,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Vamos de cero.",
+        "start_s": 8.432,
+        "end_s": 10.057,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cinco minutos, y al final vas a saber exactamente qué tenemos y qué falta.",
+        "start_s": 10.057,
+        "end_s": 14.818,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Primero: qué es la cosa.",
+        "start_s": 14.818,
+        "end_s": 17.25,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Un estudiante abre una página y recibe una lección de microeconomía intermedia.",
+        "start_s": 17.25,
+        "end_s": 22.08,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Una voz explica, un gráfico se dibuja al ritmo de esa voz, y unas fichas al costado van armando la ecuación pieza por pieza.",
+        "start_s": 22.08,
+        "end_s": 29.318,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cada cierto rato la lección se detiene y le pregunta algo.",
+        "start_s": 29.318,
+        "end_s": 32.989,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Lo que responde no se pierde: alimenta un motor que estima qué entendió y qué no, y esa estimación decide qué ejercicio le toca después.",
+        "start_s": 32.989,
+        "end_s": 40.716,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y en cualquier momento puede escribirle al tutor, que sabe en qué parte de la lección está... pero nunca le da la respuesta.",
+        "start_s": 40.716,
+        "end_s": 47.295,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Eso es todo.",
+        "start_s": 47.295,
+        "end_s": 48.943,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ese bucle -- explica, pregunta, corrige, estima, elige -- es lo que separa esto de una clase grabada.",
+        "start_s": 48.943,
+        "end_s": 55.705,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Segundo: qué existe de verdad, hoy.",
+        "start_s": 55.705,
+        "end_s": 58.705,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Una lección completa, la línea presupuestaria, en español y en inglés, con voz grabada propia.",
+        "start_s": 58.705,
+        "end_s": 64.886,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Veintiún ejercicios de cuatro tipos distintos.",
+        "start_s": 64.886,
+        "end_s": 68.045,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El motor de dominio funcionando.",
+        "start_s": 68.045,
+        "end_s": 70.5,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El corrector automático funcionando, aunque en silencio.",
+        "start_s": 70.5,
+        "end_s": 74.182,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y todo eso pesa diecisiete kilobytes en el navegador, sin ningún framework.",
+        "start_s": 74.182,
+        "end_s": 79.25,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Está publicado en tu servidor de Hetzner: se lo puedes enseñar a un colega hoy, con un tope de gasto diario para que nadie te vacíe el saldo.",
+        "start_s": 79.25,
+        "end_s": 87.057,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Tercero, y aquí está el asunto de las últimas semanas.",
+        "start_s": 87.057,
+        "end_s": 90.989,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ocho agentes condujeron la aplicación como si fueran estudiantes y encontraron sesenta y ocho fallos de interfaz.",
+        "start_s": 90.989,
+        "end_s": 96.886,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Lo importante no es el número: es que al agruparlos por causa, cinco eran un solo silencio, y otros cinco eran una sola línea de código.",
+        "start_s": 96.886,
+        "end_s": 105.17,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Eso no es un equipo distraído.",
+        "start_s": 105.17,
+        "end_s": 107.75,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Eso es una forma que empuja al error.",
+        "start_s": 107.75,
+        "end_s": 110.455,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "¿Por qué?",
+        "start_s": 110.455,
+        "end_s": 111.795,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Porque hoy la lección es un reloj.",
+        "start_s": 111.795,
+        "end_s": 114.205,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El audio manda, y las cosas cuelgan del audio.",
+        "start_s": 114.205,
+        "end_s": 117.42,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Las preguntas interrumpen el reloj, y cada interrupción es un caso especial.",
+        "start_s": 117.42,
+        "end_s": 121.989,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Los casos especiales se multiplican entre sí, y por eso pasan cosas como que aparezcan dos preguntas a la vez, o que el panel del tutor se vaya justo cuando contestaste mal.",
+        "start_s": 121.989,
+        "end_s": 131.0,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Lo que propusimos -- y lo que acabo de construir hoy -- es cambiar la unidad.",
+        "start_s": 131.0,
+        "end_s": 135.307,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Que la lección sea una baraja de láminas.",
+        "start_s": 135.307,
+        "end_s": 138.261,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Una lámina a la vez, que reemplaza a la anterior.",
+        "start_s": 138.261,
+        "end_s": 141.739,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y esto es lo clave: cada lámina describe la pantalla completa, no lo que cambia respecto a la anterior.",
+        "start_s": 141.739,
+        "end_s": 147.705,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "¿Te acuerdas del fallo que encontraste tú, el café a tres dólares en una ficha y a cuatro en la ecuación?",
+        "start_s": 147.705,
+        "end_s": 153.511,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Con láminas eso no se arregla.",
+        "start_s": 153.511,
+        "end_s": 155.864,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Deja de poder escribirse.",
+        "start_s": 155.864,
+        "end_s": 158.057,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La lámina no sabe de dónde vienes, así que no puede heredar un resto.",
+        "start_s": 158.057,
+        "end_s": 162.409,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cuarto: qué hice hoy, concretamente.",
+        "start_s": 162.409,
+        "end_s": 165.705,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "No discutí más la propuesta: la construí en pequeño y traté de romperla en un navegador de verdad.",
+        "start_s": 165.705,
+        "end_s": 171.477,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Nueve afirmaciones, cada una con una forma clara de salir falsa.",
+        "start_s": 171.477,
+        "end_s": 175.818,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Las nueve aguantaron.",
+        "start_s": 175.818,
+        "end_s": 177.864,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Te doy las tres que más me importan.",
+        "start_s": 178.288,
+        "end_s": 180.852,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Una: tu grabación sobrevive intacta.",
+        "start_s": 180.802,
+        "end_s": 183.768,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "No hay que regrabar, ni cortar en pedacitos.",
+        "start_s": 183.768,
+        "end_s": 187.018,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Cada lámina se queda con un tramo del mismo archivo, y los tramos se tocan exactamente.",
+        "start_s": 187.018,
+        "end_s": 192.199,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Escuchar la lección entera no mueve el cabezal ni una sola vez.",
+        "start_s": 192.199,
+        "end_s": 196.086,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Dos: llegar a la lámina tres saltando desde el final pinta exactamente lo mismo que llegar en orden, en las doce láminas.",
+        "start_s": 196.086,
+        "end_s": 203.063,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y el precio del café vuelve solo de cuatro a tres, sin que nadie lo deshaga.",
+        "start_s": 203.063,
+        "end_s": 207.802,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Tres: el chat ya no puede desaparecer, porque no existe la propiedad que lo escondía.",
+        "start_s": 207.802,
+        "end_s": 213.131,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Es una columna, no una capa flotante.",
+        "start_s": 213.131,
+        "end_s": 216.143,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y algo que no salió del debate, sino de leer la grabación con calma.",
+        "start_s": 216.143,
+        "end_s": 220.336,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "La voz cae en lados opuestos de la pregunta, según el tipo de pregunta.",
+        "start_s": 220.336,
+        "end_s": 224.79,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "En un control de comprensión, la voz dice el enunciado y después se pregunta.",
+        "start_s": 224.79,
+        "end_s": 229.438,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Pero en una predicción es al revés: se pregunta primero, y la voz explica después... porque esa narración contiene la respuesta.",
+        "start_s": 229.438,
+        "end_s": 236.87,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Una de ellas dice, literalmente, \"la línea no se desplaza: gira\".",
+        "start_s": 236.87,
+        "end_s": 241.711,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Si el programa hubiera elegido un solo orden para las dos, habría regalado la respuesta en tres de los cinco ejercicios.",
+        "start_s": 241.711,
+        "end_s": 248.449,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Nadie lo había visto.",
+        "start_s": 248.449,
+        "end_s": 250.439,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Quinto, y esto sí te toca a ti.",
+        "start_s": 250.439,
+        "end_s": 253.324,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Hay dos decisiones que no son técnicas y que yo no debo tomar.",
+        "start_s": 253.324,
+        "end_s": 257.006,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "La primera: si retiramos la versión en vídeo.",
+        "start_s": 257.006,
+        "end_s": 260.256,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Construimos dos formas de mostrar la lección, medimos, y ganó la de dibujo en vivo.",
+        "start_s": 260.256,
+        "end_s": 265.62,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "La de vídeo sigue en el código: unas seiscientas líneas, y dieciséis lugares donde el sistema tiene que preguntarse cuál de las dos es.",
+        "start_s": 265.62,
+        "end_s": 273.052,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Mantenerla mientras rediseñamos la superficie es pagar su impuesto justo cuando más caro sale.",
+        "start_s": 273.052,
+        "end_s": 278.358,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El informe y las medidas sobreviven aunque el código se borre.",
+        "start_s": 278.358,
+        "end_s": 282.052,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "La segunda: dónde van los botones.",
+        "start_s": 282.052,
+        "end_s": 284.949,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Tú lo dejaste abierto a propósito.",
+        "start_s": 284.949,
+        "end_s": 287.461,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "La respuesta que salió del debate, y la única con un criterio detrás en vez de un gusto, es partirlos por a quién le hablas.",
+        "start_s": 287.461,
+        "end_s": 294.256,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "\"No entiendo\" y \"otro ejemplo\" son para el tutor: van en el chat.",
+        "start_s": 294.256,
+        "end_s": 298.188,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "\"Seguir\" es una orden a la lección: va en la lámina.",
+        "start_s": 298.188,
+        "end_s": 301.631,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y eso tiene una consecuencia concreta: \"listo, sigamos\" desaparece como botón del tutor, porque avanzar no es hablarle a nadie.",
+        "start_s": 301.631,
+        "end_s": 308.995,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Antes de despedirme, lo que sigue mal, porque prometer que esto está limpio sería mentirte.",
+        "start_s": 308.995,
+        "end_s": 314.449,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Veintiún fallos de los sesenta y ocho siguen vivos con cualquier arquitectura: ninguna forma de organizar el código arregla un texto mal alineado.",
+        "start_s": 314.449,
+        "end_s": 322.154,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Las opciones de las preguntas están ordenadas con la correcta primero, así que quien lo note acierta siempre eligiendo la primera; eso es de contenido y sigue abierto.",
+        "start_s": 322.154,
+        "end_s": 330.802,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y el sistema todavía piensa que solo existe una persona: dos estudiantes a la vez se pisan.",
+        "start_s": 330.802,
+        "end_s": 336.131,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Te dejé una página con todo esto -- con los números, las tablas y los dos botones de decisión.",
+        "start_s": 336.131,
+        "end_s": 341.699,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Ábrela cuando puedas.",
+        "start_s": 341.699,
+        "end_s": 343.722,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y si algo de lo que acabo de decir todavía suena a jerga, dímelo y lo vuelvo a contar de otra forma.",
+        "start_s": 343.722,
+        "end_s": 349.665,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Que estés perdido no es un problema tuyo... es una señal de que no te lo conté bien.",
+        "start_s": 349.665,
+        "end_s": 354.483,
+        "part_index": 1,
+        "speaker": null
+      }
+    ],
+    "granularity": "sentence",
+    "source": "edge-sentence-boundary",
+    "timebase": "media_seconds"
+  },
+  "tags": [],
+  "formulas": [],
+  "transcript_text": "# tutorIA - el mapa completo\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, para. Si estás perdido, la culpa es mía: llevo días contándote esto en el idioma del debate en vez de en el tuyo. Vamos de cero. Cinco minutos, y al final vas a saber exactamente qué tenemos y qué falta.\n\nPrimero: qué es la cosa. Un estudiante abre una página y recibe una lección de microeconomía intermedia. Una voz explica, un gráfico se dibuja al ritmo de esa voz, y unas fichas al costado van armando la ecuación pieza por pieza. Cada cierto rato la lección se detiene y le pregunta algo. Lo que responde no se pierde: alimenta un motor que estima qué entendió y qué no, y esa estimación decide qué ejercicio le toca después. Y en cualquier momento puede escribirle al tutor, que sabe en qué parte de la lección está... pero nunca le da la respuesta. Eso es todo. Ese bucle -- explica, pregunta, corrige, estima, elige -- es lo que separa esto de una clase grabada.\n\nSegundo: qué existe de verdad, hoy. Una lección completa, la línea presupuestaria, en español y en inglés, con voz grabada propia. Veintiún ejercicios de cuatro tipos distintos. El motor de dominio funcionando. El corrector automático funcionando, aunque en silencio. Y todo eso pesa diecisiete kilobytes en el navegador, sin ningún framework. Está publicado en tu servidor de Hetzner: se lo puedes enseñar a un colega hoy, con un tope de gasto diario para que nadie te vacíe el saldo.\n\nTercero, y aquí está el asunto de las últimas semanas. Ocho agentes condujeron la aplicación como si fueran estudiantes y encontraron sesenta y ocho fallos de interfaz. Lo importante no es el número: es que al agruparlos por causa, cinco eran un solo silencio, y otros cinco eran una sola línea de código. Eso no es un equipo distraído. Eso es una forma que empuja al error.\n\n¿Por qué? Porque hoy la lección es un reloj. El audio manda, y las cosas cuelgan del audio. Las preguntas interrumpen el reloj, y cada interrupción es un caso especial. Los casos especiales se multiplican entre sí, y por eso pasan cosas como que aparezcan dos preguntas a la vez, o que el panel del tutor se vaya justo cuando contestaste mal.\n\nLo que propusimos -- y lo que acabo de construir hoy -- es cambiar la unidad. Que la lección sea una baraja de láminas. Una lámina a la vez, que reemplaza a la anterior. Y esto es lo clave: cada lámina describe la pantalla completa, no lo que cambia respecto a la anterior. ¿Te acuerdas del fallo que encontraste tú, el café a tres dólares en una ficha y a cuatro en la ecuación? Con láminas eso no se arregla. Deja de poder escribirse. La lámina no sabe de dónde vienes, así que no puede heredar un resto.\n\nCuarto: qué hice hoy, concretamente. No discutí más la propuesta: la construí en pequeño y traté de romperla en un navegador de verdad. Nueve afirmaciones, cada una con una forma clara de salir falsa. Las nueve aguantaron.\n\nTe doy las tres que más me importan. Una: tu grabación sobrevive intacta. No hay que regrabar, ni cortar en pedacitos. Cada lámina se queda con un tramo del mismo archivo, y los tramos se tocan exactamente. Escuchar la lección entera no mueve el cabezal ni una sola vez. Dos: llegar a la lámina tres saltando desde el final pinta exactamente lo mismo que llegar en orden, en las doce láminas. Y el precio del café vuelve solo de cuatro a tres, sin que nadie lo deshaga. Tres: el chat ya no puede desaparecer, porque no existe la propiedad que lo escondía. Es una columna, no una capa flotante.\n\nY algo que no salió del debate, sino de leer la grabación con calma. La voz cae en lados opuestos de la pregunta, según el tipo de pregunta. En un control de comprensión, la voz dice el enunciado y después se pregunta. Pero en una predicción es al revés: se pregunta primero, y la voz explica después... porque esa narración contiene la respuesta. Una de ellas dice, literalmente, \"la línea no se desplaza: gira\". Si el programa hubiera elegido un solo orden para las dos, habría regalado la respuesta en tres de los cinco ejercicios. Nadie lo había visto.\n\nQuinto, y esto sí te toca a ti. Hay dos decisiones que no son técnicas y que yo no debo tomar.\n\nLa primera: si retiramos la versión en vídeo. Construimos dos formas de mostrar la lección, medimos, y ganó la de dibujo en vivo. La de vídeo sigue en el código: unas seiscientas líneas, y dieciséis lugares donde el sistema tiene que preguntarse cuál de las dos es. Mantenerla mientras rediseñamos la superficie es pagar su impuesto justo cuando más caro sale. El informe y las medidas sobreviven aunque el código se borre.\n\nLa segunda: dónde van los botones. Tú lo dejaste abierto a propósito. La respuesta que salió del debate, y la única con un criterio detrás en vez de un gusto, es partirlos por a quién le hablas. \"No entiendo\" y \"otro ejemplo\" son para el tutor: van en el chat. \"Seguir\" es una orden a la lección: va en la lámina. Y eso tiene una consecuencia concreta: \"listo, sigamos\" desaparece como botón del tutor, porque avanzar no es hablarle a nadie.\n\nAntes de despedirme, lo que sigue mal, porque prometer que esto está limpio sería mentirte. Veintiún fallos de los sesenta y ocho siguen vivos con cualquier arquitectura: ninguna forma de organizar el código arregla un texto mal alineado. Las opciones de las preguntas están ordenadas con la correcta primero, así que quien lo note acierta siempre eligiendo la primera; eso es de contenido y sigue abierto. Y el sistema todavía piensa que solo existe una persona: dos estudiantes a la vez se pisan.\n\nTe dejé una página con todo esto -- con los números, las tablas y los dos botones de decisión. Ábrela cuando puedas. Y si algo de lo que acabo de decir todavía suena a jerga, dímelo y lo vuelvo a contar de otra forma. Que estés perdido no es un problema tuyo... es una señal de que no te lo conté bien.\n\n",
+  "formula_text": "",
+  "search_text": "tutorIA - el mapa completo # tutorIA - el mapa completo\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, para. Si estás perdido, la culpa es mía: llevo días contándote esto en el idioma del debate en vez de en el tuyo. Vamos de cero. Cinco minutos, y al final vas a saber exactamente qué tenemos y qué falta.\n\nPrimero: qué es la cosa. Un estudiante abre una página y recibe una lección de microeconomía intermedia. Una voz explica, un gráfico se dibuja al ritmo de esa voz, y unas fichas al costado van armando la ecuación pieza por pieza. Cada cierto rato la lección se detiene y le pregunta algo. Lo que responde no se pierde: alimenta un motor que estima qué entendió y qué no, y esa estimación decide qué ejercicio le toca después. Y en cualquier momento puede escribirle al tutor, que sabe en qué parte de la lección está... pero nunca le da la respuesta. Eso es todo. Ese bucle -- explica, pregunta, corrige, estima, elige -- es lo que separa esto de una clase grabada.\n\nSegundo: qué existe de verdad, hoy. Una lección completa, la línea presupuestaria, en español y en inglés, con voz grabada propia. Veintiún ejercicios de cuatro tipos distintos. El motor de dominio funcionando. El corrector automático funcionando, aunque en silencio. Y todo eso pesa diecisiete kilobytes en el navegador, sin ningún framework. Está publicado en tu servidor de Hetzner: se lo puedes enseñar a un colega hoy, con un tope de gasto diario para que nadie te vacíe el saldo.\n\nTercero, y aquí está el asunto de las últimas semanas. Ocho agentes condujeron la aplicación como si fueran estudiantes y encontraron sesenta y ocho fallos de interfaz. Lo importante no es el número: es que al agruparlos por causa, cinco eran un solo silencio, y otros cinco eran una sola línea de código. Eso no es un equipo distraído. Eso es una forma que empuja al error.\n\n¿Por qué? Porque hoy la lección es un reloj. El audio manda, y las cosas cuelgan del audio. Las preguntas interrumpen el reloj, y cada interrupción es un caso especial. Los casos especiales se multiplican entre sí, y por eso pasan cosas como que aparezcan dos preguntas a la vez, o que el panel del tutor se vaya justo cuando contestaste mal.\n\nLo que propusimos -- y lo que acabo de construir hoy -- es cambiar la unidad. Que la lección sea una baraja de láminas. Una lámina a la vez, que reemplaza a la anterior. Y esto es lo clave: cada lámina describe la pantalla completa, no lo que cambia respecto a la anterior. ¿Te acuerdas del fallo que encontraste tú, el café a tres dólares en una ficha y a cuatro en la ecuación? Con láminas eso no se arregla. Deja de poder escribirse. La lámina no sabe de dónde vienes, así que no puede heredar un resto.\n\nCuarto: qué hice hoy, concretamente. No discutí más la propuesta: la construí en pequeño y traté de romperla en un navegador de verdad. Nueve afirmaciones, cada una con una forma clara de salir falsa. Las nueve aguantaron.\n\nTe doy las tres que más me importan. Una: tu grabación sobrevive intacta. No hay que regrabar, ni cortar en pedacitos. Cada lámina se queda con un tramo del mismo archivo, y los tramos se tocan exactamente. Escuchar la lección entera no mueve el cabezal ni una sola vez. Dos: llegar a la lámina tres saltando desde el final pinta exactamente lo mismo que llegar en orden, en las doce láminas. Y el precio del café vuelve solo de cuatro a tres, sin que nadie lo deshaga. Tres: el chat ya no puede desaparecer, porque no existe la propiedad que lo escondía. Es una columna, no una capa flotante.\n\nY algo que no salió del debate, sino de leer la grabación con calma. La voz cae en lados opuestos de la pregunta, según el tipo de pregunta. En un control de comprensión, la voz dice el enunciado y después se pregunta. Pero en una predicción es al revés: se pregunta primero, y la voz explica después... porque esa narración contiene la respuesta. Una de ellas dice, literalmente, \"la línea no se desplaza: gira\". Si el programa hubiera elegido un solo orden para las dos, habría regalado la respuesta en tres de los cinco ejercicios. Nadie lo había visto.\n\nQuinto, y esto sí te toca a ti. Hay dos decisiones que no son técnicas y que yo no debo tomar.\n\nLa primera: si retiramos la versión en vídeo. Construimos dos formas de mostrar la lección, medimos, y ganó la de dibujo en vivo. La de vídeo sigue en el código: unas seiscientas líneas, y dieciséis lugares donde el sistema tiene que preguntarse cuál de las dos es. Mantenerla mientras rediseñamos la superficie es pagar su impuesto justo cuando más caro sale. El informe y las medidas sobreviven aunque el código se borre.\n\nLa segunda: dónde van los botones. Tú lo dejaste abierto a propósito. La respuesta que salió del debate, y la única con un criterio detrás en vez de un gusto, es partirlos por a quién le hablas. \"No entiendo\" y \"otro ejemplo\" son para el tutor: van en el chat. \"Seguir\" es una orden a la lección: va en la lámina. Y eso tiene una consecuencia concreta: \"listo, sigamos\" desaparece como botón del tutor, porque avanzar no es hablarle a nadie.\n\nAntes de despedirme, lo que sigue mal, porque prometer que esto está limpio sería mentirte. Veintiún fallos de los sesenta y ocho siguen vivos con cualquier arquitectura: ninguna forma de organizar el código arregla un texto mal alineado. Las opciones de las preguntas están ordenadas con la correcta primero, así que quien lo note acierta siempre eligiendo la primera; eso es de contenido y sigue abierto. Y el sistema todavía piensa que solo existe una persona: dos estudiantes a la vez se pisan.\n\nTe dejé una página con todo esto -- con los números, las tablas y los dos botones de decisión. Ábrela cuando puedas. Y si algo de lo que acabo de decir todavía suena a jerga, dímelo y lo vuelvo a contar de otra forma. Que estés perdido no es un problema tuyo... es una señal de que no te lo conté bien.\n\n"
+}
