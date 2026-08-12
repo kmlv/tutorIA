@@ -21,6 +21,17 @@
   transition: padding .35s ease;
 }
 
+/* La ranura de la ecuación se lleva más de la mitad del ancho, y durante las primeras
+   láminas está VACÍA: las dos fichas quedaban aplastadas contra los bordes con un hueco
+   enorme en medio, y sus etiquetas partidas en dos líneas ("measured / in"). Mientras no
+   haya ecuación, las fichas ocupan el centro y respiran. */
+.ledger:not(:has(.eq-slot > *)) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 40rem;
+  margin-inline: auto;
+}
+.ledger:not(:has(.eq-slot > *)) .eq-slot { display: none; }
+
 .card {
   border: 1px solid var(--line);
   border-top: 3px solid var(--hue);
@@ -46,10 +57,20 @@
    incomplete: an unrevealed station is absent, not a placeholder. */
 .station { opacity: 0; transition: opacity .3s ease; }
 .station.on { opacity: 1; }
-.stations .station { display: grid; grid-template-columns: auto 1fr; gap: .45rem;
-  font-size: .78rem; line-height: 1.35; }
-.stations dt { color: var(--muted); }
-.stations dd { margin: 0; font-variant-numeric: tabular-nums; }
+/* `max-content` en la columna de etiquetas, y las tres filas comparten la misma anchura
+   por estar en el mismo `subgrid`: los valores quedan alineados en vertical en vez de
+   bailar según lo larga que sea su etiqueta. */
+.stations { grid-template-columns: max-content minmax(0, 1fr); }
+.stations .station { display: grid; grid-template-columns: subgrid; grid-column: 1 / -1;
+  gap: .45rem; font-size: .78rem; line-height: 1.4; align-items: baseline; }
+/* Una etiqueta partida en dos líneas —"measured / in"— desalinea la ficha entera y se lee
+   como un descuido. Antes que partirla, que se estreche el valor. */
+.stations dt { color: var(--muted); white-space: nowrap; }
+/* `justify-self: start` para que el valor ocupe lo que mide y no toda la columna: el
+   resaltado de A4 pinta un fondo sobre `[data-term]`, y estirado se veía como una barra
+   de color de borde a borde en vez de una letra encendida. */
+.stations dd { margin: 0; font-variant-numeric: tabular-nums; justify-self: start; }
+.stations dd .long { color: var(--muted); }
 .sym { font-style: italic; font-weight: 600; color: var(--hue); }
 .price.morphing { animation: morph .42s ease; }
 

@@ -29,7 +29,7 @@ questions:
     andamiaje: false
     enunciado:
       es: "Con ingreso {{m}} y precios p₁={{p1}} y p₂={{p2}}: si gastas todo en jugo, ¿cuántos litros compras?"
-      en: "With income {{m}} and prices p₁={{p1}}, p₂={{p2}}: if you spend everything on juice, how many liters do you buy?"
+      en: "With income {{m}} and prices p₁={{p1}}, p₂={{p2}}: if you spend everything on juice, how many quarts do you buy?"
     respuesta: {expr: "m / p2", tolerancia: 0.01}
     diagnostico_si_falla:
       "m / p1": BL-M6      # respondió el otro intercepto
@@ -133,7 +133,7 @@ questions:
     andamiaje: false
     enunciado:
       es: "Compras 10 kg de café y 20 L de jugo. ¿Esa canasta es alcanzable?"
-      en: "You buy 10 kg of coffee and 20 L of juice. Is that bundle affordable?"
+      en: "You buy 10 lb of coffee and 20 qt of juice. Is that bundle affordable?"
     opciones:
       - {es: "Sí, gasta 50 y te sobran 50", en: "Yes, it costs 50 and leaves 50 over", correcta: true}
       - {es: "No, porque no agota el ingreso", en: "No, because it does not exhaust the income", misconception: BL-M4}
@@ -296,7 +296,7 @@ questions:
     andamiaje: false
     enunciado:
       es: "Compras 12 kg de café. Si agotas tu ingreso, ¿cuántos litros de jugo compras?"
-      en: "You buy 12 kg of coffee. If you exhaust your income, how many liters of juice do you buy?"
+      en: "You buy 12 lb of coffee. If you exhaust your income, how many quarts of juice do you buy?"
     respuesta: {expr: "(m - p1*12) / p2", tolerancia: 0.01}
 
   # Added after codex's T-005 review: the stricter reachability validator showed that
@@ -368,10 +368,10 @@ questions:
     prediction: true
     enunciado:
       es: "Predice: para llevarte un kilo más de café, ¿a cuánto jugo tienes que renunciar?"
-      en: "Predict: to take home one more kilo of coffee, how much juice do you give up?"
+      en: "Predict: to take home one more pound of coffee, how much juice do you give up?"
     opciones:
-      - {es: "3 litros", en: "3 liters", correcta: true}
-      - {es: "1 tercio de litro", en: "1 third of a liter", misconception: BL-M1}
+      - {es: "3 litros", en: "3 quarts", correcta: true}
+      - {es: "1 tercio de litro", en: "1 third of a quart", misconception: BL-M1}
       - {es: "A nada: puedo comprar más de los dos", en: "Nothing: I can buy more of both", misconception: BL-M5}
 
   - id: q_predict_price_effect

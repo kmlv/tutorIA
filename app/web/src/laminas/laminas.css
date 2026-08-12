@@ -65,6 +65,10 @@ body {
 
 .escenario {
   display: grid;
+  /* Explícita, y no la columna implícita que saldría sola. La banda de fichas usa
+     `minmax(0, 1fr)` por dentro, así que su ancho mínimo es CERO; una columna implícita se
+     mide por ese mínimo y se encogía a 51 px, dejando las tarjetas del ancho de un dedo. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 10px;
   padding: 12px 14px;
   border: 1px solid var(--line);

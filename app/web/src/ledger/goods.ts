@@ -26,10 +26,34 @@ export const GOOD_TOKENS: Record<GoodId, { hue: string; shape: string; term: str
   g2: { hue: "var(--g2)", shape: "●", term: "x2" },
 };
 
+/** El inglés va en unidades de EE.UU. y el español en métricas — no son traducciones la
+ *  una de la otra. Instrucción de Kristian: el inglés es para estudiantes de California, y
+ *  cotizar el café en kilos les obliga a convertir antes de poder pensar en economía.
+ *
+ *  Los NÚMEROS son los mismos a propósito (3 la libra y 3 el kilo, 1 el cuarto y 1 el
+ *  litro): el motor de dominio, las expresiones del corrector y los cues del gráfico son
+ *  comunes a los dos idiomas, así que la aritmética tiene que salir idéntica.
+ *
+ *  Cambiar esto NO basta con cambiar esta tabla: la narración dice las unidades en voz
+ *  alta, así que arrastra el guion, el MP3 y la línea de tiempo — cuyos segundos están
+ *  medidos contra ESE archivo de audio. */
 const UNITS: Record<GoodId, Record<Lang, { unit: string; unitLong: string }>> = {
-  g1: { en: { unit: "kg", unitLong: "kilograms" }, es: { unit: "kg", unitLong: "kilos" } },
-  g2: { en: { unit: "L", unitLong: "liters" }, es: { unit: "L", unitLong: "litros" } },
+  g1: { en: { unit: "lb", unitLong: "pounds" }, es: { unit: "kg", unitLong: "kilos" } },
+  g2: { en: { unit: "qt", unitLong: "quarts" }, es: { unit: "L", unitLong: "litros" } },
 };
+
+/** `x1` -> `x₁` para LEERLO. El `data-term` del DOM se queda en ASCII: es la llave con la
+ *  que la ecuación y la ficha se encienden a la vez, y la genera el compilador de
+ *  fórmulas. Aquí había un `replace("x", "x")` que no hacía nada — el subíndice se había
+ *  quedado por el camino y el símbolo salía `x1` justo al lado de un eje que ya ponía x₁.
+ *
+ *  Un nombre de variable no necesita un compositor tipográfico: el
+ *  subíndice es un carácter, se copia, se pega y lo lee un lector de pantalla. La
+ *  matemática de verdad —las ecuaciones— sí se compone, y se hace al construir la
+ *  lección para no cargar el navegador con el motor. */
+function subindice(term: string): string {
+  return term.replace(/([a-z])([12])/g, (_, letra, n) => letra + (n === "1" ? "₁" : "₂"));
+}
 
 const LABEL: Record<Lang, { measured: string; quantity: string; price: string }> = {
   en: { measured: "measured in", quantity: "quantity", price: "price" },
@@ -88,7 +112,7 @@ export class Ledger {
             <dt>${L.measured}</dt><dd>${u.unit}<span class="long"> · ${u.unitLong}</span></dd>
           </div>
           <div class="station" data-station="symbol">
-            <dt>${L.quantity}</dt><dd class="sym" data-term="${t.term}">${t.term.replace("x", "x")}</dd>
+            <dt>${L.quantity}</dt><dd class="sym" data-term="${t.term}">${subindice(t.term)}</dd>
           </div>
           <div class="station" data-station="price">
             <dt>${L.price}</dt><dd class="price">$${price}/${u.unit}</dd>

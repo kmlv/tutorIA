@@ -1,8 +1,8 @@
 {
   "pack": "budget-line",
   "lang": "en",
-  "audio": "20260810-194900_budget-line-en.mp3",
-  "duration_s": 211.512,
+  "audio": "20260812-123726_budget-line-en.mp3",
+  "duration_s": 211.152,
   "sync_granularity": "sentence",
   "cues": [
     {
@@ -23,62 +23,62 @@
     {
       "id": "budget_set",
       "type": "graph",
-      "t": 61.959
+      "t": 61.97
     },
     {
       "id": "line_vs_set",
       "type": "prediction",
-      "t": 80.607
+      "t": 80.618
     },
     {
       "id": "budget_line",
       "type": "graph",
-      "t": 80.607
+      "t": 80.618
     },
     {
       "id": "intercepts",
       "type": "graph",
-      "t": 99.8
+      "t": 99.811
     },
     {
       "id": "slope_sign",
       "type": "prediction",
-      "t": 113.936
+      "t": 114.084
     },
     {
       "id": "slope",
       "type": "graph",
-      "t": 113.936
+      "t": 114.084
     },
     {
       "id": "cp1",
       "type": "checkpoint",
-      "t": 132.493
+      "t": 132.357
     },
     {
       "id": "income_shift",
       "type": "graph",
-      "t": 142.709
+      "t": 142.573
     },
     {
       "id": "price_effect",
       "type": "prediction",
-      "t": 161.608
+      "t": 161.248
     },
     {
       "id": "price_pivot",
       "type": "graph",
-      "t": 161.608
+      "t": 161.248
     },
     {
       "id": "cp2",
       "type": "checkpoint",
-      "t": 177.956
+      "t": 177.596
     },
     {
       "id": "recap",
       "type": "graph",
-      "t": 188.308
+      "t": 187.948
     }
   ],
   "transcript": [
@@ -155,231 +155,231 @@
       "part_index": 0
     },
     {
-      "text": "Let us put coffee in kilos on the horizontal axis, and orange juice in liters on the vertical one.",
+      "text": "Let us put coffee in pounds on the horizontal axis, and orange juice in quarts on the vertical one.",
       "start_s": 51.039,
-      "end_s": 56.516,
+      "end_s": 56.436,
       "part_index": 0
     },
     {
-      "text": "Coffee costs three dollars a kilo, juice costs one a liter, and you have one hundred dollars.",
-      "start_s": 56.516,
-      "end_s": 61.959,
+      "text": "Coffee costs three dollars a pound, juice costs one a quart, and you have one hundred dollars.",
+      "start_s": 56.436,
+      "end_s": 61.97,
       "part_index": 0
     },
     {
       "text": "Now the real question: which points on that map can you afford?",
-      "start_s": 61.959,
-      "end_s": 65.55,
+      "start_s": 61.97,
+      "end_s": 65.561,
       "part_index": 0
     },
     {
       "text": "A bundle is affordable when what you spend does not exceed your income.",
-      "start_s": 65.55,
-      "end_s": 69.084,
+      "start_s": 65.561,
+      "end_s": 69.095,
       "part_index": 0
     },
     {
       "text": "In symbols: p sub 1 x sub 1 plus p sub 2 x sub 2 less than or equal to m.",
-      "start_s": 69.084,
-      "end_s": 75.141,
+      "start_s": 69.095,
+      "end_s": 75.152,
       "part_index": 0
     },
     {
       "text": "All the bundles that satisfy that inequality form your budget set, and it is the shaded region.",
-      "start_s": 75.141,
-      "end_s": 80.607,
+      "start_s": 75.152,
+      "end_s": 80.618,
       "part_index": 0
     },
     {
       "text": "The budget line is only the edge of that region: the bundles that exhaust your income exactly, where the inequality becomes an equality.",
-      "start_s": 80.607,
-      "end_s": 88.22,
+      "start_s": 80.618,
+      "end_s": 88.232,
       "part_index": 0
     },
     {
       "text": "p sub 1 x sub 1 plus p sub 2 x sub 2 equals m.",
-      "start_s": 88.22,
-      "end_s": 92.266,
+      "start_s": 88.232,
+      "end_s": 92.277,
       "part_index": 0
     },
     {
       "text": "It is worth saying out loud, because it is the most common confusion: the line is not the set.",
-      "start_s": 92.266,
-      "end_s": 97.732,
+      "start_s": 92.277,
+      "end_s": 97.743,
       "part_index": 0
     },
     {
       "text": "The line is the boundary of the set.",
-      "start_s": 97.732,
-      "end_s": 99.8,
+      "start_s": 97.743,
+      "end_s": 99.811,
       "part_index": 0
     },
     {
       "text": "The endpoints are easy.",
-      "start_s": 99.8,
-      "end_s": 101.323,
+      "start_s": 99.811,
+      "end_s": 101.334,
       "part_index": 0
     },
     {
-      "text": "If you spend your whole income on coffee, you buy one hundred divided by three, about thirty-three kilos.",
-      "start_s": 101.323,
-      "end_s": 106.959,
+      "text": "If you spend your whole income on coffee, you buy one hundred divided by three, about thirty-three pounds.",
+      "start_s": 101.334,
+      "end_s": 107.05,
       "part_index": 0
     },
     {
-      "text": "If you spend it all on juice, you buy one hundred liters.",
-      "start_s": 106.959,
-      "end_s": 110.13,
+      "text": "If you spend it all on juice, you buy one hundred quarts.",
+      "start_s": 107.05,
+      "end_s": 110.277,
       "part_index": 0
     },
     {
       "text": "Those two points are the intercepts, and with them you already have the whole line.",
-      "start_s": 110.13,
-      "end_s": 113.936,
+      "start_s": 110.277,
+      "end_s": 114.084,
       "part_index": 0
     },
     {
       "text": "The slope is minus p one over p two, that is, minus three.",
-      "start_s": 113.936,
-      "end_s": 117.97,
+      "start_s": 114.084,
+      "end_s": 118.118,
       "part_index": 0
     },
     {
-      "text": "That number is not abstract: it means that to take home one more kilo of coffee, you have to give up three liters of juice.",
-      "start_s": 117.97,
-      "end_s": 124.448,
+      "text": "That number is not abstract: it means that to take home one more pound of coffee, you have to give up three quarts of juice.",
+      "start_s": 118.118,
+      "end_s": 124.47,
       "part_index": 0
     },
     {
-      "text": "The market lets you transform three liters of juice into one kilo of coffee, at the current prices.",
-      "start_s": 124.448,
-      "end_s": 129.868,
+      "text": "The market lets you transform three quarts of juice into one pound of coffee, at the current prices.",
+      "start_s": 124.47,
+      "end_s": 129.732,
       "part_index": 0
     },
     {
       "text": "That is why the slope is called the relative price.",
-      "start_s": 129.868,
-      "end_s": 132.493,
+      "start_s": 129.732,
+      "end_s": 132.357,
       "part_index": 0
     },
     {
       "text": "Before we go on, think about it for a moment.",
-      "start_s": 132.493,
-      "end_s": 135.527,
+      "start_s": 132.357,
+      "end_s": 135.391,
       "part_index": 0
     },
     {
       "text": "If your income rose from one hundred to one hundred and fifty, what would happen to the line?",
-      "start_s": 135.527,
-      "end_s": 140.323,
+      "start_s": 135.391,
+      "end_s": 140.186,
       "part_index": 0
     },
     {
       "text": "Would it shift, would it rotate, or both?",
-      "start_s": 140.323,
-      "end_s": 142.709,
+      "start_s": 140.186,
+      "end_s": 142.573,
       "part_index": 0
     },
     {
       "text": "It shifts, but it does not rotate.",
-      "start_s": 142.709,
-      "end_s": 144.993,
+      "start_s": 142.573,
+      "end_s": 144.857,
       "part_index": 0
     },
     {
       "text": "An increase in income moves the line outward in a parallel manner, enlarging the budget set.",
-      "start_s": 144.993,
-      "end_s": 149.948,
+      "start_s": 144.857,
+      "end_s": 149.811,
       "part_index": 0
     },
     {
-      "text": "The slope does not change, and the reason is that prices did not change: one kilo of coffee still costs exactly three liters of juice.",
-      "start_s": 149.948,
-      "end_s": 158.175,
+      "text": "The slope does not change, and the reason is that prices did not change: one pound of coffee still costs exactly three quarts of juice.",
+      "start_s": 149.811,
+      "end_s": 157.811,
       "part_index": 0
     },
     {
       "text": "The only difference is that now you can afford more of both.",
-      "start_s": 158.175,
-      "end_s": 161.208,
+      "start_s": 157.811,
+      "end_s": 160.848,
       "part_index": 0
     },
     {
       "text": "Now the other way around.",
-      "start_s": 161.608,
-      "end_s": 163.244,
+      "start_s": 161.248,
+      "end_s": 162.884,
       "part_index": 1
     },
     {
       "text": "If the price of coffee rises from three to four, the line does not shift: it pivots.",
-      "start_s": 163.194,
-      "end_s": 168.183,
+      "start_s": 162.834,
+      "end_s": 167.823,
       "part_index": 1
     },
     {
       "text": "The juice intercept stays exactly where it was, because neither your income nor the price of juice changed.",
-      "start_s": 168.183,
-      "end_s": 173.922,
+      "start_s": 167.823,
+      "end_s": 173.562,
       "part_index": 1
     },
     {
       "text": "What moves is the other endpoint, inward, and the line becomes steeper.",
-      "start_s": 173.922,
-      "end_s": 177.956,
+      "start_s": 173.562,
+      "end_s": 177.596,
       "part_index": 1
     },
     {
       "text": "This is the distinction that slips the most, so I want you to say it.",
-      "start_s": 177.956,
-      "end_s": 181.501,
+      "start_s": 177.596,
+      "end_s": 181.141,
       "part_index": 1
     },
     {
       "text": "Income shifts; price pivots.",
-      "start_s": 181.501,
-      "end_s": 183.785,
+      "start_s": 181.141,
+      "end_s": 183.425,
       "part_index": 1
     },
     {
       "text": "Can you explain why the juice intercept does not move when what rises is the price of coffee?",
-      "start_s": 183.785,
-      "end_s": 188.308,
+      "start_s": 183.425,
+      "end_s": 187.948,
       "part_index": 1
     },
     {
       "text": "To recap.",
-      "start_s": 188.308,
-      "end_s": 189.308,
+      "start_s": 187.948,
+      "end_s": 188.948,
       "part_index": 1
     },
     {
       "text": "A bundle is a point in the goods space.",
-      "start_s": 189.308,
-      "end_s": 191.49,
+      "start_s": 188.948,
+      "end_s": 191.13,
       "part_index": 1
     },
     {
       "text": "The budget set is the region you can afford, and the line is its boundary.",
-      "start_s": 191.49,
-      "end_s": 195.66,
+      "start_s": 191.13,
+      "end_s": 195.3,
       "part_index": 1
     },
     {
       "text": "The intercepts come from spending your entire income on a single good.",
-      "start_s": 195.66,
-      "end_s": 199.263,
+      "start_s": 195.3,
+      "end_s": 198.903,
       "part_index": 1
     },
     {
       "text": "And the slope is the relative price, which tells you how much of one good you give up for one unit of the other.",
-      "start_s": 199.263,
-      "end_s": 204.638,
+      "start_s": 198.903,
+      "end_s": 204.278,
       "part_index": 1
     },
     {
       "text": "Change income and the line shifts; change a price and it pivots around the intercept of the good whose price did not change.",
-      "start_s": 204.638,
-      "end_s": 211.444,
+      "start_s": 204.278,
+      "end_s": 211.084,
       "part_index": 1
     }
   ]
