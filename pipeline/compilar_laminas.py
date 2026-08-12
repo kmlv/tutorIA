@@ -75,6 +75,96 @@ def estados_por_cue(cues: list[dict], ejemplo: dict, guion: dict) -> list[dict]:
         return json.loads(r.stdout)
 
 
+def renderizar(latex: list[str]) -> dict[str, str]:
+    """LaTeX -> HTML, con KaTeX y EN TIEMPO DE COMPILACIÓN.
+
+    El JavaScript de KaTeX pesa unas veinte veces más que todo el cliente de tutorIA, así
+    que no viaja: al navegador solo llegan el CSS y las fuentes, que ya se sirven. Es la
+    misma vía por la que se dibuja hoy la ecuación de las fichas.
+    """
+    if not latex:
+        return {}
+    with tempfile.TemporaryDirectory() as tmp:
+        drv = pathlib.Path(tmp) / "k.mjs"
+        drv.write_text(
+            "import {createRequire} from 'node:module';\n"
+            "const katex = createRequire(process.argv[3])('katex');\n"
+            "const out = {};\n"
+            "for (const tex of JSON.parse(process.argv[2])) {\n"
+            # `trust:false` y `strict:false`: el contenido puede venir de un modelo algún
+            # día, así que se renderiza sin permitirle emitir HTML propio (\\htmlClass,
+            # \\url), y un comando desconocido se pinta en rojo en vez de tumbar la
+            # compilación entera.
+            "  out[tex] = katex.renderToString(tex, {throwOnError: false, trust: false,\n"
+            "                                        strict: false, output: 'html'});\n"
+            "}\n"
+            "process.stdout.write(JSON.stringify(out));\n", encoding="utf-8")
+        r = subprocess.run(
+            ["node", str(drv), json.dumps(latex), str(ROOT / "app" / "web" / "package.json")],
+            capture_output=True, text=True)
+        if r.returncode != 0:
+            raise RuntimeError(r.stderr.strip()[:600])
+        return json.loads(r.stdout)
+
+
+def frases_con_matematica(tl, sidecar: dict) -> list[dict]:
+    """Devuelve el transcript con la matemática DEVUELTA A SU FORMA ESCRITA.
+
+    El problema, en una frase: lo que se ve en pantalla es la transcripción del audio, y la
+    transcripción está escrita PARA EL OÍDO. Donde el guion dice `$(x_1, x_2)$`, el audio
+    dice —y el subtítulo muestra— "x sub 1, x sub 2". Kristian lo vio en pantalla.
+
+    No hace falta reescribir nada ni adivinar: el compilador de audio guardó LAS DOS
+    FORMAS de cada fórmula, la original en LaTeX y la hablada. Aquí se deshace el cambio.
+
+    Además une frases: el troceador del compilador de audio partió `(x_1, x_2)` por la
+    mitad, así que una fórmula se repartía entre dos subtítulos —"(x sub 1, x sub 2" en uno
+    y ")." en el siguiente—. Al unirlas se conserva el arranque de la primera, que es lo
+    que ancla la ventana de la lámina.
+    """
+    formulas = sidecar.get("formulas") or []
+    frases = [s.model_dump() for s in tl.transcript]
+    if not formulas:
+        return [{"partes": [{"t": f["text"]}], "start_s": f["start_s"]} for f in frases]
+
+    # 1. Unir mientras alguna forma hablada quede partida entre dos frases vecinas.
+    def parte_una(a: str, b: str) -> bool:
+        return any(f["spoken"] not in a and f["spoken"] not in b
+                   and f["spoken"] in f"{a} {b}" for f in formulas)
+
+    unidas: list[dict] = []
+    for f in frases:
+        if unidas and parte_una(unidas[-1]["text"], f["text"]):
+            unidas[-1]["text"] = f"{unidas[-1]['text']} {f['text']}"
+        else:
+            unidas.append(dict(f))
+
+    # 2. Partir cada frase en tramos de texto y tramos de matemática.
+    html = renderizar([f["original"].strip("$ ") for f in formulas])
+    salida = []
+    for f in unidas:
+        partes: list[dict] = [{"t": f["text"]}]
+        for fo in formulas:
+            nuevas: list[dict] = []
+            for p in partes:
+                if "t" not in p or fo["spoken"] not in p["t"]:
+                    nuevas.append(p)
+                    continue
+                trozos = p["t"].split(fo["spoken"])
+                for i, tr in enumerate(trozos):
+                    if i:
+                        nuevas.append({"m": html[fo["original"].strip("$ ")]})
+                    if tr:
+                        nuevas.append({"t": tr})
+            partes = nuevas
+        # La puntuación que el TTS empujó fuera de la fórmula vuelve a pegarse.
+        for p in partes:
+            if "t" in p:
+                p["t"] = p["t"].replace(" ,", ",").replace(" .", ".").replace(" )", ")")
+        salida.append({"partes": partes, "start_s": f["start_s"]})
+    return salida
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("pack", nargs="?", default="budget-line")
@@ -129,10 +219,18 @@ def main() -> int:
         acumulado = acumulado + list(guion_ledger.get(c["id"], []))
         acum_por_cue[c["id"]] = list(acumulado)
 
-    transcript = [s.model_dump() for s in tl.transcript]
+    # El sidecar del compilador de audio, que es quien guarda las dos formas de cada
+    # fórmula. Si falta, los subtítulos salen tal cual venían: verbalizados y feos, pero
+    # la lección se compila igual.
+    mp3 = ROOT / "content" / "packs" / args.pack / "media" / tl.audio.split("/")[-1]
+    sc = mp3.with_suffix("").with_suffix(".audio.json")
+    if not sc.exists():
+        sc = mp3.parent / (mp3.stem + ".audio.json")
+    sidecar = json.loads(sc.read_text(encoding="utf-8")) if sc.exists() else {}
+    transcript = frases_con_matematica(tl, sidecar)
 
-    def frases(desde: float, hasta: float) -> list[str]:
-        return [s["text"] for s in transcript
+    def frases(desde: float, hasta: float) -> list[list[dict]]:
+        return [s["partes"] for s in transcript
                 if s["start_s"] >= desde - 1e-6 and s["start_s"] < hasta - 1e-6]
 
     # 4. Las láminas. La ventana de la primera arranca en 0 para que el título hablado
@@ -198,6 +296,7 @@ def main() -> int:
     malos = [h for h in huecos if abs(h) > 1e-6]
     cubierto = sum(l["audio"]["hasta"] - l["audio"]["desde"] for l in laminas)
     con_voz = [l["id"] for l in laminas if l["tipo"] == "pregunta" and l["dice"]]
+    con_mat = sum(1 for l in laminas for fr in l["dice"] for p in fr if "m" in p)
 
     print(f"  {len(laminas)} láminas ({sum(1 for l in laminas if l['tipo']=='pregunta')} de pregunta)")
     print(f"  uniones sin hueco: {len(huecos) - len(malos)}/{len(huecos)}"
@@ -205,6 +304,7 @@ def main() -> int:
     print(f"  audio cubierto: {cubierto:.3f}s de {dur:.3f}s "
           f"({100*cubierto/dur:.1f}%)")
     print(f"  láminas de pregunta CON voz: {con_voz}")
+    print(f"  fórmulas devueltas a su forma escrita en los subtítulos: {con_mat}")
     print(f"  -> {destino.relative_to(ROOT)}")
     return 0 if not malos and abs(cubierto - dur) < 0.01 else 1
 

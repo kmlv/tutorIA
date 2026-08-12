@@ -34,10 +34,20 @@ export interface Lamina {
   id: string;
   tipo: "explica" | "pregunta";
   audio: Ventana;
-  /** Lo que se oye mientras esta lámina manda. Es el subtítulo, y también lo que se le
-   *  manda al tutor como contexto — un tutor que no sabe qué acaba de oír el alumno
-   *  responde sobre otra cosa, que es exactamente el fallo que Kristian reportó. */
-  dice: string[];
+  /**
+   * Lo que se oye mientras esta lámina manda, frase a frase, y cada frase partida en
+   * tramos: `{t}` es texto y `{m}` es matemática ya compuesta.
+   *
+   * Va partida porque la transcripción del audio está escrita PARA EL OÍDO: donde el
+   * guion dice `(x₁, x₂)`, la grabación dice —y el subtítulo mostraba— "x sub 1, x sub 2".
+   * El compilador de audio había guardado las dos formas, así que la escrita se recupera
+   * sin reescribir contenido ni adivinar nada.
+   *
+   * El HTML de `{m}` lo produce KaTeX en tiempo de compilación, con `trust:false`. Es la
+   * única cosa de esta baraja que se inyecta como HTML, y por eso el intérprete no acepta
+   * marcado de ninguna otra procedencia: el resto es texto y entra como texto.
+   */
+  dice: Array<Array<{ t?: string; m?: string }>>;
   escena: GraphState;
   ledger: LedgerOp[];
   /** Dónde empiezan las operaciones propias de esta lámina dentro de `ledger`. El prefijo

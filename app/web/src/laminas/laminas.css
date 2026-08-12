@@ -91,7 +91,12 @@ body {
 /* El cuerpo de la lámina. Solo se escribe con replaceChildren, nunca acumulando. */
 .cuerpo { min-height: 90px; }
 
-.dice p { margin: 0 0 0.4em; line-height: 1.55; color: var(--muted); font-size: 0.95rem; }
+.dice p { margin: 0 0 0.4em; line-height: 1.75; color: var(--muted); font-size: 0.95rem; }
+/* La matemática se compone con KaTeX, igual que la ecuación de las fichas. Hereda el
+ * color del párrafo para que no salte de la frase: es parte de lo que se está diciendo,
+ * no una cita aparte. */
+.dice .mat { color: var(--fg); }
+.dice .mat .katex { font-size: 1.05em; }
 
 .pregunta {
   border: 1px solid var(--line);

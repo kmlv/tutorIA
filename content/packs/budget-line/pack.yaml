@@ -51,8 +51,8 @@ sub_skills:
     esencial: true
     umbral: 0.80
     titulo:
-      es: Plantear p1·x1 + p2·x2 = m e interpretar cada término
-      en: State p1·x1 + p2·x2 = m and interpret each term
+      es: Plantear p₁·x₁ + p₂·x₂ = m e interpretar cada término
+      en: State p₁·x₁ + p₂·x₂ = m and interpret each term
     # HUECO CONOCIDO: es la única sub-skill sin misconception asociada en
     # misconceptions.yaml. O falta una entrada del catálogo, o esta sub-skill no es
     # diagnosticable por separado y debería fusionarse con BL.INT.
@@ -64,16 +64,16 @@ sub_skills:
     esencial: true
     umbral: 0.80
     titulo:
-      es: Interceptos m/p1 y m/p2, cálculo e interpretación
-      en: Intercepts m/p1 and m/p2, computation and meaning
+      es: Interceptos m/p₁ y m/p₂, cálculo e interpretación
+      en: Intercepts m/p₁ and m/p₂, computation and meaning
     misconceptions: [BL-M6, BL-M3]
 
   - id: BL.SLOPE
     esencial: true
     umbral: 0.80
     titulo:
-      es: Pendiente -p1/p2 como precio relativo y costo de oportunidad
-      en: Slope -p1/p2 as relative price and opportunity cost
+      es: Pendiente −p₁/p₂ como precio relativo y costo de oportunidad
+      en: Slope −p₁/p₂ as relative price and opportunity cost
     misconceptions: [BL-M1, BL-M5, BL-M2]
 
   - id: BL.FEAS
@@ -96,8 +96,8 @@ sub_skills:
     esencial: true
     umbral: 0.80
     titulo:
-      es: Cambio en p1 o p2 ⇒ pivote sobre el intercepto del otro bien
-      en: Change in p1 or p2 ⇒ pivot around the other good's intercept
+      es: Cambio en p₁ o p₂ ⇒ pivote sobre el intercepto del otro bien
+      en: Change in p₁ or p₂ ⇒ pivot around the other good's intercept
     misconceptions: [BL-M3]
 
 # Criterio de dominio (PLAN §3.2, actualizado con los hallazgos de T-002).

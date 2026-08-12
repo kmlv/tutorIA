@@ -55,8 +55,8 @@ misconceptions:
       Despejar x2 paso a paso desde 3·x1 + 1·x2 = 100, para que la pendiente aparezca
       como el coeficiente que multiplica a x1, y no como algo que se memoriza.
     distractor:
-      es: La pendiente es -p2/p1
-      en: The slope is -p2/p1
+      es: La pendiente es −p₂/p₁
+      en: The slope is −p₂/p₁
 
   - id: BL-M2
     nombre:
@@ -106,8 +106,8 @@ misconceptions:
       Tabla de los dos interceptos, m/p1 y m/p2, antes y después de p1: 3 -> 4.
       Solo una de las dos celdas cambia.
     distractor:
-      es: Si sube p1, baja el intercepto vertical m/p2
-      en: If p1 rises, the vertical intercept m/p2 falls
+      es: Si sube p₁, baja el intercepto vertical m/p₂
+      en: If p₁ rises, the vertical intercept m/p₂ falls
 
   - id: BL-M4
     nombre:
@@ -152,8 +152,8 @@ misconceptions:
     caso_numerico: >
       Moverse una unidad a la derecha sobre la recta y leer cuánto baja x2.
     distractor:
-      es: La pendiente es +p1/p2 porque ambos precios son positivos
-      en: The slope is +p1/p2 because both prices are positive
+      es: La pendiente es +p₁/p₂ porque ambos precios son positivos
+      en: The slope is +p₁/p₂ because both prices are positive
 
   - id: BL-M6
     nombre:
@@ -171,8 +171,8 @@ misconceptions:
     caso_numerico: >
       Con m=100, p1=3, p2=1: fijar x1=0 y resolver, luego fijar x2=0 y resolver.
     distractor:
-      es: El intercepto vertical es m/p1
-      en: The vertical intercept is m/p1
+      es: El intercepto vertical es m/p₁
+      en: The vertical intercept is m/p₁
 
   - id: BL-M7
     nombre:

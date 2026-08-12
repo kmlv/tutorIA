@@ -21,11 +21,31 @@
     "hasta": 24.239
    },
    "dice": [
-    "La línea presupuestaria",
-    "Antes de hablar de presupuestos, hay que decir qué es lo que estamos eligiendo.",
-    "Un consumidor no elige un bien: elige una combinación de todo lo que consume.",
-    "Al conjunto de todas las combinaciones imaginables lo llamamos conjunto de consumo.",
-    "Y lo que impide llegar a cualquiera de ellas no es el deseo, sino los recursos: el ingreso, el tiempo, lo que sea que esté limitado."
+    [
+     {
+      "t": "La línea presupuestaria"
+     }
+    ],
+    [
+     {
+      "t": "Antes de hablar de presupuestos, hay que decir qué es lo que estamos eligiendo."
+     }
+    ],
+    [
+     {
+      "t": "Un consumidor no elige un bien: elige una combinación de todo lo que consume."
+     }
+    ],
+    [
+     {
+      "t": "Al conjunto de todas las combinaciones imaginables lo llamamos conjunto de consumo."
+     }
+    ],
+    [
+     {
+      "t": "Y lo que impide llegar a cualquiera de ellas no es el deseo, sino los recursos: el ingreso, el tiempo, lo que sea que esté limitado."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -74,10 +94,27 @@
     "hasta": 44.318
    },
    "dice": [
-    "A cada combinación concreta la llamamos una canasta.",
-    "Si hay dos bienes, una canasta es simplemente un par de números: cuánto del bien uno y cuánto del bien dos.",
-    "La escribimos así: (x sub 1 , x sub 2",
-    "). Con más bienes sería un vector más largo, pero nos quedamos en dos por una razón muy práctica: dos se pueden dibujar."
+    [
+     {
+      "t": "A cada combinación concreta la llamamos una canasta."
+     }
+    ],
+    [
+     {
+      "t": "Si hay dos bienes, una canasta es simplemente un par de números: cuánto del bien uno y cuánto del bien dos."
+     }
+    ],
+    [
+     {
+      "t": "La escribimos así: "
+     },
+     {
+      "m": "<span class=\"katex\"><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mopen\">(</span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mclose\">)</span></span></span></span>"
+     },
+     {
+      "t": ". Con más bienes sería un vector más largo, pero nos quedamos en dos por una razón muy práctica: dos se pueden dibujar."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -148,11 +185,31 @@
     "hasta": 67.955
    },
    "dice": [
-    "Y ahí está la idea que hace que todo lo demás se vea.",
-    "Si cada bien es un eje, entonces cada canasta posible es un punto del plano.",
-    "El espacio de bienes deja de ser una lista de números y pasa a ser un mapa.",
-    "Pongamos café en kilos en el eje horizontal, y jugo de naranja en litros en el vertical.",
-    "El café cuesta tres dólares el kilo, el jugo cuesta uno el litro, y tienes cien dólares."
+    [
+     {
+      "t": "Y ahí está la idea que hace que todo lo demás se vea."
+     }
+    ],
+    [
+     {
+      "t": "Si cada bien es un eje, entonces cada canasta posible es un punto del plano."
+     }
+    ],
+    [
+     {
+      "t": "El espacio de bienes deja de ser una lista de números y pasa a ser un mapa."
+     }
+    ],
+    [
+     {
+      "t": "Pongamos café en kilos en el eje horizontal, y jugo de naranja en litros en el vertical."
+     }
+    ],
+    [
+     {
+      "t": "El café cuesta tres dólares el kilo, el jugo cuesta uno el litro, y tienes cien dólares."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -245,10 +302,32 @@
     "hasta": 87.045
    },
    "dice": [
-    "Ahora sí: ¿qué puntos de ese mapa puedes pagar?",
-    "Una canasta es alcanzable si lo que gastas no supera tu ingreso.",
-    "En símbolos: p sub 1 x sub 1 más p sub 2 x sub 2 menor o igual que m.",
-    "Todas las canastas que cumplen esa desigualdad forman tu conjunto presupuestario, y es la región sombreada."
+    [
+     {
+      "t": "Ahora sí: ¿qué puntos de ese mapa puedes pagar?"
+     }
+    ],
+    [
+     {
+      "t": "Una canasta es alcanzable si lo que gastas no supera tu ingreso."
+     }
+    ],
+    [
+     {
+      "t": "En símbolos: "
+     },
+     {
+      "m": "<span class=\"katex\"><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.7778em;vertical-align:-0.1944em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">p</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.8304em;vertical-align:-0.1944em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">p</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">≤</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">m</span></span></span></span>"
+     },
+     {
+      "t": "."
+     }
+    ],
+    [
+     {
+      "t": "Todas las canastas que cumplen esa desigualdad forman tu conjunto presupuestario, y es la región sombreada."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -367,10 +446,29 @@
     "hasta": 107.727
    },
    "dice": [
-    "La línea presupuestaria es solamente el borde de esa región: las canastas que agotan exactamente tu ingreso, donde la desigualdad se vuelve igualdad.",
-    "p sub 1 x sub 1 más p sub 2 x sub 2 igual a m.",
-    "Conviene decirlo en voz alta porque es la confusión más común: la línea no es el conjunto.",
-    "La línea es la frontera del conjunto."
+    [
+     {
+      "t": "La línea presupuestaria es solamente el borde de esa región: las canastas que agotan exactamente tu ingreso, donde la desigualdad se vuelve igualdad."
+     }
+    ],
+    [
+     {
+      "m": "<span class=\"katex\"><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.7778em;vertical-align:-0.1944em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">p</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.625em;vertical-align:-0.1944em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">p</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">m</span></span></span></span>"
+     },
+     {
+      "t": "."
+     }
+    ],
+    [
+     {
+      "t": "Conviene decirlo en voz alta porque es la confusión más común: la línea no es el conjunto."
+     }
+    ],
+    [
+     {
+      "t": "La línea es la frontera del conjunto."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -495,10 +593,26 @@
     "hasta": 123.864
    },
    "dice": [
-    "Los extremos son fáciles.",
-    "Si gastas todo tu ingreso en café, compras cien entre tres, unos treinta y tres kilos.",
-    "Si lo gastas todo en jugo, compras cien litros.",
-    "Esos dos puntos son los interceptos, y con ellos ya tienes la recta completa."
+    [
+     {
+      "t": "Los extremos son fáciles."
+     }
+    ],
+    [
+     {
+      "t": "Si gastas todo tu ingreso en café, compras cien entre tres, unos treinta y tres kilos."
+     }
+    ],
+    [
+     {
+      "t": "Si lo gastas todo en jugo, compras cien litros."
+     }
+    ],
+    [
+     {
+      "t": "Esos dos puntos son los interceptos, y con ellos ya tienes la recta completa."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -627,10 +741,26 @@
     "hasta": 144.761
    },
    "dice": [
-    "La pendiente es menos p uno sobre p dos, es decir, menos tres.",
-    "Ese número no es abstracto: significa que para llevarte un kilo más de café, tienes que renunciar a tres litros de jugo.",
-    "El mercado te deja transformar tres litros de jugo en un kilo de café, a los precios actuales.",
-    "Por eso a la pendiente se le llama el precio relativo."
+    [
+     {
+      "t": "La pendiente es menos p uno sobre p dos, es decir, menos tres."
+     }
+    ],
+    [
+     {
+      "t": "Ese número no es abstracto: significa que para llevarte un kilo más de café, tienes que renunciar a tres litros de jugo."
+     }
+    ],
+    [
+     {
+      "t": "El mercado te deja transformar tres litros de jugo en un kilo de café, a los precios actuales."
+     }
+    ],
+    [
+     {
+      "t": "Por eso a la pendiente se le llama el precio relativo."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -774,9 +904,21 @@
     "hasta": 155.989
    },
    "dice": [
-    "Antes de seguir, piénsalo un momento.",
-    "Si tu ingreso subiera de cien a ciento cincuenta, ¿qué le pasaría a la línea?",
-    "¿Se desplazaría, giraría, o las dos cosas?"
+    [
+     {
+      "t": "Antes de seguir, piénsalo un momento."
+     }
+    ],
+    [
+     {
+      "t": "Si tu ingreso subiera de cien a ciento cincuenta, ¿qué le pasaría a la línea?"
+     }
+    ],
+    [
+     {
+      "t": "¿Se desplazaría, giraría, o las dos cosas?"
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -920,10 +1062,26 @@
     "hasta": 176.128
    },
    "dice": [
-    "Se desplaza, pero no gira.",
-    "Un aumento del ingreso mueve la línea hacia afuera de forma paralela, y agranda el conjunto presupuestario.",
-    "La pendiente no cambia, y la razón es que los precios no cambiaron: un kilo de café sigue costando exactamente tres litros de jugo.",
-    "Lo único distinto es que ahora puedes pagar más de ambos."
+    [
+     {
+      "t": "Se desplaza, pero no gira."
+     }
+    ],
+    [
+     {
+      "t": "Un aumento del ingreso mueve la línea hacia afuera de forma paralela, y agranda el conjunto presupuestario."
+     }
+    ],
+    [
+     {
+      "t": "La pendiente no cambia, y la razón es que los precios no cambiaron: un kilo de café sigue costando exactamente tres litros de jugo."
+     }
+    ],
+    [
+     {
+      "t": "Lo único distinto es que ahora puedes pagar más de ambos."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -1076,10 +1234,26 @@
     "hasta": 194.551
    },
    "dice": [
-    "Ahora al revés.",
-    "Si sube el precio del café, de tres a cuatro, la línea no se desplaza: gira.",
-    "El intercepto del jugo se queda clavado donde estaba, porque ni tu ingreso ni el precio del jugo cambiaron.",
-    "Lo que se mueve es el otro extremo, hacia adentro, y la recta se vuelve más empinada."
+    [
+     {
+      "t": "Ahora al revés."
+     }
+    ],
+    [
+     {
+      "t": "Si sube el precio del café, de tres a cuatro, la línea no se desplaza: gira."
+     }
+    ],
+    [
+     {
+      "t": "El intercepto del jugo se queda clavado donde estaba, porque ni tu ingreso ni el precio del jugo cambiaron."
+     }
+    ],
+    [
+     {
+      "t": "Lo que se mueve es el otro extremo, hacia adentro, y la recta se vuelve más empinada."
+     }
+    ]
    ],
    "escena": {
     "p1": 4,
@@ -1246,9 +1420,21 @@
     "hasta": 206.948
    },
    "dice": [
-    "Esta es la distinción que más se resbala, así que quiero que la digas tú.",
-    "El ingreso desplaza; el precio gira.",
-    "¿Puedes explicar por qué el intercepto del jugo no se mueve cuando lo que sube es el precio del café?"
+    [
+     {
+      "t": "Esta es la distinción que más se resbala, así que quiero que la digas tú."
+     }
+    ],
+    [
+     {
+      "t": "El ingreso desplaza; el precio gira."
+     }
+    ],
+    [
+     {
+      "t": "¿Puedes explicar por qué el intercepto del jugo no se mueve cuando lo que sube es el precio del café?"
+     }
+    ]
    ],
    "escena": {
     "p1": 4,
@@ -1415,12 +1601,36 @@
     "hasta": 232.752
    },
    "dice": [
-    "Recapitulando.",
-    "Una canasta es un punto del espacio de bienes.",
-    "El conjunto presupuestario es la región que puedes pagar, y la línea es su frontera.",
-    "Los interceptos salen de gastar todo el ingreso en un solo bien.",
-    "Y la pendiente es el precio relativo, que dice a cuánto de un bien renuncias por una unidad del otro.",
-    "Cambia el ingreso y la línea se traslada; cambia un precio y gira sobre el intercepto del bien cuyo precio no cambió."
+    [
+     {
+      "t": "Recapitulando."
+     }
+    ],
+    [
+     {
+      "t": "Una canasta es un punto del espacio de bienes."
+     }
+    ],
+    [
+     {
+      "t": "El conjunto presupuestario es la región que puedes pagar, y la línea es su frontera."
+     }
+    ],
+    [
+     {
+      "t": "Los interceptos salen de gastar todo el ingreso en un solo bien."
+     }
+    ],
+    [
+     {
+      "t": "Y la pendiente es el precio relativo, que dice a cuánto de un bien renuncias por una unidad del otro."
+     }
+    ],
+    [
+     {
+      "t": "Cambia el ingreso y la línea se traslada; cambia un precio y gira sobre el intercepto del bien cuyo precio no cambió."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,

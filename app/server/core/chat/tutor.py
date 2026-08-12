@@ -32,7 +32,7 @@ import re
 from dataclasses import dataclass
 
 from ..content.schema import Ejemplo, Pack, Question
-from ..judge.deterministic import ExpressionError, eval_expr
+from ..judge.deterministic import ExpressionError, eval_expr, normalizar_numeros
 from ..llm.provider import LLMError, LLMProvider, LLMRefusal, LLMRequest
 from ..llm.roles import Router
 from ..mastery.state import SubSkillState
@@ -52,15 +52,25 @@ you have deliberately not been given. Your job is to get them unstuck enough to 
 for themselves, and a student who leaves with your answer instead of their own reasoning
 has been harmed by this conversation, not helped.
 
-What to do:
+**First decide which kind of message this is**, because the two get different replies.
+
+*They asked what something means* — a term, a symbol, a piece of notation. Define it, in
+one or two sentences, and **stop there**. Do not add a question at the end. Do not turn
+the definition into an exercise. Vocabulary is not the thing being tested, and answering
+"what is the consumption set?" with a definition plus a problem to solve is an obstacle
+dressed as help: they now owe you homework for having asked a question.
+
+*They are stuck on something they are trying to do* — a calculation, a prediction, a
+choice between options. Now the Socratic move applies:
 - Ask the one question that would move them forward. Usually it is smaller and more
   concrete than the one they asked you.
 - Point at the specific thing to look at — an intercept, a slope, a bundle — and let
   them read it.
 - Offer a different representation when words are not landing: a number, a table, a
   picture in words.
-- Answer definitional questions directly. What a term means is not the exercise; making
-  them guess vocabulary is just an obstacle.
+
+When in doubt about which kind it is, answer what they actually asked and stop. A
+question they did not ask for is only useful when they are trying to do something.
 
 What never to do:
 - State the numeric answer, name the correct option, or say whether their answer is
@@ -70,7 +80,9 @@ What never to do:
 - Say "correct" or "wrong" about anything they propose. Ask them how they'd check it.
 
 Be brief. Two or three sentences is usually right, and one question is usually better
-than three. Do not open with pleasantries and do not close by offering more help.
+than three. Do not open with pleasantries and do not close by offering more help. Never
+end with a question you added out of habit: if you would not have asked it on its own,
+leave it out.
 
 **Write plain prose.** Your reply is inserted into the page as text, so LaTeX and
 Markdown arrive at the student as literal characters: `\\(100 \\div 3\\)` shows up on
@@ -183,7 +195,10 @@ def leaks_answer(text: str, q: Question | None, e: Ejemplo) -> bool:
     expected = _expected_numbers(q, e)
     if not expected:
         return False
-    found = [float(m) for m in re.findall(r"-?\d+(?:[.,]\d+)?", text.replace(",", "."))]
+    # Se normaliza ANTES de buscar. Sin esto, "la pendiente es −3" escrito con el menos
+    # tipográfico se lee como el número 3 y el guardián no la bloquea.
+    limpio = normalizar_numeros(text).replace(",", ".")
+    found = [float(m) for m in re.findall(r"-?\d+(?:[.,]\d+)?", limpio)]
     return any(abs(f - x) <= max(0.05, abs(x) * 0.005) for x in expected for f in found)
 
 
@@ -198,6 +213,11 @@ def build_context(pack: Pack, lang: str, *, pending: Question | None,
     """
     e = pack.ejemplo
     parts = [
+        # Se dice el idioma POR SU NOMBRE. "Reply in the student's language" obliga al
+        # modelo a inferirlo, y se equivoca: en una sesión en inglés, con el contexto en
+        # inglés y la pregunta en inglés, contestaba en español. El idioma de la sesión es
+        # un dato que tenemos; no hay razón para hacer que lo adivine.
+        f"## Reply in {'Spanish' if lang == 'es' else 'English'}",
         "## The lesson",
         f"Concept: {getattr(pack.titulo, lang)}",
         f"Good 1: {getattr(e.bien_1, lang)}, price {e.p1}. "

@@ -101,6 +101,26 @@ def _params(e: Ejemplo) -> dict[str, float]:
     return {"p1": e.p1, "p2": e.p2, "m": e.m}
 
 
+#: El menos tipográfico `−` (U+2212) NO es el guion de ASCII, y esa diferencia invisible
+#: tiene dos consecuencias que hay que arreglar a la vez o no arreglar ninguna:
+#:
+#:   1. El gráfico ya dibuja la pendiente como `−3`. Un alumno que la copie y la pegue en
+#:      el campo de respuesta recibe "no es un número" por un carácter que él nunca eligió.
+#:   2. Peor: el guardián que impide que el tutor suelte la respuesta busca números con
+#:      una expresión regular de ASCII. Con `-3` bloquea la frase; con `−3` la deja pasar,
+#:      LA MISMA FRASE. Escribir bien la matemática en el contenido sin esto abriría un
+#:      agujero pedagógico justo al mejorar la tipografía.
+#:
+#: Los guiones largos entran por lo mismo: un procesador de textos los pone solos.
+_SIGNOS = str.maketrans({"−": "-", "–": "-", "—": "-", "⁃": "-",
+                         " ": "", " ": "", " ": "", "⁄": "/"})
+
+
+def normalizar_numeros(texto: str) -> str:
+    """Deja en ASCII los signos que un humano o una tipografía escriben distinto."""
+    return texto.translate(_SIGNOS)
+
+
 def _finite(v: Any) -> float | None:
     try:
         f = float(v)
@@ -112,7 +132,8 @@ def _finite(v: Any) -> float | None:
 # --- numeric ----------------------------------------------------------------
 
 def grade_numeric(q: Question, raw: Any, e: Ejemplo) -> Veredicto:
-    dado = _finite(str(raw).replace(",", ".").strip() if raw is not None else None)
+    dado = _finite(normalizar_numeros(str(raw)).replace(",", ".").strip()
+                   if raw is not None else None)
     if dado is None:
         return Veredicto(False, 0.0, invalida=True, detalle={"error": "not a number"})
 

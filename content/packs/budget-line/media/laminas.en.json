@@ -21,11 +21,31 @@
     "hasta": 21.675
    },
    "dice": [
-    "The Budget Constraint",
-    "Before we talk about budgets, we have to say what it is that we are choosing.",
-    "A consumer does not choose one good: they choose a combination of everything they consume.",
-    "The set of all imaginable combinations is what we call the consumption set.",
-    "And what keeps you from reaching any of them is not desire, it is resources: income, time, whatever happens to be limited."
+    [
+     {
+      "t": "The Budget Constraint"
+     }
+    ],
+    [
+     {
+      "t": "Before we talk about budgets, we have to say what it is that we are choosing."
+     }
+    ],
+    [
+     {
+      "t": "A consumer does not choose one good: they choose a combination of everything they consume."
+     }
+    ],
+    [
+     {
+      "t": "The set of all imaginable combinations is what we call the consumption set."
+     }
+    ],
+    [
+     {
+      "t": "And what keeps you from reaching any of them is not desire, it is resources: income, time, whatever happens to be limited."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -74,10 +94,27 @@
     "hasta": 39.845
    },
    "dice": [
-    "Each concrete combination is what we call a bundle.",
-    "With two goods, a bundle is simply a pair of numbers: how much of good one and how much of good two.",
-    "We write it like this: (x sub 1 , x sub 2",
-    "). With more goods it would be a longer vector, but we stay with two for a very practical reason: two can be drawn."
+    [
+     {
+      "t": "Each concrete combination is what we call a bundle."
+     }
+    ],
+    [
+     {
+      "t": "With two goods, a bundle is simply a pair of numbers: how much of good one and how much of good two."
+     }
+    ],
+    [
+     {
+      "t": "We write it like this: "
+     },
+     {
+      "m": "<span class=\"katex\"><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mopen\">(</span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mclose\">)</span></span></span></span>"
+     },
+     {
+      "t": ". With more goods it would be a longer vector, but we stay with two for a very practical reason: two can be drawn."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -148,11 +185,31 @@
     "hasta": 61.959
    },
    "dice": [
-    "And here is the idea that makes everything else visible.",
-    "If each good is an axis, then every possible bundle is a point on the plane.",
-    "The goods space stops being a list of numbers and becomes a map.",
-    "Let us put coffee in kilos on the horizontal axis, and orange juice in liters on the vertical one.",
-    "Coffee costs three dollars a kilo, juice costs one a liter, and you have one hundred dollars."
+    [
+     {
+      "t": "And here is the idea that makes everything else visible."
+     }
+    ],
+    [
+     {
+      "t": "If each good is an axis, then every possible bundle is a point on the plane."
+     }
+    ],
+    [
+     {
+      "t": "The goods space stops being a list of numbers and becomes a map."
+     }
+    ],
+    [
+     {
+      "t": "Let us put coffee in kilos on the horizontal axis, and orange juice in liters on the vertical one."
+     }
+    ],
+    [
+     {
+      "t": "Coffee costs three dollars a kilo, juice costs one a liter, and you have one hundred dollars."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -245,10 +302,32 @@
     "hasta": 80.607
    },
    "dice": [
-    "Now the real question: which points on that map can you afford?",
-    "A bundle is affordable when what you spend does not exceed your income.",
-    "In symbols: p sub 1 x sub 1 plus p sub 2 x sub 2 less than or equal to m.",
-    "All the bundles that satisfy that inequality form your budget set, and it is the shaded region."
+    [
+     {
+      "t": "Now the real question: which points on that map can you afford?"
+     }
+    ],
+    [
+     {
+      "t": "A bundle is affordable when what you spend does not exceed your income."
+     }
+    ],
+    [
+     {
+      "t": "In symbols: "
+     },
+     {
+      "m": "<span class=\"katex\"><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.7778em;vertical-align:-0.1944em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">p</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.8304em;vertical-align:-0.1944em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">p</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">≤</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">m</span></span></span></span>"
+     },
+     {
+      "t": "."
+     }
+    ],
+    [
+     {
+      "t": "All the bundles that satisfy that inequality form your budget set, and it is the shaded region."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -367,10 +446,29 @@
     "hasta": 99.8
    },
    "dice": [
-    "The budget line is only the edge of that region: the bundles that exhaust your income exactly, where the inequality becomes an equality.",
-    "p sub 1 x sub 1 plus p sub 2 x sub 2 equals m.",
-    "It is worth saying out loud, because it is the most common confusion: the line is not the set.",
-    "The line is the boundary of the set."
+    [
+     {
+      "t": "The budget line is only the edge of that region: the bundles that exhaust your income exactly, where the inequality becomes an equality."
+     }
+    ],
+    [
+     {
+      "m": "<span class=\"katex\"><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.7778em;vertical-align:-0.1944em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">p</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.625em;vertical-align:-0.1944em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">p</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">m</span></span></span></span>"
+     },
+     {
+      "t": "."
+     }
+    ],
+    [
+     {
+      "t": "It is worth saying out loud, because it is the most common confusion: the line is not the set."
+     }
+    ],
+    [
+     {
+      "t": "The line is the boundary of the set."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -495,10 +593,26 @@
     "hasta": 113.936
    },
    "dice": [
-    "The endpoints are easy.",
-    "If you spend your whole income on coffee, you buy one hundred divided by three, about thirty-three kilos.",
-    "If you spend it all on juice, you buy one hundred liters.",
-    "Those two points are the intercepts, and with them you already have the whole line."
+    [
+     {
+      "t": "The endpoints are easy."
+     }
+    ],
+    [
+     {
+      "t": "If you spend your whole income on coffee, you buy one hundred divided by three, about thirty-three kilos."
+     }
+    ],
+    [
+     {
+      "t": "If you spend it all on juice, you buy one hundred liters."
+     }
+    ],
+    [
+     {
+      "t": "Those two points are the intercepts, and with them you already have the whole line."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -627,10 +741,26 @@
     "hasta": 132.493
    },
    "dice": [
-    "The slope is minus p one over p two, that is, minus three.",
-    "That number is not abstract: it means that to take home one more kilo of coffee, you have to give up three liters of juice.",
-    "The market lets you transform three liters of juice into one kilo of coffee, at the current prices.",
-    "That is why the slope is called the relative price."
+    [
+     {
+      "t": "The slope is minus p one over p two, that is, minus three."
+     }
+    ],
+    [
+     {
+      "t": "That number is not abstract: it means that to take home one more kilo of coffee, you have to give up three liters of juice."
+     }
+    ],
+    [
+     {
+      "t": "The market lets you transform three liters of juice into one kilo of coffee, at the current prices."
+     }
+    ],
+    [
+     {
+      "t": "That is why the slope is called the relative price."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -774,9 +904,21 @@
     "hasta": 142.709
    },
    "dice": [
-    "Before we go on, think about it for a moment.",
-    "If your income rose from one hundred to one hundred and fifty, what would happen to the line?",
-    "Would it shift, would it rotate, or both?"
+    [
+     {
+      "t": "Before we go on, think about it for a moment."
+     }
+    ],
+    [
+     {
+      "t": "If your income rose from one hundred to one hundred and fifty, what would happen to the line?"
+     }
+    ],
+    [
+     {
+      "t": "Would it shift, would it rotate, or both?"
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -920,10 +1062,26 @@
     "hasta": 161.608
    },
    "dice": [
-    "It shifts, but it does not rotate.",
-    "An increase in income moves the line outward in a parallel manner, enlarging the budget set.",
-    "The slope does not change, and the reason is that prices did not change: one kilo of coffee still costs exactly three liters of juice.",
-    "The only difference is that now you can afford more of both."
+    [
+     {
+      "t": "It shifts, but it does not rotate."
+     }
+    ],
+    [
+     {
+      "t": "An increase in income moves the line outward in a parallel manner, enlarging the budget set."
+     }
+    ],
+    [
+     {
+      "t": "The slope does not change, and the reason is that prices did not change: one kilo of coffee still costs exactly three liters of juice."
+     }
+    ],
+    [
+     {
+      "t": "The only difference is that now you can afford more of both."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,
@@ -1076,10 +1234,26 @@
     "hasta": 177.956
    },
    "dice": [
-    "Now the other way around.",
-    "If the price of coffee rises from three to four, the line does not shift: it pivots.",
-    "The juice intercept stays exactly where it was, because neither your income nor the price of juice changed.",
-    "What moves is the other endpoint, inward, and the line becomes steeper."
+    [
+     {
+      "t": "Now the other way around."
+     }
+    ],
+    [
+     {
+      "t": "If the price of coffee rises from three to four, the line does not shift: it pivots."
+     }
+    ],
+    [
+     {
+      "t": "The juice intercept stays exactly where it was, because neither your income nor the price of juice changed."
+     }
+    ],
+    [
+     {
+      "t": "What moves is the other endpoint, inward, and the line becomes steeper."
+     }
+    ]
    ],
    "escena": {
     "p1": 4,
@@ -1246,9 +1420,21 @@
     "hasta": 188.308
    },
    "dice": [
-    "This is the distinction that slips the most, so I want you to say it.",
-    "Income shifts; price pivots.",
-    "Can you explain why the juice intercept does not move when what rises is the price of coffee?"
+    [
+     {
+      "t": "This is the distinction that slips the most, so I want you to say it."
+     }
+    ],
+    [
+     {
+      "t": "Income shifts; price pivots."
+     }
+    ],
+    [
+     {
+      "t": "Can you explain why the juice intercept does not move when what rises is the price of coffee?"
+     }
+    ]
    ],
    "escena": {
     "p1": 4,
@@ -1415,12 +1601,36 @@
     "hasta": 211.512
    },
    "dice": [
-    "To recap.",
-    "A bundle is a point in the goods space.",
-    "The budget set is the region you can afford, and the line is its boundary.",
-    "The intercepts come from spending your entire income on a single good.",
-    "And the slope is the relative price, which tells you how much of one good you give up for one unit of the other.",
-    "Change income and the line shifts; change a price and it pivots around the intercept of the good whose price did not change."
+    [
+     {
+      "t": "To recap."
+     }
+    ],
+    [
+     {
+      "t": "A bundle is a point in the goods space."
+     }
+    ],
+    [
+     {
+      "t": "The budget set is the region you can afford, and the line is its boundary."
+     }
+    ],
+    [
+     {
+      "t": "The intercepts come from spending your entire income on a single good."
+     }
+    ],
+    [
+     {
+      "t": "And the slope is the relative price, which tells you how much of one good you give up for one unit of the other."
+     }
+    ],
+    [
+     {
+      "t": "Change income and the line shifts; change a price and it pivots around the intercept of the good whose price did not change."
+     }
+    ]
    ],
    "escena": {
     "p1": 3,

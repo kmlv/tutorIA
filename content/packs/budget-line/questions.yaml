@@ -28,8 +28,8 @@ questions:
     grader: deterministic
     andamiaje: false
     enunciado:
-      es: "Con ingreso {{m}} y precios p1={{p1}} y p2={{p2}}: si gastas todo en jugo, ¿cuántos litros compras?"
-      en: "With income {{m}} and prices p1={{p1}}, p2={{p2}}: if you spend everything on juice, how many liters do you buy?"
+      es: "Con ingreso {{m}} y precios p₁={{p1}} y p₂={{p2}}: si gastas todo en jugo, ¿cuántos litros compras?"
+      en: "With income {{m}} and prices p₁={{p1}}, p₂={{p2}}: if you spend everything on juice, how many liters do you buy?"
     respuesta: {expr: "m / p2", tolerancia: 0.01}
     diagnostico_si_falla:
       "m / p1": BL-M6      # respondió el otro intercepto
@@ -57,9 +57,9 @@ questions:
       es: "¿Cuál es el intercepto vertical de la línea presupuestaria?"
       en: "What is the vertical intercept of the budget line?"
     opciones:
-      - {es: "m/p2", en: "m/p2", correcta: true}
-      - {es: "m/p1", en: "m/p1", misconception: BL-M6}
-      - {es: "-p1/p2", en: "-p1/p2", misconception: BL-M1}
+      - {es: "m/p₂", en: "m/p₂", correcta: true}
+      - {es: "m/p₁", en: "m/p₁", misconception: BL-M6}
+      - {es: "−p₁/p₂", en: "−p₁/p₂", misconception: BL-M1}
       - {es: "m", en: "m", misconception: null}
 
   # ---------------------------------------------------------------- BL.SLOPE
@@ -88,10 +88,10 @@ questions:
       es: "La pendiente de la línea presupuestaria es:"
       en: "The slope of the budget line is:"
     opciones:
-      - {es: "-p1/p2", en: "-p1/p2", correcta: true}
-      - {es: "-p2/p1", en: "-p2/p1", misconception: BL-M1}
-      - {es: "+p1/p2, porque ambos precios son positivos", en: "+p1/p2, because both prices are positive", misconception: BL-M5}
-      - {es: "m/p2", en: "m/p2", misconception: BL-M6}
+      - {es: "−p₁/p₂", en: "−p₁/p₂", correcta: true}
+      - {es: "−p₂/p₁", en: "−p₂/p₁", misconception: BL-M1}
+      - {es: "+p₁/p₂, porque ambos precios son positivos", en: "+p₁/p₂, because both prices are positive", misconception: BL-M5}
+      - {es: "m/p₂", en: "m/p₂", misconception: BL-M6}
 
   - id: q_slope_open
     subskill_primary: BL.SLOPE
@@ -188,7 +188,7 @@ questions:
     opciones:
       - {es: "Se desplaza hacia afuera, paralela", en: "It shifts outward, parallel", correcta: true}
       - {es: "Se vuelve más plana", en: "It becomes flatter", misconception: BL-M2}
-      - {es: "Pivota sobre el intercepto de x2", en: "It pivots around the x2 intercept", misconception: BL-M2}
+      - {es: "Pivota sobre el intercepto de x₂", en: "It pivots around the x₂ intercept", misconception: BL-M2}
       - {es: "No cambia, porque los precios son los mismos", en: "It does not change, since prices are the same", misconception: null}
 
   - id: q_cs_m_manip
@@ -222,7 +222,7 @@ questions:
     opciones:
       - {es: "Pivota: el intercepto del jugo no se mueve y la recta se empina", en: "It pivots: the juice intercept stays and the line gets steeper", correcta: true}
       - {es: "Se desplaza hacia adentro, paralela", en: "It shifts inward, parallel", misconception: BL-M3}
-      - {es: "Baja el intercepto vertical m/p2", en: "The vertical intercept m/p2 falls", misconception: BL-M3}
+      - {es: "Baja el intercepto vertical m/p₂", en: "The vertical intercept m/p₂ falls", misconception: BL-M3}
       - {es: "Se vuelve más plana", en: "It becomes flatter", misconception: BL-M1}
 
   - id: q_cs_p_manip
@@ -257,8 +257,8 @@ questions:
       en: "Why does the juice intercept NOT move when the price of coffee rises?"
     key_points:
       - id: kp_intercept_formula
-        es: ese intercepto es m/p2 y ni m ni p2 cambiaron
-        en: that intercept is m/p2 and neither m nor p2 changed
+        es: ese intercepto es m/p₂ y ni m ni p₂ cambiaron
+        en: that intercept is m/p₂ and neither m nor p₂ changed
       # Ojo: el intercepto del jugo es la esquina donde se gasta todo en JUGO. Decía
       # "café" en ambos idiomas, que es justo la afirmación contraria a la correcta;
       # como key_points es la rúbrica que ve el juez, esa línea habría hecho que el
@@ -283,10 +283,10 @@ questions:
       es: "¿Cuál de estas expresiones es la línea presupuestaria?"
       en: "Which of these is the budget line?"
     opciones:
-      - {es: "p1·x1 + p2·x2 = m", en: "p1·x1 + p2·x2 = m", correcta: true}
-      - {es: "p1·x1 + p2·x2 ≤ m", en: "p1·x1 + p2·x2 ≤ m", misconception: BL-M4}
-      - {es: "x1/p1 + x2/p2 = m", en: "x1/p1 + x2/p2 = m", misconception: null}
-      - {es: "p1·p2 = m", en: "p1·p2 = m", misconception: null}
+      - {es: "p₁·x₁ + p₂·x₂ = m", en: "p₁·x₁ + p₂·x₂ = m", correcta: true}
+      - {es: "p₁·x₁ + p₂·x₂ ≤ m", en: "p₁·x₁ + p₂·x₂ ≤ m", misconception: BL-M4}
+      - {es: "x₁/p₁ + x₂/p₂ = m", en: "x₁/p₁ + x₂/p₂ = m", misconception: null}
+      - {es: "p₁·p₂ = m", en: "p₁·p₂ = m", misconception: null}
 
   - id: q_eq_numeric
     subskill_primary: BL.EQ
@@ -309,8 +309,8 @@ questions:
     grader: deterministic
     andamiaje: false
     enunciado:
-      es: "En p1·x1 + p2·x2 = m, ¿qué representa el término p1·x1?"
-      en: "In p1·x1 + p2·x2 = m, what does the term p1·x1 represent?"
+      es: "En p₁·x₁ + p₂·x₂ = m, ¿qué representa el término p₁·x₁?"
+      en: "In p₁·x₁ + p₂·x₂ = m, what does the term p₁·x₁ represent?"
     opciones:
       - {es: "Lo que gastas en el bien 1", en: "What you spend on good 1", correcta: true}
       - {es: "Cuántas unidades del bien 1 compras", en: "How many units of good 1 you buy", misconception: null}

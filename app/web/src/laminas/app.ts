@@ -141,9 +141,22 @@ async function main(): Promise<void> {
   function subtitulo(l: Lamina): HTMLElement {
     const d = document.createElement("div");
     d.className = "dice";
-    for (const s of l.dice) {
+    for (const frase of l.dice) {
       const p = document.createElement("p");
-      p.textContent = s;
+      for (const parte of frase) {
+        if (parte.m !== undefined) {
+          // El ÚNICO sitio de esta lámina donde entra HTML, y lo escribió KaTeX en tiempo
+          // de compilación con `trust:false`. El texto va por `textContent` justo debajo,
+          // que es lo que impide que una lección emitida por un modelo pueda colar
+          // marcado escribiéndolo en su guion.
+          const s = document.createElement("span");
+          s.className = "mat";
+          s.innerHTML = parte.m;
+          p.appendChild(s);
+        } else if (parte.t !== undefined) {
+          p.appendChild(document.createTextNode(parte.t));
+        }
+      }
       d.appendChild(p);
     }
     return d;
