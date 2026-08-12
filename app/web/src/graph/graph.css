@@ -77,3 +77,19 @@
 }
 .capa-manip circle[cursor]:hover + .tirador,
 .capa-manip circle[cursor]:active + .tirador { r: 11; }
+
+/* Cómo se pinta cada pieza del gráfico. Vivía en `styles.css`, que es la hoja del LAYOUT:
+   una página nueva que reutilizara este componente lo heredaba a medias y la región del
+   conjunto salía negra, porque `fill` sin valor válido cae al negro por defecto del SVG.
+   Aquí viaja con el componente. */
+.eje { stroke:var(--muted); stroke-width:1.5; }
+.eje-label { fill:var(--muted); font-size:13px; }
+.recta { stroke:var(--linea); stroke-width:2.5; stroke-linecap:round;
+  transition:all .5s cubic-bezier(.4,0,.2,1); }
+.recta.punteada { stroke:var(--fantasma); stroke-width:2; stroke-dasharray:5 5; }
+.conjunto { fill:var(--conjunto); transition:all .5s cubic-bezier(.4,0,.2,1); }
+.punto { fill:var(--linea); transition:r .25s ease; }
+.punto.destacado { fill:var(--accent); }
+.valor { fill:var(--fg); font-size:13px; font-variant-numeric:tabular-nums; }
+.valor.destacado { fill:var(--accent); font-weight:600; }
+.triangulo { fill:none; stroke:var(--accent); stroke-width:2; }

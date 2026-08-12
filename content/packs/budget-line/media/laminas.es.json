@@ -1,0 +1,1588 @@
+{
+ "version": 1,
+ "pack": "budget-line",
+ "lang": "es",
+ "audio": "20260810-194907_budget-line-es.mp3",
+ "duracion_s": 232.752,
+ "ejemplo": {
+  "p1": 3.0,
+  "p2": 1.0,
+  "m": 100.0
+ },
+ "bien1": "café",
+ "bien2": "jugo de naranja",
+ "titulo": "La línea presupuestaria",
+ "laminas": [
+  {
+   "id": "consumo",
+   "tipo": "explica",
+   "audio": {
+    "desde": 0.0,
+    "hasta": 24.239
+   },
+   "dice": [
+    "La línea presupuestaria",
+    "Antes de hablar de presupuestos, hay que decir qué es lo que estamos eligiendo.",
+    "Un consumidor no elige un bien: elige una combinación de todo lo que consume.",
+    "Al conjunto de todas las combinaciones imaginables lo llamamos conjunto de consumo.",
+    "Y lo que impide llegar a cualquiera de ellas no es el deseo, sino los recursos: el ingreso, el tiempo, lo que sea que esté limitado."
+   ],
+   "escena": {
+    "p1": 3,
+    "p2": 1,
+    "m": 100,
+    "mostrar": {
+     "ejes": false,
+     "linea": false,
+     "interceptos": false,
+     "conjunto": false,
+     "pendiente": false
+    },
+    "fantasma": null,
+    "destacar": "ninguno",
+    "muestras": [],
+    "enfasis": "ninguno"
+   },
+   "ledger": [
+    {
+     "foco": "objeto"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    }
+   ],
+   "desde_op": 0
+  },
+  {
+   "id": "canasta",
+   "tipo": "explica",
+   "audio": {
+    "desde": 24.239,
+    "hasta": 44.318
+   },
+   "dice": [
+    "A cada combinación concreta la llamamos una canasta.",
+    "Si hay dos bienes, una canasta es simplemente un par de números: cuánto del bien uno y cuánto del bien dos.",
+    "La escribimos así: (x sub 1 , x sub 2",
+    "). Con más bienes sería un vector más largo, pero nos quedamos en dos por una razón muy práctica: dos se pueden dibujar."
+   ],
+   "escena": {
+    "p1": 3,
+    "p2": 1,
+    "m": 100,
+    "mostrar": {
+     "ejes": false,
+     "linea": false,
+     "interceptos": false,
+     "conjunto": false,
+     "pendiente": false
+    },
+    "fantasma": null,
+    "destacar": "ninguno",
+    "muestras": [],
+    "enfasis": "ninguno"
+   },
+   "ledger": [
+    {
+     "foco": "objeto"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    }
+   ],
+   "desde_op": 3
+  },
+  {
+   "id": "espacio",
+   "tipo": "explica",
+   "audio": {
+    "desde": 44.318,
+    "hasta": 67.955
+   },
+   "dice": [
+    "Y ahí está la idea que hace que todo lo demás se vea.",
+    "Si cada bien es un eje, entonces cada canasta posible es un punto del plano.",
+    "El espacio de bienes deja de ser una lista de números y pasa a ser un mapa.",
+    "Pongamos café en kilos en el eje horizontal, y jugo de naranja en litros en el vertical.",
+    "El café cuesta tres dólares el kilo, el jugo cuesta uno el litro, y tienes cien dólares."
+   ],
+   "escena": {
+    "p1": 3,
+    "p2": 1,
+    "m": 100,
+    "mostrar": {
+     "ejes": true,
+     "linea": false,
+     "interceptos": false,
+     "conjunto": false,
+     "pendiente": false
+    },
+    "fantasma": null,
+    "destacar": "ninguno",
+    "muestras": [],
+    "enfasis": "ninguno"
+   },
+   "ledger": [
+    {
+     "foco": "objeto"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    }
+   ],
+   "desde_op": 6
+  },
+  {
+   "id": "budget_set",
+   "tipo": "explica",
+   "audio": {
+    "desde": 67.955,
+    "hasta": 87.045
+   },
+   "dice": [
+    "Ahora sí: ¿qué puntos de ese mapa puedes pagar?",
+    "Una canasta es alcanzable si lo que gastas no supera tu ingreso.",
+    "En símbolos: p sub 1 x sub 1 más p sub 2 x sub 2 menor o igual que m.",
+    "Todas las canastas que cumplen esa desigualdad forman tu conjunto presupuestario, y es la región sombreada."
+   ],
+   "escena": {
+    "p1": 3,
+    "p2": 1,
+    "m": 100,
+    "mostrar": {
+     "ejes": true,
+     "linea": true,
+     "interceptos": false,
+     "conjunto": true,
+     "pendiente": false
+    },
+    "fantasma": null,
+    "destacar": "ninguno",
+    "muestras": [],
+    "enfasis": "ninguno"
+   },
+   "ledger": [
+    {
+     "foco": "objeto"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "foco": "grafico"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "p1",
+      "p2",
+      "m"
+     ]
+    }
+   ],
+   "desde_op": 9
+  },
+  {
+   "id": "line_vs_set",
+   "tipo": "pregunta",
+   "audio": {
+    "desde": 87.045,
+    "hasta": 107.727
+   },
+   "dice": [
+    "La línea presupuestaria es solamente el borde de esa región: las canastas que agotan exactamente tu ingreso, donde la desigualdad se vuelve igualdad.",
+    "p sub 1 x sub 1 más p sub 2 x sub 2 igual a m.",
+    "Conviene decirlo en voz alta porque es la confusión más común: la línea no es el conjunto.",
+    "La línea es la frontera del conjunto."
+   ],
+   "escena": {
+    "p1": 3,
+    "p2": 1,
+    "m": 100,
+    "mostrar": {
+     "ejes": true,
+     "linea": true,
+     "interceptos": false,
+     "conjunto": true,
+     "pendiente": false
+    },
+    "fantasma": null,
+    "destacar": "ninguno",
+    "muestras": [],
+    "enfasis": "ninguno"
+   },
+   "ledger": [
+    {
+     "foco": "objeto"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "foco": "grafico"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "p1",
+      "p2",
+      "m"
+     ]
+    },
+    {
+     "destacar": []
+    }
+   ],
+   "desde_op": 13,
+   "item": "q_predict_line_vs_set",
+   "clase": "prediction",
+   "momento": "despues"
+  },
+  {
+   "id": "intercepts",
+   "tipo": "explica",
+   "audio": {
+    "desde": 107.727,
+    "hasta": 123.864
+   },
+   "dice": [
+    "Los extremos son fáciles.",
+    "Si gastas todo tu ingreso en café, compras cien entre tres, unos treinta y tres kilos.",
+    "Si lo gastas todo en jugo, compras cien litros.",
+    "Esos dos puntos son los interceptos, y con ellos ya tienes la recta completa."
+   ],
+   "escena": {
+    "p1": 3,
+    "p2": 1,
+    "m": 100,
+    "mostrar": {
+     "ejes": true,
+     "linea": true,
+     "interceptos": true,
+     "conjunto": true,
+     "pendiente": false
+    },
+    "fantasma": null,
+    "destacar": "ninguno",
+    "muestras": [],
+    "enfasis": "ninguno"
+   },
+   "ledger": [
+    {
+     "foco": "objeto"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "foco": "grafico"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "p1",
+      "p2",
+      "m"
+     ]
+    },
+    {
+     "destacar": []
+    },
+    {
+     "destacar": [
+      "m",
+      "p1",
+      "p2"
+     ]
+    }
+   ],
+   "desde_op": 14
+  },
+  {
+   "id": "slope_sign",
+   "tipo": "pregunta",
+   "audio": {
+    "desde": 123.864,
+    "hasta": 144.761
+   },
+   "dice": [
+    "La pendiente es menos p uno sobre p dos, es decir, menos tres.",
+    "Ese número no es abstracto: significa que para llevarte un kilo más de café, tienes que renunciar a tres litros de jugo.",
+    "El mercado te deja transformar tres litros de jugo en un kilo de café, a los precios actuales.",
+    "Por eso a la pendiente se le llama el precio relativo."
+   ],
+   "escena": {
+    "p1": 3,
+    "p2": 1,
+    "m": 100,
+    "mostrar": {
+     "ejes": true,
+     "linea": true,
+     "interceptos": true,
+     "conjunto": true,
+     "pendiente": true
+    },
+    "fantasma": null,
+    "destacar": "pendiente",
+    "muestras": [],
+    "enfasis": "ninguno"
+   },
+   "ledger": [
+    {
+     "foco": "objeto"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "foco": "grafico"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "p1",
+      "p2",
+      "m"
+     ]
+    },
+    {
+     "destacar": []
+    },
+    {
+     "destacar": [
+      "m",
+      "p1",
+      "p2"
+     ]
+    },
+    {
+     "foco": "algebra"
+    },
+    {
+     "destacar": [
+      "p1",
+      "p2"
+     ]
+    },
+    {
+     "comprimir": true
+    }
+   ],
+   "desde_op": 15,
+   "item": "q_predict_slope_sign",
+   "clase": "prediction",
+   "momento": "despues"
+  },
+  {
+   "id": "cp1",
+   "tipo": "pregunta",
+   "audio": {
+    "desde": 144.761,
+    "hasta": 155.989
+   },
+   "dice": [
+    "Antes de seguir, piénsalo un momento.",
+    "Si tu ingreso subiera de cien a ciento cincuenta, ¿qué le pasaría a la línea?",
+    "¿Se desplazaría, giraría, o las dos cosas?"
+   ],
+   "escena": {
+    "p1": 3,
+    "p2": 1,
+    "m": 100,
+    "mostrar": {
+     "ejes": true,
+     "linea": true,
+     "interceptos": true,
+     "conjunto": true,
+     "pendiente": true
+    },
+    "fantasma": null,
+    "destacar": "pendiente",
+    "muestras": [],
+    "enfasis": "ninguno"
+   },
+   "ledger": [
+    {
+     "foco": "objeto"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "foco": "grafico"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "p1",
+      "p2",
+      "m"
+     ]
+    },
+    {
+     "destacar": []
+    },
+    {
+     "destacar": [
+      "m",
+      "p1",
+      "p2"
+     ]
+    },
+    {
+     "foco": "algebra"
+    },
+    {
+     "destacar": [
+      "p1",
+      "p2"
+     ]
+    },
+    {
+     "comprimir": true
+    }
+   ],
+   "desde_op": 18,
+   "item": "q_cp1_income_direction",
+   "clase": "checkpoint",
+   "momento": "antes"
+  },
+  {
+   "id": "income_shift",
+   "tipo": "explica",
+   "audio": {
+    "desde": 155.989,
+    "hasta": 176.128
+   },
+   "dice": [
+    "Se desplaza, pero no gira.",
+    "Un aumento del ingreso mueve la línea hacia afuera de forma paralela, y agranda el conjunto presupuestario.",
+    "La pendiente no cambia, y la razón es que los precios no cambiaron: un kilo de café sigue costando exactamente tres litros de jugo.",
+    "Lo único distinto es que ahora puedes pagar más de ambos."
+   ],
+   "escena": {
+    "p1": 3,
+    "p2": 1,
+    "m": 150,
+    "mostrar": {
+     "ejes": true,
+     "linea": true,
+     "interceptos": true,
+     "conjunto": true,
+     "pendiente": true
+    },
+    "fantasma": {
+     "p1": 3,
+     "p2": 1,
+     "m": 100
+    },
+    "destacar": "ninguno",
+    "muestras": [],
+    "enfasis": "ninguno"
+   },
+   "ledger": [
+    {
+     "foco": "objeto"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "foco": "grafico"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "p1",
+      "p2",
+      "m"
+     ]
+    },
+    {
+     "destacar": []
+    },
+    {
+     "destacar": [
+      "m",
+      "p1",
+      "p2"
+     ]
+    },
+    {
+     "foco": "algebra"
+    },
+    {
+     "destacar": [
+      "p1",
+      "p2"
+     ]
+    },
+    {
+     "comprimir": true
+    },
+    {
+     "foco": "grafico"
+    },
+    {
+     "destacar": [
+      "m"
+     ]
+    }
+   ],
+   "desde_op": 18
+  },
+  {
+   "id": "price_effect",
+   "tipo": "pregunta",
+   "audio": {
+    "desde": 176.128,
+    "hasta": 194.551
+   },
+   "dice": [
+    "Ahora al revés.",
+    "Si sube el precio del café, de tres a cuatro, la línea no se desplaza: gira.",
+    "El intercepto del jugo se queda clavado donde estaba, porque ni tu ingreso ni el precio del jugo cambiaron.",
+    "Lo que se mueve es el otro extremo, hacia adentro, y la recta se vuelve más empinada."
+   ],
+   "escena": {
+    "p1": 4,
+    "p2": 1,
+    "m": 100,
+    "mostrar": {
+     "ejes": true,
+     "linea": true,
+     "interceptos": true,
+     "conjunto": true,
+     "pendiente": true
+    },
+    "fantasma": {
+     "p1": 3,
+     "p2": 1,
+     "m": 100
+    },
+    "destacar": "intercepto_x2",
+    "muestras": [],
+    "enfasis": "ninguno"
+   },
+   "ledger": [
+    {
+     "foco": "objeto"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "foco": "grafico"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "p1",
+      "p2",
+      "m"
+     ]
+    },
+    {
+     "destacar": []
+    },
+    {
+     "destacar": [
+      "m",
+      "p1",
+      "p2"
+     ]
+    },
+    {
+     "foco": "algebra"
+    },
+    {
+     "destacar": [
+      "p1",
+      "p2"
+     ]
+    },
+    {
+     "comprimir": true
+    },
+    {
+     "foco": "grafico"
+    },
+    {
+     "destacar": [
+      "m"
+     ]
+    },
+    {
+     "precio": {
+      "bien": "g1",
+      "valor": "p1 + 1"
+     }
+    },
+    {
+     "destacar": [
+      "p1"
+     ]
+    }
+   ],
+   "desde_op": 20,
+   "item": "q_predict_price_effect",
+   "clase": "prediction",
+   "momento": "despues"
+  },
+  {
+   "id": "cp2",
+   "tipo": "pregunta",
+   "audio": {
+    "desde": 194.551,
+    "hasta": 206.948
+   },
+   "dice": [
+    "Esta es la distinción que más se resbala, así que quiero que la digas tú.",
+    "El ingreso desplaza; el precio gira.",
+    "¿Puedes explicar por qué el intercepto del jugo no se mueve cuando lo que sube es el precio del café?"
+   ],
+   "escena": {
+    "p1": 4,
+    "p2": 1,
+    "m": 100,
+    "mostrar": {
+     "ejes": true,
+     "linea": true,
+     "interceptos": true,
+     "conjunto": true,
+     "pendiente": true
+    },
+    "fantasma": {
+     "p1": 3,
+     "p2": 1,
+     "m": 100
+    },
+    "destacar": "intercepto_x2",
+    "muestras": [],
+    "enfasis": "ninguno"
+   },
+   "ledger": [
+    {
+     "foco": "objeto"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "foco": "grafico"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "p1",
+      "p2",
+      "m"
+     ]
+    },
+    {
+     "destacar": []
+    },
+    {
+     "destacar": [
+      "m",
+      "p1",
+      "p2"
+     ]
+    },
+    {
+     "foco": "algebra"
+    },
+    {
+     "destacar": [
+      "p1",
+      "p2"
+     ]
+    },
+    {
+     "comprimir": true
+    },
+    {
+     "foco": "grafico"
+    },
+    {
+     "destacar": [
+      "m"
+     ]
+    },
+    {
+     "precio": {
+      "bien": "g1",
+      "valor": "p1 + 1"
+     }
+    },
+    {
+     "destacar": [
+      "p1"
+     ]
+    }
+   ],
+   "desde_op": 22,
+   "item": "q_cp2_why_intercept_fixed",
+   "clase": "checkpoint",
+   "momento": "antes"
+  },
+  {
+   "id": "recap",
+   "tipo": "explica",
+   "audio": {
+    "desde": 206.948,
+    "hasta": 232.752
+   },
+   "dice": [
+    "Recapitulando.",
+    "Una canasta es un punto del espacio de bienes.",
+    "El conjunto presupuestario es la región que puedes pagar, y la línea es su frontera.",
+    "Los interceptos salen de gastar todo el ingreso en un solo bien.",
+    "Y la pendiente es el precio relativo, que dice a cuánto de un bien renuncias por una unidad del otro.",
+    "Cambia el ingreso y la línea se traslada; cambia un precio y gira sobre el intercepto del bien cuyo precio no cambió."
+   ],
+   "escena": {
+    "p1": 3,
+    "p2": 1,
+    "m": 100,
+    "mostrar": {
+     "ejes": true,
+     "linea": true,
+     "interceptos": true,
+     "conjunto": true,
+     "pendiente": true
+    },
+    "fantasma": null,
+    "destacar": "ninguno",
+    "muestras": [],
+    "enfasis": "ninguno"
+   },
+   "ledger": [
+    {
+     "foco": "objeto"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "glyph"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "unit"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "symbol"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "x1",
+      "x2"
+     ]
+    },
+    {
+     "foco": "grafico"
+    },
+    {
+     "revelar": {
+      "bien": "g1",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "revelar": {
+      "bien": "g2",
+      "estaciones": [
+       "price"
+      ]
+     }
+    },
+    {
+     "destacar": [
+      "p1",
+      "p2",
+      "m"
+     ]
+    },
+    {
+     "destacar": []
+    },
+    {
+     "destacar": [
+      "m",
+      "p1",
+      "p2"
+     ]
+    },
+    {
+     "foco": "algebra"
+    },
+    {
+     "destacar": [
+      "p1",
+      "p2"
+     ]
+    },
+    {
+     "comprimir": true
+    },
+    {
+     "foco": "grafico"
+    },
+    {
+     "destacar": [
+      "m"
+     ]
+    },
+    {
+     "precio": {
+      "bien": "g1",
+      "valor": "p1 + 1"
+     }
+    },
+    {
+     "destacar": [
+      "p1"
+     ]
+    },
+    {
+     "comprimir": false
+    },
+    {
+     "precio": {
+      "bien": "g1",
+      "valor": "p1"
+     }
+    },
+    {
+     "destacar": []
+    }
+   ],
+   "desde_op": 22
+  }
+ ]
+}

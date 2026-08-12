@@ -135,18 +135,6 @@ body[data-dock="abierto-activo"] .escenario { opacity:.55; }
    encaje él mismo y sobra borde en vez de faltar dibujo. */
 .bgraph { width:100%; height:100%; display:block; }
 
-.eje { stroke:var(--muted); stroke-width:1.5; }
-.eje-label { fill:var(--muted); font-size:13px; }
-.recta { stroke:var(--linea); stroke-width:2.5; stroke-linecap:round;
-  transition:all .5s cubic-bezier(.4,0,.2,1); }
-.recta.punteada { stroke:var(--fantasma); stroke-width:2; stroke-dasharray:5 5; }
-.conjunto { fill:var(--conjunto); transition:all .5s cubic-bezier(.4,0,.2,1); }
-.punto { fill:var(--linea); transition:r .25s ease; }
-.punto.destacado { fill:var(--accent); }
-.valor { fill:var(--fg); font-size:13px; font-variant-numeric:tabular-nums; }
-.valor.destacado { fill:var(--accent); font-weight:600; }
-.triangulo { fill:none; stroke:var(--accent); stroke-width:2; }
-
 .controles { display:flex; align-items:center; gap:.6rem; margin-top:1rem; }
 button { font:inherit; font-size:.9rem; padding:.45rem .95rem; border-radius:8px;
   border:1px solid var(--line); background:transparent; color:var(--fg); cursor:pointer; }

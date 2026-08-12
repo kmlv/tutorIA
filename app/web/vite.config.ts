@@ -1,3 +1,4 @@
+import { resolve } from "node:path";
 import { defineConfig } from "vite";
 
 // The browser NEVER talks to the LLM provider: everything goes through the server
@@ -15,5 +16,16 @@ export default defineConfig({
       "/media": "http://127.0.0.1:8000",
     },
   },
-  build: { target: "es2017", outDir: "dist" },
+  // Dos entradas. `laminas.html` es el prototipo de T-013 y vive aparte a propósito: la
+  // lección de hoy no se toca, así que si la hipótesis sale mal se borra un directorio.
+  build: {
+    target: "es2017",
+    outDir: "dist",
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, "index.html"),
+        laminas: resolve(__dirname, "laminas.html"),
+      },
+    },
+  },
 });

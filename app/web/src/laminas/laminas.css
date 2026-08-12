@@ -1,0 +1,235 @@
+/* La superficie de las láminas.
+ *
+ * Usa los mismos tokens de color que la lección de hoy (`styles.css`), incluido el tema
+ * oscuro, pero NINGUNA de sus reglas de disposición: aquellas están escritas alrededor de
+ * `body[data-dock]`, que es precisamente el mecanismo de visibilidad que esta arquitectura
+ * retira. Heredarlas traería de vuelta el fallo con otra cara.
+ *
+ * Dos columnas y una regla: el chat es una columna de la rejilla, no una capa flotante.
+ * Escrito así, "el panel del tutor desapareció" no es un fallo que arreglar sino una frase
+ * sin referente — no existe la propiedad que podría esconderlo. */
+
+/* Los mismos tokens que la lección de hoy, copiados y no importados: `styles.css` no se
+ * carga aquí porque su layout está construido sobre `body[data-dock]`. Si algún día los
+ * colores se separan de la disposición, esto vuelve a ser un import. */
+:root {
+  --bg: #fbfbf9; --fg: #22221f; --muted: #75756e; --line: #e4e4de; --card: #fff;
+  --accent: #0b5cff; --linea: #0b5cff; --fantasma: #b9b9b2; --conjunto: #0b5cff14;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #16161a; --fg: #e9e9e6; --muted: #98988f; --line: #2c2c32; --card: #1d1d21;
+          --accent: #82a8ff; --linea: #82a8ff; --fantasma: #4a4a52; --conjunto: #82a8ff1f; }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.marco {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(280px, 26vw, 380px);
+  gap: 20px;
+  align-items: start;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 18px;
+  min-height: 100vh;
+}
+
+/* --- el tablero: una lámina, y solo una ------------------------------------------- */
+
+.tablero { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+
+.tab-h { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.tab-h h1 { font-size: 1.1rem; margin: 0; font-weight: 600; }
+
+.pasos { display: flex; gap: 5px; margin-left: auto; }
+
+.paso {
+  width: 12px; height: 12px; padding: 0;
+  border: 1px solid var(--line);
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s;
+}
+/* Las preguntas se distinguen de las explicaciones por la FORMA, no por el color: en el
+ * barrido salió que el color solo no llega, y aquí encima hay dos temas. */
+.paso[data-tipo="pregunta"] { border-radius: 2px; }
+.paso[data-estado="visto"] { background: var(--line); }
+.paso[data-estado="aqui"] { background: var(--accent); border-color: var(--accent); transform: scale(1.3); }
+.paso:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.escenario {
+  display: grid;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+}
+.escenario[data-foco="algebra"] .lienzo { opacity: 0.5; }
+.escenario[data-foco="grafico"] .bands { opacity: 0.5; }
+.lienzo, .bands { transition: opacity 0.35s; }
+
+/* El gráfico se ajusta a la altura disponible en vez de imponer sus 460 px de viewBox.
+ * Sin este tope, los mandos de la lámina caían por debajo del pliegue en un portátil —
+ * y unos mandos que hay que buscar con la rueda del ratón no son mandos. */
+.lienzo { display: flex; justify-content: center; }
+/* Se fija la ALTURA y se deja que el ancho salga del viewBox. Al revés —ancho 100% y
+ * altura automática— el `max-height` no llega a aplicarse nunca, porque el SVG ya ha
+ * decidido su alto a partir de su proporción. */
+.lienzo svg.bgraph { height: min(44vh, 360px); width: auto; max-width: 100%; }
+/* Cuando la lámina ES una pregunta, el dibujo cede sitio. La pregunta y sus opciones
+ * tienen que caber enteras sin rueda de ratón: una opción que hay que buscar hacia abajo
+ * se contesta menos, y eso sesga la evidencia que alimenta el motor de dominio. */
+.tablero:has(.pregunta) .lienzo svg.bgraph { height: min(30vh, 250px); }
+
+/* El cuerpo de la lámina. Solo se escribe con replaceChildren, nunca acumulando. */
+.cuerpo { min-height: 90px; }
+
+.dice p { margin: 0 0 0.4em; line-height: 1.55; color: var(--muted); font-size: 0.95rem; }
+
+.pregunta {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 12px 16px;
+  background: var(--card);
+}
+.q-clase {
+  margin: 0 0 8px;
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Los ítems se pintan con el mismo módulo que la lección de hoy (`questions/`), así que
+ * necesitan su ropa. Vive aquí y no en `styles.css` para que el prototipo no dependa de
+ * una hoja cuyo layout retira. */
+.q-enunciado { margin: 0 0 0.7rem; font-size: 0.96rem; font-weight: 500; line-height: 1.45; }
+.q-opciones { display: flex; flex-direction: column; gap: 0.4rem; }
+.q-opcion {
+  text-align: left; font: inherit; font-size: 0.9rem; padding: 0.5rem 0.7rem;
+  line-height: 1.35; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 7px;
+  background: var(--bg); color: var(--fg);
+}
+.q-opcion:hover:not(:disabled) { border-color: var(--accent); }
+.q-opcion.elegida { border-color: var(--accent); }
+.q-opcion:disabled { opacity: 0.55; cursor: default; }
+.q-form { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+.q-label { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.8rem; color: var(--muted); }
+.q-input, .q-textarea {
+  font: inherit; font-size: 0.94rem; padding: 0.45rem 0.6rem;
+  border: 1px solid var(--line); border-radius: 7px;
+  background: var(--bg); color: var(--fg);
+}
+.q-textarea { resize: vertical; min-width: min(420px, 100%); }
+.q-input:focus, .q-textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.q-nota { margin: 0; font-size: 0.85rem; color: var(--muted); font-style: italic; }
+.q button[type="submit"], .q .primario {
+  padding: 7px 13px; border: 1px solid var(--accent); border-radius: 7px;
+  background: var(--accent); color: #fff; cursor: pointer; font: inherit; font-size: 0.9rem;
+}
+.q button:disabled { opacity: 0.5; cursor: default; }
+
+.veredicto { margin: 12px 0 4px; font-weight: 600; }
+.veredicto[data-ok="true"] { color: #1a7f4b; }
+.veredicto[data-ok="false"] { color: #c2603f; }
+.explica { margin: 4px 0; line-height: 1.55; }
+.fin { color: var(--muted); font-style: italic; }
+
+.mandos { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.mando {
+  padding: 7px 13px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--card);
+  color: var(--fg);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+}
+.mando:hover:not(:disabled) { border-color: var(--accent); }
+.mando:disabled { opacity: 0.4; cursor: default; }
+.mando.primario { background: var(--accent); border-color: var(--accent); color: #fff; }
+.pos { margin-left: auto; font-size: 0.82rem; color: var(--muted); }
+
+/* --- el chat: una columna, no una capa -------------------------------------------- */
+
+.chat-lateral {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: sticky;
+  top: 18px;
+  height: calc(100vh - 36px);
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  min-width: 0;
+}
+.chat-h { font-size: 0.72rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
+.chat-hist { flex: 1; overflow-y: auto; min-height: 120px; }
+.chat-vacio { color: var(--muted); font-size: 0.86rem; line-height: 1.5; margin: 0; }
+.chat-hist .msg {
+  margin: 0 0 8px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.chat-hist .msg.estudiante { background: var(--conjunto); }
+.chat-hist .msg.tutor { background: var(--bg); border: 1px solid var(--line); }
+
+.chat-intenciones { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8rem;
+}
+.chip:hover { border-color: var(--accent); }
+
+.chat-form { display: flex; flex-direction: column; gap: 6px; }
+.chat-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--bg);
+  color: var(--fg);
+  font: inherit;
+  font-size: 0.9rem;
+  resize: vertical;
+}
+.chat-form .primario {
+  padding: 7px 13px;
+  border: 1px solid var(--accent);
+  border-radius: 7px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+}
+.chat-form .primario:disabled { opacity: 0.5; cursor: default; }
+
+/* En pantalla estrecha el chat pasa debajo. Sigue siendo una fila de la rejilla: no se
+ * convierte en un panel que aparece y desaparece, que es justo lo que se retira. */
+@media (max-width: 880px) {
+  .marco { grid-template-columns: minmax(0, 1fr); }
+  .chat-lateral { position: static; height: auto; max-height: 60vh; }
+  .lienzo svg.bgraph { max-height: 40vh; }
+}

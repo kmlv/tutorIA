@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-12T00:04:23.231427+00:00",
+  "title": "Debate de laminas al vuelo",
+  "provider": "edge",
+  "duration_s": 154.56,
+  "audio": "20260811-190407_debate-de-laminas-al-vuelo.mp3",
+  "transcript": "20260811-190407_debate-de-laminas-al-vuelo.md",
+  "player": "20260811-190407_debate-de-laminas-al-vuelo.player.html",
+  "sync": {
+    "segments": [
+      {
+        "text": "Kristian, breve: en qué va el debate de las láminas.",
+        "start_s": 0.1,
+        "end_s": 3.902,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Hay tres propuestas escritas a ciegas, una de Codex, una de Fable y una de un agente mío.",
+        "start_s": 3.852,
+        "end_s": 9.625,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Dos ya pasaron por la ronda de ataque; falta la de Codex.",
+        "start_s": 9.625,
+        "end_s": 13.602,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Lo primero, y es lo que más peso tiene: coinciden sin haberse leído.",
+        "start_s": 13.602,
+        "end_s": 18.466,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Los tres llegan a lo mismo.",
+        "start_s": 18.466,
+        "end_s": 20.659,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Una sola lámina activa, que reemplaza a la anterior en vez de acumularse.",
+        "start_s": 20.659,
+        "end_s": 25.068,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Estado completo en cada lámina, nunca heredado.",
+        "start_s": 25.068,
+        "end_s": 28.568,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El panel del tutor fijo, sin estados de aparecer y desaparecer.",
+        "start_s": 28.568,
+        "end_s": 32.83,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y el tiempo en marcadores simbólicos, jamás segundos dentro de los datos.",
+        "start_s": 32.83,
+        "end_s": 37.375,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Eso último es importante porque hoy el audio es el reloj y todo cuelga de él.",
+        "start_s": 37.375,
+        "end_s": 42.057,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "De ahí sale media docena de fallos.",
+        "start_s": 42.057,
+        "end_s": 44.932,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Segundo: el audio quedó resuelto, y mejor de lo que esperaba.",
+        "start_s": 44.932,
+        "end_s": 49.205,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Los tres mecanismos que proponían resultaron ser el mismo con tres nombres.",
+        "start_s": 49.205,
+        "end_s": 53.659,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y se comprobó contra el archivo real: cuarenta y siete de cuarenta y nueve uniones tienen hueco cero.",
+        "start_s": 53.659,
+        "end_s": 59.318,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Es decir, el audio que ya tienes sobrevive byte a byte.",
+        "start_s": 59.318,
+        "end_s": 63.0,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "No hay que regrabar ni trocear nada.",
+        "start_s": 63.0,
+        "end_s": 65.591,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El único desacuerdo que sobrevive es si las láminas avanzan solas o con un clic.",
+        "start_s": 65.591,
+        "end_s": 70.284,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Tercero, y esto es lo que hace que me crea el resto: dos apuestas se comprobaron y las dos se cayeron.",
+        "start_s": 70.284,
+        "end_s": 76.193,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Mi agente afirmaba que reproducir hacia adelante no haría ni un salto.",
+        "start_s": 76.193,
+        "end_s": 80.602,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Lo comprobó él mismo y es falso: los checkpoints tienen voz, y esa voz es la pregunta hablada.",
+        "start_s": 80.602,
+        "end_s": 86.557,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Con su regla, se quedaban veintitrés segundos de grabación huérfanos.",
+        "start_s": 86.557,
+        "end_s": 90.83,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y afirmaba que el ledger se podía derivar automáticamente.",
+        "start_s": 90.83,
+        "end_s": 94.557,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Lo midió contra el golden y sacó uno de nueve.",
+        "start_s": 94.557,
+        "end_s": 97.602,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Su frase fue: \"mecanizo la respuesta equivocada\".",
+        "start_s": 97.602,
+        "end_s": 101.102,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Retirada.",
+        "start_s": 101.102,
+        "end_s": 102.581,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Pero la misma prueba tumba también la alternativa de Codex, que era eliminarlo: borrarlo no mejora el número, borra la métrica.",
+        "start_s": 102.581,
+        "end_s": 110.091,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cuarto, los números.",
+        "start_s": 110.091,
+        "end_s": 112.295,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cada uno reclamaba cuántos de los sesenta y ocho fallos volvía imposibles: cuarenta y dos, treinta y seis, treinta y tres.",
+        "start_s": 112.295,
+        "end_s": 119.523,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Se auditaron entre ellos y todos bajaron.",
+        "start_s": 119.523,
+        "end_s": 122.557,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La intersección unánime son veinticinco de sesenta y ocho.",
+        "start_s": 122.557,
+        "end_s": 126.205,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ese es el suelo honesto, y es el número que voy a usar.",
+        "start_s": 126.205,
+        "end_s": 130.011,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y una cosa que se retiró: las láminas no matan la variante de vídeo.",
+        "start_s": 130.011,
+        "end_s": 134.42,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "M4 sigue en pie.",
+        "start_s": 134.42,
+        "end_s": 136.386,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Cuando llegue Codex te doy la síntesis con lo que queda decidido por evidencia y las dos cosas que te tocan a ti: si retiramos la variante de vídeo por coste de mantenimiento, y dónde van los botones.",
+        "start_s": 136.386,
+        "end_s": 146.716,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Aunque en eso ya hay una respuesta emergente que me convence: las órdenes a la lección viven en la lámina, y lo que le hablas al tutor vive en el chat.",
+        "start_s": 146.716,
+        "end_s": 154.523,
+        "part_index": 0,
+        "speaker": null
+      }
+    ],
+    "granularity": "sentence",
+    "source": "edge-sentence-boundary",
+    "timebase": "media_seconds"
+  },
+  "tags": [],
+  "formulas": [],
+  "transcript_text": "# Debate de laminas al vuelo\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, breve: en qué va el debate de las láminas.\n\nHay tres propuestas escritas a ciegas, una de Codex, una de Fable y una de un agente mío. Dos ya pasaron por la ronda de ataque; falta la de Codex.\n\nLo primero, y es lo que más peso tiene: **coinciden sin haberse leído**. Los tres llegan a lo mismo. Una sola lámina activa, que reemplaza a la anterior en vez de acumularse. Estado completo en cada lámina, nunca heredado. El panel del tutor fijo, sin estados de aparecer y desaparecer. Y el tiempo en marcadores simbólicos, jamás segundos dentro de los datos.\n\nEso último es importante porque hoy el audio es el reloj y todo cuelga de él. De ahí sale media docena de fallos.\n\nSegundo: el audio quedó resuelto, y mejor de lo que esperaba. Los tres mecanismos que proponían resultaron ser el mismo con tres nombres. Y se comprobó contra el archivo real: cuarenta y siete de cuarenta y nueve uniones tienen hueco cero. Es decir, **el audio que ya tienes sobrevive byte a byte**. No hay que regrabar ni trocear nada. El único desacuerdo que sobrevive es si las láminas avanzan solas o con un clic.\n\nTercero, y esto es lo que hace que me crea el resto: **dos apuestas se comprobaron y las dos se cayeron.**\n\nMi agente afirmaba que reproducir hacia adelante no haría ni un salto. Lo comprobó él mismo y es falso: los checkpoints tienen voz, y esa voz es la pregunta hablada. Con su regla, se quedaban veintitrés segundos de grabación huérfanos.\n\nY afirmaba que el ledger se podía derivar automáticamente. Lo midió contra el golden y sacó uno de nueve. Su frase fue: \"mecanizo la respuesta equivocada\". Retirada. Pero la misma prueba tumba también la alternativa de Codex, que era eliminarlo: borrarlo no mejora el número, borra la métrica.\n\nCuarto, los números. Cada uno reclamaba cuántos de los sesenta y ocho fallos volvía imposibles: cuarenta y dos, treinta y seis, treinta y tres. Se auditaron entre ellos y todos bajaron. **La intersección unánime son veinticinco de sesenta y ocho.** Ese es el suelo honesto, y es el número que voy a usar.\n\nY una cosa que se retiró: las láminas **no** matan la variante de vídeo. M4 sigue en pie.\n\nCuando llegue Codex te doy la síntesis con lo que queda decidido por evidencia y las dos cosas que te tocan a ti: si retiramos la variante de vídeo por coste de mantenimiento, y dónde van los botones. Aunque en eso ya hay una respuesta emergente que me convence: las órdenes a la lección viven en la lámina, y lo que le hablas al tutor vive en el chat.\n\n",
+  "formula_text": "",
+  "search_text": "Debate de laminas al vuelo # Debate de laminas al vuelo\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nKristian, breve: en qué va el debate de las láminas.\n\nHay tres propuestas escritas a ciegas, una de Codex, una de Fable y una de un agente mío. Dos ya pasaron por la ronda de ataque; falta la de Codex.\n\nLo primero, y es lo que más peso tiene: **coinciden sin haberse leído**. Los tres llegan a lo mismo. Una sola lámina activa, que reemplaza a la anterior en vez de acumularse. Estado completo en cada lámina, nunca heredado. El panel del tutor fijo, sin estados de aparecer y desaparecer. Y el tiempo en marcadores simbólicos, jamás segundos dentro de los datos.\n\nEso último es importante porque hoy el audio es el reloj y todo cuelga de él. De ahí sale media docena de fallos.\n\nSegundo: el audio quedó resuelto, y mejor de lo que esperaba. Los tres mecanismos que proponían resultaron ser el mismo con tres nombres. Y se comprobó contra el archivo real: cuarenta y siete de cuarenta y nueve uniones tienen hueco cero. Es decir, **el audio que ya tienes sobrevive byte a byte**. No hay que regrabar ni trocear nada. El único desacuerdo que sobrevive es si las láminas avanzan solas o con un clic.\n\nTercero, y esto es lo que hace que me crea el resto: **dos apuestas se comprobaron y las dos se cayeron.**\n\nMi agente afirmaba que reproducir hacia adelante no haría ni un salto. Lo comprobó él mismo y es falso: los checkpoints tienen voz, y esa voz es la pregunta hablada. Con su regla, se quedaban veintitrés segundos de grabación huérfanos.\n\nY afirmaba que el ledger se podía derivar automáticamente. Lo midió contra el golden y sacó uno de nueve. Su frase fue: \"mecanizo la respuesta equivocada\". Retirada. Pero la misma prueba tumba también la alternativa de Codex, que era eliminarlo: borrarlo no mejora el número, borra la métrica.\n\nCuarto, los números. Cada uno reclamaba cuántos de los sesenta y ocho fallos volvía imposibles: cuarenta y dos, treinta y seis, treinta y tres. Se auditaron entre ellos y todos bajaron. **La intersección unánime son veinticinco de sesenta y ocho.** Ese es el suelo honesto, y es el número que voy a usar.\n\nY una cosa que se retiró: las láminas **no** matan la variante de vídeo. M4 sigue en pie.\n\nCuando llegue Codex te doy la síntesis con lo que queda decidido por evidencia y las dos cosas que te tocan a ti: si retiramos la variante de vídeo por coste de mantenimiento, y dónde van los botones. Aunque en eso ya hay una respuesta emergente que me convence: las órdenes a la lección viven en la lámina, y lo que le hablas al tutor vive en el chat.\n\n"
+}

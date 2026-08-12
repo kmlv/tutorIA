@@ -111,9 +111,31 @@ export class Ledger {
     const el = this.cards[g].querySelector(".price") as HTMLElement | null;
     if (!el) return;
     const u = UNITS[g][this.lang].unit;
-    el.classList.add("morphing");
     el.textContent = `$${value}/${u}`;
+    if (this.silencioso) return;
+    el.classList.add("morphing");
     setTimeout(() => el.classList.remove("morphing"), 420);
+  }
+
+  /** Applies the value without announcing it. Rebuilding a slide replays every operation
+   *  up to it, and a price that pulsed on each replay would claim a change that did not
+   *  just happen — the animation carries a causal claim, so it has to be earned. */
+  silencioso = false;
+
+  /** Back to just-constructed. The lámina runtime rebuilds the whole ledger from the
+   *  slide's own list of operations, so the picture depends on WHICH SLIDE and never on
+   *  how the student arrived. That is what makes the two coffee prices unrepresentable
+   *  instead of fixed (F-001). */
+  resetear(): void {
+    this.root.innerHTML = `
+      ${this.cardHtml("g1")}
+      <div class="eq-slot" aria-live="polite"></div>
+      ${this.cardHtml("g2")}`;
+    this.cards.g1 = this.root.querySelector('[data-good="g1"]')!;
+    this.cards.g2 = this.root.querySelector('[data-good="g2"]')!;
+    this.slot = this.root.querySelector(".eq-slot")!;
+    this.shown = { g1: new Set(), g2: new Set() };
+    this.root.classList.remove("compact");
   }
 
   /** Sets the equation. `dim` shows the dimensional form above the compact one — units
