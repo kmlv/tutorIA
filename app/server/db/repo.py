@@ -338,12 +338,20 @@ class Repo:
         Es el candado que impide que `/answer` sea un oráculo: sin él, cualquiera puede
         mandar valores basura contra todos los ids del pack y cosechar las respuestas.
         Se mira el log de eventos, que es donde `/next`, los checkpoints y las predicciones
-        dejan constancia de lo que sirvieron."""
+        dejan constancia de lo que sirvieron.
+
+        La lista es de SUPERFICIES, y por eso crece cuando aparece una: `lamina.item_shown`
+        es el prototipo de láminas. Sin él, un alumno podía fallar dos veces ahí y no
+        recibir nunca la revelación — el candado no distinguía "no lo sirvió nadie" de "lo
+        sirvió una superficie que no está en la lista", y el segundo caso se ve idéntico al
+        fallo que Kristian reportó: contestas mal y nadie te dice cuál era.
+        """
         import json as _json
         with self._lock:
             filas = self.conn.execute(
                 "SELECT payload FROM events WHERE session_id = ? AND type IN "
-                "('practice.item_shown','checkpoint.shown','assist_nudge_shown')",
+                "('practice.item_shown','checkpoint.shown','assist_nudge_shown',"
+                "'lamina.item_shown')",
                 (session_id,)).fetchall()
         for f in filas:
             try:

@@ -104,6 +104,13 @@ console.log('\nA1 — un solo MP3 y ventanas contiguas: avanzar no busca');
     const pos = await p.evaluate(`+document.querySelector('.pos').textContent.match(/\\d+/)[0]`);
     visto = Math.max(visto, pos);
     if (pos === n && !(await p.evaluate(`!!document.querySelector('.pregunta:not(:has(.veredicto))')`))) break;
+    // Si falló, se reintenta. Sin esto la barrida se quedaba clavada en la primera
+    // predicción que contestara mal — y eso NO es un fallo del producto: la lección espera
+    // al alumno a propósito, y a la segunda equivocación le dice cuál era y sigue.
+    if (await p.evaluate(`!!document.querySelector('.reintentar')`)) {
+      await p.click('.reintentar');
+      await p.waitForTimeout(200);
+    }
     // Si hay una pregunta esperando, se contesta: la lección espera al alumno a propósito.
     const hayQ = await p.evaluate(`!!document.querySelector('.pregunta:not(:has(.veredicto))')`);
     if (hayQ) {
@@ -112,14 +119,18 @@ console.log('\nA1 — un solo MP3 y ventanas contiguas: avanzar no busca');
         if (inp) { inp.value = '1'; inp.dispatchEvent(new Event('input', {bubbles:true})); }
         const b = [...q.querySelectorAll('button')].pop(); b && b.click(); })()`);
       await p.waitForTimeout(700);
-      // Tras contestar NO se pulsa "Seguir" salvo en los checkpoints. En una predicción
-      // la voz explica justo después, y saltársela es un salto de verdad — provocado por
-      // el alumno, no por la arquitectura. Confundir los dos haría fallar la prueba por
-      // lo que la prueba misma hizo.
-      const esperaMano = await p.evaluate(
-        `!![...document.querySelectorAll('audio')].every(a=>a.paused)`);
-      if (esperaMano) await p.click('.mandos button.primario').catch(() => {});
     }
+    // Tras contestar NO se pulsa "Seguir" mientras la voz esté explicando. En una
+    // predicción la voz explica justo después, y saltársela es un salto de verdad
+    // —provocado por el alumno, no por la arquitectura—. Confundir los dos haría fallar
+    // la prueba por lo que la prueba misma hizo. Pero si la lección está PARADA esperando
+    // un gesto, hay que dárselo: si no, la barrida se queda mirando un checkpoint ya
+    // resuelto y declara que la lección no llega al final cuando sí llega.
+    const parada = await p.evaluate(
+      `[...document.querySelectorAll('audio')].every(a=>a.paused)
+       && !document.querySelector('.reintentar')
+       && !document.querySelector('.pregunta:not(:has(.veredicto))')`);
+    if (parada) await p.click('.mandos button.primario').catch(() => {});
     await p.waitForTimeout(350);
   }
   const saltos = await p.evaluate('window.__saltos');
@@ -197,6 +208,110 @@ console.log('\nA9 — la voz no se adelanta a la pregunta');
   const cps = laminas.filter((l) => l[2] === 'antes');
   ok(cps.length === 2 && preds.length === 3,
      `${preds.length} predicciones preguntan antes de oír, ${cps.length} checkpoints oyen antes de preguntar`);
+  await p.context().close();
+}
+
+console.log('\nA10 — la voz nunca se despega de la lámina que se ve');
+{
+  // Lo reportó Kristian conduciéndola: "la voz avanzaba y la lámina se quedó". Pasaba
+  // porque al terminar una lámina se borraba su ventana, y sin ventana el audio corría sin
+  // frontera. Se ataca por las tres puertas que llevan a ese estado.
+  const p = await abrir();
+  const baraja = await p.evaluate(`fetch('/media/budget-line/laminas.es.json').then(r=>r.json())`);
+  const alineada = async () => p.evaluate(`(() => {
+    const a = document.querySelector('audio');
+    const i = +document.querySelector('.pos').textContent.match(/\\d+/)[0] - 1;
+    return {i, t: a.currentTime, sonando: !a.paused};
+  })()`);
+  const dentro = (s) => {
+    const v = baraja.laminas[s.i].audio;
+    return s.t >= v.desde - 0.06 && s.t <= v.hasta + 0.06;
+  };
+
+  const rapido = (r) => p.evaluate(`document.querySelectorAll('audio').forEach(a=>a.playbackRate=${r})`);
+  // Se pausa por la INTERFAZ y no desde el elemento: pausar por detrás deja la etiqueta del
+  // botón desincronizada y la puerta no llega a abrirse — así se colaron dos pasadas en
+  // vacío en la versión anterior de esta prueba.
+  const darA = async (txt) => { await p.click(`.mandos button:has-text("${txt}")`); };
+
+  const puertas = [
+    ['dejar terminar y darle a reproducir', async () => {
+      await irA(p, 2);
+      await rapido(16);
+      await darA('Reproducir');
+      await p.waitForTimeout(2600);            // la lámina 3 termina y pasa a la 4
+      await darA('Pausa');
+      await rapido(2);                          // despacio, para poder mirar mientras suena
+      await darA('Reproducir');
+    }],
+    ['darle a "otra vez" en una lámina ya terminada', async () => {
+      await irA(p, 1);
+      await rapido(16);
+      await darA('Reproducir');
+      await p.waitForTimeout(2200);
+      await rapido(2);
+      await darA('Otra vez');
+    }],
+    ['contestar un checkpoint y luego reproducir', async () => {
+      await irA(p, 7);
+      await rapido(16);
+      await darA('Reproducir');
+      await p.waitForSelector('.pregunta .q-opcion', {timeout: 20000});
+      await p.click('.q-opcion:nth-of-type(1)');
+      await p.waitForTimeout(1100);
+      await rapido(2);
+      await darA('Reproducir');
+    }],
+  ];
+
+  for (const [nombre, abrirPuerta] of puertas) {
+    await abrirPuerta();
+    // Se mide SONANDO. Un cabezal en pausa unas centésimas pasado el borde no es una
+    // desalineación: es el sondeo, que a 16× llega hasta un cuarto de segundo tarde. Lo
+    // que se afirma —y lo que se rompía— es que la VOZ no se despegue del dibujo, y una
+    // voz desbocada suena por definición. Se cuenta cuántas muestras salieron sonando
+    // para que la comprobación no pueda pasar en vacío.
+    let peor = null, sonando = 0;
+    for (let k = 0; k < 14; k++) {
+      const s = await alineada();
+      if (s.sonando) { sonando++; if (!dentro(s)) { peor = s; break; } }
+      await p.waitForTimeout(140);
+    }
+    ok(peor === null && sonando > 0,
+       `${nombre}: la voz se queda dentro de su lámina (${sonando} muestras sonando)`
+       + (peor ? ` — lámina ${peor.i + 1} pero el audio va por ${peor.t.toFixed(1)}s` : '')
+       + (sonando === 0 ? ' — NO SONÓ NUNCA: la comprobación no probó nada' : ''));
+    await p.evaluate(`document.querySelectorAll('audio').forEach(a=>a.pause())`);
+  }
+  await p.context().close();
+}
+
+console.log('\nA11 — fallar tiene salida: sonda, reintento y revelación');
+{
+  const p = await abrir();
+  await irA(p, 7);
+  await p.evaluate(`document.querySelectorAll('audio').forEach(a=>{a.playbackRate=16;a.play()})`);
+  await p.waitForSelector('.pregunta .q-opcion', {timeout: 20000});
+  const traza = [];
+  for (let intento = 1; intento <= 3; intento++) {
+    await p.click('.q-opcion:nth-of-type(2)');     // opción con error conceptual
+    await p.waitForTimeout(1100);
+    const r = await p.evaluate(`(() => ({
+      sonda: !!document.querySelector('.explica.sonda'),
+      revelacion: !!document.querySelector('.explica.revelacion'),
+      reintentar: !!document.querySelector('.reintentar'),
+    }))()`);
+    traza.push(r);
+    if (r.revelacion) break;
+    if (!r.reintentar) break;
+    await p.click('.reintentar');
+    await p.waitForTimeout(250);
+    const vivas = await p.evaluate(`document.querySelectorAll('.q-opcion:not([disabled])').length`);
+    ok(vivas > 0, `tras "inténtalo otra vez" las opciones vuelven a estar vivas (${vivas})`);
+  }
+  ok(traza[0]?.sonda, 'al primer fallo se recibe la sonda socrática, no solo "no es eso"');
+  ok(traza.some((r) => r.revelacion), 'al segundo fallo se dice cuál era la respuesta');
+  ok(!traza[0]?.revelacion, 'y NO se dice al primero: la sonda va antes que el solucionario');
   await p.context().close();
 }
 

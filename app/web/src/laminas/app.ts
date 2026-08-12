@@ -44,10 +44,12 @@ const T = {
   es: { cargando: "Cargando…", seguir: "Seguir", otra: "Otra vez", anterior: "Anterior",
         pausa: "Pausa", play: "Reproducir", fin: "Fin de la lección.",
         correcto: "Correcto.", incorrecto: "No es eso.", enviando: "Enviando…",
+        anotado: "Anotado. Seguimos.",
         laminaDe: (i: number, n: number) => `Lámina ${i} de ${n}` },
   en: { cargando: "Loading…", seguir: "Continue", otra: "Again", anterior: "Back",
         pausa: "Pause", play: "Play", fin: "End of the lesson.",
         correcto: "Correct.", incorrecto: "Not quite.", enviando: "Sending…",
+        anotado: "Noted. Let's keep going.",
         laminaDe: (i: number, n: number) => `Slide ${i} of ${n}` },
 }[lang];
 
@@ -164,20 +166,26 @@ async function main(): Promise<void> {
     caja.appendChild(marcado);
 
     const pintado = performance.now();
-    caja.appendChild(renderPregunta(spec, lang, (r: Respuesta) => {
-      void responder(l, r, Math.round(performance.now() - pintado), caja);
-    }));
+    const montar = (): void => {
+      caja.querySelector(".q")?.remove();
+      caja.appendChild(renderPregunta(spec, lang, (r: Respuesta) => {
+        void responder(l, r, Math.round(performance.now() - pintado), caja, montar);
+      }));
+    };
+    montar();
     cuerpo.replaceChildren(caja);
     evento("lamina.item_shown", { lamina: l.id, question_id: spec.id });
   }
 
   async function responder(l: Lamina, r: Respuesta, thinkMs: number,
-                           caja: HTMLElement): Promise<void> {
+                           caja: HTMLElement, rehacer: () => void): Promise<void> {
+    caja.querySelectorAll(".veredicto, .explica, .reintentar").forEach((e) => e.remove());
     const aviso = document.createElement("p");
     aviso.className = "veredicto";
     aviso.textContent = T.enviando;
     caja.appendChild(aviso);
-    let d: { correcta?: boolean; explicacion?: string; revelacion?: string } = {};
+    let d: { correcta?: boolean; socratica?: string; revelacion?: string;
+             registrada?: boolean; mensaje?: string } = {};
     try {
       d = await (await fetch(`/api/session/${ses.session_id}/answer`, {
         method: "POST", headers: { "content-type": "application/json" },
@@ -185,17 +193,59 @@ async function main(): Promise<void> {
       })).json();
     } catch { /* la lección no se cae porque falle la red */ }
 
+    // Las preguntas de redactar las corrige un juez que está EN SOMBRA: guarda su
+    // veredicto y al alumno no se le enseña nada, porque esa compuerta no se ha aprobado
+    // contra criterios de Kristian. Su respuesta no trae `correcta` — trae `registrada`.
+    // Tratar la ausencia como un fallo, que es lo que hacía esta lámina, le decía "no es
+    // eso" a una respuesta bien razonada Y la dejaba en un reintento sin salida: el peor
+    // desenlace posible justo en el ítem que pide pensar.
+    if (d.registrada) {
+      aviso.textContent = d.mensaje ?? T.anotado;
+      aviso.dataset.ok = "neutro";
+      itemActivo = null;
+      pintarMandos(true);
+      return;
+    }
+
     // El veredicto se queda EN la lámina, a la vista, junto a la pregunta que lo produjo.
     // El fallo que Kristian vio en persona —contestó mal y la respuesta se fue con el
     // panel— necesitaba que hubiera un sitio del que desaparecer. Aquí no lo hay.
     aviso.textContent = d.correcta ? T.correcto : T.incorrecto;
     aviso.dataset.ok = String(!!d.correcta);
-    for (const texto of [d.explicacion, d.revelacion]) {
+
+    // `socratica` y `revelacion` son los DOS campos que manda el servidor, y no son lo
+    // mismo: la sonda le devuelve la pregunta al alumno para que la piense otra vez; la
+    // revelación le dice cuál era. Esta lámina pintaba un campo llamado `explicacion` que
+    // el servidor NO devuelve, así que se tragaba la sonda entera: Kristian falló, leyó
+    // "No es eso." y nada más. El texto siempre estuvo ahí.
+    for (const [texto, clase] of [[d.socratica, "explica sonda"],
+                                  [d.revelacion, "explica revelacion"]] as const) {
       if (!texto) continue;
       const p = document.createElement("p");
-      p.className = "explica";
+      p.className = clase;
       p.textContent = texto;
       caja.appendChild(p);
+    }
+
+    // Y sin un segundo intento la revelación era inalcanzable: el módulo de preguntas
+    // deshabilita todos sus controles al enviar, así que un fallo dejaba el ítem muerto y
+    // la regla de "a la segunda se dice cuál era" no llegaba a dispararse NUNCA.
+    const puedeReintentar = !d.correcta && !d.revelacion;
+    if (puedeReintentar) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "mando reintentar";
+      b.textContent = lang === "es" ? "Inténtalo otra vez" : "Try again";
+      b.addEventListener("click", () => {
+        caja.querySelectorAll(".veredicto, .explica, .reintentar").forEach((e) => e.remove());
+        rehacer();
+      });
+      caja.appendChild(b);
+      // La lámina sigue esperando: ni suena la voz ni aparece "seguir". En una predicción
+      // la narración CONTIENE la respuesta, así que reproducirla mientras queda un intento
+      // pendiente sería regalarla — el mismo error que se evita al entrar en la lámina.
+      pintarMandos();
+      return;
     }
     itemActivo = null;
 

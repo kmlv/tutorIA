@@ -20,6 +20,10 @@ export type AlTerminar = (indice: number) => void;
 export class VentanaAudio {
   private el: HTMLAudioElement;
   private ventana: { desde: number; hasta: number } | null = null;
+  /** Si ya se avisó de que ESTA ventana llegó a su final. La ventana NO se borra al
+   *  terminar —borrarla dejaba el audio sin frontera— y este indicador es lo que evita
+   *  avisar dos veces del mismo final. */
+  private avisada = false;
   private indice = -1;
   private manejador: AlTerminar = () => {};
   private raf = 0;
@@ -45,9 +49,17 @@ export class VentanaAudio {
         // y un salto de milisegundos cuenta como salto: rompería la única propiedad que
         // este archivo defiende. Sobra, además: `situar` solo busca cuando el cabezal se
         // ha quedado FUERA de la ventana nueva, y unos milisegundos de más caen dentro.
+        //
+        // La ventana SIGUE PUESTA. Antes se borraba aquí, y esa línea era un fallo que
+        // Kristian vio en vivo: con la ventana a null, este guardia dejaba pasar todo, así
+        // que darle a "reproducir" u "otra vez" en una lámina ya terminada echaba a andar
+        // el audio SIN FRONTERA. La voz seguía leyendo las láminas siguientes mientras el
+        // dibujo y los subtítulos se quedaban clavados donde estaban.
         this.el.pause();
-        this.ventana = null;
-        this.manejador(this.indice);
+        if (!this.avisada) {
+          this.avisada = true;
+          this.manejador(this.indice);
+        }
       }
     };
     this.raf = requestAnimationFrame(paso);
@@ -69,11 +81,20 @@ export class VentanaAudio {
   situar(indice: number, desde: number, hasta: number): void {
     this.indice = indice;
     this.ventana = { desde, hasta };
+    this.avisada = false;
     const t = this.el.currentTime;
     if (t < desde - 0.05 || t >= hasta) this.el.currentTime = desde;
   }
 
   reproducir(): Promise<void> {
+    // Si la lámina ya sonó entera, reproducir significa OÍRLA OTRA VEZ, no seguir hacia
+    // la siguiente: avanzar tiene su propio botón. Sin este rebobinado el cabezal está en
+    // el borde y darle a reproducir no haría nada visible.
+    const v = this.ventana;
+    if (v && this.el.currentTime >= v.hasta - 0.02) {
+      this.el.currentTime = v.desde;
+      this.avisada = false;
+    }
     return this.el.play().catch(() => {
       // Sin gesto del usuario el navegador rechaza reproducir. No es un fallo: la lección
       // se queda quieta en la lámina y el botón sigue ahí.
@@ -94,7 +115,18 @@ export class VentanaAudio {
 
   /** Rebobina dentro de la lámina actual, para "otra vez" sin cambiar de estado. */
   reiniciarVentana(): void {
-    if (this.ventana) this.el.currentTime = this.ventana.desde;
+    if (!this.ventana) return;
+    this.el.currentTime = this.ventana.desde;
+    this.avisada = false;
+  }
+
+  /** ¿El cabezal está dentro de la ventana de la lámina que manda? Es la propiedad que se
+   *  ataca desde fuera: si alguna vez sale false mientras suena, la voz y el dibujo se han
+   *  desalineado y el alumno está oyendo una lámina que no está viendo. */
+  get dentroDeVentana(): boolean {
+    const v = this.ventana;
+    if (!v) return false;
+    return this.el.currentTime >= v.desde - 0.05 && this.el.currentTime <= v.hasta + 0.05;
   }
 
   destruir(): void {

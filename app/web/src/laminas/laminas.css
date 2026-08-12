@@ -139,9 +139,21 @@ body {
 .q button:disabled { opacity: 0.5; cursor: default; }
 
 .veredicto { margin: 12px 0 4px; font-weight: 600; }
-.veredicto[data-ok="true"] { color: #1a7f4b; }
+.veredicto[data-ok="true"] { color: var(--verde, #1a7f4b); }
 .veredicto[data-ok="false"] { color: #c2603f; }
+/* Ni bien ni mal: la respuesta quedó registrada y el juez no habla todavía. Pintarla de
+ * verde o de rojo sería afirmar un veredicto que nadie ha aprobado. */
+.veredicto[data-ok="neutro"] { color: var(--muted); font-weight: 500; }
 .explica { margin: 4px 0; line-height: 1.55; }
+/* La sonda y la revelación son dos actos distintos y no deben leerse igual. La sonda te
+ * devuelve la pregunta —sigues tú—; la revelación te dice cuál era y cierra el ítem. */
+.explica.sonda { font-style: italic; color: var(--fg); }
+.explica.revelacion {
+  border-left: 2px solid var(--accent);
+  padding-left: 12px;
+  margin-top: 8px;
+}
+.reintentar { margin-top: 10px; align-self: flex-start; }
 .fin { color: var(--muted); font-style: italic; }
 
 .mandos { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
