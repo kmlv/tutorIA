@@ -1,0 +1,35 @@
+import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
+import {chromium} from 'playwright-core';
+const base = path.join(os.homedir(), 'Library/Caches/ms-playwright');
+const dd = fs.readdirSync(base).filter(x=>x.startsWith('chromium-')).sort((a,b)=>+a.split('-')[1]-+b.split('-')[1]).pop();
+const exe = path.join(base, dd, 'chrome-mac-arm64','Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const browser = await chromium.launch({executablePath: exe, args:['--autoplay-policy=no-user-gesture-required']});
+const ctx = await browser.newContext({viewport:{width:1280,height:1100}});
+const page = await ctx.newPage();
+const net=[]; page.on('response', async r=>{const u=r.url(); if(u.includes('/answer')){let b=null;try{b=(await r.text()).slice(0,300);}catch{} net.push(b);} });
+await page.goto('http://localhost:57330/?lang=es',{waitUntil:'domcontentloaded'});
+await page.waitForFunction('window.__tutoria && window.__tutoria.media.duration()>0',null,{timeout:30000});
+await page.evaluate(()=>{const m=window.__tutoria.media;m.seek(m.duration()-1.2);m.play();});
+await page.waitForSelector('.dock-body .pregunta .q-opcion');
+await page.locator('.dock-body .pregunta').last().locator('.q-opcion').nth(0).click();
+await page.waitForFunction(()=>document.querySelector('.capa-manip circle[cursor="ns-resize"]'),null,{timeout:15000});
+await page.waitForTimeout(600);
+// posicion destino en coordenadas de pantalla: y-int=150, x-int=50
+const dest = await page.evaluate(()=>{ const svg=document.querySelector('.bgraph'); const m=svg.getScreenCTM();
+  const W=560,H=460,PAD={l:62,r:28,t:34,b:64}, maxX=(100/3)*1.6, maxY=100*1.6;
+  const X=v=>PAD.l+(v/maxX)*(W-PAD.l-PAD.r), Y=v=>H-PAD.b-(v/maxY)*(H-PAD.t-PAD.b);
+  const to=(sx,sy)=>{const p=new DOMPoint(sx,sy).matrixTransform(m); return {x:p.x,y:p.y};};
+  const g=s=>{const r=document.querySelector(s).getBoundingClientRect(); return {x:r.x+r.width/2,y:r.y+r.height/2};};
+  return {yHandle:g('.capa-manip circle[cursor="ns-resize"]'), xHandle:g('.capa-manip circle[cursor="ew-resize"]'),
+          y150:to(X(0),Y(150)), x50:to(X(50),Y(0))};});
+console.log('handles/destinos:', JSON.stringify(dest));
+await page.mouse.move(dest.yHandle.x, dest.yHandle.y); await page.mouse.down();
+await page.mouse.move(dest.y150.x, dest.y150.y, {steps:12}); await page.mouse.up(); await page.waitForTimeout(300);
+const xh = await page.evaluate(()=>{const r=document.querySelector('.capa-manip circle[cursor="ew-resize"]').getBoundingClientRect(); return {x:r.x+r.width/2,y:r.y+r.height/2};});
+await page.mouse.move(xh.x, xh.y); await page.mouse.down();
+await page.mouse.move(dest.x50.x, dest.x50.y, {steps:12}); await page.mouse.up(); await page.waitForTimeout(300);
+console.log('interceptos tras arrastrar con ratón:', await page.evaluate(()=>Array.from(document.querySelectorAll('.capa-interceptos text')).map(t=>t.textContent)));
+await page.locator('.dock-body .pregunta').last().locator('button.primario').click();
+await page.waitForTimeout(2000);
+console.log('veredicto:', net);
+await browser.close();

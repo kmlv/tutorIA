@@ -1,0 +1,26 @@
+import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
+import {chromium} from 'playwright-core';
+const base = path.join(os.homedir(), 'Library/Caches/ms-playwright');
+const d = fs.readdirSync(base).filter(x=>x.startsWith('chromium-')).sort((a,b)=>+a.split('-')[1]-+b.split('-')[1]).pop();
+const exe = path.join(base, d, 'chrome-mac-arm64','Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const browser = await chromium.launch({executablePath: exe, args:['--autoplay-policy=no-user-gesture-required']});
+const ctx = await browser.newContext({viewport:{width:1280,height:860}});
+const page = await ctx.newPage();
+page.on('pageerror', e => console.log('  JS ERROR:', String(e).slice(0,200)));
+await page.goto('http://localhost:57330/?lang=es', {waitUntil:'domcontentloaded'});
+await page.waitForFunction('window.__tutoria && window.__tutoria.media.duration() > 0', null, {timeout:30000});
+await page.evaluate(() => { window.__tutoria.media.seek(193.5); window.__tutoria.media.play(); });
+await page.waitForSelector('.q textarea', {timeout: 15000});
+console.log('cp2 mostrado, paused=', await page.evaluate(()=>window.__tutoria.media.paused()), 't=', await page.evaluate(()=>window.__tutoria.media.currentTime()));
+await page.click('.q textarea'); await page.type('.q textarea','Porque si gastas todo el ingreso en jugo no compras cafe y p2 no cambio',{delay:1});
+await page.click('.q button'); await page.waitForTimeout(6000);
+console.log('tras responder: paused=', await page.evaluate(()=>window.__tutoria.media.paused()), 't=', await page.evaluate(()=>window.__tutoria.media.currentTime()));
+await page.waitForTimeout(6000);
+console.log('+6s mas: paused=', await page.evaluate(()=>window.__tutoria.media.paused()), 't=', await page.evaluate(()=>window.__tutoria.media.currentTime()));
+// pulsar "Listo, sigamos"
+await page.evaluate(()=>{const b=[...document.querySelectorAll('.dock button')].find(x=>/Listo, sigamos/.test(x.innerText)); if(b)b.click();});
+await page.waitForTimeout(4000);
+console.log('tras "Listo, sigamos": paused=', await page.evaluate(()=>window.__tutoria.media.paused()), 't=', await page.evaluate(()=>window.__tutoria.media.currentTime()));
+console.log('hay .q todavia?', await page.evaluate(()=>!!document.querySelector('.q')));
+console.log('boton #play existe/estado:', await page.evaluate(()=>{const p=document.getElementById('play');return p?p.innerText+' dis='+p.disabled:null}));
+await browser.close();

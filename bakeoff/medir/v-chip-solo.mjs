@@ -1,0 +1,21 @@
+import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
+import {chromium} from 'playwright-core';
+const base = path.join(os.homedir(), 'Library/Caches/ms-playwright');
+const d = fs.readdirSync(base).filter(x=>x.startsWith('chromium-')).sort((a,b)=>+a.split('-')[1]-+b.split('-')[1]).pop();
+const exe = path.join(base, d, 'chrome-mac-arm64','Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const browser = await chromium.launch({executablePath: exe, args:['--autoplay-policy=no-user-gesture-required']});
+const page = await (await browser.newContext({viewport:{width:1280,height:860}})).newPage();
+const net=[]; page.on('request',r=>{if(r.url().includes('/api/')||r.method()==='POST')net.push(r.method()+' '+r.url().slice(0,90));});
+await page.goto('http://localhost:57330/?lang=es', {waitUntil:'domcontentloaded'});
+await page.waitForFunction('window.__tutoria && window.__tutoria.media.duration() > 0', null, {timeout:30000});
+await page.evaluate('window.__tutoria.media.seek(143); window.__tutoria.media.play()');
+await page.waitForSelector('.q', {timeout:20000}); await page.waitForTimeout(600);
+const o = await page.$$('.q-opciones button'); await o[1].click(); await page.waitForTimeout(2000);
+net.length=0;
+console.log('--- pulsando SOLO "¿Por qué?" y esperando 20 s ---');
+await (await page.$('.dock button:has-text("¿Por qué?")')).click();
+for (let i=0;i<5;i++){ await page.waitForTimeout(4000);
+  const tail = await page.evaluate(()=>document.querySelector('.dock')?.innerText.trim().slice(-260));
+  console.log(`  +${(i+1)*4}s tail: ${JSON.stringify(tail)}`); }
+console.log('peticiones:', net);
+await browser.close();

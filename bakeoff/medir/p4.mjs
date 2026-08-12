@@ -1,0 +1,42 @@
+import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
+import {chromium} from 'playwright-core';
+const OUT='/private/tmp/claude-502/-Users-klopezva-GithubRepos-tutorIA/1050f3d7-49f3-4d77-9e6b-99bd05c2d5ac/scratchpad/shots';
+const base = path.join(os.homedir(), 'Library/Caches/ms-playwright');
+const d = fs.readdirSync(base).filter(x=>x.startsWith('chromium-')).sort((a,b)=>+a.split('-')[1]-+b.split('-')[1]).pop();
+const exe = path.join(base, d, 'chrome-mac-arm64','Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const browser = await chromium.launch({executablePath: exe, args:['--autoplay-policy=no-user-gesture-required']});
+const ctx = await browser.newContext({viewport:{width:1280,height:860}});
+const page = await ctx.newPage();
+page.on('pageerror', e => console.log('  JS ERROR:', String(e).slice(0,300)));
+page.on('console', m => { if(m.type()==='error') console.log('  CONSOLE ERR:',m.text().slice(0,200)); });
+await page.goto('http://localhost:57330/?lang=es&t=0', {waitUntil:'domcontentloaded'});
+await page.waitForFunction('window.__tutoria && window.__tutoria.media.duration() > 0');
+console.log('== TODOS los controles ==');
+console.log(JSON.stringify(await page.evaluate(()=>{
+  const vis=el=>{const r=el.getBoundingClientRect(); const s=getComputedStyle(el); return r.width>0&&r.height>0&&s.visibility!=='hidden'&&+s.opacity>0.01;};
+  return [...document.querySelectorAll('button,[role=button],input,a,select,textarea,progress,[tabindex]')].map(e=>({
+    tag:e.tagName, id:e.id, cls:String(e.className||'').slice(0,50), txt:(e.innerText||e.value||e.placeholder||'').replace(/\n/g,' ').slice(0,40), vis:vis(e)}));
+})));
+console.log('== hay slider/scrub? ==', await page.evaluate(()=>document.querySelectorAll('input[type=range],progress,.scrub,.barra,.progreso').length));
+console.log('== teclado: espacio ==');
+await page.click('body');
+await page.keyboard.press('Space');
+await page.waitForTimeout(1500);
+console.log(JSON.stringify(await page.evaluate(()=>({cur:window.__tutoria.media.currentTime(),paused:window.__tutoria.media.paused()}))));
+console.log('== teclado: flecha derecha / izquierda ==');
+await page.keyboard.press('ArrowRight'); await page.waitForTimeout(400);
+console.log('tras ArrowRight', JSON.stringify(await page.evaluate(()=>({cur:+window.__tutoria.media.currentTime().toFixed(2)}))));
+console.log('== abrir Transcripción ==');
+await page.click('text=Transcripción');
+await page.waitForTimeout(900);
+await page.screenshot({path:OUT+'/p4-transcripcion.png'});
+console.log('body:', (await page.evaluate(()=>document.body.innerText)).replace(/\n/g,' | ').slice(0,900));
+console.log('== click en una linea de la transcripcion ==');
+const before = await page.evaluate(()=>window.__tutoria.media.currentTime());
+const clicked = await page.evaluate(()=>{
+  const cands=[...document.querySelectorAll('.transcripcion *, .transcript *, dialog *, .panel *')].filter(e=>e.children.length===0 && e.innerText && e.innerText.length>25);
+  if(cands.length>5){ const el=cands[Math.floor(cands.length*0.7)]; el.click(); return el.innerText.slice(0,80);} return null;});
+await page.waitForTimeout(900);
+console.log('linea clicada:', clicked, 'antes', +before.toFixed(2), 'despues', await page.evaluate(()=>+window.__tutoria.media.currentTime().toFixed(2)));
+await page.screenshot({path:OUT+'/p4-transcripcion2.png'});
+await browser.close();

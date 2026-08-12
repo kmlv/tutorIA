@@ -1,0 +1,25 @@
+import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
+import {chromium} from 'playwright-core';
+const base = path.join(os.homedir(), 'Library/Caches/ms-playwright');
+const d = fs.readdirSync(base).filter(x=>x.startsWith('chromium-')).sort((a,b)=>+a.split('-')[1]-+b.split('-')[1]).pop();
+const exe = path.join(base, d, 'chrome-mac-arm64','Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const browser = await chromium.launch({executablePath: exe});
+const ctx = await browser.newContext({viewport:{width:1280,height:860}});
+const page = await ctx.newPage();
+let sid=null; page.on('request', r=>{const m=r.url().match(/\/api\/session\/([^/]+)\/chat/); if(m) sid=m[1];});
+await page.goto('http://localhost:57330/?lang=es', {waitUntil:'domcontentloaded'});
+await page.waitForFunction('window.__tutoria && window.__tutoria.media.duration() > 0', null, {timeout:30000});
+await page.click('#ask'); await page.waitForTimeout(500);
+async function preguntar(t){ await page.fill('.composer-input', t); await page.click('.composer-enviar'); await page.waitForTimeout(250);
+  try{ await page.waitForFunction(()=>{const b=document.querySelector('.composer-enviar'); return b && !b.disabled;},null,{timeout:40000});}catch(e){} await page.waitForTimeout(300);}
+for(let i=1;i<=13;i++) await preguntar(`P${i}: ¿que significa la pendiente?`);
+console.log('sid', sid, 'tras 13:', await page.evaluate(()=>JSON.stringify({c:document.querySelector('.composer-restantes').textContent, ag:document.querySelector('.composer').dataset.agotado, pe:getComputedStyle(document.querySelector('.composer-input')).pointerEvents})));
+await page.reload({waitUntil:'domcontentloaded'});
+await page.waitForFunction('window.__tutoria && window.__tutoria.media.duration() > 0', null, {timeout:30000});
+await page.click('#ask'); await page.waitForTimeout(800);
+console.log('TRAS RECARGAR:', await page.evaluate(()=>JSON.stringify({contador:JSON.stringify(document.querySelector('.composer-restantes').textContent), agotado:JSON.stringify(document.querySelector('.composer').dataset.agotado), pe:getComputedStyle(document.querySelector('.composer-input')).pointerEvents, ph:document.querySelector('.composer-input').placeholder, hist:document.querySelector('.dock').innerText.length})));
+await preguntar('Segunda pregunta tirada a la basura tras recargar, ¿me explicas la pendiente?');
+console.log('tras enviar otra:', await page.evaluate(()=>JSON.stringify({c:document.querySelector('.composer-restantes').textContent, ag:document.querySelector('.composer').dataset.agotado})));
+console.log('cola:', (await page.evaluate(()=>document.querySelector('.dock').innerText)).slice(-300));
+console.log('SID2='+sid);
+await browser.close();

@@ -1,0 +1,10 @@
+import {abrir, snapFn} from './lib.mjs';
+const {browser, page} = await abrir('http://localhost:57330/?lang=es');
+console.log('SIN t:', JSON.stringify(await page.evaluate(snapFn)));
+await browser.close();
+const b2 = await abrir('http://localhost:57330/?lang=es&t=84');
+console.log('t=84:', JSON.stringify(await b2.page.evaluate(snapFn)));
+await b2.browser.close();
+const b3 = await abrir('http://localhost:57330/?lang=es&t=180');
+console.log('t=180:', JSON.stringify(await b3.page.evaluate(snapFn)));
+await b3.browser.close();

@@ -1,0 +1,31 @@
+import {abrir, SNAP} from './nav-lib.mjs';
+const errores=[];
+const {browser,page} = await abrir('http://localhost:57330/?lang=es', {errores});
+const posts=[]; const resp=[];
+page.on('request', r=>{ if(r.method()==='POST' && r.url().includes('/answer')) posts.push(String(r.postData())); });
+page.on('response', async r=>{ if(r.url().includes('/answer')) { try{ resp.push(JSON.stringify(await r.json()).slice(0,300)); }catch(e){} } });
+await page.evaluate(()=>window.__tutoria.media.seek(143));
+await page.waitForTimeout(500); await page.click('#play');
+await page.waitForSelector('.q',{timeout:20000}); await page.waitForTimeout(800);
+await page.click('.q-opciones button'); await page.waitForTimeout(3000);
+await page.evaluate(()=>window.__tutoria.media.seek(142));
+await page.waitForTimeout(1000); await page.click('#play');
+await page.waitForTimeout(6000);
+// responder la SEGUNDA copia (mal esta vez)
+const n = await page.evaluate(()=>document.querySelectorAll('.q').length);
+console.log('nº tarjetas:', n);
+await page.evaluate(()=>{ const qs=document.querySelectorAll('.q'); qs[qs.length-1].querySelectorAll('.q-opciones button')[1].click(); });
+await page.waitForTimeout(3500);
+console.log('POSTs /answer:', JSON.stringify(posts,null,1));
+console.log('respuestas:', JSON.stringify(resp,null,1));
+// ¿y la primera tarjeta, ya respondida, sigue clicable?
+const otra = await page.evaluate(()=>{ const b=document.querySelectorAll('.q')[0].querySelectorAll('.q-opciones button')[2]; return {disabled:b.disabled, pe:getComputedStyle(b).pointerEvents}; });
+console.log('primera tarjeta, botón 3:', JSON.stringify(otra));
+await page.evaluate(()=>{ document.querySelectorAll('.q')[0].querySelectorAll('.q-opciones button')[2].click(); });
+await page.waitForTimeout(3000);
+console.log('POSTs /answer tras reclicar la vieja:', posts.length, JSON.stringify(posts.slice(-1)));
+const s = await page.evaluate(SNAP);
+console.log('estado final:', JSON.stringify({t:s.t, paused:s.paused, dock:s.dockEstado, nq: await page.evaluate(()=>document.querySelectorAll('.q').length), body:(s.dockBody||'').slice(-300)}));
+await page.screenshot({path:'/private/tmp/claude-502/-Users-klopezva-GithubRepos-tutorIA/1050f3d7-49f3-4d77-9e6b-99bd05c2d5ac/scratchpad/doble-respuesta.png'});
+if(errores.length) console.log('ERRORES', errores);
+await browser.close();

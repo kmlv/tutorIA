@@ -1,0 +1,22 @@
+import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
+import {chromium} from 'playwright-core';
+const base = path.join(os.homedir(), 'Library/Caches/ms-playwright');
+const d = fs.readdirSync(base).filter(x=>x.startsWith('chromium-')).sort((a,b)=>+a.split('-')[1]-+b.split('-')[1]).pop();
+const exe = path.join(base, d, 'chrome-mac-arm64','Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const browser = await chromium.launch({executablePath: exe, args:['--autoplay-policy=no-user-gesture-required']});
+const page = await (await browser.newContext({viewport:{width:1280,height:860}})).newPage();
+await page.goto('http://localhost:57330/?lang=es&variant=B&t=228',{waitUntil:'domcontentloaded'});
+await page.waitForFunction('window.__tutoria && window.__tutoria.media.duration()>0',null,{timeout:30000});
+await page.click('#play');
+await page.waitForFunction('document.querySelectorAll(".q").length>0',null,{timeout:40000});
+await page.waitForTimeout(1500);
+const geo=`(()=>{const g=e=>{if(!e)return null;const r=e.getBoundingClientRect();const s=getComputedStyle(e);
+ return {x:Math.round(r.x),y:Math.round(r.y),w:Math.round(r.width),h:Math.round(r.height),vis:s.visibility,ov:s.overflow,op:s.opacity}};
+ const b=document.querySelector('.q-opciones button');
+ return {dock:g(document.querySelector('.dock')), q:g(document.querySelector('.q')), opt:g(b),
+  hitTest: b? (()=>{const r=b.getBoundingClientRect();const el=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
+   return el? (el.tagName+'.'+el.className).slice(0,60):'NADA/fuera-viewport'})():null}})()`;
+console.log('ANTES  ', JSON.stringify(await page.evaluate(geo),null,0));
+await page.click('#play'); await page.waitForTimeout(2000);
+console.log('DESPUES', JSON.stringify(await page.evaluate(geo),null,0));
+await browser.close();

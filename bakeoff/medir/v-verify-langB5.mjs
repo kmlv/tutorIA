@@ -1,0 +1,22 @@
+import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
+import {chromium} from 'playwright-core';
+const base = path.join(os.homedir(), 'Library/Caches/ms-playwright');
+const d = fs.readdirSync(base).filter(x=>x.startsWith('chromium-')).sort((a,b)=>+a.split('-')[1]-+b.split('-')[1]).pop();
+const exe = path.join(base, d, 'chrome-mac-arm64','Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const browser = await chromium.launch({executablePath: exe, args:['--autoplay-policy=no-user-gesture-required']});
+const page = await (await browser.newContext({viewport:{width:1280,height:860}})).newPage();
+page.on('pageerror',()=>{});
+await page.goto('http://localhost:57330/?lang=en&variant=B', {waitUntil:'domcontentloaded'});
+await page.waitForTimeout(3000);
+console.log('composer visible SIN pulsar Ask:', await page.evaluate('!!document.querySelector(".composer-input")?.offsetParent'));
+await page.evaluate(`document.querySelectorAll('details').forEach(d=>d.open=true)`);
+await page.waitForTimeout(500);
+const t = await page.evaluate(`document.querySelector('details')?.innerText.replace(/\\n+/g,' ').slice(0,300)`);
+console.log('TRANSCRIPT (300 chars):', JSON.stringify(t));
+console.log('transcript len:', await page.evaluate(`document.querySelector('details')?.innerText.length`));
+// preguntas restantes / limite del chat
+await page.evaluate(()=>{const i=document.querySelector('.composer-input');i.focus();i.value='what is the slope?';i.dispatchEvent(new Event('input',{bubbles:true}));});
+await page.evaluate('document.querySelector(".composer-enviar").click()'); await page.waitForTimeout(6000);
+console.log('dock:', JSON.stringify(await page.$eval('.dock', e=>e.innerText.replace(/\n+/g,' | ').slice(0,260))));
+console.log('data-estado dock:', await page.$eval('.dock', e=>e.getAttribute('data-estado')));
+await browser.close();

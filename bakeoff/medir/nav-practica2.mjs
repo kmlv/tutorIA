@@ -1,0 +1,34 @@
+import {abrir, SNAP} from './nav-lib.mjs';
+const errores=[];
+const {browser,page} = await abrir('http://localhost:57330/?lang=es', {errores});
+await page.evaluate(()=>window.__tutoria.media.seek(230.5));
+await page.waitForTimeout(400); await page.click('#play');
+await page.waitForSelector('.q',{timeout:25000}); await page.waitForTimeout(1500);
+console.log('1) práctica activa:', await page.evaluate(()=>document.querySelector('.q-enunciado')?.textContent));
+await page.evaluate(()=>window.__tutoria.media.seek(121));
+await page.waitForTimeout(1200);
+console.log('2) tras seek(121):', JSON.stringify(await page.evaluate(()=>({dock:document.querySelector('.dock').dataset.estado, q:document.querySelector('.q-enunciado')?.textContent.slice(0,50)}))));
+await page.click('#play');
+await page.waitForTimeout(6000);
+let s = await page.evaluate(SNAP);
+console.log('3) en la predicción de la pendiente (t=%s):', s.t, JSON.stringify({dock:s.dockEstado, paused:s.paused, cap:(s.caption||'').slice(0,80), q:s.q},null,1));
+await page.screenshot({path:'/private/tmp/claude-502/-Users-klopezva-GithubRepos-tutorIA/1050f3d7-49f3-4d77-9e6b-99bd05c2d5ac/scratchpad/q-cruzada.png'});
+// responder esa pregunta cruzada
+const antes = await page.evaluate(()=>({served:window.__tutoria.practice.served, running:window.__tutoria.practice.running}));
+await page.click('.q-opciones button');
+await page.waitForTimeout(3000);
+s = await page.evaluate(SNAP);
+console.log('4) tras responder:', JSON.stringify({t:s.t, paused:s.paused, dock:s.dockEstado, q:s.q?s.q.enunciado.slice(0,50):null, dockBody:(s.dockBody||'').slice(0,300)}));
+console.log('   practice antes/después:', JSON.stringify(antes), JSON.stringify(await page.evaluate(()=>({served:window.__tutoria.practice.served, running:window.__tutoria.practice.running}))));
+await page.screenshot({path:'/private/tmp/claude-502/-Users-klopezva-GithubRepos-tutorIA/1050f3d7-49f3-4d77-9e6b-99bd05c2d5ac/scratchpad/q-cruzada-resp.png'});
+// llegar al final otra vez
+await page.evaluate(()=>window.__tutoria.media.seek(231));
+await page.waitForTimeout(800);
+if (await page.evaluate(()=>window.__tutoria.media.paused())) await page.click('#play');
+await page.waitForTimeout(8000);
+s = await page.evaluate(SNAP);
+console.log('5) tras volver a terminar la narración:', JSON.stringify({t:s.t, paused:s.paused, play:s.play, dock:s.dockEstado, q:s.q?s.q.enunciado.slice(0,60):null}));
+console.log('   practice:', JSON.stringify(await page.evaluate(()=>({served:window.__tutoria.practice.served, running:window.__tutoria.practice.running}))));
+await page.screenshot({path:'/private/tmp/claude-502/-Users-klopezva-GithubRepos-tutorIA/1050f3d7-49f3-4d77-9e6b-99bd05c2d5ac/scratchpad/final2.png'});
+if(errores.length) console.log('ERRORES', errores);
+await browser.close();

@@ -1,0 +1,41 @@
+import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
+import {chromium} from 'playwright-core';
+const base=path.join(os.homedir(),'Library/Caches/ms-playwright');
+const d=fs.readdirSync(base).filter(x=>x.startsWith('chromium-')).sort((a,b)=>+a.split('-')[1]-+b.split('-')[1]).pop();
+const exe=path.join(base,d,'chrome-mac-arm64','Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const OUT='/Users/klopezva/GithubRepos/tutorIA/scratchpad/sondas-verify';
+const browser=await chromium.launch({executablePath:exe,args:['--autoplay-policy=no-user-gesture-required']});
+const ctx=await browser.newContext({viewport:{width:1280,height:860}});
+const page=await ctx.newPage();
+page.on('pageerror',e=>console.log('  JS ERROR:',String(e).slice(0,200)));
+await page.goto('http://localhost:57330/?lang=es',{waitUntil:'domcontentloaded'});
+await page.waitForFunction('window.__tutoria && window.__tutoria.media.duration()>0',null,{timeout:30000});
+const m=async(et)=>{const r=await page.evaluate(()=>{const vh=innerHeight,vw=innerWidth;
+ const f=s=>{const e=document.querySelector(s);if(!e)return null;const b=e.getBoundingClientRect();
+  if(!b.width||!b.height)return{pct:0,w:Math.round(b.width),h:Math.round(b.height)};
+  const v=Math.max(0,Math.min(b.bottom,vh)-Math.max(b.top,0))*Math.max(0,Math.min(b.right,vw)-Math.max(b.left,0));
+  return{pct:Math.round(100*v/(b.width*b.height)),top:Math.round(b.top),w:Math.round(b.width)};};
+ return{scrollY:Math.round(scrollY),docH:document.documentElement.scrollHeight,
+  lienzo:f('.lienzo'),play:f('#play'),dock:f('.dock'),dockEstado:window.__tutoria?.dock?.actual,
+  paused:window.__tutoria.media.paused(),t:+window.__tutoria.media.currentTime().toFixed(1)};});
+ console.log(et,JSON.stringify(r));return r;};
+const emp=page.locator('button',{hasText:'Empezar'}).first(); if(await emp.count()) await emp.click();
+await page.evaluate(()=>window.__tutoria.media.seek(142)); await page.evaluate(()=>window.__tutoria.media.play());
+await page.waitForFunction(()=>!!document.querySelector('.q'),null,{timeout:30000}); await page.waitForTimeout(1000);
+for(let i=0;i<3;i++){const a=await page.evaluate(()=>document.querySelectorAll('.dock .msg').length);
+ await page.click('.composer-input');
+ await page.fill('.composer-input','explícame con detalle qué significa que la línea se desplace y por qué importa el ingreso aquí');
+ await page.press('.composer-input','Enter');
+ await page.waitForFunction(x=>document.querySelectorAll('.dock .msg').length>=x+2,a,{timeout:60000}).catch(()=>{});
+ await page.waitForTimeout(2200);}
+await m('A) tras 3 preguntas (chat abierto):');
+await page.screenshot({path:OUT+'/w1-chat-abierto.png'});
+await page.locator('.dock-acciones button',{hasText:'Listo'}).first().click();
+await page.waitForTimeout(2500);
+await m('B) tras cerrar el chat (Listo, sigamos):');
+await page.screenshot({path:OUT+'/w2-chat-cerrado.png'});
+console.log('sigue reproduciendo? ', await page.evaluate(()=>({paused:__tutoria.media.paused(), t:+__tutoria.media.currentTime().toFixed(1)})));
+await page.waitForTimeout(4000);
+await m('C) 4s despues (audio corriendo, alumno sin tocar nada):');
+await page.screenshot({path:OUT+'/w3-4s-despues.png'});
+await browser.close();

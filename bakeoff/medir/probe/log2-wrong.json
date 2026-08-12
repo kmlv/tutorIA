@@ -1,0 +1,2895 @@
+{
+ "mode": "wrong",
+ "jsErrors": [],
+ "consoleErrors": [],
+ "net": [
+  {
+   "url": "POST /api/session",
+   "body": "{\"concept_id\":\"budget-line\",\"lang\":\"es\",\"media_variant\":\"A\"}"
+  },
+  {
+   "url": "/api/session",
+   "status": 200,
+   "body": "{\"session_id\":\"c37619d2ddb74e8c8455a7cc0b05a7aa\",\"concept_id\":\"budget-line\",\"titulo\":\"La línea presupuestaria\",\"media\":{\"pack\":\"budget-line\",\"lang\":\"es\",\"audio\":\"20260810-194907_budget-line-es.mp3\",\"duration_s\":232.752,\"sync_granularity\":\"sentence\",\"cues\":[{\"id\":\"consumo\",\"type\":\"graph\",\"t\":2.25,\"warning\":null},{\"id\":\"canasta\",\"type\":\"graph\",\"t\":24.239,\"warning\":null},{\"id\":\"espacio\",\"type\":\"graph\",\"t\":44.318,\"warning\":null},{\"id\":\"budget_set\",\"type\":\"graph\",\"t\":67.955,\"warning\":null},{\"id\":\"line_vs_set\",\"type\":\"prediction\",\"t\":87.045,\"warning\":null},{\"id\":\"budget_line\",\"type\":\"graph\",\"t\":87.045,\"warning\":null},{\"id\":\"intercepts\",\"type\":\"graph\",\"t\":107.727,\"warning\":null},{\"id\":\"slope_sign\",\"type\":\"prediction\",\"t\":123.864,\"warning\":null},{\"id\":\"slope\",\"type\":\"graph\",\"t\":123.864,\"warning\":null},{\"id\":\"cp1\",\"type\":\"checkpoint\",\"t\":144.761,\"warning\":null},{\"id\":\"income_shift\",\"type\":\"graph\""
+  },
+  {
+   "url": "/api/packs/budget-line?lang=es",
+   "status": 200,
+   "body": "{\"id\":\"budget-line\",\"version\":\"0.1.0\",\"titulo\":{\"es\":\"La línea presupuestaria\",\"en\":\"The Budget Constraint\"},\"lang\":[\"en\",\"es\"],\"media_variant_default\":\"A\",\"ejemplo\":{\"bien_1\":{\"es\":\"café\",\"en\":\"coffee\"},\"bien_2\":{\"es\":\"jugo de naranja\",\"en\":\"orange juice\"},\"p1\":3.0,\"p2\":1.0,\"m\":100.0},\"checkpoints\":[{\"id\":\"cp1\",\"despues_de_cue\":\"slope\",\"pregunta_ref\":\"q_cp1_income_direction\"},{\"id\":\"cp2\",\"despues_de_cue\":\"price_pivot\",\"pregunta_ref\":\"q_cp2_why_intercept_fixed\"}],\"predictions\":{\"line_vs_set\":\"q_predict_line_vs_set\",\"slope_sign\":\"q_predict_slope_sign\",\"price_effect\":\"q_predict_price_effect\"},\"sub_skills\":[{\"id\":\"BL.EQ\",\"esencial\":true,\"umbral\":0.8,\"titulo\":{\"es\":\"Plantear p1·x1 + p2·x2 = m e interpretar cada término\",\"en\":\"State p1·x1 + p2·x2 = m and interpret each term\"},\"misconceptions\":[],\"estado\":\"revisar_en_validacion\"},{\"id\":\"BL.INT\",\"esencial\":true,\"umbral\":0.8,\"titulo\":{\"es\":\"Inte"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.started\",\"payload\":{}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":2}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cp1_income_direction\",\"valor\":1,\"con_andamiaje\":false,\"think_ms\":344}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cp1_income_direction\",\"correcta\":false,\"shadow\":false,\"latency_ms\":387}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":5}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_manip\",\"valor\":{\"p1\":3,\"p2\":1.2500000000000004,\"m\":100},\"con_andamiaje\":false,\"think_ms\":2431}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_manip\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2475}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":8}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_numeric\",\"valor\":\"999\",\"con_andamiaje\":false,\"think_ms\":2248}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_numeric\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2291}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":11}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cp1_income_direction\",\"valor\":1,\"con_andamiaje\":false,\"think_ms\":2249}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cp1_income_direction\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2295}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":14}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_manip\",\"valor\":{\"p1\":3,\"p2\":1.2500000000000004,\"m\":100},\"con_andamiaje\":false,\"think_ms\":2389}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_manip\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2434}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":17}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_numeric\",\"valor\":\"999\",\"con_andamiaje\":false,\"think_ms\":2258}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_numeric\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2307}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":20}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cp1_income_direction\",\"valor\":1,\"con_andamiaje\":false,\"think_ms\":2234}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cp1_income_direction\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2282}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":23}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_manip\",\"valor\":{\"p1\":3,\"p2\":1.2500000000000004,\"m\":100},\"con_andamiaje\":false,\"think_ms\":2509}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_manip\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2560}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":26}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_numeric\",\"valor\":\"999\",\"con_andamiaje\":false,\"think_ms\":2247}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_numeric\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2300}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":29}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cp1_income_direction\",\"valor\":1,\"con_andamiaje\":false,\"think_ms\":2256}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cp1_income_direction\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2352}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":32}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_manip\",\"valor\":{\"p1\":3,\"p2\":1.2500000000000004,\"m\":100},\"con_andamiaje\":false,\"think_ms\":2360}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_manip\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2434}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":35}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_numeric\",\"valor\":\"999\",\"con_andamiaje\":false,\"think_ms\":2226}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_numeric\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2294}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":38}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cp1_income_direction\",\"valor\":1,\"con_andamiaje\":false,\"think_ms\":2223}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cp1_income_direction\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2276}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":41}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_manip\",\"valor\":{\"p1\":3,\"p2\":1.2500000000000004,\"m\":100},\"con_andamiaje\":false,\"think_ms\":2496}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_manip\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2592}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":44}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_numeric\",\"valor\":\"999\",\"con_andamiaje\":false,\"think_ms\":2265}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_numeric\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2329}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":47}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cp1_income_direction\",\"valor\":1,\"con_andamiaje\":false,\"think_ms\":2249}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cp1_income_direction\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2297}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":50}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_manip\",\"valor\":{\"p1\":3,\"p2\":1.2500000000000004,\"m\":100},\"con_andamiaje\":false,\"think_ms\":2403}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_manip\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2449}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":53}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_numeric\",\"valor\":\"999\",\"con_andamiaje\":false,\"think_ms\":2266}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_numeric\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2314}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":56}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cp1_income_direction\",\"valor\":1,\"con_andamiaje\":false,\"think_ms\":2247}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cp1_income_direction\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2304}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":59}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_manip\",\"valor\":{\"p1\":3,\"p2\":1.2500000000000004,\"m\":100},\"con_andamiaje\":false,\"think_ms\":2526}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_manip\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2589}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":62}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_numeric\",\"valor\":\"999\",\"con_andamiaje\":false,\"think_ms\":2328}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_numeric\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2389}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":65}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cp1_income_direction\",\"valor\":1,\"con_andamiaje\":false,\"think_ms\":2250}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cp1_income_direction\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2357}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":68}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_manip\",\"valor\":{\"p1\":3,\"p2\":1.2500000000000004,\"m\":100},\"con_andamiaje\":false,\"think_ms\":2372}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_manip\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2437}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":71}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_numeric\",\"valor\":\"999\",\"con_andamiaje\":false,\"think_ms\":2223}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_numeric\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2276}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":74}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cp1_income_direction\",\"valor\":1,\"con_andamiaje\":false,\"think_ms\":2263}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cp1_income_direction\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2409}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":77}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_manip\",\"valor\":{\"p1\":3,\"p2\":1.2500000000000004,\"m\":100},\"con_andamiaje\":false,\"think_ms\":2317}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_manip\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2391}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":80}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_numeric\",\"valor\":\"999\",\"con_andamiaje\":false,\"think_ms\":2264}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_numeric\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2347}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":83}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cp1_income_direction\",\"valor\":1,\"con_andamiaje\":false,\"think_ms\":2210}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cp1_income_direction\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2254}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":86}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_manip\",\"valor\":{\"p1\":3,\"p2\":1.2500000000000004,\"m\":100},\"con_andamiaje\":false,\"think_ms\":2384}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_manip\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2436}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":89}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_numeric\",\"valor\":\"999\",\"con_andamiaje\":false,\"think_ms\":2188}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_numeric\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2232}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":92}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cp1_income_direction\",\"valor\":1,\"con_andamiaje\":false,\"think_ms\":2238}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cp1_income_direction\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2283}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":95}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_manip\",\"valor\":{\"p1\":3,\"p2\":1.2500000000000004,\"m\":100},\"con_andamiaje\":false,\"think_ms\":2375}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_manip\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2421}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":98}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_numeric\",\"valor\":\"999\",\"con_andamiaje\":false,\"think_ms\":2243}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_numeric\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2286}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":101}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cp1_income_direction\",\"valor\":1,\"con_andamiaje\":false,\"think_ms\":2240}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cp1_income_direction\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2282}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":104}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_manip\",\"valor\":{\"p1\":3,\"p2\":1.2500000000000004,\"m\":100},\"con_andamiaje\":false,\"think_ms\":2378}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_manip\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2421}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":107}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_numeric\",\"valor\":\"999\",\"con_andamiaje\":false,\"think_ms\":2246}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_numeric\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2312}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":110}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cp1_income_direction\",\"valor\":1,\"con_andamiaje\":false,\"think_ms\":2211}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cp1_income_direction\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2254}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":113}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_manip\",\"valor\":{\"p1\":3,\"p2\":1.2500000000000004,\"m\":100},\"con_andamiaje\":false,\"think_ms\":2383}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_manip\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2426}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":116}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cs_m_numeric\",\"valor\":\"999\",\"con_andamiaje\":false,\"think_ms\":2246}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cs_m_numeric\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2298}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":119}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "body": "{\"question_id\":\"q_cp1_income_direction\",\"valor\":1,\"con_andamiaje\":false,\"think_ms\":2231}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.answered\",\"payload\":{\"question_id\":\"q_cp1_income_direction\",\"correcta\":false,\"shadow\":false,\"latency_ms\":2273}}"
+  },
+  {
+   "url": "POST /api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "body": "{\"type\":\"practice.capped\",\"payload\":{\"served\":40}}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":122}"
+  },
+  {
+   "url": "/api/session/c37619d2ddb74e8c8455a7cc0b05a7aa/events",
+   "status": 200,
+   "body": "{\"seq\":123}"
+  }
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "qid": "q_cp1_income_direction",
+   "modalidad": "mcq",
+   "enunciado": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+   "opciones": [
+    "Se desplaza hacia afuera, paralela",
+    "Se vuelve más plana",
+    "Pivota sobre el intercepto de x2",
+    "No cambia, porque los precios son los mismos"
+   ],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "Se vuelve más plana",
+   "dockAfter": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 1,
+   "qid": "q_cs_m_manip",
+   "modalidad": "manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "socratica": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\n",
+   "assist": {
+    "arm": "na"
+   },
+   "antes": {
+    "x": "33.3",
+    "y": "100"
+   },
+   "eligio": "ArrowDown x20 (recta hacia adentro)",
+   "despues": {
+    "x": "33.3",
+    "y": "80"
+   },
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 2,
+   "qid": "q_cs_m_numeric",
+   "modalidad": "numeric",
+   "enunciado": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "999",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "i": 3,
+   "qid": "q_cp1_income_direction",
+   "modalidad": "mcq",
+   "enunciado": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+   "opciones": [
+    "Se desplaza hacia afuera, paralela",
+    "Se vuelve más plana",
+    "Pivota sobre el intercepto de x2",
+    "No cambia, porque los precios son los mismos"
+   ],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "Se vuelve más plana",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 4,
+   "qid": "q_cs_m_manip",
+   "modalidad": "manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "antes": {
+    "x": "33.3",
+    "y": "100"
+   },
+   "eligio": "ArrowDown x20 (recta hacia adentro)",
+   "despues": {
+    "x": "33.3",
+    "y": "80"
+   },
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 5,
+   "qid": "q_cs_m_numeric",
+   "modalidad": "numeric",
+   "enunciado": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "999",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "i": 6,
+   "qid": "q_cp1_income_direction",
+   "modalidad": "mcq",
+   "enunciado": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+   "opciones": [
+    "Se desplaza hacia afuera, paralela",
+    "Se vuelve más plana",
+    "Pivota sobre el intercepto de x2",
+    "No cambia, porque los precios son los mismos"
+   ],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "Se vuelve más plana",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 7,
+   "qid": "q_cs_m_manip",
+   "modalidad": "manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "antes": {
+    "x": "33.3",
+    "y": "100"
+   },
+   "eligio": "ArrowDown x20 (recta hacia adentro)",
+   "despues": {
+    "x": "33.3",
+    "y": "80"
+   },
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 8,
+   "qid": "q_cs_m_numeric",
+   "modalidad": "numeric",
+   "enunciado": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "999",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "i": 9,
+   "qid": "q_cp1_income_direction",
+   "modalidad": "mcq",
+   "enunciado": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+   "opciones": [
+    "Se desplaza hacia afuera, paralela",
+    "Se vuelve más plana",
+    "Pivota sobre el intercepto de x2",
+    "No cambia, porque los precios son los mismos"
+   ],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "Se vuelve más plana",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 10,
+   "qid": "q_cs_m_manip",
+   "modalidad": "manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "antes": {
+    "x": "33.3",
+    "y": "100"
+   },
+   "eligio": "ArrowDown x20 (recta hacia adentro)",
+   "despues": {
+    "x": "33.3",
+    "y": "80"
+   },
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 11,
+   "qid": "q_cs_m_numeric",
+   "modalidad": "numeric",
+   "enunciado": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "999",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "i": 12,
+   "qid": "q_cp1_income_direction",
+   "modalidad": "mcq",
+   "enunciado": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+   "opciones": [
+    "Se desplaza hacia afuera, paralela",
+    "Se vuelve más plana",
+    "Pivota sobre el intercepto de x2",
+    "No cambia, porque los precios son los mismos"
+   ],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "Se vuelve más plana",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 13,
+   "qid": "q_cs_m_manip",
+   "modalidad": "manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "antes": {
+    "x": "33.3",
+    "y": "100"
+   },
+   "eligio": "ArrowDown x20 (recta hacia adentro)",
+   "despues": {
+    "x": "33.3",
+    "y": "80"
+   },
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 14,
+   "qid": "q_cs_m_numeric",
+   "modalidad": "numeric",
+   "enunciado": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "999",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "i": 15,
+   "qid": "q_cp1_income_direction",
+   "modalidad": "mcq",
+   "enunciado": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+   "opciones": [
+    "Se desplaza hacia afuera, paralela",
+    "Se vuelve más plana",
+    "Pivota sobre el intercepto de x2",
+    "No cambia, porque los precios son los mismos"
+   ],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "Se vuelve más plana",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 16,
+   "qid": "q_cs_m_manip",
+   "modalidad": "manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "antes": {
+    "x": "33.3",
+    "y": "100"
+   },
+   "eligio": "ArrowDown x20 (recta hacia adentro)",
+   "despues": {
+    "x": "33.3",
+    "y": "80"
+   },
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 17,
+   "qid": "q_cs_m_numeric",
+   "modalidad": "numeric",
+   "enunciado": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "999",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "i": 18,
+   "qid": "q_cp1_income_direction",
+   "modalidad": "mcq",
+   "enunciado": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+   "opciones": [
+    "Se desplaza hacia afuera, paralela",
+    "Se vuelve más plana",
+    "Pivota sobre el intercepto de x2",
+    "No cambia, porque los precios son los mismos"
+   ],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "Se vuelve más plana",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 19,
+   "qid": "q_cs_m_manip",
+   "modalidad": "manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "antes": {
+    "x": "33.3",
+    "y": "100"
+   },
+   "eligio": "ArrowDown x20 (recta hacia adentro)",
+   "despues": {
+    "x": "33.3",
+    "y": "80"
+   },
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 20,
+   "qid": "q_cs_m_numeric",
+   "modalidad": "numeric",
+   "enunciado": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "999",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "i": 21,
+   "qid": "q_cp1_income_direction",
+   "modalidad": "mcq",
+   "enunciado": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+   "opciones": [
+    "Se desplaza hacia afuera, paralela",
+    "Se vuelve más plana",
+    "Pivota sobre el intercepto de x2",
+    "No cambia, porque los precios son los mismos"
+   ],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "Se vuelve más plana",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 22,
+   "qid": "q_cs_m_manip",
+   "modalidad": "manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "antes": {
+    "x": "33.3",
+    "y": "100"
+   },
+   "eligio": "ArrowDown x20 (recta hacia adentro)",
+   "despues": {
+    "x": "33.3",
+    "y": "80"
+   },
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 23,
+   "qid": "q_cs_m_numeric",
+   "modalidad": "numeric",
+   "enunciado": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "999",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "i": 24,
+   "qid": "q_cp1_income_direction",
+   "modalidad": "mcq",
+   "enunciado": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+   "opciones": [
+    "Se desplaza hacia afuera, paralela",
+    "Se vuelve más plana",
+    "Pivota sobre el intercepto de x2",
+    "No cambia, porque los precios son los mismos"
+   ],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "Se vuelve más plana",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 25,
+   "qid": "q_cs_m_manip",
+   "modalidad": "manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "antes": {
+    "x": "33.3",
+    "y": "100"
+   },
+   "eligio": "ArrowDown x20 (recta hacia adentro)",
+   "despues": {
+    "x": "33.3",
+    "y": "80"
+   },
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 26,
+   "qid": "q_cs_m_numeric",
+   "modalidad": "numeric",
+   "enunciado": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "999",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "i": 27,
+   "qid": "q_cp1_income_direction",
+   "modalidad": "mcq",
+   "enunciado": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+   "opciones": [
+    "Se desplaza hacia afuera, paralela",
+    "Se vuelve más plana",
+    "Pivota sobre el intercepto de x2",
+    "No cambia, porque los precios son los mismos"
+   ],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "Se vuelve más plana",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 28,
+   "qid": "q_cs_m_manip",
+   "modalidad": "manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "antes": {
+    "x": "33.3",
+    "y": "100"
+   },
+   "eligio": "ArrowDown x20 (recta hacia adentro)",
+   "despues": {
+    "x": "33.3",
+    "y": "80"
+   },
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 29,
+   "qid": "q_cs_m_numeric",
+   "modalidad": "numeric",
+   "enunciado": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "999",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "i": 30,
+   "qid": "q_cp1_income_direction",
+   "modalidad": "mcq",
+   "enunciado": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+   "opciones": [
+    "Se desplaza hacia afuera, paralela",
+    "Se vuelve más plana",
+    "Pivota sobre el intercepto de x2",
+    "No cambia, porque los precios son los mismos"
+   ],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "Se vuelve más plana",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 31,
+   "qid": "q_cs_m_manip",
+   "modalidad": "manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "antes": {
+    "x": "33.3",
+    "y": "100"
+   },
+   "eligio": "ArrowDown x20 (recta hacia adentro)",
+   "despues": {
+    "x": "33.3",
+    "y": "80"
+   },
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 32,
+   "qid": "q_cs_m_numeric",
+   "modalidad": "numeric",
+   "enunciado": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "999",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "i": 33,
+   "qid": "q_cp1_income_direction",
+   "modalidad": "mcq",
+   "enunciado": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+   "opciones": [
+    "Se desplaza hacia afuera, paralela",
+    "Se vuelve más plana",
+    "Pivota sobre el intercepto de x2",
+    "No cambia, porque los precios son los mismos"
+   ],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "Se vuelve más plana",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 34,
+   "qid": "q_cs_m_manip",
+   "modalidad": "manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "antes": {
+    "x": "33.3",
+    "y": "100"
+   },
+   "eligio": "ArrowDown x20 (recta hacia adentro)",
+   "despues": {
+    "x": "33.3",
+    "y": "80"
+   },
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 35,
+   "qid": "q_cs_m_numeric",
+   "modalidad": "numeric",
+   "enunciado": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "999",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "i": 36,
+   "qid": "q_cp1_income_direction",
+   "modalidad": "mcq",
+   "enunciado": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+   "opciones": [
+    "Se desplaza hacia afuera, paralela",
+    "Se vuelve más plana",
+    "Pivota sobre el intercepto de x2",
+    "No cambia, porque los precios son los mismos"
+   ],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "Se vuelve más plana",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 37,
+   "qid": "q_cs_m_manip",
+   "modalidad": "manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "antes": {
+    "x": "33.3",
+    "y": "100"
+   },
+   "eligio": "ArrowDown x20 (recta hacia adentro)",
+   "despues": {
+    "x": "33.3",
+    "y": "80"
+   },
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 38,
+   "qid": "q_cs_m_numeric",
+   "modalidad": "numeric",
+   "enunciado": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?",
+   "opciones": [],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "999",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0}"
+  },
+  {
+   "i": 39,
+   "qid": "q_cp1_income_direction",
+   "modalidad": "mcq",
+   "enunciado": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+   "opciones": [
+    "Se desplaza hacia afuera, paralela",
+    "Se vuelve más plana",
+    "Pivota sobre el intercepto de x2",
+    "No cambia, porque los precios son los mismos"
+   ],
+   "assist": {
+    "arm": "na"
+   },
+   "eligio": "Se vuelve más plana",
+   "dockAfter": [
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    }
+   ],
+   "estadoDock": "abierto-activo",
+   "answerResp": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "i": 40,
+   "event": "NO_NEW_QUESTION_TIMEOUT",
+   "dock": [
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a practicar un poco."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a pensarlo distinto."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    }
+   ]
+  }
+ ],
+ "final": {
+  "dock": [
+   {
+    "cls": "msg tutor",
+    "txt": "Vamos a practicar un poco."
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Vamos a pensarlo distinto."
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Vamos a pensarlo distinto."
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Vamos a pensarlo distinto."
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Vamos a pensarlo distinto."
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Vamos a pensarlo distinto."
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Vamos a pensarlo distinto."
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Vamos a pensarlo distinto."
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Vamos a pensarlo distinto."
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Vamos a pensarlo distinto."
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Vamos a pensarlo distinto."
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Vamos a pensarlo distinto."
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Vamos a pensarlo distinto."
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\n        Tu respuesta\n          \n        \n        Responder"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Vamos a pensarlo distinto."
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   }
+  ],
+  "dockEstado": "abierto-activo",
+  "bodyDataset": {
+   "dock": "abierto-activo"
+  },
+  "acciones": [
+   "No entiendo",
+   "Otro ejemplo",
+   "Más despacio",
+   "¿Por qué?",
+   "Listo, sigamos"
+  ],
+  "composer": true,
+  "botonesVivos": []
+ }
+}

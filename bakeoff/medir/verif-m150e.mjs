@@ -1,0 +1,34 @@
+import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
+import {chromium} from 'playwright-core';
+const base = path.join(os.homedir(), 'Library/Caches/ms-playwright');
+const d = fs.readdirSync(base).filter(x=>x.startsWith('chromium-')).sort((a,b)=>+a.split('-')[1]-+b.split('-')[1]).pop();
+const exe = path.join(base, d, 'chrome-mac-arm64','Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const browser = await chromium.launch({executablePath: exe, args:['--autoplay-policy=no-user-gesture-required']});
+const ctx = await browser.newContext({viewport:{width:1280,height:860}});
+const page = await ctx.newPage();
+page.on('pageerror', e => console.log('  JS ERROR:', String(e).slice(0,200)));
+await page.goto('http://localhost:57330/?lang=es', {waitUntil:'domcontentloaded'});
+await page.waitForFunction('window.__tutoria && window.__tutoria.media.duration() > 0', null, {timeout:30000});
+await page.evaluate(()=>{const m=window.__tutoria.media; m.seek(m.duration()-1.2); m.play();});
+await page.waitForSelector('.dock-body .pregunta .q-opcion');
+await page.locator('.dock-body .pregunta').last().locator('.q-opcion').nth(0).click();
+await page.waitForFunction(()=>document.querySelector('.dock-body .pregunta:last-child .q-manip'),null,{timeout:20000});
+await page.waitForTimeout(700);
+
+const g = await page.evaluate(()=>{
+  const svg = document.querySelector('.lienzo svg');
+  const targets = Array.from(svg.querySelectorAll('.capa-manip circle[fill="transparent"]'));
+  return targets.map(t=>{ const b=t.getBoundingClientRect(); return {cx:+t.getAttribute('cx'), cy:+t.getAttribute('cy'), sx:b.x+b.width/2, sy:b.y+b.height/2, cursor:t.getAttribute('cursor')}; });
+});
+console.log('tiradores (px pantalla):', JSON.stringify(g));
+const tY = g.find(t=>t.cursor==='ns-resize');
+await page.mouse.move(tY.sx, tY.sy);
+await page.mouse.down();
+for (let i=1;i<=25;i++) await page.mouse.move(tY.sx, tY.sy - i*3);
+await page.mouse.up();
+await page.waitForTimeout(400);
+console.log('TRAS ARRASTRE VERTICAL:');
+console.log('  aria :', await page.evaluate(()=>document.querySelector('.lienzo svg').getAttribute('aria-label')));
+console.log('  bands:', await page.evaluate(()=>document.querySelector('.bands')?.innerText.replace(/\n+/g,' | ')));
+await page.screenshot({path:'verif-drag2.png'});
+await browser.close();

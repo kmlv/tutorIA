@@ -1,0 +1,3449 @@
+{
+ "mode": "wrong",
+ "jsErrors": [],
+ "consoleErrors": [],
+ "net": [
+  {
+   "url": "/api/session",
+   "status": 200,
+   "body": "{\"session_id\":\"f9016e0ed4a141fa98f9861ab5b5897e\",\"concept_id\":\"budget-line\",\"titulo\":\"La línea presupuestaria\",\"media\":{\"pack\":\"budget-line\",\"lang\":\"es\",\"audio\":\"20260810-194907_budget-line-es.mp3\",\"duration_s\":232.752,\"sync_granularity\":\"sentence\",\"cues\":[{\"id\":\"consumo\",\"type\":\"graph\",\"t\":2.25,\"warning\":null},{\"id\":\"canasta\",\"type\":\"graph\",\"t\":24.239,\"warning\":null},{\"id\":\"espacio\",\"type\":\"graph\",\"t\":44.318,\"warning\":null},{\"id\":\"budget_set\",\"type\":\"graph\",\"t\":67.955,\"warning\":null},{\"id\":\"line_vs_set\",\"type\":\"prediction\",\"t\":87.045,\"warning\":null},{\"id\":\"budget_line\",\"type\":\"graph\",\"t\":87.045,\"warning\":null},{\"id\":\"intercepts\",\"type\":\"graph\",\"t\":107.727,\"warning\":null},{\"id\":\"slope_sign\",\"type\":\"prediction\",\"t\":123.864,\"warning\":null},{\"id\":\"slope\",\"type\":\"graph\",\"t\":123.864,\"warning\":null},{\"id\":\"cp1\",\"type\":\"checkpoint\",\"t\":144.761,\"warning\":null},{\"id\":\"income_shift\",\"type\":\"graph\""
+  },
+  {
+   "url": "/api/packs/budget-line?lang=es",
+   "status": 200,
+   "body": "{\"id\":\"budget-line\",\"version\":\"0.1.0\",\"titulo\":{\"es\":\"La línea presupuestaria\",\"en\":\"The Budget Constraint\"},\"lang\":[\"en\",\"es\"],\"media_variant_default\":\"A\",\"ejemplo\":{\"bien_1\":{\"es\":\"café\",\"en\":\"coffee\"},\"bien_2\":{\"es\":\"jugo de naranja\",\"en\":\"orange juice\"},\"p1\":3.0,\"p2\":1.0,\"m\":100.0},\"checkpoints\":[{\"id\":\"cp1\",\"despues_de_cue\":\"slope\",\"pregunta_ref\":\"q_cp1_income_direction\"},{\"id\":\"cp2\",\"despues_de_cue\":\"price_pivot\",\"pregunta_ref\":\"q_cp2_why_intercept_fixed\"}],\"predictions\":{\"line_vs_set\":\"q_predict_line_vs_set\",\"slope_sign\":\"q_predict_slope_sign\",\"price_effect\":\"q_predict_price_effect\"},\"sub_skills\":[{\"id\":\"BL.EQ\",\"esencial\":true,\"umbral\":0.8,\"titulo\":{\"es\":\"Plantear p1·x1 + p2·x2 = m e interpretar cada término\",\"en\":\"State p1·x1 + p2·x2 = m and interpret each term\"},\"misconceptions\":[],\"estado\":\"revisar_en_validacion\"},{\"id\":\"BL.INT\",\"esencial\":true,\"umbral\":0.8,\"titulo\":{\"es\":\"Inte"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":2}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/answer",
+   "status": 200,
+   "body": "{\"correcta\":false,\"score\":0.0,\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":5}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":7}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":9}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":11}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":13}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":15}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":17}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":19}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":21}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":23}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":25}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":27}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":29}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":31}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":33}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":35}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":37}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":39}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":41}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":43}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":45}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":47}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":49}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":51}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":53}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":55}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":57}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":59}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":61}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":63}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":65}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":67}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":69}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":71}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":73}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":75}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":77}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":79}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/next",
+   "status": 200,
+   "body": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"},\"socratica\":\"Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?\\n\"}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":81}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":83}"
+  },
+  {
+   "url": "/api/session/f9016e0ed4a141fa98f9861ab5b5897e/events",
+   "status": 200,
+   "body": "{\"seq\":84}"
+  }
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "qid": "q_cp1_income_direction",
+   "cls": "q q-mcq",
+   "enunciado": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+   "opciones": [
+    "Se desplaza hacia afuera, paralela",
+    "Se vuelve más plana",
+    "Pivota sobre el intercepto de x2",
+    "No cambia, porque los precios son los mismos"
+   ],
+   "html": "<div class=\"q q-mcq\"><p class=\"q-enunciado\">Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?</p><div class=\"q-opciones\"><button class=\"q-opcion\">Se desplaza hacia afuera, paralela</button><button class=\"q-opcion\">Se vuelve más plana</button><button class=\"q-opcion\">Pivota sobre el intercepto de x2</button><button class=\"q-opcion\">No cambia, porque los precios son los mismos</button></div></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a practicar un poco."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    }
+   ],
+   "modalidad": "mcq",
+   "eligio": "Se vuelve más plana",
+   "dockAfter": [
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a practicar un poco."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 1,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a practicar un poco."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 2,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 3,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 4,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 5,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 6,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 7,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 8,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 9,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 10,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 11,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 12,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 13,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 14,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 15,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 16,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 17,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 18,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 19,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 20,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 21,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 22,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 23,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 24,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 25,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 26,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 27,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 28,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 29,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 30,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 31,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 32,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 33,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 34,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 35,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 36,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 37,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 38,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 39,
+   "qid": "q_cs_m_manip",
+   "cls": "q q-manip",
+   "enunciado": "El ingreso sube a 150. Mueve la recta a su nueva posición.",
+   "opciones": [],
+   "html": "<div class=\"q q-manip\"><p class=\"q-enunciado\">El ingreso sube a 150. Mueve la recta a su nueva posición.</p><p class=\"q-nota\">Arrastra los extremos de la recta.</p><button class=\"primario\">Listo</button></div>",
+   "dockBefore": [
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "modalidad": "manip",
+   "eligio": "CLICK Listo sin arrastrar",
+   "dockAfter": [
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ],
+   "estadoDock": "abierto-activo"
+  },
+  {
+   "i": 40,
+   "event": "NO_NEW_QUESTION_TIMEOUT",
+   "dock": [
+    {
+     "cls": "msg tutor",
+     "txt": "Vamos a practicar un poco."
+    },
+    {
+     "cls": "pregunta",
+     "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    },
+    {
+     "cls": "msg tutor",
+     "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+    },
+    {
+     "cls": "pregunta",
+     "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+    }
+   ]
+  }
+ ],
+ "final": {
+  "dock": [
+   {
+    "cls": "msg tutor",
+    "txt": "Vamos a practicar un poco."
+   },
+   {
+    "cls": "pregunta",
+    "txt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?Se desplaza hacia afuera, paralelaSe vuelve más planaPivota sobre el intercepto de x2No cambia, porque los precios son los mismos"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   },
+   {
+    "cls": "msg tutor",
+    "txt": "Te duplican la mesada. ¿Cambió el precio de un kilo de café medido en litros de jugo?"
+   },
+   {
+    "cls": "pregunta",
+    "txt": "El ingreso sube a 150. Mueve la recta a su nueva posición.Arrastra los extremos de la recta.Listo"
+   }
+  ],
+  "dockEstado": "abierto-activo",
+  "bodyDataset": {
+   "dock": "abierto-activo"
+  },
+  "hayQ": false,
+  "acciones": [
+   "No entiendo",
+   "Otro ejemplo",
+   "Más despacio",
+   "¿Por qué?",
+   "Listo, sigamos"
+  ]
+ }
+}

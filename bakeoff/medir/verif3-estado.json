@@ -1,0 +1,37 @@
+{
+ "t": 144.763432,
+ "paused": true,
+ "estado": {
+  "p1": 3,
+  "p2": 1,
+  "m": 100,
+  "mostrar": {
+   "ejes": true,
+   "linea": true,
+   "interceptos": true,
+   "conjunto": true,
+   "pendiente": true
+  },
+  "fantasma": null,
+  "destacar": "pendiente",
+  "muestras": [],
+  "enfasis": "ninguno"
+ },
+ "bands": "▲ | Café | kg | x1 | $3/kg | − | p | 2 | ​ | p | 1 | ​ | ​ | =− | 1$/L | 3$/kg | ​ | =−3 | kg | L | ​ | x | 2 | ​ | = | p | 2 | ​ | m | ​ | − | p | 2 | ​ | p | 1 | ​ | ​ | x | 1 | ​ | ● | Jugo De Naranja | L | x2 | $1/L",
+ "q": "Antes de seguir: la región sombreada es el conjunto presupuestario. ¿Qué es entonces la recta que la bordea?",
+ "ops": [
+  "Las canastas que gastan exactamente todo el ingreso",
+  "Las únicas canastas alcanzables",
+  "Las canastas que no puedes pagar",
+  "3 litros",
+  "1 tercio de litro",
+  "A nada: puedo comprar más de los dos",
+  "Se desplaza hacia afuera, paralela",
+  "Se vuelve más plana",
+  "Pivota sobre el intercepto de x2",
+  "No cambia, porque los precios son los mismos"
+ ],
+ "manip": false,
+ "qall": "Antes de seguir: la región sombreada es el conjunto presupuestario. ¿Qué es entonces la recta que la bordea? ~ Las canastas que gastan exactamente todo el ingreso ~ Las únicas canastas alcanzables ~ Las canastas que no puedes pagar",
+ "caps": "Antes de seguir, piénsalo un momento. Ocultar subtítulos Transcripción"
+}

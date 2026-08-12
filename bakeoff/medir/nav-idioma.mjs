@@ -1,0 +1,23 @@
+import {abrir, SNAP} from './nav-lib.mjs';
+const errores=[];
+const {browser,page} = await abrir('http://localhost:57330/?lang=es', {errores});
+await page.click('#play');
+await page.waitForTimeout(20000);
+let s = await page.evaluate(SNAP);
+console.log('antes de cambiar idioma:', JSON.stringify({t:s.t, reloj:s.reloj, paused:s.paused, cap:(s.caption||'').slice(0,50)}));
+console.log('href del enlace:', await page.getAttribute('.idioma','href'));
+await page.click('.idioma');
+await page.waitForLoadState('domcontentloaded');
+await page.waitForFunction('window.__tutoria && window.__tutoria.media.duration() > 0', null, {timeout:30000});
+await page.waitForTimeout(1500);
+s = await page.evaluate(SNAP);
+console.log('DESPUÉS de pulsar "English":', JSON.stringify({url:s.url, t:s.t, reloj:s.reloj, paused:s.paused, play:s.play, cap:(s.caption||'').slice(0,70), mostrar:Object.entries(s.estado.mostrar).filter(([,v])=>v).map(([k])=>k).join('+')||'nada'},null,1));
+await page.screenshot({path:'/private/tmp/claude-502/-Users-klopezva-GithubRepos-tutorIA/1050f3d7-49f3-4d77-9e6b-99bd05c2d5ac/scratchpad/idioma.png'});
+// pulsar play y ver qué se oye/lee
+await page.click('#play');
+await page.waitForTimeout(4000);
+s = await page.evaluate(SNAP);
+console.log('tras play en EN:', JSON.stringify({t:s.t, reloj:s.reloj, cap:(s.caption||'').slice(0,70), mostrar:Object.entries(s.estado.mostrar).filter(([,v])=>v).map(([k])=>k).join('+')||'nada'}));
+await page.screenshot({path:'/private/tmp/claude-502/-Users-klopezva-GithubRepos-tutorIA/1050f3d7-49f3-4d77-9e6b-99bd05c2d5ac/scratchpad/idioma-play.png'});
+if(errores.length) console.log('ERRORES', errores);
+await browser.close();

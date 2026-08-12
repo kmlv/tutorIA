@@ -1,0 +1,126 @@
+{
+ "t": 176.130039,
+ "paused": true,
+ "estado": {
+  "p1": 3,
+  "p2": 1,
+  "m": 150,
+  "mostrar": {
+   "ejes": true,
+   "linea": true,
+   "interceptos": true,
+   "conjunto": true,
+   "pendiente": true
+  },
+  "fantasma": {
+   "p1": 3,
+   "p2": 1,
+   "m": 100
+  },
+  "destacar": "ninguno",
+  "muestras": [],
+  "enfasis": "ninguno"
+ },
+ "bands": "▲ Café kg x1 $3/kg m:100→150slope=−3 (unchanged) ● Jugo De Naranja L x2 $1/L",
+ "caps": "Ahora al revés.",
+ "qtxt": "Predice: ahora sube el precio del café. ¿Qué le pasa a la recta?",
+ "botones": [
+  "Las canastas que gastan exactamente todo el ingreso",
+  "Las únicas canastas alcanzables",
+  "Las canastas que no puedes pagar",
+  "3 litros",
+  "1 tercio de litro",
+  "A nada: puedo comprar más de los dos",
+  "Se desplaza hacia afuera, paralela",
+  "Se vuelve más plana",
+  "Pivota sobre el intercepto de x2",
+  "No cambia, porque los precios son los mismos",
+  "Gira: el intercepto del jugo no se mueve",
+  "Se desplaza hacia adentro, paralela",
+  "Gira, pero el que no se mueve es el intercepto del café",
+  "No entiendo",
+  "Otro ejemplo",
+  "Más despacio",
+  "¿Por qué?",
+  "Listo, sigamos"
+ ],
+ "svgTxt": [
+  {
+   "txt": "x₁ — café",
+   "x": 522,
+   "y": 438
+  },
+  {
+   "txt": "x₂ — jugo de naranja",
+   "x": 76,
+   "y": 28
+  },
+  {
+   "txt": "50.0",
+   "x": 502,
+   "y": 418
+  },
+  {
+   "txt": "150",
+   "x": 50,
+   "y": 46
+  },
+  {
+   "txt": "−3",
+   "x": 265,
+   "y": 202
+  }
+ ],
+ "trazos": [
+  {
+   "cls": "eje",
+   "x1": "62",
+   "y1": "396",
+   "x2": "532",
+   "y2": "396",
+   "d": "",
+   "pts": "",
+   "dash": null
+  },
+  {
+   "cls": "eje",
+   "x1": "62",
+   "y1": "396",
+   "x2": "62",
+   "y2": "34",
+   "d": "",
+   "pts": "",
+   "dash": null
+  },
+  {
+   "cls": "recta fantasma punteada",
+   "x1": "62",
+   "y1": "169.75",
+   "x2": "355.74999999999994",
+   "y2": "396",
+   "d": "",
+   "pts": "",
+   "dash": null
+  },
+  {
+   "cls": "recta linea",
+   "x1": "62",
+   "y1": "56.625",
+   "x2": "502.62499999999994",
+   "y2": "396",
+   "d": "",
+   "pts": "",
+   "dash": null
+  },
+  {
+   "cls": "triangulo",
+   "x1": null,
+   "y1": null,
+   "x2": null,
+   "y2": null,
+   "d": "M 247.06249999999997 199.16250000000002 L 255.87499999999997 199.16250000000002 ",
+   "pts": "",
+   "dash": null
+  }
+ ]
+}

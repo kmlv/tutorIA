@@ -1,0 +1,282 @@
+[
+ {
+  "u": "session",
+  "b": "{\"session_id\":\"35fe09e594af4846860a90b3db20c918\",\"concept_id\":\"budget-line\",\"titulo\":\"La línea presupuestaria\",\"media\":{\"pack\":\"budget-line\",\"lang\":\"es\",\"audio\":\"20260810-194907_budget-line-es.mp3\",\"duration_s\":232.752,\"sync_granularity\":\"sentence\",\"cues\":[{\"id\":\"consumo\",\"type\":\"graph\",\"t\":2.25,\"warning\":null},{\"id\":\"canasta\",\"type\":\"graph\",\"t\":24.239,\"warning\":null},{\"id\":\"espacio\",\"type\":\"graph\",\"t\":44.318,\"warning\":null},{\"id\":\"budget_set\",\"type\":\"graph\",\"t\":67.955,\"warning\":null},{\"id\":\"line_vs_set\",\"type\":\"prediction\",\"t\":87.045,\"warning\":null},{\"id\":\"budget_line\",\"type\":\"graph\",\"t\":87.045,\"warning\":null},{\"id\":\"intercepts\",\"type\":\"graph\",\"t\":107.727,\"warning\":null},{\"id\":\"slope_sign\",\"type\":\"prediction\",\"t\":123.864,\"warning\":null},{\"id\":\"slope\",\"type\":\"graph\",\"t\":123.864,\"warning\":null},{\"id\":\"cp1\",\"type\":\"checkpoint\",\"t\":144.761,\"warning\":null},{\"id\":\"income_shift\",\"type\":\"graph\""
+ },
+ {
+  "u": "packs/budget-line?lang=es",
+  "b": "{\"id\":\"budget-line\",\"version\":\"0.1.0\",\"titulo\":{\"es\":\"La línea presupuestaria\",\"en\":\"The Budget Constraint\"},\"lang\":[\"en\",\"es\"],\"media_variant_default\":\"A\",\"ejemplo\":{\"bien_1\":{\"es\":\"café\",\"en\":\"coffee\"},\"bien_2\":{\"es\":\"jugo de naranja\",\"en\":\"orange juice\"},\"p1\":3.0,\"p2\":1.0,\"m\":100.0},\"checkpoints\":[{\"id\":\"cp1\",\"despues_de_cue\":\"slope\",\"pregunta_ref\":\"q_cp1_income_direction\"},{\"id\":\"cp2\",\"despues_de_cue\":\"price_pivot\",\"pregunta_ref\":\"q_cp2_why_intercept_fixed\"}],\"predictions\":{\"line_vs_set\":\"q_predict_line_vs_set\",\"slope_sign\":\"q_predict_slope_sign\",\"price_effect\":\"q_predict_price_effect\"},\"sub_skills\":[{\"id\":\"BL.EQ\",\"esencial\":true,\"umbral\":0.8,\"titulo\":{\"es\":\"Plantear p1·x1 + p2·x2 = m e interpretar cada término\",\"en\":\"State p1·x1 + p2·x2 = m and interpret each term\"},\"misconceptions\":[],\"estado\":\"revisar_en_validacion\"},{\"id\":\"BL.INT\",\"esencial\":true,\"umbral\":0.8,\"titulo\":{\"es\":\"Inte"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_cp1_income_direction\",\"modalidad\":\"mcq\",\"enunciado\":\"Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?\",\"opciones\":[\"Se desplaza hacia afuera, paralela\",\"Se vuelve más plana\",\"Pivota sobre el intercepto de x2\",\"No cambia, porque los precios son los mismos\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":2}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":5}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El ingreso sube a 150. Mueve la recta a su nueva posición.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_cs_m_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"Tu ingreso sube de 100 a 150 y los precios no cambian. ¿Cuál es el nuevo intercepto vertical?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":8}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_cs_p_mcq\",\"modalidad\":\"mcq\",\"enunciado\":\"El precio del café sube de 3 a 4. ¿Qué le pasa a la línea?\",\"opciones\":[\"Pivota: el intercepto del jugo no se mueve y la recta se empina\",\"Se desplaza hacia adentro, paralela\",\"Baja el intercepto vertical m/p2\",\"Se vuelve más plana\"],\"manip_modo\":null},\"assist\":{\"arm\":\"push\",\"texto\":\"Una pista antes de responder: Cada intercepto depende de un solo precio: es todo el ingreso gastado en ese bien. Si cambia el precio del otro bien, ese intercepto no tiene por qué moverse.\\n\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":11}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":15}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_cs_p_manip\",\"modalidad\":\"manip\",\"enunciado\":\"El precio del café sube a 4. Mueve la recta.\",\"opciones\":null,\"manip_modo\":\"line\"},\"assist\":{\"arm\":\"solo\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":17}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_cp2_why_intercept_fixed\",\"modalidad\":\"open\",\"enunciado\":\"¿Por qué el intercepto del jugo NO se mueve cuando sube el precio del café?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":20}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"registrada\":true,\"mensaje\":\"Anotado. Seguimos.\"}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_cs_p_mcq\",\"modalidad\":\"mcq\",\"enunciado\":\"El precio del café sube de 3 a 4. ¿Qué le pasa a la línea?\",\"opciones\":[\"Pivota: el intercepto del jugo no se mueve y la recta se empina\",\"Se desplaza hacia adentro, paralela\",\"Baja el intercepto vertical m/p2\",\"Se vuelve más plana\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":23}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_eq_mcq\",\"modalidad\":\"mcq\",\"enunciado\":\"¿Cuál de estas expresiones es la línea presupuestaria?\",\"opciones\":[\"p1·x1 + p2·x2 = m\",\"p1·x1 + p2·x2 ≤ m\",\"x1/p1 + x2/p2 = m\",\"p1·p2 = m\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":26}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_eq_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"Compras 12 kg de café. Si agotas tu ingreso, ¿cuántos litros de jugo compras?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":29}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":32}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_eq_mcq_terms\",\"modalidad\":\"mcq\",\"enunciado\":\"En p1·x1 + p2·x2 = m, ¿qué representa el término p1·x1?\",\"opciones\":[\"Lo que gastas en el bien 1\",\"Cuántas unidades del bien 1 compras\",\"El precio relativo del bien 1\",\"Lo que te queda tras comprar el bien 1\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_feas_mcq\",\"modalidad\":\"mcq\",\"enunciado\":\"Compras 10 kg de café y 20 L de jugo. ¿Esa canasta es alcanzable?\",\"opciones\":[\"Sí, gasta 50 y te sobran 50\",\"No, porque no agota el ingreso\",\"No, porque no está sobre la recta\",\"Sí, y además es la mejor canasta posible\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":35}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_feas_manip\",\"modalidad\":\"manip\",\"enunciado\":\"Arrastra el punto hasta una canasta que puedas pagar SIN gastar todo tu ingreso.\",\"opciones\":null,\"manip_modo\":\"point\"},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":38}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_feas_open\",\"modalidad\":\"open\",\"enunciado\":\"¿Qué diferencia hay entre la línea presupuestaria y el conjunto presupuestario?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":41}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"registrada\":true,\"mensaje\":\"Anotado. Seguimos.\"}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_feas_mcq\",\"modalidad\":\"mcq\",\"enunciado\":\"Compras 10 kg de café y 20 L de jugo. ¿Esa canasta es alcanzable?\",\"opciones\":[\"Sí, gasta 50 y te sobran 50\",\"No, porque no agota el ingreso\",\"No, porque no está sobre la recta\",\"Sí, y además es la mejor canasta posible\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":44}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_int_numeric_1\",\"modalidad\":\"numeric\",\"enunciado\":\"Con ingreso 100 y precios p1=3 y p2=1: si gastas todo en jugo, ¿cuántos litros compras?\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":47}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_int_mcq\",\"modalidad\":\"mcq\",\"enunciado\":\"¿Cuál es el intercepto vertical de la línea presupuestaria?\",\"opciones\":[\"m/p2\",\"m/p1\",\"-p1/p2\",\"m\"],\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":50}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_int_numeric_2\",\"modalidad\":\"numeric\",\"enunciado\":\"¿Y si gastas todo en café? Redondea a un decimal.\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":53}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_slope_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"¿Cuál es la pendiente de la línea presupuestaria? Incluye el signo.\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"push\",\"texto\":\"Una pista antes de responder: La pendiente es cuánto del bien del eje vertical tienes que soltar para comprar una unidad más del bien del eje horizontal: el precio de uno, medido en unidades del otro.\\n\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":56}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":60}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_slope_mcq\",\"modalidad\":\"mcq\",\"enunciado\":\"La pendiente de la línea presupuestaria es:\",\"opciones\":[\"-p1/p2\",\"-p2/p1\",\"+p1/p2, porque ambos precios son positivos\",\"m/p2\"],\"manip_modo\":null},\"assist\":{\"arm\":\"solo\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":62}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_slope_open\",\"modalidad\":\"open\",\"enunciado\":\"Explica con tus palabras qué significa que la pendiente sea -3. No uses la fórmula: dímelo en café y jugo.\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":65}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"registrada\":true,\"mensaje\":\"Anotado. Seguimos.\"}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":null,\"question\":{\"id\":\"q_slope_numeric\",\"modalidad\":\"numeric\",\"enunciado\":\"¿Cuál es la pendiente de la línea presupuestaria? Incluye el signo.\",\"opciones\":null,\"manip_modo\":null},\"assist\":{\"arm\":\"na\"}}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":68}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/answer",
+  "b": "{\"correcta\":true,\"score\":1.0}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/next",
+  "b": "{\"done\":\"concept_mastered\"}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":71}"
+ },
+ {
+  "u": "session/35fe09e594af4846860a90b3db20c918/events",
+  "b": "{\"seq\":72}"
+ }
+]

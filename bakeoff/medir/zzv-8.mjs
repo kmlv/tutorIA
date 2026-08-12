@@ -1,0 +1,37 @@
+import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
+import {chromium} from 'playwright-core';
+const OUT='/private/tmp/claude-502/-Users-klopezva-GithubRepos-tutorIA/1050f3d7-49f3-4d77-9e6b-99bd05c2d5ac/scratchpad';
+const base = path.join(os.homedir(), 'Library/Caches/ms-playwright');
+const d = fs.readdirSync(base).filter(x=>x.startsWith('chromium-')).sort((a,b)=>+a.split('-')[1]-+b.split('-')[1]).pop();
+const exe = path.join(base, d, 'chrome-mac-arm64','Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const browser = await chromium.launch({executablePath: exe, args:['--autoplay-policy=no-user-gesture-required']});
+const page = await (await browser.newContext({viewport:{width:1280,height:860}})).newPage();
+page.on('pageerror', e => console.log('  JS ERROR:', String(e).slice(0,200)));
+await page.goto('http://localhost:57330/?lang=es', {waitUntil:'domcontentloaded'});
+await page.waitForFunction('window.__tutoria && window.__tutoria.media.duration() > 0', null, {timeout:30000});
+await page.evaluate('window.__tutoria.practice.start(); 1');
+await page.waitForSelector('.dock .pregunta:last-child .q-opciones button');
+await page.click('.dock .pregunta:last-child .q-opciones button');
+await page.waitForSelector('.dock .pregunta:last-child .q.q-manip', {timeout:15000});
+await page.waitForTimeout(400);
+const snap = () => page.evaluate(()=>{const svg=document.querySelector('.lienzo svg');const l=svg.querySelector('.capa-linea .recta.linea');
+  return {x2:l?Math.round(+l.getAttribute('x2')):null, tir:[...svg.querySelectorAll('.capa-manip .tirador')].map(c=>[Math.round(+c.getAttribute('cx')),Math.round(+c.getAttribute('cy'))]),
+    txt:[...svg.querySelectorAll('.capa-interceptos text')].map(t=>t.textContent), t:+window.__tutoria.media.currentTime().toFixed(2)};});
+const arrastrar = async (destUnidades) => {
+  const hit = await page.evaluate(() => {const el=[...document.querySelectorAll('.lienzo svg .capa-manip circle')].find(c=>c.getAttribute('cursor')==='ew-resize');const r=el.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};});
+  const dest = await page.evaluate((u) => {const svg=document.querySelector('.lienzo svg');const l=svg.querySelector('.capa-linea .recta.linea');const x0=62;const ppu=(355.75-62)/(100/3);const p=svg.createSVGPoint();p.x=x0+ppu*u;p.y=396;const q=p.matrixTransform(svg.getScreenCTM());return {x:q.x,y:q.y};}, destUnidades);
+  await page.mouse.move(hit.x,hit.y); await page.mouse.down();
+  for(let i=1;i<=12;i++) await page.mouse.move(hit.x+(dest.x-hit.x)*i/12, hit.y,{steps:1});
+  await page.mouse.up(); await page.waitForTimeout(300);
+};
+await arrastrar(50);
+console.log('tras arrastre a 50:', JSON.stringify(await snap()));
+await page.click('#play');
+await page.waitForFunction('window.__tutoria.media.currentTime() > 2.6', null, {timeout:15000});
+await page.waitForTimeout(300);
+console.log('tras cue consumo:', JSON.stringify(await snap()));
+console.log('--- ahora el alumno vuelve a arrastrar el anillo (que esta en 503) a 45 ---');
+await arrastrar(45);
+console.log('tras 2o arrastre:', JSON.stringify(await snap()));
+await page.screenshot({path:OUT+'/RE-drag.png'});
+await browser.close();

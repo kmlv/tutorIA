@@ -1,0 +1,32 @@
+import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
+import {chromium} from 'playwright-core';
+const base = path.join(os.homedir(), 'Library/Caches/ms-playwright');
+const d = fs.readdirSync(base).filter(x=>x.startsWith('chromium-')).sort((a,b)=>+a.split('-')[1]-+b.split('-')[1]).pop();
+const exe = path.join(base, d, 'chrome-mac-arm64','Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const browser = await chromium.launch({executablePath: exe, args:['--autoplay-policy=no-user-gesture-required']});
+const ctx = await browser.newContext({viewport:{width:1280,height:860}});
+const page = await ctx.newPage();
+await page.goto('http://localhost:57330/?lang=es&t=0',{waitUntil:'domcontentloaded'});
+await page.waitForFunction('window.__tutoria && window.__tutoria.media.duration() > 0');
+await page.click('#play'); await page.waitForTimeout(4000);
+console.log('HTML de la barra de transporte:');
+console.log(await page.evaluate(()=>{const c=document.querySelector('.controles')||document.querySelector('#play').parentElement; return c.outerHTML.replace(/\s+/g,' ').slice(0,900);}));
+console.log('clic en el reloj ->');
+const a=await page.evaluate(()=>+window.__tutoria.media.currentTime().toFixed(1));
+await page.click('.reloj').catch(()=>console.log(' no clicable'));
+await page.waitForTimeout(800);
+console.log(' antes',a,'despues',await page.evaluate(()=>+window.__tutoria.media.currentTime().toFixed(1)));
+console.log('hover en la barra -> aparece algo?');
+await page.hover('.controles').catch(()=>{});
+await page.waitForTimeout(600);
+console.log(await page.evaluate(()=>document.querySelectorAll('input[type=range],progress,[role=slider]').length+' sliders'));
+console.log('teclas j/k/l/flechas/0 con foco en el boton:');
+await page.focus('#play');
+for(const k of ['ArrowLeft','ArrowRight','KeyJ','KeyL','Digit0','Home']){
+  const b=await page.evaluate(()=>+window.__tutoria.media.currentTime().toFixed(1));
+  await page.keyboard.press(k.startsWith('Key')?k.slice(3):k.startsWith('Digit')?k.slice(5):k);
+  await page.waitForTimeout(300);
+  const c=await page.evaluate(()=>+window.__tutoria.media.currentTime().toFixed(1));
+  console.log(' ',k, b,'->',c, Math.abs(c-b)>1.2?'MUEVE':'');
+}
+await browser.close();

@@ -1,0 +1,316 @@
+{
+ "q_int_numeric_1": {
+  "modalidad": "numeric",
+  "tier": 1,
+  "sub": "BL.INT",
+  "grader": "deterministic",
+  "respuesta": {
+   "expr": "m / p2",
+   "tolerancia": 0.01
+  }
+ },
+ "q_int_numeric_2": {
+  "modalidad": "numeric",
+  "tier": 2,
+  "sub": "BL.INT",
+  "grader": "deterministic",
+  "respuesta": {
+   "expr": "m / p1",
+   "tolerancia": 0.05
+  }
+ },
+ "q_int_mcq": {
+  "modalidad": "mcq",
+  "tier": 2,
+  "sub": "BL.INT",
+  "grader": "deterministic",
+  "opciones": [
+   {
+    "es": "m/p2",
+    "correcta": true
+   },
+   {
+    "es": "m/p1",
+    "correcta": false
+   },
+   {
+    "es": "-p1/p2",
+    "correcta": false
+   },
+   {
+    "es": "m",
+    "correcta": false
+   }
+  ]
+ },
+ "q_slope_numeric": {
+  "modalidad": "numeric",
+  "tier": 1,
+  "sub": "BL.SLOPE",
+  "grader": "deterministic",
+  "respuesta": {
+   "expr": "-p1 / p2",
+   "tolerancia": 0.01
+  }
+ },
+ "q_slope_mcq": {
+  "modalidad": "mcq",
+  "tier": 2,
+  "sub": "BL.SLOPE",
+  "grader": "deterministic",
+  "opciones": [
+   {
+    "es": "-p1/p2",
+    "correcta": true
+   },
+   {
+    "es": "-p2/p1",
+    "correcta": false
+   },
+   {
+    "es": "+p1/p2, porque ambos precios son positivos",
+    "correcta": false
+   },
+   {
+    "es": "m/p2",
+    "correcta": false
+   }
+  ]
+ },
+ "q_slope_open": {
+  "modalidad": "open",
+  "tier": 3,
+  "sub": "BL.SLOPE",
+  "grader": "llm"
+ },
+ "q_feas_mcq": {
+  "modalidad": "mcq",
+  "tier": 1,
+  "sub": "BL.FEAS",
+  "grader": "deterministic",
+  "opciones": [
+   {
+    "es": "Sí, gasta 50 y te sobran 50",
+    "correcta": true
+   },
+   {
+    "es": "No, porque no agota el ingreso",
+    "correcta": false
+   },
+   {
+    "es": "No, porque no está sobre la recta",
+    "correcta": false
+   },
+   {
+    "es": "Sí, y además es la mejor canasta posible",
+    "correcta": false
+   }
+  ]
+ },
+ "q_feas_manip": {
+  "modalidad": "manip",
+  "tier": 2,
+  "sub": "BL.FEAS",
+  "grader": "deterministic"
+ },
+ "q_feas_open": {
+  "modalidad": "open",
+  "tier": 3,
+  "sub": "BL.FEAS",
+  "grader": "llm"
+ },
+ "q_cp1_income_direction": {
+  "modalidad": "mcq",
+  "tier": 1,
+  "sub": "BL.CS.M",
+  "grader": "deterministic",
+  "opciones": [
+   {
+    "es": "Se desplaza hacia afuera, paralela",
+    "correcta": true
+   },
+   {
+    "es": "Se vuelve más plana",
+    "correcta": false
+   },
+   {
+    "es": "Pivota sobre el intercepto de x2",
+    "correcta": false
+   },
+   {
+    "es": "No cambia, porque los precios son los mismos",
+    "correcta": false
+   }
+  ]
+ },
+ "q_cs_m_manip": {
+  "modalidad": "manip",
+  "tier": 2,
+  "sub": "BL.CS.M",
+  "grader": "deterministic"
+ },
+ "q_cs_p_mcq": {
+  "modalidad": "mcq",
+  "tier": 2,
+  "sub": "BL.CS.P",
+  "grader": "deterministic",
+  "opciones": [
+   {
+    "es": "Pivota: el intercepto del jugo no se mueve y la recta se empina",
+    "correcta": true
+   },
+   {
+    "es": "Se desplaza hacia adentro, paralela",
+    "correcta": false
+   },
+   {
+    "es": "Baja el intercepto vertical m/p2",
+    "correcta": false
+   },
+   {
+    "es": "Se vuelve más plana",
+    "correcta": false
+   }
+  ]
+ },
+ "q_cs_p_manip": {
+  "modalidad": "manip",
+  "tier": 3,
+  "sub": "BL.CS.P",
+  "grader": "deterministic"
+ },
+ "q_cp2_why_intercept_fixed": {
+  "modalidad": "open",
+  "tier": 3,
+  "sub": "BL.CS.P",
+  "grader": "llm"
+ },
+ "q_eq_mcq": {
+  "modalidad": "mcq",
+  "tier": 1,
+  "sub": "BL.EQ",
+  "grader": "deterministic",
+  "opciones": [
+   {
+    "es": "p1·x1 + p2·x2 = m",
+    "correcta": true
+   },
+   {
+    "es": "p1·x1 + p2·x2 ≤ m",
+    "correcta": false
+   },
+   {
+    "es": "x1/p1 + x2/p2 = m",
+    "correcta": false
+   },
+   {
+    "es": "p1·p2 = m",
+    "correcta": false
+   }
+  ]
+ },
+ "q_eq_numeric": {
+  "modalidad": "numeric",
+  "tier": 2,
+  "sub": "BL.EQ",
+  "grader": "deterministic",
+  "respuesta": {
+   "expr": "(m - p1*12) / p2",
+   "tolerancia": 0.01
+  }
+ },
+ "q_eq_mcq_terms": {
+  "modalidad": "mcq",
+  "tier": 2,
+  "sub": "BL.EQ",
+  "grader": "deterministic",
+  "opciones": [
+   {
+    "es": "Lo que gastas en el bien 1",
+    "correcta": true
+   },
+   {
+    "es": "Cuántas unidades del bien 1 compras",
+    "correcta": false
+   },
+   {
+    "es": "El precio relativo del bien 1",
+    "correcta": false
+   },
+   {
+    "es": "Lo que te queda tras comprar el bien 1",
+    "correcta": false
+   }
+  ]
+ },
+ "q_cs_m_numeric": {
+  "modalidad": "numeric",
+  "tier": 2,
+  "sub": "BL.CS.M",
+  "grader": "deterministic",
+  "respuesta": {
+   "expr": "150 / p2",
+   "tolerancia": 0.01
+  }
+ },
+ "q_predict_line_vs_set": {
+  "modalidad": "mcq",
+  "tier": 1,
+  "sub": "BL.FEAS",
+  "grader": "deterministic",
+  "opciones": [
+   {
+    "es": "Las canastas que gastan exactamente todo el ingreso",
+    "correcta": true
+   },
+   {
+    "es": "Las únicas canastas alcanzables",
+    "correcta": false
+   },
+   {
+    "es": "Las canastas que no puedes pagar",
+    "correcta": false
+   }
+  ]
+ },
+ "q_predict_slope_sign": {
+  "modalidad": "mcq",
+  "tier": 1,
+  "sub": "BL.SLOPE",
+  "grader": "deterministic",
+  "opciones": [
+   {
+    "es": "3 litros",
+    "correcta": true
+   },
+   {
+    "es": "1 tercio de litro",
+    "correcta": false
+   },
+   {
+    "es": "A nada: puedo comprar más de los dos",
+    "correcta": false
+   }
+  ]
+ },
+ "q_predict_price_effect": {
+  "modalidad": "mcq",
+  "tier": 2,
+  "sub": "BL.CS.P",
+  "grader": "deterministic",
+  "opciones": [
+   {
+    "es": "Gira: el intercepto del jugo no se mueve",
+    "correcta": true
+   },
+   {
+    "es": "Se desplaza hacia adentro, paralela",
+    "correcta": false
+   },
+   {
+    "es": "Gira, pero el que no se mueve es el intercepto del café",
+    "correcta": false
+   }
+  ]
+ }
+}

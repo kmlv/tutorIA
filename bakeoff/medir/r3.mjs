@@ -1,0 +1,11 @@
+import {abrir, snapFn} from './lib.mjs';
+const {browser,page} = await abrir('http://localhost:57330/?lang=es&t=84');
+const reloj = await page.evaluate(()=>document.querySelector('#reloj').innerText);
+console.log('reloj al cargar ?t=84 ->', reloj, '| estado:', JSON.stringify((await page.evaluate(()=>window.__tutoria.estado())).mostrar));
+await page.screenshot({path:'sh-t84-carga.png'});
+await page.click('#play');
+await new Promise(r=>setTimeout(r,3500));
+const r2 = await page.evaluate(()=>({reloj:document.querySelector('#reloj').innerText, cap:document.querySelector('.captions-band').innerText.split('\n')[0], mostrar:window.__tutoria.estado().mostrar}));
+console.log('tras 3.5s de play ->', JSON.stringify(r2));
+await page.screenshot({path:'sh-t84-play3s.png'});
+await browser.close();

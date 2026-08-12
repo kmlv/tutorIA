@@ -1,0 +1,118 @@
+{
+ "t": 177.382753,
+ "paused": false,
+ "estado": {
+  "p1": 4,
+  "p2": 1,
+  "m": 100,
+  "mostrar": {
+   "ejes": true,
+   "linea": true,
+   "interceptos": true,
+   "conjunto": true,
+   "pendiente": true
+  },
+  "fantasma": {
+   "p1": 3,
+   "p2": 1,
+   "m": 100
+  },
+  "destacar": "intercepto_x2",
+  "muestras": [],
+  "enfasis": "ninguno"
+ },
+ "bands": "▲ Café kg x1 $4/kg p 1 ​ :3→4 p 2 ​ m ​ =100 (unchanged) ● Jugo De Naranja L x2 $1/L",
+ "caps": "Ahora al revés.",
+ "qtxt": "Tu ingreso sube de 100 a 150. ¿Qué le pasa a la línea?",
+ "botones": [
+  "Las canastas que gastan exactamente todo el ingreso",
+  "Las únicas canastas alcanzables",
+  "Las canastas que no puedes pagar",
+  "3 litros",
+  "1 tercio de litro",
+  "A nada: puedo comprar más de los dos",
+  "Se desplaza hacia afuera, paralela",
+  "Se vuelve más plana",
+  "Pivota sobre el intercepto de x2",
+  "No cambia, porque los precios son los mismos"
+ ],
+ "svgTxt": [
+  {
+   "txt": "x₁ — café",
+   "x": 522,
+   "y": 438
+  },
+  {
+   "txt": "x₂ — jugo de naranja",
+   "x": 76,
+   "y": 28
+  },
+  {
+   "txt": "25.0",
+   "x": 282,
+   "y": 418
+  },
+  {
+   "txt": "100",
+   "x": 50,
+   "y": 159
+  },
+  {
+   "txt": "−4",
+   "x": 173,
+   "y": 269
+  }
+ ],
+ "trazos": [
+  {
+   "cls": "eje",
+   "x1": "62",
+   "y1": "396",
+   "x2": "532",
+   "y2": "396",
+   "d": "",
+   "pts": "",
+   "dash": null
+  },
+  {
+   "cls": "eje",
+   "x1": "62",
+   "y1": "396",
+   "x2": "62",
+   "y2": "34",
+   "d": "",
+   "pts": "",
+   "dash": null
+  },
+  {
+   "cls": "recta fantasma punteada",
+   "x1": "62",
+   "y1": "169.75",
+   "x2": "355.74999999999994",
+   "y2": "396",
+   "d": "",
+   "pts": "",
+   "dash": null
+  },
+  {
+   "cls": "recta linea",
+   "x1": "62",
+   "y1": "169.75",
+   "x2": "282.3125",
+   "y2": "396",
+   "d": "",
+   "pts": "",
+   "dash": null
+  },
+  {
+   "cls": "triangulo",
+   "x1": null,
+   "y1": null,
+   "x2": null,
+   "y2": null,
+   "d": "M 154.53125 264.775 L 163.34375 264.775 L 163.34375 273.825",
+   "pts": "",
+   "dash": null
+  }
+ ]
+}
