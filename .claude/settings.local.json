@@ -16,7 +16,27 @@
       "Bash(python -c \"import bcrypt; print\\(bcrypt.__version__\\)\")",
       "PowerShell(Get-Process *)",
       "Bash(python *)",
-      "PowerShell(Invoke-RestMethod -Uri \"http://localhost:8000/auth/register\" -Method Post -ContentType \"application/json\" -Body '{\"email\":\"profesor@tutoria.com\",\"password\":\"demo1234\",\"name\":\"Dr. Garc�a\",\"is_professor\":true,\"is_student\":false}')"
+      "PowerShell(Invoke-RestMethod -Uri \"http://localhost:8000/auth/register\" -Method Post -ContentType \"application/json\" -Body '{\"email\":\"profesor@tutoria.com\",\"password\":\"demo1234\",\"name\":\"Dr. Garc�a\",\"is_professor\":true,\"is_student\":false}')",
+      "PowerShell(Invoke-RestMethod -Uri \"http://localhost:8000/slides/topic/3\" | Select-Object id, type, order, @{n=\"preview\";e={$_.content.Substring\\(0,[Math]::Min\\(60,$_.content.Length\\)\\)}})",
+      "PowerShell(Invoke-RestMethod -Uri \"http://localhost:8000/slides/topic/3\" | ConvertTo-Json)",
+      "PowerShell(Invoke-RestMethod -Uri \"http://localhost:8000/slides/topic/3\" | ForEach-Object { \"$\\($_.order\\). [$\\($_.type\\)] $\\($_.content.Substring\\(0,[Math]::Min\\(70,$_.content.Length\\)\\)\\)\" })",
+      "PowerShell(\\(Invoke-RestMethod -Uri \"http://localhost:8000/slides/topic/3\"\\)[0].content | Select-Object -First 1)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import json,sys; slides=json.load\\(sys.stdin\\); [print\\(f'Slide {s[\\\\\"order\\\\\"]} \\({s[\\\\\"type\\\\\"]}\\): {s[\\\\\"content\\\\\"][:80]}'\\) for s in slides]\")",
+      "Bash(node *)",
+      "Bash(pkill -f \"uvicorn main:app\")",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(python3 -c \"import sys,json; o=json.load\\(sys.stdin\\); [print\\(k\\) for k in o['paths'] if 'chat' in k]\")",
+      "PowerShell(Stop-Process *)",
+      "PowerShell(taskkill *)",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\PC\\\\Documents\\\\GitHub\\\\tutorIA\\\\backend\"; Start-Process -FilePath \"python\" -ArgumentList \"-m\",\"uvicorn\",\"main:app\",\"--port\",\"8000\",\"--reload\" -NoNewWindow -RedirectStandardOutput \"$env:TEMP\\\\backend.log\" -RedirectStandardError \"$env:TEMP\\\\backend_err.log\" -PassThru | Select-Object -ExpandProperty Id)",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\PC\\\\Documents\\\\GitHub\\\\tutorIA\\\\frontend\"; Start-Process -FilePath \"npm\" -ArgumentList \"run\",\"dev\" -NoNewWindow -RedirectStandardOutput \"$env:TEMP\\\\frontend.log\" -RedirectStandardError \"$env:TEMP\\\\frontend_err.log\" -PassThru | Select-Object -ExpandProperty Id)",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\PC\\\\Documents\\\\GitHub\\\\tutorIA\\\\frontend\"; Start-Process -FilePath \"cmd.exe\" -ArgumentList \"/c\",\"npm run dev > $env:TEMP\\\\frontend.log 2>&1\" -NoNewWindow -PassThru | Select-Object -ExpandProperty Id)",
+      "PowerShell(Get-Content *)",
+      "PowerShell(Start-Sleep -Seconds 4; \\(Invoke-RestMethod -Uri \"http://localhost:8000/health\" -ErrorAction SilentlyContinue\\) | ConvertTo-Json)",
+      "Bash(sqlite3 *)",
+      "Bash(npx tsc *)"
     ]
   }
 }

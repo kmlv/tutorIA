@@ -23,6 +23,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="stylesheet" href="/jsxgraph.css" />
+        <link rel="stylesheet" href="/katex.min.css" />
+        <script src="/jsxgraphcore.js" defer />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

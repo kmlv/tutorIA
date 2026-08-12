@@ -160,12 +160,20 @@ export default function CourseDetailPage() {
                     </p>
                   )}
                 </div>
-                <button
-                  onClick={() => handleDeleteTopic(topic)}
-                  className="text-red-400 hover:text-red-600 text-sm ml-4 shrink-0"
-                >
-                  Eliminar
-                </button>
+                <div className="flex items-center gap-3 ml-4 shrink-0">
+                  <button
+                    onClick={() => router.push(`/professor/courses/${id}/topics/${topic.id}`)}
+                    className="text-blue-500 hover:text-blue-700 text-sm"
+                  >
+                    Slides
+                  </button>
+                  <button
+                    onClick={() => handleDeleteTopic(topic)}
+                    className="text-red-400 hover:text-red-600 text-sm"
+                  >
+                    Eliminar
+                  </button>
+                </div>
               </div>
             ))}
           </div>
