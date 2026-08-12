@@ -1,0 +1,557 @@
+1
+00:00:00,528 --> 00:00:03,195
+(lively music)
+
+2
+00:00:07,140 --> 00:00:08,460
+- [Instructor] The next very important,
+
+3
+00:00:08,460 --> 00:00:13,440
+very important concept is
+that of the marginal utility.
+
+4
+00:00:13,440 --> 00:00:17,229
+Marginal in a sense means incremental
+
+5
+00:00:17,229 --> 00:00:22,229
+and marginal Utility is the
+notion or the name we give
+
+6
+00:00:24,450 --> 00:00:28,530
+to how sensitive is the satisfaction level
+
+7
+00:00:28,530 --> 00:00:31,770
+to increases in the
+consumption of one good.
+
+8
+00:00:31,770 --> 00:00:33,270
+Let me repeat that.
+
+9
+00:00:33,270 --> 00:00:36,960
+Marginal utility is a measure
+
+10
+00:00:36,960 --> 00:00:41,960
+of what is the impact of
+consuming more of one good
+
+11
+00:00:42,930 --> 00:00:46,473
+on the satisfaction
+level or utility level.
+
+12
+00:00:47,460 --> 00:00:51,150
+So technically, the marginal
+utility of commodity X1
+
+13
+00:00:51,150 --> 00:00:54,150
+is a rate of change of the total utility
+
+14
+00:00:54,150 --> 00:00:58,840
+as a quantity of it
+consume of X1 increases
+
+15
+00:01:00,300 --> 00:01:04,140
+that hopefully it's
+ringing some mathematical
+
+16
+00:01:04,140 --> 00:01:07,470
+notions that you have learned
+in your calculus courses.
+
+17
+00:01:07,470 --> 00:01:11,580
+And in particular, the
+marginal utility is nothing but
+
+18
+00:01:11,580 --> 00:01:13,290
+something you already know
+
+19
+00:01:13,290 --> 00:01:17,820
+and that is the notion
+of a partial derivative.
+
+20
+00:01:17,820 --> 00:01:21,720
+A partial derivative is
+the mathematical element
+
+21
+00:01:21,720 --> 00:01:25,560
+or the mathematical concept
+
+22
+00:01:25,560 --> 00:01:28,713
+that is associated with marginal utility.
+
+23
+00:01:30,390 --> 00:01:33,540
+The partial derivative is
+the mathematical concept
+
+24
+00:01:33,540 --> 00:01:37,080
+associated with marginal utility.
+
+25
+00:01:37,080 --> 00:01:42,080
+The same thing is true for
+marginal utility of good two.
+
+26
+00:01:42,840 --> 00:01:46,080
+It is just the partial of
+the utility with respects
+
+27
+00:01:46,080 --> 00:01:48,090
+with respect to X2.
+
+28
+00:01:48,090 --> 00:01:51,180
+Again, marginal utility of X1,
+
+29
+00:01:51,180 --> 00:01:54,630
+meaning the impact of
+X1 on the utility level
+
+30
+00:01:54,630 --> 00:01:58,620
+is simply mathematically
+the partial derivative
+
+31
+00:01:58,620 --> 00:02:02,970
+of the utility function with respect to X1
+
+32
+00:02:02,970 --> 00:02:05,640
+and the marginal utility of X2
+
+33
+00:02:05,640 --> 00:02:09,450
+is the partial derivative
+of the utility function
+
+34
+00:02:09,450 --> 00:02:12,270
+with respect to good two,
+
+35
+00:02:12,270 --> 00:02:16,473
+to the consumption of
+good two, meaning X2.
+
+36
+00:02:18,210 --> 00:02:23,210
+Go back and think of what being
+a good and neutral or a bad
+
+37
+00:02:23,850 --> 00:02:26,070
+meant in terms of marginal utility
+
+38
+00:02:26,070 --> 00:02:29,760
+and I can give you that
+summary quickly right now.
+
+39
+00:02:29,760 --> 00:02:34,470
+So, a commodity is good if
+marginal utility is positive.
+
+40
+00:02:34,470 --> 00:02:39,060
+A commodity is bad if
+marginal utility is negative.
+
+41
+00:02:39,060 --> 00:02:44,060
+A commodity is neutral if
+marginal utility is zero.
+
+42
+00:02:45,180 --> 00:02:49,800
+However, okay, also marginal
+utility can be decreasing
+
+43
+00:02:49,800 --> 00:02:51,060
+or increasing.
+
+44
+00:02:51,060 --> 00:02:55,500
+So not only utility can be
+increasing or decreasing,
+
+45
+00:02:55,500 --> 00:02:58,290
+in most cases we will
+assume that it's increasing
+
+46
+00:02:58,290 --> 00:03:03,290
+but the marginal, the impact
+or the increment of utility
+
+47
+00:03:05,700 --> 00:03:10,700
+with respect to the increments in X1
+
+48
+00:03:11,850 --> 00:03:14,580
+denoted as the marginal utility
+
+49
+00:03:14,580 --> 00:03:17,733
+can also be increasing
+or decreasing in X1.
+
+50
+00:03:19,770 --> 00:03:24,770
+To know whether MUx, MU1 for example, MUx1
+
+51
+00:03:25,020 --> 00:03:29,700
+is increasing with respect
+to or increasing in X1,
+
+52
+00:03:29,700 --> 00:03:33,220
+we simply take again the derivative of MU1
+
+53
+00:03:34,290 --> 00:03:36,420
+with respect to X1.
+
+54
+00:03:36,420 --> 00:03:39,693
+That is, we calculate
+this partial derivative.
+
+55
+00:03:43,050 --> 00:03:46,450
+Let's do, let us do some examples with
+
+56
+00:03:47,310 --> 00:03:49,500
+one of the non-preferences
+
+57
+00:03:49,500 --> 00:03:52,593
+and then we will go back to the slides.
+
+58
+00:03:58,020 --> 00:04:03,020
+Examples of marginal utility. Sorry.
+
+59
+00:04:08,100 --> 00:04:13,100
+Okay so, let's start with this.
+
+60
+00:04:21,570 --> 00:04:26,570
+Example, so we're going to have utility.
+
+61
+00:04:26,820 --> 00:04:29,490
+We're going to start with some form,
+
+62
+00:04:29,490 --> 00:04:33,733
+one kind of cab daggers so
+it's going to be X1 1/2 X2.
+
+63
+00:04:37,110 --> 00:04:41,910
+So, the marginal utility
+of good one would be again,
+
+64
+00:04:41,910 --> 00:04:46,800
+the partial of the utility
+with respect to X1.
+
+65
+00:04:46,800 --> 00:04:49,560
+And so how do we do this in this case?
+
+66
+00:04:49,560 --> 00:04:53,460
+Well, notice that first
+we have this term here,
+
+67
+00:04:53,460 --> 00:04:57,720
+we need to take derivatives of
+and the second term, this one
+
+68
+00:04:57,720 --> 00:04:59,970
+does not depend on X1.
+
+69
+00:04:59,970 --> 00:05:03,660
+So we pretty much need to
+use only the second term.
+
+70
+00:05:03,660 --> 00:05:08,190
+So it's gonna be 1/2
+because of the exponent X1.
+
+71
+00:05:08,190 --> 00:05:12,330
+Now the exponent minus one,
+which is gonna be 1/2 minus one,
+
+72
+00:05:12,330 --> 00:05:14,620
+which take us to minus 1/2
+
+73
+00:05:15,720 --> 00:05:20,720
+and then we need to multiply
+by X2 because X2 is not...
+
+74
+00:05:22,860 --> 00:05:25,110
+we're not using that to take derivatives.
+
+75
+00:05:25,110 --> 00:05:29,520
+Therefore, with respect to
+what we're doing is a constant
+
+76
+00:05:29,520 --> 00:05:32,400
+so we need to multiply it.
+
+77
+00:05:32,400 --> 00:05:35,550
+Okay, so this would be MU, MU1.
+
+78
+00:05:37,380 --> 00:05:42,380
+We can also calculate MU2
+which is the partial derivative
+
+79
+00:05:42,510 --> 00:05:46,980
+of utility with respect to X2.
+
+80
+00:05:46,980 --> 00:05:49,650
+in this particular case now,
+
+81
+00:05:49,650 --> 00:05:53,700
+notice that we need to
+do this one first, X2
+
+82
+00:05:53,700 --> 00:05:55,800
+and then just multiply
+by this whole thing.
+
+83
+00:05:55,800 --> 00:06:00,800
+So, the derivative of
+X2 with respect to X2
+
+84
+00:06:02,490 --> 00:06:04,320
+is simply one.
+
+85
+00:06:04,320 --> 00:06:06,940
+So we could simply write one
+
+86
+00:06:08,580 --> 00:06:13,580
+times now X1 power to 1/2
+
+87
+00:06:15,450 --> 00:06:19,053
+which is simply X1 power to 1/2.
+
+88
+00:06:26,190 --> 00:06:30,280
+What would happen in a
+different example in which
+
+89
+00:06:35,237 --> 00:06:39,420
+example two in which we
+have utility X1, X2 squared.
+
+90
+00:06:48,930 --> 00:06:53,930
+So let's do MU1 is the partial
+of U with respect to X1.
+
+91
+00:06:55,170 --> 00:06:58,140
+This would be the partial of this
+
+92
+00:06:58,140 --> 00:07:01,080
+which is just one times this.
+
+93
+00:07:01,080 --> 00:07:05,970
+So this would be one times X2 squared.
+
+94
+00:07:05,970 --> 00:07:09,630
+And then for MU2, we would have again
+
+95
+00:07:09,630 --> 00:07:12,990
+the partial of U with respect to X2,
+
+96
+00:07:12,990 --> 00:07:17,100
+we would have in a sense X1 again
+
+97
+00:07:17,100 --> 00:07:21,510
+because that's simply
+multiplying times two
+
+98
+00:07:21,510 --> 00:07:26,167
+because of the exponent of
+X2 times X2 because it's,
+
+99
+00:07:28,470 --> 00:07:30,360
+you know it's the exponent minus one
+
+100
+00:07:30,360 --> 00:07:32,160
+which is two minus one and one.
+
+101
+00:07:32,160 --> 00:07:37,160
+So in other words, it's
+simply two times X1 times X2.
+
+102
+00:07:37,650 --> 00:07:39,903
+That will be MU2.
+
+103
+00:07:45,270 --> 00:07:50,270
+Now let's do a third example
+for perfect substitutes.
+
+104
+00:07:58,770 --> 00:08:01,790
+So we're gonna use one of the...
+
+105
+00:08:05,280 --> 00:08:06,630
+Let's start with some numbers
+
+106
+00:08:06,630 --> 00:08:11,220
+like it's gonna be two
+times X1 plus let's say
+
+107
+00:08:11,220 --> 00:08:12,513
+three times X2.
+
+108
+00:08:13,440 --> 00:08:16,500
+That's gonna be our utility function
+
+109
+00:08:16,500 --> 00:08:20,760
+as perfect substitutes in
+this case is alpha equals two,
+
+110
+00:08:20,760 --> 00:08:22,620
+beta equals three.
+
+111
+00:08:22,620 --> 00:08:25,410
+Not that we need to write
+it always like that but
+
+112
+00:08:25,410 --> 00:08:28,590
+that is what our example is this time.
+
+113
+00:08:28,590 --> 00:08:30,810
+So, this example is very simple
+
+114
+00:08:30,810 --> 00:08:32,940
+so we're gonna do it very quickly.
+
+115
+00:08:32,940 --> 00:08:37,170
+MU1 is the partial of U with
+respect to X1 in this case,
+
+116
+00:08:37,170 --> 00:08:41,130
+then X1 is only multiplied by
+two and nothing else because
+
+117
+00:08:41,130 --> 00:08:43,860
+X2, X1 is not here.
+
+118
+00:08:43,860 --> 00:08:48,270
+So in this case, this is the simplest.
+
+119
+00:08:48,270 --> 00:08:49,103
+It just be...
+
+120
+00:08:49,103 --> 00:08:50,793
+it's gonna be just two.
+
+121
+00:08:51,900 --> 00:08:56,900
+Similarly, MU2 is going to be simply three
+
+122
+00:08:59,280 --> 00:09:01,080
+because of this term.
+
+123
+00:09:01,080 --> 00:09:02,100
+And that's it.
+
+124
+00:09:02,100 --> 00:09:03,603
+That's going to be it.
+
+125
+00:09:04,462 --> 00:09:07,129
+(lively music)
+

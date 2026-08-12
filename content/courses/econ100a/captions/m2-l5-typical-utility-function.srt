@@ -1,0 +1,941 @@
+1
+00:00:00,000 --> 00:00:02,583
+(upbeat music)
+
+2
+00:00:06,862 --> 00:00:10,890
+- [Instructor] We will now
+discuss typical utility functions
+
+3
+00:00:10,890 --> 00:00:12,990
+and we will start with something
+
+4
+00:00:12,990 --> 00:00:16,140
+that we call perfect substitutes, okay?
+
+5
+00:00:16,140 --> 00:00:20,730
+Typical utility functions
+will be utility functions
+
+6
+00:00:20,730 --> 00:00:24,150
+that we will use in many examples
+
+7
+00:00:24,150 --> 00:00:27,600
+and have some special
+properties and there will be
+
+8
+00:00:27,600 --> 00:00:31,860
+between I think three and
+five of the main ones.
+
+9
+00:00:31,860 --> 00:00:36,860
+And please beware of the mathematical,
+
+10
+00:00:37,110 --> 00:00:42,110
+as well as the conceptual
+features of this function.
+
+11
+00:00:42,270 --> 00:00:44,700
+So the first one, as we were saying,
+
+12
+00:00:44,700 --> 00:00:48,240
+the first utility or
+typical utility function
+
+13
+00:00:48,240 --> 00:00:53,240
+or common utility function will
+be the perfect substitutes.
+
+14
+00:00:55,080 --> 00:00:58,440
+That takes mainly, but not only,
+
+15
+00:00:58,440 --> 00:01:03,440
+but mainly this kind of
+utility specification.
+
+16
+00:01:04,800 --> 00:01:09,800
+Alpha times x1 plus beta times x2
+
+17
+00:01:09,990 --> 00:01:13,380
+where alpha and beta will be positive.
+
+18
+00:01:13,380 --> 00:01:18,000
+So these functions,
+however, can take, you know,
+
+19
+00:01:18,000 --> 00:01:20,070
+depending on alpha and
+beta can take many shapes.
+
+20
+00:01:20,070 --> 00:01:24,240
+If alpha and beta are both equal to one,
+
+21
+00:01:24,240 --> 00:01:26,550
+this perfect substitutes function
+
+22
+00:01:26,550 --> 00:01:30,720
+will become simply x1 plus x2.
+
+23
+00:01:30,720 --> 00:01:31,650
+Okay?
+
+24
+00:01:31,650 --> 00:01:34,303
+Utility equals x1 plus x2.
+
+25
+00:01:52,110 --> 00:01:53,580
+As we were saying,
+
+26
+00:01:53,580 --> 00:01:58,023
+perfect substitutes
+utility take the shape.
+
+27
+00:02:02,070 --> 00:02:03,670
+And an example of it
+
+28
+00:02:05,910 --> 00:02:10,910
+can be utility equals x1 plus x2.
+
+29
+00:02:11,220 --> 00:02:13,893
+This is in a sense the simplest example.
+
+30
+00:02:15,660 --> 00:02:20,660
+How can we find the indifference curves
+
+31
+00:02:21,450 --> 00:02:24,240
+for this particular utility function?
+
+32
+00:02:24,240 --> 00:02:28,380
+Well, we can apply the steps
+we have found before to draw it
+
+33
+00:02:28,380 --> 00:02:30,360
+and we will do that here.
+
+34
+00:02:30,360 --> 00:02:32,553
+We will draw indifference,
+
+35
+00:02:33,840 --> 00:02:35,613
+so the commodity space here.
+
+36
+00:02:37,560 --> 00:02:40,500
+And we will do the steps here.
+
+37
+00:02:40,500 --> 00:02:43,140
+So the first step is to identify
+it through the function.
+
+38
+00:02:43,140 --> 00:02:46,830
+The second one is to set
+it equals to one value
+
+39
+00:02:46,830 --> 00:02:50,400
+on a specific value of
+utility that we were, again,
+
+40
+00:02:50,400 --> 00:02:55,400
+instead of just using some value k,
+
+41
+00:02:55,740 --> 00:02:59,790
+we're going to directly
+say utility level five
+
+42
+00:02:59,790 --> 00:03:02,290
+and then solving for x2
+
+43
+00:03:07,200 --> 00:03:08,430
+from that equation.
+
+44
+00:03:08,430 --> 00:03:10,709
+So when utility level is five,
+
+45
+00:03:10,709 --> 00:03:15,660
+this is the indifference curve
+for that level of utility.
+
+46
+00:03:15,660 --> 00:03:19,710
+If utility level was 10, we will find
+
+47
+00:03:19,710 --> 00:03:21,600
+and you can check this,
+
+48
+00:03:21,600 --> 00:03:25,020
+we will find an indifference
+curve that will look like this.
+
+49
+00:03:25,020 --> 00:03:30,020
+But notice that these utility
+functions here and here,
+
+50
+00:03:30,540 --> 00:03:34,440
+sorry, the indifference
+curves here and here
+
+51
+00:03:34,440 --> 00:03:36,993
+are linear and they are downwards sloped.
+
+52
+00:03:37,830 --> 00:03:42,573
+That is, they will be something like this.
+
+53
+00:03:55,590 --> 00:03:59,820
+This could be indifference
+curve for utility level 10.
+
+54
+00:03:59,820 --> 00:04:03,363
+This could be indifference
+curve for utility level five.
+
+55
+00:04:08,760 --> 00:04:10,920
+Let us now talk about another,
+
+56
+00:04:10,920 --> 00:04:14,700
+a second typical utility function.
+
+57
+00:04:14,700 --> 00:04:16,500
+And in this case, we're going to deal
+
+58
+00:04:16,500 --> 00:04:20,070
+with what we call perfect complements.
+
+59
+00:04:20,070 --> 00:04:24,150
+Perfect complements are
+utility or are given
+
+60
+00:04:24,150 --> 00:04:27,810
+by utility functions
+that usually, not only,
+
+61
+00:04:27,810 --> 00:04:31,710
+but usually take this shape
+as it's been depicted here.
+
+62
+00:04:31,710 --> 00:04:34,200
+The bracket, the curly brackets, min,
+
+63
+00:04:34,200 --> 00:04:38,470
+represents a minimum
+function which yes, assigns
+
+64
+00:04:39,870 --> 00:04:42,540
+as a value of this function
+
+65
+00:04:42,540 --> 00:04:45,120
+the minimum entry of whatever
+
+66
+00:04:45,120 --> 00:04:48,780
+is inside the min curly brackets.
+
+67
+00:04:48,780 --> 00:04:51,690
+Okay, so for example,
+if you have the minimum
+
+68
+00:04:51,690 --> 00:04:54,990
+between three and five, it
+will be equal to three simply
+
+69
+00:04:54,990 --> 00:04:59,343
+because three is indeed the
+minimum between three and five.
+
+70
+00:05:01,830 --> 00:05:04,980
+The simplest perfect complements
+
+71
+00:05:04,980 --> 00:05:08,310
+will take the shape, the
+minimum of x1 and x2.
+
+72
+00:05:08,310 --> 00:05:11,070
+But a more general
+function will be this one,
+
+73
+00:05:11,070 --> 00:05:14,220
+x1 divided by alpha, x2 divided by beta
+
+74
+00:05:14,220 --> 00:05:18,873
+with alpha and beta greater than one.
+
+75
+00:05:20,340 --> 00:05:24,840
+Okay, so let's also go to the iPad
+
+76
+00:05:24,840 --> 00:05:26,913
+and see how to draw this.
+
+77
+00:05:31,740 --> 00:05:33,823
+Perfect complements.
+
+78
+00:05:38,610 --> 00:05:41,550
+Okay, perfect complements.
+
+79
+00:05:41,550 --> 00:05:44,040
+And the general utility function
+
+80
+00:05:44,040 --> 00:05:45,610
+for perfect complements
+
+81
+00:05:50,100 --> 00:05:53,820
+will be the min function
+
+82
+00:05:53,820 --> 00:05:58,820
+of x1 divided by alpha x2 divided by beta.
+
+83
+00:06:00,780 --> 00:06:03,303
+But we're going to use, in our example,
+
+84
+00:06:08,730 --> 00:06:10,110
+a simple version of it,
+
+85
+00:06:10,110 --> 00:06:12,760
+which is going to be simply the min,
+
+86
+00:06:16,236 --> 00:06:17,069
+the min
+
+87
+00:06:18,150 --> 00:06:23,150
+between x1 and x2.
+
+88
+00:06:23,370 --> 00:06:24,203
+Okay?
+
+89
+00:06:24,203 --> 00:06:28,230
+So for this utility function,
+
+90
+00:06:28,230 --> 00:06:30,430
+the indifference curves are actually drawn
+
+91
+00:06:31,500 --> 00:06:34,320
+in a different way because
+it's not straightforward
+
+92
+00:06:34,320 --> 00:06:39,320
+to draw, it is not as straightforward
+
+93
+00:06:40,740 --> 00:06:43,650
+to draw indifference
+curves as we did before.
+
+94
+00:06:43,650 --> 00:06:48,180
+So first, let's understand what
+exactly this function means.
+
+95
+00:06:48,180 --> 00:06:52,470
+This function can be written
+in an even simpler way.
+
+96
+00:06:52,470 --> 00:06:56,400
+This function can be written as this.
+
+97
+00:06:56,400 --> 00:06:58,860
+Utility equals x1
+
+98
+00:06:58,860 --> 00:07:01,500
+if x1 is indeed the minimum
+
+99
+00:07:01,500 --> 00:07:06,450
+between the two, x1 and x2, okay?
+
+100
+00:07:06,450 --> 00:07:09,870
+And utility equals x2
+
+101
+00:07:09,870 --> 00:07:14,870
+if x2 is now the minimum between the two.
+
+102
+00:07:18,618 --> 00:07:20,700
+Of course, the case in
+which they're equal,
+
+103
+00:07:20,700 --> 00:07:24,090
+and in this case, since this
+is a continuous function,
+
+104
+00:07:24,090 --> 00:07:26,190
+we can just give it to either of them
+
+105
+00:07:26,190 --> 00:07:28,200
+and we're gonna give it to the first one.
+
+106
+00:07:28,200 --> 00:07:32,763
+So this is what is going
+on in this function.
+
+107
+00:07:34,500 --> 00:07:39,500
+Now, with this,
+
+108
+00:07:40,020 --> 00:07:42,710
+we need to see whether...
+
+109
+00:07:44,010 --> 00:07:48,880
+We need to see whether we can
+draw an indifference curve
+
+110
+00:07:51,030 --> 00:07:52,650
+with this information.
+
+111
+00:07:52,650 --> 00:07:57,650
+And to that, let's note
+that in the figure,
+
+112
+00:07:58,050 --> 00:08:00,243
+oops, let's just this white one.
+
+113
+00:08:04,890 --> 00:08:09,337
+Okay, so to draw this, we
+can notice that things depend
+
+114
+00:08:10,770 --> 00:08:15,510
+on whether x1 is smaller or x2 is smaller.
+
+115
+00:08:15,510 --> 00:08:19,557
+So interestingly, we can
+divide the space x1 and x2.
+
+116
+00:08:22,680 --> 00:08:27,670
+We can divide it exactly
+in those two regions.
+
+117
+00:08:29,940 --> 00:08:34,803
+There's a region in
+which x, let's do this.
+
+118
+00:08:37,110 --> 00:08:39,850
+Okay, there's a region in which
+
+119
+00:08:44,217 --> 00:08:48,600
+x1 is higher than x2
+
+120
+00:08:48,600 --> 00:08:51,300
+and there is a region in which x1
+
+121
+00:08:51,300 --> 00:08:55,620
+is smaller than or equal than x2.
+
+122
+00:08:55,620 --> 00:08:58,413
+So we have these two regions.
+
+123
+00:08:59,430 --> 00:09:04,430
+Now, if x1 is smaller than x2,
+
+124
+00:09:05,580 --> 00:09:09,810
+then only x1, notice, determines utility.
+
+125
+00:09:09,810 --> 00:09:13,740
+That means x2 does not
+do anything for utility.
+
+126
+00:09:13,740 --> 00:09:18,240
+Therefore, indifference
+curve must be vertical.
+
+127
+00:09:18,240 --> 00:09:19,110
+Why is that?
+
+128
+00:09:19,110 --> 00:09:21,603
+It's because changes.
+
+129
+00:09:23,820 --> 00:09:25,620
+Oops, but sorry.
+
+130
+00:09:25,620 --> 00:09:30,620
+Changes for higher or lower x2
+in this region won't matter.
+
+131
+00:09:31,680 --> 00:09:34,920
+X1 is the only thing determining utility.
+
+132
+00:09:34,920 --> 00:09:39,063
+For that reason, indifference
+curves will look like this.
+
+133
+00:09:40,770 --> 00:09:45,770
+Vertical with further
+away indifference curves
+
+134
+00:09:46,770 --> 00:09:48,723
+having higher utility.
+
+135
+00:09:49,560 --> 00:09:52,860
+By the same token in the other region,
+
+136
+00:09:52,860 --> 00:09:56,070
+when x1 is above x2,
+
+137
+00:09:56,070 --> 00:09:59,640
+then x2 is gonna be the only
+thing determining utility,
+
+138
+00:09:59,640 --> 00:10:00,693
+and therefore,
+
+139
+00:10:02,160 --> 00:10:06,900
+and therefore the indifference
+curves will be flat.
+
+140
+00:10:06,900 --> 00:10:11,430
+Okay, so in this particular case,
+
+141
+00:10:11,430 --> 00:10:16,170
+this would be the indifference
+curve for utility level one,
+
+142
+00:10:16,170 --> 00:10:18,660
+and this would be the indifference curve
+
+143
+00:10:18,660 --> 00:10:22,980
+for utility level three.
+
+144
+00:10:22,980 --> 00:10:24,300
+How do I know that?
+
+145
+00:10:24,300 --> 00:10:26,340
+Well, look at this.
+
+146
+00:10:26,340 --> 00:10:30,420
+Look at these points here.
+
+147
+00:10:30,420 --> 00:10:34,487
+Suppose this is one,
+
+148
+00:10:36,120 --> 00:10:38,670
+and let's talk about three points,
+
+149
+00:10:38,670 --> 00:10:42,660
+this point, this point and this point.
+
+150
+00:10:42,660 --> 00:10:47,660
+So let's call these
+three points A, B, and C.
+
+151
+00:10:50,460 --> 00:10:52,650
+So what is point A?
+
+152
+00:10:52,650 --> 00:10:55,593
+Well, point A is the bundle,
+
+153
+00:10:56,880 --> 00:11:01,880
+one unit of x1, two units of x2.
+
+154
+00:11:02,070 --> 00:11:07,070
+The minimum between one and two
+
+155
+00:11:08,070 --> 00:11:09,393
+equals one.
+
+156
+00:11:13,500 --> 00:11:17,640
+B is the point that has one, one.
+
+157
+00:11:17,640 --> 00:11:20,730
+So one here, one here.
+
+158
+00:11:20,730 --> 00:11:25,730
+And the minimum, sorry,
+between one and one is,
+
+159
+00:11:25,980 --> 00:11:27,360
+of course, one.
+
+160
+00:11:27,360 --> 00:11:30,660
+So same utility, which is expected
+
+161
+00:11:30,660 --> 00:11:32,820
+because we are claiming those three
+
+162
+00:11:32,820 --> 00:11:36,060
+are on the same indifference curve.
+
+163
+00:11:36,060 --> 00:11:40,410
+Finally, point C has this bundle.
+
+164
+00:11:40,410 --> 00:11:42,030
+Sorry, point C corresponds
+
+165
+00:11:42,030 --> 00:11:43,560
+to the bundle two, one.
+
+166
+00:11:43,560 --> 00:11:48,560
+And again, or similarly,
+the bundle will be...
+
+167
+00:11:48,900 --> 00:11:50,160
+The utility will be the minimum
+
+168
+00:11:50,160 --> 00:11:54,780
+between two and one, which,
+of course, is once again one.
+
+169
+00:11:54,780 --> 00:11:58,830
+So indeed, these three points belong
+
+170
+00:11:58,830 --> 00:12:00,723
+to the same indifference curve.
+
+171
+00:12:02,820 --> 00:12:06,843
+You could do the same
+thing with a point like D.
+
+172
+00:12:07,900 --> 00:12:10,770
+A point like D is the bundle
+
+173
+00:12:10,770 --> 00:12:13,890
+or corresponds to the bundle three, three.
+
+174
+00:12:13,890 --> 00:12:18,890
+And this bundle three, three is such that
+
+175
+00:12:19,470 --> 00:12:22,530
+or has a utility of three,
+
+176
+00:12:22,530 --> 00:12:26,550
+of the minimum between three
+and three, which is also three.
+
+177
+00:12:26,550 --> 00:12:31,550
+So the utility level is indeed
+three for points like this
+
+178
+00:12:32,460 --> 00:12:36,985
+but it's also the same for a point like F.
+
+179
+00:12:36,985 --> 00:12:41,985
+In point F, we have bundle seven, three
+
+180
+00:12:43,350 --> 00:12:48,350
+and the minimum between seven and three,
+
+181
+00:12:48,780 --> 00:12:53,580
+it is still three and that
+is why it still belongs
+
+182
+00:12:53,580 --> 00:12:58,580
+to this indifference curve
+of utility level three.
+
+183
+00:12:58,650 --> 00:13:01,920
+Okay, I hope this clarifies
+
+184
+00:13:01,920 --> 00:13:06,333
+and now we can move on to
+our next special preference.
+
+185
+00:13:08,910 --> 00:13:11,760
+Our next special preference
+is a utility function
+
+186
+00:13:11,760 --> 00:13:13,770
+that we call Cobb-Douglas.
+
+187
+00:13:13,770 --> 00:13:17,310
+Cobb-Douglas generally takes this form.
+
+188
+00:13:17,310 --> 00:13:18,960
+It's the multiplication
+
+189
+00:13:18,960 --> 00:13:23,217
+of x1 power to A times x2 power to B
+
+190
+00:13:25,020 --> 00:13:28,620
+where both A and B are positive.
+
+191
+00:13:28,620 --> 00:13:30,870
+So here are three examples of Cobb-Douglas
+
+192
+00:13:30,870 --> 00:13:32,550
+because there are many, many functions
+
+193
+00:13:32,550 --> 00:13:34,980
+that can be Cobb-Douglas preferences
+
+194
+00:13:34,980 --> 00:13:37,020
+as they were many, many functions
+
+195
+00:13:37,020 --> 00:13:39,720
+that could be perfect complements
+or many, many functions
+
+196
+00:13:39,720 --> 00:13:41,460
+that could be perfect substitutes.
+
+197
+00:13:41,460 --> 00:13:42,960
+There are also many functions,
+
+198
+00:13:42,960 --> 00:13:46,890
+even maybe more functions
+that can be Cobb-Douglas.
+
+199
+00:13:46,890 --> 00:13:50,490
+So one of them could be where alpha and...
+
+200
+00:13:50,490 --> 00:13:54,510
+Sorry, where A and B are both 1/2
+
+201
+00:13:54,510 --> 00:13:58,890
+and which is x1 power to
+1/2 times x2 power to 1/2.
+
+202
+00:13:58,890 --> 00:14:03,203
+Another one could be x1 times x2 cubed.
+
+203
+00:14:04,560 --> 00:14:06,030
+And in this case, that means
+
+204
+00:14:06,030 --> 00:14:09,330
+that A equals to one
+and B equals to three.
+
+205
+00:14:09,330 --> 00:14:13,800
+Another one could be
+this, x1 squared times X2
+
+206
+00:14:13,800 --> 00:14:17,370
+power to 0.75, which is A, two
+
+207
+00:14:17,370 --> 00:14:20,370
+or which is what would
+happen of Cobb-Douglas
+
+208
+00:14:20,370 --> 00:14:24,903
+with A equals two and B equals 0.75.
+
+209
+00:14:26,850 --> 00:14:29,970
+This is a typical indifference map
+
+210
+00:14:29,970 --> 00:14:32,430
+of a Cobb-Douglas function.
+
+211
+00:14:32,430 --> 00:14:35,213
+Notice that it's not L-shaped
+
+212
+00:14:35,213 --> 00:14:38,190
+as it was for perfect complements.
+
+213
+00:14:38,190 --> 00:14:41,070
+It is not downward-sloping linear
+
+214
+00:14:41,070 --> 00:14:43,650
+as it was for perfect substitutes.
+
+215
+00:14:43,650 --> 00:14:47,280
+It's now convex and curvy in this manner.
+
+216
+00:14:47,280 --> 00:14:52,280
+So this is a typical indifference map
+
+217
+00:14:53,160 --> 00:14:55,713
+for Cobb-Douglas preferences.
+
+218
+00:14:55,713 --> 00:14:58,296
+(upbeat music)
+

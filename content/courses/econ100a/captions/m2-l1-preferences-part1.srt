@@ -1,0 +1,1110 @@
+1
+00:00:00,091 --> 00:00:03,008
+(intriguing music)
+
+2
+00:00:08,430 --> 00:00:09,263
+- [Instructor] Hello.
+
+3
+00:00:09,263 --> 00:00:12,930
+In this video we will discuss preferences.
+
+4
+00:00:12,930 --> 00:00:17,100
+Preferences are a term
+we use, economists use
+
+5
+00:00:17,100 --> 00:00:22,020
+to denote, in a sense, consumers' brains.
+
+6
+00:00:22,020 --> 00:00:25,410
+So consumers' brains generate, of course,
+
+7
+00:00:25,410 --> 00:00:29,373
+preferences, desires, intentions,
+
+8
+00:00:30,900 --> 00:00:32,760
+levels of satisfaction,
+
+9
+00:00:32,760 --> 00:00:36,450
+and all that is comprised, in a sense,
+
+10
+00:00:36,450 --> 00:00:39,933
+in this broader term we call preferences.
+
+11
+00:00:43,170 --> 00:00:47,310
+Economists, we assume for simplicity,
+
+12
+00:00:47,310 --> 00:00:51,480
+that the consumer knows
+how different options,
+
+13
+00:00:51,480 --> 00:00:56,480
+how different decisions
+will impact their well-being
+
+14
+00:00:56,610 --> 00:01:00,720
+and that will be able to
+choose the best one among those
+
+15
+00:01:00,720 --> 00:01:03,333
+that are available to him or her.
+
+16
+00:01:04,770 --> 00:01:07,980
+There are many ways to
+represent preferences.
+
+17
+00:01:07,980 --> 00:01:12,400
+Imagine we have three
+options, apple, banana, mango
+
+18
+00:01:13,380 --> 00:01:17,280
+and in this case, if there
+are only three options,
+
+19
+00:01:17,280 --> 00:01:21,390
+apple, banana and mango, some consumer,
+
+20
+00:01:21,390 --> 00:01:26,390
+our hypothetical consumer,
+prefers apple first,
+
+21
+00:01:29,880 --> 00:01:33,843
+but if it's between mango and banana,
+
+22
+00:01:34,770 --> 00:01:38,220
+this consumer prefers mango.
+
+23
+00:01:38,220 --> 00:01:42,000
+So the arrows have a complete description
+
+24
+00:01:42,000 --> 00:01:44,130
+of this consumer's preferences.
+
+25
+00:01:44,130 --> 00:01:46,710
+When it's apple versus banana, it's apple.
+
+26
+00:01:46,710 --> 00:01:49,050
+When it's mango versus apple, it's apple.
+
+27
+00:01:49,050 --> 00:01:51,870
+And when it's mango
+versus banana, it's mango.
+
+28
+00:01:51,870 --> 00:01:54,720
+So again, arrows are description,
+
+29
+00:01:54,720 --> 00:01:56,670
+full description of this person,
+
+30
+00:01:56,670 --> 00:01:59,553
+of this consumer's preferences.
+
+31
+00:02:01,140 --> 00:02:05,070
+Different consumers could
+have different preferences
+
+32
+00:02:05,070 --> 00:02:08,580
+and the consumer there at the top left,
+
+33
+00:02:08,580 --> 00:02:11,640
+this consumer prefers banana
+over the other fruits.
+
+34
+00:02:11,640 --> 00:02:16,640
+The consumer that is at the
+bottom is the previous consumer
+
+35
+00:02:17,700 --> 00:02:22,440
+that prefers apple to
+the other two fruits.
+
+36
+00:02:22,440 --> 00:02:27,440
+And the interesting,
+more peculiar consumer,
+
+37
+00:02:27,750 --> 00:02:31,980
+top right, prefers apple
+when compared to banana,
+
+38
+00:02:31,980 --> 00:02:34,290
+prefers mango when mango
+is compared to banana
+
+39
+00:02:34,290 --> 00:02:37,110
+and prefers banana when mango
+
+40
+00:02:37,110 --> 00:02:41,043
+and banana are to be contrasted.
+
+41
+00:02:42,900 --> 00:02:46,500
+This last case is what
+we call in economics
+
+42
+00:02:46,500 --> 00:02:48,450
+an inconsistent consumer,
+
+43
+00:02:48,450 --> 00:02:52,530
+because it does not have
+one single best option
+
+44
+00:02:52,530 --> 00:02:56,250
+in this simple universe of three fruits
+
+45
+00:02:56,250 --> 00:02:58,650
+and instead has inconsistent,
+
+46
+00:02:58,650 --> 00:03:02,463
+intransitive or cyclic preferences.
+
+47
+00:03:05,550 --> 00:03:07,860
+Arrows, however, are not the only way
+
+48
+00:03:07,860 --> 00:03:12,860
+in which we can represent preferences.
+
+49
+00:03:13,350 --> 00:03:18,350
+It is typically better to
+represent preferences in ranking.
+
+50
+00:03:18,360 --> 00:03:20,130
+For example, if I am the consumer
+
+51
+00:03:20,130 --> 00:03:22,950
+that prefers banana over
+the other two fruits,
+
+52
+00:03:22,950 --> 00:03:26,790
+I will have banana as my first option.
+
+53
+00:03:26,790 --> 00:03:28,620
+If there are other
+fruits in consideration,
+
+54
+00:03:28,620 --> 00:03:33,360
+I could have considered mango.
+
+55
+00:03:33,360 --> 00:03:35,130
+The next position in this example,
+
+56
+00:03:35,130 --> 00:03:36,510
+it will be the third position,
+
+57
+00:03:36,510 --> 00:03:40,470
+assuming that there are other
+fruits in the possibility
+
+58
+00:03:40,470 --> 00:03:45,470
+and apple would be my
+fifth favorite fruit.
+
+59
+00:03:46,440 --> 00:03:51,440
+So ranking order also can
+represent preferences,
+
+60
+00:03:52,710 --> 00:03:55,410
+not only arrows as we were saying before.
+
+61
+00:03:55,410 --> 00:03:56,820
+But there is a third way,
+
+62
+00:03:56,820 --> 00:03:58,980
+which is actually the way we will discuss
+
+63
+00:03:58,980 --> 00:04:02,490
+and we will use pretty much
+for most of this class,
+
+64
+00:04:02,490 --> 00:04:04,260
+which is satisfaction levels
+
+65
+00:04:04,260 --> 00:04:07,020
+that we will call later utility level.
+
+66
+00:04:07,020 --> 00:04:11,160
+So it could be that if
+I prefer banana most,
+
+67
+00:04:12,120 --> 00:04:15,000
+then I will give the
+highest satisfaction level,
+
+68
+00:04:15,000 --> 00:04:18,540
+let's say in this case 10
+and I will have smaller
+
+69
+00:04:18,540 --> 00:04:21,660
+or lower satisfaction
+levels to the other options.
+
+70
+00:04:21,660 --> 00:04:24,240
+For example, mango will receive eight
+
+71
+00:04:24,240 --> 00:04:26,223
+and apple will receive six.
+
+72
+00:04:29,910 --> 00:04:32,700
+Let us now do some notation.
+
+73
+00:04:32,700 --> 00:04:35,130
+So we will use some notation to simplify
+
+74
+00:04:35,130 --> 00:04:40,130
+some of the math we will
+discuss in the examples.
+
+75
+00:04:40,230 --> 00:04:44,490
+But in general, it's good to
+know how the economist language
+
+76
+00:04:44,490 --> 00:04:49,490
+or logical and mathematical
+language operates
+
+77
+00:04:50,250 --> 00:04:55,050
+to be able to read some of the discussion
+
+78
+00:04:55,050 --> 00:04:57,480
+in the textbook and outside.
+
+79
+00:04:57,480 --> 00:05:02,040
+So the first important
+notation we need to learn today
+
+80
+00:05:02,040 --> 00:05:07,040
+is about how we write or how
+we denote strict preferences.
+
+81
+00:05:08,400 --> 00:05:11,910
+We're gonna denote strict
+preferences with a symbol.
+
+82
+00:05:11,910 --> 00:05:14,310
+For example, if we want to say x
+
+83
+00:05:14,310 --> 00:05:18,330
+is strictly more preferred than y,
+
+84
+00:05:18,330 --> 00:05:22,980
+it's gonna be written in this thing
+
+85
+00:05:22,980 --> 00:05:27,540
+that is right now in a light blue frame.
+
+86
+00:05:27,540 --> 00:05:31,440
+If we want to denote weak preference,
+
+87
+00:05:31,440 --> 00:05:33,630
+meaning, saying for example,
+
+88
+00:05:33,630 --> 00:05:36,243
+x is as least as preferred as y,
+
+89
+00:05:37,860 --> 00:05:40,410
+then we will have this similar symbol,
+
+90
+00:05:40,410 --> 00:05:43,710
+but with one squiggly thin below
+
+91
+00:05:43,710 --> 00:05:48,150
+as it is now highlighted on the screen.
+
+92
+00:05:48,150 --> 00:05:50,250
+If we instead want to denote indifference,
+
+93
+00:05:50,250 --> 00:05:53,760
+we will use this tilde symbol
+
+94
+00:05:53,760 --> 00:05:58,620
+and this tilde symbol
+represents the statement,
+
+95
+00:05:58,620 --> 00:06:01,173
+x is equally preferred as y.
+
+96
+00:06:03,330 --> 00:06:05,700
+Now we're going to
+discuss some assumptions
+
+97
+00:06:05,700 --> 00:06:10,350
+that we economists impose or have
+
+98
+00:06:10,350 --> 00:06:14,520
+for the preference relations
+
+99
+00:06:14,520 --> 00:06:16,983
+and in general, for consumers' choice.
+
+100
+00:06:22,252 --> 00:06:26,010
+The first assumption,
+it's called completeness.
+
+101
+00:06:26,010 --> 00:06:30,180
+Completeness is, in colloquial terms,
+
+102
+00:06:30,180 --> 00:06:34,593
+is the idea that the
+consumer, our consumer,
+
+103
+00:06:36,600 --> 00:06:41,600
+is always able to answer
+a preference question.
+
+104
+00:06:42,420 --> 00:06:43,860
+What is a preference question?
+
+105
+00:06:43,860 --> 00:06:46,590
+A preference question
+is a question such that,
+
+106
+00:06:46,590 --> 00:06:51,590
+do you prefer iPhone or Samsung Galaxy?
+
+107
+00:06:52,140 --> 00:06:55,500
+Do you prefer apple or banana?
+
+108
+00:06:55,500 --> 00:06:57,270
+Those are preference questions
+
+109
+00:06:57,270 --> 00:07:01,080
+and completeness assumption
+says that or states
+
+110
+00:07:01,080 --> 00:07:06,080
+that the consumer is always
+able to answer something,
+
+111
+00:07:06,330 --> 00:07:10,860
+meaning saying, "I prefer
+iPhone to Samsung Galaxy,"
+
+112
+00:07:10,860 --> 00:07:13,920
+or, "I prefer Samsung Galaxy to iPhone,"
+
+113
+00:07:13,920 --> 00:07:16,830
+or, "I am indifferent between those two."
+
+114
+00:07:16,830 --> 00:07:19,530
+In simplified terms, this
+is equivalent to say,
+
+115
+00:07:19,530 --> 00:07:22,440
+the consumer should be able to say always,
+
+116
+00:07:22,440 --> 00:07:25,620
+whether x is at least as good
+
+117
+00:07:25,620 --> 00:07:30,540
+or option x is at least
+as good as option Y
+
+118
+00:07:30,540 --> 00:07:35,310
+or the opposite or the converse statement,
+
+119
+00:07:35,310 --> 00:07:40,230
+which is that y is at
+least as good as option x.
+
+120
+00:07:40,230 --> 00:07:43,770
+So the ability of the consumer to be able
+
+121
+00:07:43,770 --> 00:07:48,770
+to answer the question with this or this
+
+122
+00:07:48,870 --> 00:07:51,870
+is the assumption of completeness,
+
+123
+00:07:51,870 --> 00:07:54,153
+the consumer is always able to say.
+
+124
+00:07:55,020 --> 00:07:57,097
+So students sometimes ask me, say,
+
+125
+00:07:57,097 --> 00:08:00,093
+"Wait, that sounds very broad.
+
+126
+00:08:01,440 --> 00:08:02,760
+I mean, I don't see a situation
+
+127
+00:08:02,760 --> 00:08:06,810
+in which you will not
+satisfy completeness."
+
+128
+00:08:06,810 --> 00:08:08,610
+And I'll give you a simple example
+
+129
+00:08:08,610 --> 00:08:13,110
+of how we would not satisfy completeness.
+
+130
+00:08:13,110 --> 00:08:16,710
+Suppose I ask you, "Do you prefer
+
+131
+00:08:16,710 --> 00:08:21,180
+two burritos or two slices of pizza?"
+
+132
+00:08:21,180 --> 00:08:25,440
+And you tell me like, "I don't now."
+
+133
+00:08:25,440 --> 00:08:28,080
+So you don't tell me, "I'm indifferent,"
+
+134
+00:08:28,080 --> 00:08:29,850
+you don't tell me, "I
+prefer this to that,"
+
+135
+00:08:29,850 --> 00:08:32,490
+or, "That to this," you
+tell me, "I don't know.
+
+136
+00:08:32,490 --> 00:08:36,420
+I do not know how to answer
+that preference question."
+
+137
+00:08:36,420 --> 00:08:41,370
+If you really do not know
+how to answer that question,
+
+138
+00:08:41,370 --> 00:08:43,890
+then you indeed are violating
+
+139
+00:08:43,890 --> 00:08:46,110
+the assumption of completeness.
+
+140
+00:08:46,110 --> 00:08:49,830
+So in our words, in
+economics, completeness means
+
+141
+00:08:49,830 --> 00:08:53,280
+that we always assume that
+the consumer always knows
+
+142
+00:08:53,280 --> 00:08:55,590
+something about its preferences
+
+143
+00:08:55,590 --> 00:08:59,310
+to be able to say something regarding
+
+144
+00:08:59,310 --> 00:09:01,770
+or along the lines of,
+"I prefer this to that
+
+145
+00:09:01,770 --> 00:09:04,347
+or that to this or those are indifferent."
+
+146
+00:09:05,190 --> 00:09:08,163
+The next assumption and possibly,
+
+147
+00:09:09,480 --> 00:09:14,250
+the most important assumption,
+it's called transitivity.
+
+148
+00:09:14,250 --> 00:09:19,250
+Transitivity is a consistency assumption.
+
+149
+00:09:19,290 --> 00:09:24,290
+It's an assumption that economists have
+
+150
+00:09:24,450 --> 00:09:25,907
+to provide
+
+151
+00:09:30,330 --> 00:09:35,057
+our morals with consistent
+rational agents.
+
+152
+00:09:38,430 --> 00:09:41,130
+It is true that not everyone is rational,
+
+153
+00:09:41,130 --> 00:09:46,050
+but it's also true that most people
+
+154
+00:09:46,050 --> 00:09:48,600
+or a large portion of the populations
+
+155
+00:09:48,600 --> 00:09:51,420
+are relatively rational.
+
+156
+00:09:51,420 --> 00:09:55,830
+So transitivity consistency,
+which is related to rationality
+
+157
+00:09:55,830 --> 00:09:59,160
+is a very important
+assumption in that regard.
+
+158
+00:09:59,160 --> 00:10:01,080
+But what exactly is it?
+
+159
+00:10:01,080 --> 00:10:04,830
+What exactly transitivity assumption is?
+
+160
+00:10:04,830 --> 00:10:07,860
+So in the transitivity assumption,
+
+161
+00:10:07,860 --> 00:10:12,750
+we will rule out that consumers
+have cyclic preferences.
+
+162
+00:10:12,750 --> 00:10:14,610
+How do we do that?
+
+163
+00:10:14,610 --> 00:10:17,640
+We say, suppose there are three goods.
+
+164
+00:10:17,640 --> 00:10:20,940
+Or sorry, suppose there are three options.
+
+165
+00:10:20,940 --> 00:10:23,460
+You can take three different options.
+
+166
+00:10:23,460 --> 00:10:25,080
+They can be three different bundles
+
+167
+00:10:25,080 --> 00:10:28,290
+or they can be three
+different fruits or something.
+
+168
+00:10:28,290 --> 00:10:31,353
+There are three different choice options.
+
+169
+00:10:32,280 --> 00:10:36,243
+If we denote these three options as x,
+
+170
+00:10:38,340 --> 00:10:41,250
+whoops, I couldn't highlight, but okay.
+
+171
+00:10:41,250 --> 00:10:45,033
+If we denote these three
+options are x, y and z,
+
+172
+00:10:46,050 --> 00:10:50,880
+we should have that always
+the following statement holds.
+
+173
+00:10:50,880 --> 00:10:54,480
+If x is at least as good as y
+
+174
+00:10:54,480 --> 00:10:57,390
+and y is at least as good as z,
+
+175
+00:10:57,390 --> 00:11:02,390
+then it must be that x is
+also at least as good as z.
+
+176
+00:11:06,720 --> 00:11:11,720
+So let's actually do, sorry about that.
+
+177
+00:11:12,000 --> 00:11:14,227
+Let's actually do some example.
+
+178
+00:11:19,440 --> 00:11:24,440
+So suppose let's say that x is the iPhone
+
+179
+00:11:33,240 --> 00:11:37,643
+and y is Samsung Galaxy
+
+180
+00:11:40,110 --> 00:11:45,110
+and z is, let's say, a Nokia 900.
+
+181
+00:12:02,010 --> 00:12:07,010
+Suppose this consumer
+weakly prefers x to y,
+
+182
+00:12:08,280 --> 00:12:11,850
+meaning iPhone to the Samsung Galaxy,
+
+183
+00:12:11,850 --> 00:12:16,850
+and then also prefers the
+Samsung Galaxy to the Nokia 900,
+
+184
+00:12:23,400 --> 00:12:28,400
+it must be that the iPhone
+
+185
+00:12:34,470 --> 00:12:38,497
+is also weakly preferred to the Nokia 900.
+
+186
+00:12:40,590 --> 00:12:42,693
+So if this is correct,
+
+187
+00:12:43,620 --> 00:12:45,870
+if this is indeed what happens,
+
+188
+00:12:45,870 --> 00:12:49,923
+then we say, then transitivity assumption,
+
+189
+00:12:51,232 --> 00:12:56,232
+transitivity, holds.
+
+190
+00:13:00,390 --> 00:13:05,390
+So that is a simple
+assumption, a simple example.
+
+191
+00:13:07,110 --> 00:13:09,903
+Now let's move on to the next assumption.
+
+192
+00:13:12,240 --> 00:13:17,240
+The next assumption is,
+we call it, monotonicity
+
+193
+00:13:17,250 --> 00:13:21,033
+or simply more is better.
+
+194
+00:13:22,200 --> 00:13:26,010
+This assumption of
+monotonicity or more is better
+
+195
+00:13:26,010 --> 00:13:31,010
+is simply saying that if
+everything is the same
+
+196
+00:13:33,840 --> 00:13:36,990
+between two bundles,
+except in one of them,
+
+197
+00:13:36,990 --> 00:13:40,140
+there is more of one of the goods,
+
+198
+00:13:40,140 --> 00:13:44,490
+then the one bundle that
+has more of one of the goods
+
+199
+00:13:44,490 --> 00:13:47,610
+is strictly preferred to the order bundle.
+
+200
+00:13:47,610 --> 00:13:49,290
+So here's an example.
+
+201
+00:13:49,290 --> 00:13:53,070
+Suppose we have the bundle 5, 20,
+
+202
+00:13:53,070 --> 00:13:55,560
+Five ounces of coffee
+
+203
+00:13:55,560 --> 00:13:59,280
+and 20 cups of orange juice, let's say.
+
+204
+00:13:59,280 --> 00:14:02,673
+So five ounces of coffee
+and 20 cups of orange juice.
+
+205
+00:14:06,090 --> 00:14:09,870
+Suppose now we have
+slightly different bundle
+
+206
+00:14:09,870 --> 00:14:14,520
+that has 5.01 ounces of coffee
+
+207
+00:14:14,520 --> 00:14:18,993
+and still 20 cups of orange juice.
+
+208
+00:14:21,480 --> 00:14:26,480
+We will assume that
+just the fact of having
+
+209
+00:14:26,490 --> 00:14:28,680
+slightly more of one of the goods,
+
+210
+00:14:28,680 --> 00:14:31,230
+of at least of one of the goods,
+
+211
+00:14:31,230 --> 00:14:34,320
+then will give the second bundle,
+
+212
+00:14:34,320 --> 00:14:36,360
+the one that has a bit more coffee,
+
+213
+00:14:36,360 --> 00:14:40,020
+the property to be strictly prefer
+
+214
+00:14:40,020 --> 00:14:44,520
+over the original or the initial bundle.
+
+215
+00:14:44,520 --> 00:14:48,870
+If a consumer preference
+is word like this,
+
+216
+00:14:48,870 --> 00:14:51,630
+then we say that this consumer satisfy
+
+217
+00:14:51,630 --> 00:14:55,440
+the more is better or
+monotonicity assumption.
+
+218
+00:14:55,440 --> 00:14:58,503
+So let me ask you a
+couple of questions here.
+
+219
+00:14:59,370 --> 00:15:00,513
+So first question,
+
+220
+00:15:02,880 --> 00:15:06,663
+if the assumption of monotonicity holds,
+
+221
+00:15:07,590 --> 00:15:11,910
+which bundle is preferred, D or C?
+
+222
+00:15:11,910 --> 00:15:16,910
+D as in duck or C as in cat?
+
+223
+00:15:22,020 --> 00:15:24,723
+I hope you answered this correctly.
+
+224
+00:15:26,211 --> 00:15:28,110
+The answer is D, because in D,
+
+225
+00:15:28,110 --> 00:15:30,420
+we have not only more of one good,
+
+226
+00:15:30,420 --> 00:15:32,230
+we have more of both goods
+
+227
+00:15:33,327 --> 00:15:36,330
+with respect to C, so that is better.
+
+228
+00:15:36,330 --> 00:15:41,330
+Let's move, for example E
+here, right to the border
+
+229
+00:15:44,250 --> 00:15:49,250
+and ask what would be the
+comparison between E and C?
+
+230
+00:15:50,100 --> 00:15:54,390
+And the answer would be E
+would be strictly prefer to C,
+
+231
+00:15:54,390 --> 00:15:58,410
+because although it might have
+the same amount of good two,
+
+232
+00:15:58,410 --> 00:16:00,963
+it has more of good one.
+
+233
+00:16:02,310 --> 00:16:07,310
+And similar, you could
+ask, what is the relation
+
+234
+00:16:07,530 --> 00:16:12,480
+between C versus B under
+the monotonicity assumption?
+
+235
+00:16:12,480 --> 00:16:15,060
+And the answer would be that,
+
+236
+00:16:15,060 --> 00:16:17,343
+I'll give you a second to think about.
+
+237
+00:16:19,740 --> 00:16:23,190
+The answer would be that we don't know.
+
+238
+00:16:23,190 --> 00:16:26,610
+The monotonicity assumption
+
+239
+00:16:26,610 --> 00:16:30,240
+does not tell anything
+about between C and B.
+
+240
+00:16:30,240 --> 00:16:34,953
+It does tell things about
+D versus C, E versus C.
+
+241
+00:16:36,120 --> 00:16:39,360
+Monotonicity assumption does not solve
+
+242
+00:16:39,360 --> 00:16:42,150
+all the ranking of preferences.
+
+243
+00:16:42,150 --> 00:16:47,150
+Just gives you some of those comparisons
+
+244
+00:16:47,610 --> 00:16:51,330
+and in this case, it does
+answer the comparison
+
+245
+00:16:51,330 --> 00:16:54,656
+between D and C because
+D has more of everything.
+
+246
+00:16:54,656 --> 00:16:57,150
+It helps you with comparing E and C,
+
+247
+00:16:57,150 --> 00:17:02,040
+because E has more of one good
+
+248
+00:17:02,040 --> 00:17:07,040
+and the same of the other
+good with respect to bundle C,
+
+249
+00:17:07,230 --> 00:17:12,230
+but does not rank the
+order between A, B and C.
+
+250
+00:17:13,980 --> 00:17:17,070
+Because between B and C, for example,
+
+251
+00:17:17,070 --> 00:17:19,770
+indeed B has more than one of the goods,
+
+252
+00:17:19,770 --> 00:17:21,300
+but has less of the other,
+
+253
+00:17:21,300 --> 00:17:24,060
+so we cannot apply the same logic
+
+254
+00:17:24,060 --> 00:17:27,319
+as we did between D and C.
+
+255
+00:17:27,319 --> 00:17:30,094
+(intriguing music)
+

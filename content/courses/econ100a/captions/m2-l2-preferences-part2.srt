@@ -1,0 +1,821 @@
+1
+00:00:00,080 --> 00:00:02,663
+(upbeat music)
+
+2
+00:00:07,200 --> 00:00:10,080
+- [Instructor] Let us now
+discuss the very important notion
+
+3
+00:00:10,080 --> 00:00:15,080
+or concept of indifference
+set or indifference curve.
+
+4
+00:00:15,150 --> 00:00:18,540
+An indifference set is a set of bundles
+
+5
+00:00:18,540 --> 00:00:22,710
+that the consumer regard as equal, okay?
+
+6
+00:00:22,710 --> 00:00:25,470
+So it's a set of bundles
+
+7
+00:00:25,470 --> 00:00:29,490
+that the consumer regards as equal.
+
+8
+00:00:29,490 --> 00:00:34,490
+What that means is that
+inside the elements
+
+9
+00:00:34,590 --> 00:00:39,420
+of an indifference set are bundles
+
+10
+00:00:39,420 --> 00:00:43,650
+such that for the corresponding consumer,
+
+11
+00:00:43,650 --> 00:00:46,530
+all those bundles feel the same.
+
+12
+00:00:46,530 --> 00:00:50,403
+They are indifferent
+with each other, okay?
+
+13
+00:00:51,600 --> 00:00:55,710
+For example, suppose
+we have a bundle, okay?
+
+14
+00:00:55,710 --> 00:01:00,690
+And then we collect or identify
+
+15
+00:01:00,690 --> 00:01:03,130
+all other bundles that
+
+16
+00:01:05,850 --> 00:01:08,860
+are indifferent to x
+
+17
+00:01:10,080 --> 00:01:12,630
+for this particular consumer,
+
+18
+00:01:12,630 --> 00:01:15,270
+and that whole set will be
+
+19
+00:01:15,270 --> 00:01:18,570
+the indifference curve that contains x,
+
+20
+00:01:18,570 --> 00:01:23,493
+and we will denote it
+by the symbol I of x.
+
+21
+00:01:25,680 --> 00:01:27,453
+Remember, by definition,
+
+22
+00:01:28,650 --> 00:01:32,820
+all the bundles in this
+set can have this property
+
+23
+00:01:32,820 --> 00:01:34,473
+or will have this property.
+
+24
+00:01:36,119 --> 00:01:39,257
+That will be that each of them, sorry,
+
+25
+00:01:41,730 --> 00:01:44,313
+each of them will be indifferent to x.
+
+26
+00:01:45,810 --> 00:01:48,510
+However, it is important to note
+
+27
+00:01:48,510 --> 00:01:53,373
+that an indifference set
+is not necessarily a curve.
+
+28
+00:01:54,702 --> 00:01:57,803
+An indifference set could be a band
+
+29
+00:01:59,010 --> 00:02:03,960
+or a set that is thick, as
+we will see in some examples.
+
+30
+00:02:03,960 --> 00:02:06,090
+Under some assumptions, however,
+
+31
+00:02:06,090 --> 00:02:09,660
+this indifference set
+will indeed become curves,
+
+32
+00:02:09,660 --> 00:02:12,153
+meaning they will be infinitely thin.
+
+33
+00:02:15,600 --> 00:02:20,133
+This is an example of
+an indifference curve.
+
+34
+00:02:21,600 --> 00:02:24,870
+Suppose we have bundle 3, 4,
+
+35
+00:02:24,870 --> 00:02:28,140
+where again x-axis is coffee
+
+36
+00:02:28,140 --> 00:02:32,460
+and y-axis is orange juice.
+
+37
+00:02:32,460 --> 00:02:36,780
+So in this, by this statement here,
+
+38
+00:02:36,780 --> 00:02:40,560
+we're saying that the
+bundle 3 ounces of coffee
+
+39
+00:02:40,560 --> 00:02:44,550
+and 4 cups of orange juice is indifferent
+
+40
+00:02:44,550 --> 00:02:47,460
+to the bundle of 1 ounce coffee
+
+41
+00:02:47,460 --> 00:02:50,910
+and 12 cups of orange juice, okay?
+
+42
+00:02:50,910 --> 00:02:53,850
+So if that is correct,
+
+43
+00:02:53,850 --> 00:02:58,740
+if that statement is indeed
+true for this consumer,
+
+44
+00:02:58,740 --> 00:03:02,880
+that means that the same
+set or, in this case,
+
+45
+00:03:02,880 --> 00:03:07,080
+the same curve contains both 3, 4
+
+46
+00:03:07,080 --> 00:03:07,980
+and 1, 12.
+
+47
+00:03:07,980 --> 00:03:12,060
+In this example, we are also
+denoting that the bundle 6, 2
+
+48
+00:03:12,060 --> 00:03:14,403
+is also in the same indifference set.
+
+49
+00:03:17,880 --> 00:03:20,400
+There is a notion that is also important
+
+50
+00:03:20,400 --> 00:03:22,443
+of the weakly preferred set,
+
+51
+00:03:23,370 --> 00:03:26,610
+which is the area that is preferred
+
+52
+00:03:26,610 --> 00:03:29,640
+to a whole indifference curve
+
+53
+00:03:29,640 --> 00:03:33,120
+or some particular bundle.
+
+54
+00:03:33,120 --> 00:03:36,500
+In this case, the shaded area here
+
+55
+00:03:36,500 --> 00:03:38,520
+is the weakly preferred set
+
+56
+00:03:38,520 --> 00:03:41,880
+to this indifference curve denoted by IC,
+
+57
+00:03:41,880 --> 00:03:45,450
+which is indifference curve
+associated with bundles 3, 4,
+
+58
+00:03:45,450 --> 00:03:47,973
+1, 12, 6, 2, and many other.
+
+59
+00:03:50,430 --> 00:03:52,470
+Another very interesting question is
+
+60
+00:03:52,470 --> 00:03:56,643
+whether we have one or
+many indifference curves.
+
+61
+00:03:57,570 --> 00:04:01,623
+In the commodity space, we
+typically have infinite.
+
+62
+00:04:02,520 --> 00:04:05,850
+In fact, we will, in most cases,
+
+63
+00:04:05,850 --> 00:04:10,533
+have uncountable, infinite
+indifference curves.
+
+64
+00:04:12,240 --> 00:04:15,330
+However, we do not need to draw, you know,
+
+65
+00:04:15,330 --> 00:04:18,690
+infinite or not even
+many indifference curves.
+
+66
+00:04:18,690 --> 00:04:23,690
+Usually to describe the
+consumer preferences
+
+67
+00:04:24,270 --> 00:04:28,560
+or the corresponding consumer preferences,
+
+68
+00:04:28,560 --> 00:04:32,760
+we only need to draw
+few indifference curves.
+
+69
+00:04:32,760 --> 00:04:36,330
+The shape of these indifference curves
+
+70
+00:04:36,330 --> 00:04:41,330
+is in particular the slope
+and how curvy they are.
+
+71
+00:04:41,850 --> 00:04:45,060
+Those are giving or providing information
+
+72
+00:04:45,060 --> 00:04:47,490
+about these preferences.
+
+73
+00:04:47,490 --> 00:04:49,050
+In this particular example here,
+
+74
+00:04:49,050 --> 00:04:51,810
+we have a case in which we have drawn
+
+75
+00:04:51,810 --> 00:04:54,120
+only four indifference curves,
+
+76
+00:04:54,120 --> 00:04:57,690
+and we can see that this consumer
+
+77
+00:04:57,690 --> 00:05:02,640
+has monotonic preferences
+
+78
+00:05:02,640 --> 00:05:06,030
+because indifference
+curves are downward sloped,
+
+79
+00:05:06,030 --> 00:05:10,420
+and we more or less can
+say that this consumer
+
+80
+00:05:11,820 --> 00:05:16,820
+has similar preferences for Good 1 and 2.
+
+81
+00:05:17,340 --> 00:05:20,823
+We will see other examples in
+which that is not the case.
+
+82
+00:05:23,430 --> 00:05:28,320
+So other or another set of
+concepts that is very important
+
+83
+00:05:28,320 --> 00:05:32,520
+is that of commodities being good,
+
+84
+00:05:32,520 --> 00:05:35,040
+bad or neutral, okay?
+
+85
+00:05:35,040 --> 00:05:38,400
+So a good commodity is the one
+
+86
+00:05:38,400 --> 00:05:41,430
+that increases the satisfaction
+
+87
+00:05:41,430 --> 00:05:45,330
+or it is better for the consumer
+
+88
+00:05:45,330 --> 00:05:47,730
+to have more of it, right?
+
+89
+00:05:47,730 --> 00:05:50,520
+So that's a good, so for example,
+
+90
+00:05:50,520 --> 00:05:55,520
+if I'm eating one ounce of chocolate
+
+91
+00:05:56,970 --> 00:06:01,890
+and eating more chocolate
+will make me happier,
+
+92
+00:06:01,890 --> 00:06:03,630
+I would prefer to eat more chocolate.
+
+93
+00:06:03,630 --> 00:06:06,030
+Then at that point,
+
+94
+00:06:06,030 --> 00:06:09,540
+chocolate will be a good commodity for me.
+
+95
+00:06:09,540 --> 00:06:11,220
+It will increase my satisfaction.
+
+96
+00:06:11,220 --> 00:06:14,190
+I would prefer to have more of it,
+
+97
+00:06:14,190 --> 00:06:15,810
+but there are other ones that,
+
+98
+00:06:15,810 --> 00:06:18,843
+there are other commodities
+that could become a bad.
+
+99
+00:06:19,830 --> 00:06:23,880
+So for example, trash is a
+bad in the sense that I want,
+
+100
+00:06:23,880 --> 00:06:25,710
+I do not want more of it.
+
+101
+00:06:25,710 --> 00:06:27,900
+I want less of it.
+
+102
+00:06:27,900 --> 00:06:32,900
+So trash is an example of a bad commodity,
+
+103
+00:06:34,740 --> 00:06:39,333
+not necessarily something
+needs to be bad like all along.
+
+104
+00:06:43,078 --> 00:06:43,911
+For example, I could regard chocolate good
+
+105
+00:06:47,550 --> 00:06:51,150
+to a certain point but then
+could become a bad to me.
+
+106
+00:06:51,150 --> 00:06:52,980
+So maybe I can eat all the way
+
+107
+00:06:52,980 --> 00:06:56,280
+to half a kilogram of chocolate,
+
+108
+00:06:56,280 --> 00:06:59,910
+and then if I eat more
+than that in a week,
+
+109
+00:06:59,910 --> 00:07:02,610
+let's say a week is the time horizon,
+
+110
+00:07:02,610 --> 00:07:06,243
+then more of it will actually hurt me.
+
+111
+00:07:07,470 --> 00:07:09,390
+I will not like to have more
+
+112
+00:07:09,390 --> 00:07:12,390
+after I have eaten
+already half a kilogram.
+
+113
+00:07:12,390 --> 00:07:14,310
+Maybe I would like to have less.
+
+114
+00:07:14,310 --> 00:07:17,550
+In that sense, after half a kilogram,
+
+115
+00:07:17,550 --> 00:07:19,443
+chocolate will become a bad,
+
+116
+00:07:20,340 --> 00:07:23,520
+and the next concept
+
+117
+00:07:23,520 --> 00:07:26,190
+is the concept of neutrality.
+
+118
+00:07:26,190 --> 00:07:31,190
+So a commodity is neutral if I don't care
+
+119
+00:07:31,470 --> 00:07:34,920
+if I consume more or less of it.
+
+120
+00:07:34,920 --> 00:07:35,940
+I just don't care.
+
+121
+00:07:35,940 --> 00:07:38,610
+It doesn't increase nor
+decrease my satisfaction
+
+122
+00:07:38,610 --> 00:07:41,103
+to have more or less of that.
+
+123
+00:07:45,030 --> 00:07:48,333
+There is a fourth assumption
+that is called convexity.
+
+124
+00:07:49,260 --> 00:07:53,790
+Convexity is the assumption
+related to how people,
+
+125
+00:07:53,790 --> 00:07:58,230
+humans prefer to consume
+some form of balance,
+
+126
+00:07:58,230 --> 00:08:02,940
+balanced bundles, in the sense
+that if I have two goods,
+
+127
+00:08:02,940 --> 00:08:06,093
+in my example, I was using
+coffee and orange juice,
+
+128
+00:08:07,200 --> 00:08:12,090
+in average a consumer
+or a typical consumer
+
+129
+00:08:12,090 --> 00:08:15,570
+would not like to drink only
+coffee or only orange juice
+
+130
+00:08:15,570 --> 00:08:17,950
+but would prefer to have some combination
+
+131
+00:08:18,810 --> 00:08:21,480
+of these two goods, okay?
+
+132
+00:08:21,480 --> 00:08:24,040
+So one example would be that
+
+133
+00:08:25,410 --> 00:08:30,410
+a 50-50 mixture of two bundles,
+
+134
+00:08:30,660 --> 00:08:34,023
+one bundle having only
+coffee and another bundle,
+
+135
+00:08:35,213 --> 00:08:37,503
+y, having only orange juice,
+
+136
+00:08:39,720 --> 00:08:42,280
+a 50-50 bundle that combines
+
+137
+00:08:46,860 --> 00:08:49,050
+the average amount of coffee
+
+138
+00:08:49,050 --> 00:08:50,850
+between those two bundles, x and y,
+
+139
+00:08:50,850 --> 00:08:54,510
+and the average amount of orange juice
+
+140
+00:08:54,510 --> 00:08:58,140
+between those two bundles
+could be preferred
+
+141
+00:08:58,140 --> 00:08:59,880
+to either extreme.
+
+142
+00:08:59,880 --> 00:09:04,060
+If that is true, then this consumer
+
+143
+00:09:05,430 --> 00:09:08,310
+obeys this assumption or
+follows this assumption
+
+144
+00:09:08,310 --> 00:09:11,160
+of convexity, okay?
+
+145
+00:09:11,160 --> 00:09:14,700
+That is, mixture bundles
+are weakly preferred
+
+146
+00:09:14,700 --> 00:09:16,773
+to the extreme bundles.
+
+147
+00:09:21,300 --> 00:09:24,443
+Let's see how graphically convexity shapes
+
+148
+00:09:26,520 --> 00:09:31,520
+or gives form to the preferences
+and indifference curves.
+
+149
+00:09:32,100 --> 00:09:34,710
+So again,
+
+150
+00:09:34,710 --> 00:09:38,190
+we will have two goods,
+
+151
+00:09:38,190 --> 00:09:41,193
+and we will have, you
+know, this will be coffee,
+
+152
+00:09:43,680 --> 00:09:46,620
+and this will have orange juice,
+
+153
+00:09:46,620 --> 00:09:51,510
+and we're saying that we have two bundles.
+
+154
+00:09:51,510 --> 00:09:53,910
+One has only orange juice,
+
+155
+00:09:53,910 --> 00:09:58,590
+and the other one has only coffee,
+
+156
+00:09:58,590 --> 00:10:03,590
+and convexity says that
+a more balanced bundle,
+
+157
+00:10:03,630 --> 00:10:06,660
+c, that has kind of an average amount
+
+158
+00:10:06,660 --> 00:10:08,910
+of coffee between those two bundles,
+
+159
+00:10:08,910 --> 00:10:12,570
+an average amount of orange
+juice between those two bundles
+
+160
+00:10:12,570 --> 00:10:17,570
+will be preferred to a
+or and preferred to c.
+
+161
+00:10:17,760 --> 00:10:21,630
+So because of that, here
+is the important part,
+
+162
+00:10:21,630 --> 00:10:24,450
+because of that, indifference curves
+
+163
+00:10:24,450 --> 00:10:27,100
+now can be written or can be
+
+164
+00:10:31,530 --> 00:10:33,513
+drawn in this way.
+
+165
+00:10:43,230 --> 00:10:44,370
+Why is that?
+
+166
+00:10:44,370 --> 00:10:46,350
+Because for this consumer
+
+167
+00:10:46,350 --> 00:10:50,640
+to prefer z over a and z over b,
+
+168
+00:10:50,640 --> 00:10:54,120
+the indifference curve
+might have this shape.
+
+169
+00:10:54,120 --> 00:10:58,290
+If they do not have this
+shape, this convex shape,
+
+170
+00:10:58,290 --> 00:11:02,700
+then it wouldn't be true
+that c is preferred over a
+
+171
+00:11:02,700 --> 00:11:04,593
+and c is preferred over b.
+
+172
+00:11:09,120 --> 00:11:14,120
+Of course, not all
+preferences of a on convexity.
+
+173
+00:11:14,310 --> 00:11:16,950
+The plot that you see and
+the figure you're seeing
+
+174
+00:11:16,950 --> 00:11:18,540
+on your screen right now,
+
+175
+00:11:18,540 --> 00:11:22,680
+where the darker blue curve
+is an indifference curve
+
+176
+00:11:22,680 --> 00:11:26,700
+and the lighter blue shaded area
+
+177
+00:11:26,700 --> 00:11:29,580
+is a weakly preferred set,
+
+178
+00:11:29,580 --> 00:11:34,323
+is such that if the two extreme bundles,
+
+179
+00:11:35,790 --> 00:11:39,750
+one, or sorry, x and y
+
+180
+00:11:39,750 --> 00:11:44,100
+are on the same indifference set,
+
+181
+00:11:44,100 --> 00:11:49,100
+the average one, what in our
+previous example was bundle c,
+
+182
+00:11:49,440 --> 00:11:53,910
+the one here that has the
+name of averaged bundle,
+
+183
+00:11:53,910 --> 00:11:57,900
+that one is not preferred, okay?
+
+184
+00:11:57,900 --> 00:12:02,900
+So for that bundle not to be preferred,
+
+185
+00:12:03,540 --> 00:12:06,450
+the indifference curves must look like
+
+186
+00:12:06,450 --> 00:12:10,410
+this darker blue curve,
+
+187
+00:12:10,410 --> 00:12:13,440
+and as you can see, the
+only way that could happen
+
+188
+00:12:13,440 --> 00:12:17,373
+is if the preferences are not convex,
+
+189
+00:12:19,006 --> 00:12:21,208
+do not satisfy convexity.
+
+190
+00:12:21,208 --> 00:12:23,791
+(gentle music)
+

@@ -1,0 +1,846 @@
+1
+00:00:00,408 --> 00:00:03,658
+(relaxed techno music)
+
+2
+00:00:09,390 --> 00:00:11,429
+- [Instructor] Let us now learn
+
+3
+00:00:11,429 --> 00:00:13,950
+how the budget constraint
+
+4
+00:00:13,950 --> 00:00:16,770
+changes with income and prices.
+
+5
+00:00:16,770 --> 00:00:20,010
+What happens when income
+goes up or goes down,
+
+6
+00:00:20,010 --> 00:00:24,663
+and what happens if
+prices go up or go down?
+
+7
+00:00:28,500 --> 00:00:29,343
+Remember,
+
+8
+00:00:30,660 --> 00:00:33,540
+the budget constraint is line
+
+9
+00:00:33,540 --> 00:00:38,540
+that goes from one intercept
+to the other intercept
+
+10
+00:00:44,430 --> 00:00:48,330
+in the axis of Good 1, horizontally,
+
+11
+00:00:48,330 --> 00:00:50,313
+and Good 2, vertical.
+
+12
+00:00:54,060 --> 00:00:58,680
+Remember as well that the triangle area
+
+13
+00:00:58,680 --> 00:01:00,220
+below the budget line
+
+14
+00:01:01,320 --> 00:01:06,210
+collects or represents
+all the bundles of Good 1
+
+15
+00:01:06,210 --> 00:01:09,510
+and Good 2 that this
+consumer can purchase,
+
+16
+00:01:09,510 --> 00:01:11,493
+that this consumer can afford.
+
+17
+00:01:15,180 --> 00:01:18,450
+So let's see if income were to change
+
+18
+00:01:18,450 --> 00:01:20,343
+or prices were to change.
+
+19
+00:01:22,320 --> 00:01:24,280
+Remember, we have seen that
+
+20
+00:01:25,890 --> 00:01:27,190
+the value constraint
+
+21
+00:01:28,950 --> 00:01:30,180
+has two intercepts,
+
+22
+00:01:30,180 --> 00:01:34,320
+one in the horizontal axis,
+
+23
+00:01:34,320 --> 00:01:36,270
+another one in the vertical axis.
+
+24
+00:01:36,270 --> 00:01:37,980
+In the horizontal axis,
+
+25
+00:01:37,980 --> 00:01:39,790
+the intercept is given by the
+
+26
+00:01:41,400 --> 00:01:44,790
+ratio of income divided by P1,
+
+27
+00:01:44,790 --> 00:01:46,590
+and in the vertical axis,
+
+28
+00:01:46,590 --> 00:01:50,280
+the intercept is given by the ratio
+
+29
+00:01:50,280 --> 00:01:55,280
+of income divided by
+the price of Good 2, P2.
+
+30
+00:01:55,410 --> 00:01:56,820
+So
+
+31
+00:01:56,820 --> 00:01:59,310
+if income
+
+32
+00:01:59,310 --> 00:02:01,140
+were to be higher,
+
+33
+00:02:01,140 --> 00:02:04,420
+let's say it went to go up to be M prime
+
+34
+00:02:05,490 --> 00:02:09,810
+that is higher than the
+initial or original income M,
+
+35
+00:02:09,810 --> 00:02:12,060
+what would happen with
+the budget constraint?
+
+36
+00:02:13,080 --> 00:02:13,913
+Because
+
+37
+00:02:15,180 --> 00:02:18,120
+income is in the intercepts,
+
+38
+00:02:18,120 --> 00:02:22,240
+both of them in the numerator, then
+
+39
+00:02:23,910 --> 00:02:27,420
+as income goes up, then the whole ratio
+
+40
+00:02:27,420 --> 00:02:30,990
+in both intercepts will go up.
+
+41
+00:02:30,990 --> 00:02:34,200
+Therefore, the new budget line
+
+42
+00:02:34,200 --> 00:02:38,370
+that will emerge out of
+this increase in income
+
+43
+00:02:38,370 --> 00:02:40,473
+will look like this.
+
+44
+00:02:54,540 --> 00:02:57,760
+That is the intercepts in both
+
+45
+00:03:00,150 --> 00:03:03,513
+axis will be higher than initially.
+
+46
+00:03:04,530 --> 00:03:06,990
+So the budget constraint will,
+
+47
+00:03:06,990 --> 00:03:10,713
+or the budget line will shift rightwards.
+
+48
+00:03:13,320 --> 00:03:16,450
+If income instead
+
+49
+00:03:17,850 --> 00:03:21,120
+would have decreased,
+then the budget lines
+
+50
+00:03:21,120 --> 00:03:23,103
+would have shifted inwards.
+
+51
+00:03:24,180 --> 00:03:29,180
+That is the budget constraint
+would've become smaller.
+
+52
+00:03:32,970 --> 00:03:36,603
+It is something similar what
+happens when prices change.
+
+53
+00:03:39,420 --> 00:03:42,453
+Suppose we have an initial budget line,
+
+54
+00:03:43,770 --> 00:03:46,860
+like the one is depicted here in green,
+
+55
+00:03:46,860 --> 00:03:51,040
+where as we know, intercept
+is M divided by P1
+
+56
+00:03:52,020 --> 00:03:54,450
+for the horizontal axis, Good 1.
+
+57
+00:03:54,450 --> 00:03:56,970
+And in the vertical axis for Good 2,
+
+58
+00:03:56,970 --> 00:03:58,920
+it would be M divided by P2.
+
+59
+00:03:58,920 --> 00:04:02,130
+Those two would be the intercepts.
+
+60
+00:04:02,130 --> 00:04:06,660
+Suppose now that the price
+of the first good goes down,
+
+61
+00:04:06,660 --> 00:04:11,610
+meaning the new price,
+P1 prime, is smaller
+
+62
+00:04:11,610 --> 00:04:15,660
+than the initial value of P1.
+
+63
+00:04:15,660 --> 00:04:20,660
+In other words, P1 is decreasing.
+
+64
+00:04:20,730 --> 00:04:25,730
+If this is the case, then
+since P1 is a denominator,
+
+65
+00:04:27,180 --> 00:04:31,500
+as P1 goes down or decreases,
+
+66
+00:04:31,500 --> 00:04:34,050
+then the whole ratio will go up,
+
+67
+00:04:34,050 --> 00:04:39,050
+therefore, the intercept
+will now be higher.
+
+68
+00:04:39,660 --> 00:04:44,550
+But P1 is not in the
+vertical or the intercept
+
+69
+00:04:44,550 --> 00:04:48,910
+for Good X2, therefore this intercept here
+
+70
+00:04:49,890 --> 00:04:50,910
+will not change.
+
+71
+00:04:50,910 --> 00:04:53,880
+So this one in the
+horizontal axis will change,
+
+72
+00:04:53,880 --> 00:04:57,210
+will become bigger, but the intercept
+
+73
+00:04:57,210 --> 00:05:01,140
+in the vertical axis for
+Good 2 will not change.
+
+74
+00:05:01,140 --> 00:05:04,293
+Therefore, the new budget
+line will look like this.
+
+75
+00:05:07,110 --> 00:05:09,390
+It will be a rotation outwards
+
+76
+00:05:09,390 --> 00:05:11,400
+with respect to the original one,
+
+77
+00:05:11,400 --> 00:05:14,370
+and the income is the same,
+
+78
+00:05:14,370 --> 00:05:17,250
+so the numerator is same,
+
+79
+00:05:17,250 --> 00:05:20,160
+but the the denominator changes
+
+80
+00:05:20,160 --> 00:05:21,243
+and is smaller,
+
+81
+00:05:22,770 --> 00:05:24,180
+and it's this.
+
+82
+00:05:24,180 --> 00:05:26,580
+It is because the denominator is smaller
+
+83
+00:05:26,580 --> 00:05:30,933
+that this whole ratio has increased.
+
+84
+00:05:34,260 --> 00:05:39,260
+That is that the budget
+line when P1 decreased
+
+85
+00:05:39,300 --> 00:05:44,133
+has rotated outwards in the
+way depicted by the arrow.
+
+86
+00:05:47,880 --> 00:05:50,340
+Let us see how all these changes
+
+87
+00:05:50,340 --> 00:05:52,500
+can be seen in a dynamic graph.
+
+88
+00:05:52,500 --> 00:05:53,970
+So in this dynamic graph,
+
+89
+00:05:53,970 --> 00:05:58,560
+we will have the three factors.
+
+90
+00:05:58,560 --> 00:06:01,320
+Income will have price one,
+
+91
+00:06:01,320 --> 00:06:02,880
+and we have price two.
+
+92
+00:06:02,880 --> 00:06:05,710
+So let's start with a simple value of
+
+93
+00:06:08,550 --> 00:06:11,520
+income approximately around 100.
+
+94
+00:06:11,520 --> 00:06:14,190
+So there you go, 101.
+
+95
+00:06:14,190 --> 00:06:15,510
+And we're gonna have,
+
+96
+00:06:15,510 --> 00:06:17,250
+we're gonna start as a simple value
+
+97
+00:06:17,250 --> 00:06:19,803
+for the prices of these goods.
+
+98
+00:06:20,700 --> 00:06:22,920
+Let's put both of them around four.
+
+99
+00:06:22,920 --> 00:06:24,060
+We got it.
+
+100
+00:06:24,060 --> 00:06:26,587
+So this is gonna be, again, around 100.
+
+101
+00:06:29,940 --> 00:06:31,470
+Sorry, well, I couldn't get it 100,
+
+102
+00:06:31,470 --> 00:06:35,830
+but I get it 104, which is fine because
+
+103
+00:06:36,960 --> 00:06:38,910
+the intercept is well calculated
+
+104
+00:06:38,910 --> 00:06:42,690
+by when prices are four
+
+105
+00:06:42,690 --> 00:06:46,530
+and income is 104, the intercepts
+
+106
+00:06:46,530 --> 00:06:50,220
+will be M divided by P1, which is 26,
+
+107
+00:06:50,220 --> 00:06:51,543
+as you can see here.
+
+108
+00:06:52,770 --> 00:06:55,500
+And the intercept in the vertical axis
+
+109
+00:06:55,500 --> 00:06:58,473
+will be also M divided by P2,
+
+110
+00:06:59,670 --> 00:07:02,820
+104 divided by 4, also 26.
+
+111
+00:07:02,820 --> 00:07:06,070
+So now let's see what would happen
+
+112
+00:07:09,600 --> 00:07:10,750
+as we have seen
+
+113
+00:07:13,110 --> 00:07:16,470
+on the iPad, if income goes up,
+
+114
+00:07:16,470 --> 00:07:19,110
+both inter intercepts will increase,
+
+115
+00:07:19,110 --> 00:07:22,053
+therefore the whole budget
+line will shift outwards.
+
+116
+00:07:23,310 --> 00:07:24,143
+See?
+
+117
+00:07:26,130 --> 00:07:31,130
+For income 142, intercepts
+will become 36 in both sides.
+
+118
+00:07:31,860 --> 00:07:34,590
+If I instead decrease income,
+
+119
+00:07:34,590 --> 00:07:37,440
+the budget line shrinks, shrinks, shrinks
+
+120
+00:07:37,440 --> 00:07:40,833
+because both intercepts also
+become smaller and smaller.
+
+121
+00:07:42,840 --> 00:07:45,693
+All right, so what
+would happen if instead,
+
+122
+00:07:47,460 --> 00:07:49,110
+prices were to change?
+
+123
+00:07:49,110 --> 00:07:51,360
+So let's start with price one.
+
+124
+00:07:51,360 --> 00:07:53,230
+As we have seen, if we reduce
+
+125
+00:07:54,420 --> 00:07:57,210
+the budget line, it
+would reduce price one,
+
+126
+00:07:57,210 --> 00:08:01,530
+the budget line will
+rotate outwards shifting
+
+127
+00:08:01,530 --> 00:08:04,120
+oh, sorry, rotating outwards
+
+128
+00:08:05,040 --> 00:08:08,730
+increasing or by increasing its intercept
+
+129
+00:08:08,730 --> 00:08:12,663
+in the axis, in the X-axis.
+
+130
+00:08:13,920 --> 00:08:18,790
+If instead price one
+were to increase, then
+
+131
+00:08:19,860 --> 00:08:23,340
+the intercept in the horizontal axis
+
+132
+00:08:23,340 --> 00:08:25,860
+will decrease because the intercepts M
+
+133
+00:08:25,860 --> 00:08:30,000
+divided by P1 and it would become smaller,
+
+134
+00:08:30,000 --> 00:08:32,163
+therefore, it's a rotation inwards.
+
+135
+00:08:33,870 --> 00:08:38,250
+What happens if instead P2 changes?
+
+136
+00:08:38,250 --> 00:08:40,980
+Maybe pause the video and think about it.
+
+137
+00:08:40,980 --> 00:08:42,850
+If the rotation
+
+138
+00:08:44,850 --> 00:08:49,850
+when P1 changes was by
+shifting or by moving the,
+
+139
+00:08:50,100 --> 00:08:53,760
+by changing the intercept in the X-axis,
+
+140
+00:08:53,760 --> 00:08:56,670
+what would happen if we change the price
+
+141
+00:08:56,670 --> 00:09:01,077
+that affects the vertical
+axis, the Y-axis?
+
+142
+00:09:01,077 --> 00:09:03,630
+Maybe you guessed it right.
+
+143
+00:09:03,630 --> 00:09:05,430
+If you increase the price,
+
+144
+00:09:05,430 --> 00:09:08,520
+the intercept will go down
+
+145
+00:09:08,520 --> 00:09:10,200
+along the vertical axis,
+
+146
+00:09:10,200 --> 00:09:12,060
+and if you decrease the price,
+
+147
+00:09:12,060 --> 00:09:14,730
+the intercept, of course, becomes
+
+148
+00:09:14,730 --> 00:09:17,310
+way higher or increases.
+
+149
+00:09:17,310 --> 00:09:20,010
+So it's a
+
+150
+00:09:20,010 --> 00:09:22,080
+flip side rotation
+
+151
+00:09:22,080 --> 00:09:24,270
+that would happen with P1.
+
+152
+00:09:24,270 --> 00:09:26,340
+Again, let's do just one time.
+
+153
+00:09:26,340 --> 00:09:29,940
+This is the kind of change
+you will see in budget lines.
+
+154
+00:09:29,940 --> 00:09:34,200
+When income decreases, increases,
+
+155
+00:09:34,200 --> 00:09:36,690
+this is the kind of change you would see
+
+156
+00:09:36,690 --> 00:09:41,100
+and the budget line only
+change in the intercept.
+
+157
+00:09:41,100 --> 00:09:44,493
+If P1 is changing, is the
+only thing that is changing.
+
+158
+00:09:46,380 --> 00:09:50,740
+And this is the kind of
+change you will see in the
+
+159
+00:09:52,650 --> 00:09:57,650
+Y-axis in the intercept
+for Good 2 if P2 changes.
+
+160
+00:10:02,310 --> 00:10:04,653
+In some, when incoming increases,
+
+161
+00:10:06,450 --> 00:10:11,450
+the budget constraint shift
+outwards in a parallel manner.
+
+162
+00:10:12,270 --> 00:10:17,040
+Remember, the slope of the budget line
+
+163
+00:10:17,040 --> 00:10:20,880
+was the ratio of minus P1 divided by P2,
+
+164
+00:10:20,880 --> 00:10:23,310
+income is not in that slope,
+
+165
+00:10:23,310 --> 00:10:26,170
+therefore, whatever changes
+
+166
+00:10:27,960 --> 00:10:32,820
+cost by increases or decreases in income
+
+167
+00:10:32,820 --> 00:10:34,560
+will not affect the slope.
+
+168
+00:10:34,560 --> 00:10:37,200
+And that is why the budget constraint
+
+169
+00:10:37,200 --> 00:10:39,370
+is shifting outwards
+
+170
+00:10:40,590 --> 00:10:41,883
+in a parallel manner,
+
+171
+00:10:44,490 --> 00:10:45,323
+like this.
+
+172
+00:10:49,380 --> 00:10:53,493
+The opposite happens if
+income decreases, right?
+
+173
+00:10:55,740 --> 00:10:59,400
+The budget line will shift always inwards,
+
+174
+00:10:59,400 --> 00:11:02,370
+again, in a parallel manner.
+
+175
+00:11:02,370 --> 00:11:04,480
+And it is an important question to also
+
+176
+00:11:06,570 --> 00:11:11,280
+ask which one is better for the consumer.
+
+177
+00:11:11,280 --> 00:11:14,400
+And at this point,
+although we have not seen
+
+178
+00:11:14,400 --> 00:11:16,710
+the consumer's preferences,
+
+179
+00:11:16,710 --> 00:11:20,070
+it is safe to say that typically,
+
+180
+00:11:20,070 --> 00:11:23,260
+for a typical consumer, a
+
+181
+00:11:24,210 --> 00:11:26,940
+higher income will be preferred
+
+182
+00:11:26,940 --> 00:11:29,830
+or will bring higher welfare or wellbeing
+
+183
+00:11:31,941 --> 00:11:33,720
+or satisfaction to the consumer
+
+184
+00:11:33,720 --> 00:11:38,340
+simply because we know
+that when income is higher,
+
+185
+00:11:38,340 --> 00:11:42,273
+a larger amount of
+bundles can be afforded.
+
+186
+00:11:44,880 --> 00:11:48,543
+This is the summary when P1 increases.
+
+187
+00:11:50,040 --> 00:11:55,040
+When P1 increases, the
+slope of the budget line
+
+188
+00:11:55,590 --> 00:11:58,143
+gets deeper, first.
+
+189
+00:11:58,980 --> 00:12:03,980
+Second, the increase
+in the price will pivot
+
+190
+00:12:04,770 --> 00:12:06,660
+the budget constraint inward,
+
+191
+00:12:06,660 --> 00:12:09,363
+as we have seen in the dynamic graph.
+
+192
+00:12:12,540 --> 00:12:15,480
+Increasing prices will reduce
+
+193
+00:12:15,480 --> 00:12:20,340
+the set of bundles that
+the consumer can afford
+
+194
+00:12:20,340 --> 00:12:23,250
+and therefore typically will,
+
+195
+00:12:23,250 --> 00:12:27,900
+or an expectation will decrease
+
+196
+00:12:27,900 --> 00:12:30,450
+the wellbeing of the consumer,
+
+197
+00:12:30,450 --> 00:12:33,150
+or more typically will decrease
+
+198
+00:12:33,150 --> 00:12:34,830
+the wellbeing of the consumer.
+
+199
+00:12:34,830 --> 00:12:38,340
+But we will discuss those topics
+
+200
+00:12:38,340 --> 00:12:40,833
+related to satisfaction
+and wellbeing later.
+

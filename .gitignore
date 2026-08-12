@@ -35,3 +35,6 @@ app/web/dist/
 
 # salida del compilador para los tests de node del cue engine
 app/web/dist-test/
+
+# Video ingest workspace (source media stays out of Git; see content/courses/*/manifest.json)
+workspace/

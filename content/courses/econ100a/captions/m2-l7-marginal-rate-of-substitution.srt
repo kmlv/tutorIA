@@ -1,0 +1,1062 @@
+1
+00:00:00,000 --> 00:00:02,583
+(upbeat music)
+
+2
+00:00:06,960 --> 00:00:10,260
+- [Instructor] The next
+concept that is very important
+
+3
+00:00:10,260 --> 00:00:14,733
+is that of marginal rate of substitution.
+
+4
+00:00:17,490 --> 00:00:21,210
+The concept of marginal
+rate of substitution
+
+5
+00:00:21,210 --> 00:00:25,320
+is very important and it is based
+
+6
+00:00:25,320 --> 00:00:27,870
+on what we have already learned before
+
+7
+00:00:27,870 --> 00:00:30,273
+in terms of marginal utility.
+
+8
+00:00:31,380 --> 00:00:36,380
+And so let's first say what
+conceptually MRS means.
+
+9
+00:00:42,000 --> 00:00:47,000
+MRS is the slope of one
+indifference curve, okay?
+
+10
+00:00:47,193 --> 00:00:49,740
+It's a slope of the indifference curve
+
+11
+00:00:49,740 --> 00:00:54,030
+at a certain combination of x1 and x2.
+
+12
+00:00:54,030 --> 00:00:55,890
+Let me say it again.
+
+13
+00:00:55,890 --> 00:00:57,870
+So suppose you have certain combination
+
+14
+00:00:57,870 --> 00:01:01,230
+of good one and good two, x1, x2
+
+15
+00:01:01,230 --> 00:01:05,220
+and you know that through
+that particular bundle,
+
+16
+00:01:05,220 --> 00:01:08,193
+there is an indifference
+curve going through.
+
+17
+00:01:09,870 --> 00:01:12,330
+The relative preference between good one
+
+18
+00:01:12,330 --> 00:01:17,330
+and good two is given, to a large extent,
+
+19
+00:01:18,210 --> 00:01:21,480
+by how steep is that indifference curve?
+
+20
+00:01:21,480 --> 00:01:23,460
+If it's very steep, it means
+
+21
+00:01:23,460 --> 00:01:28,460
+that this person values good
+one a lot relative to good two.
+
+22
+00:01:29,340 --> 00:01:30,900
+And if it's very flat,
+
+23
+00:01:30,900 --> 00:01:35,900
+means that this consumer
+values good two highly relative
+
+24
+00:01:37,500 --> 00:01:39,090
+to good one.
+
+25
+00:01:39,090 --> 00:01:41,820
+So MRS contains, in that sense,
+
+26
+00:01:41,820 --> 00:01:46,170
+a lot of information but
+mathematically, but okay,
+
+27
+00:01:46,170 --> 00:01:48,390
+so we know that contains
+a lot of information
+
+28
+00:01:48,390 --> 00:01:51,360
+but we just need to know
+what is the easiest way,
+
+29
+00:01:51,360 --> 00:01:55,320
+what is the correct way
+to find it mathematically
+
+30
+00:01:55,320 --> 00:01:59,130
+every time we have a
+specific utility function.
+
+31
+00:01:59,130 --> 00:02:02,460
+And that is what this slide is about.
+
+32
+00:02:02,460 --> 00:02:07,460
+The MRS, also known as the
+marginal rate of substitution.
+
+33
+00:02:08,820 --> 00:02:10,740
+And we are learning that is the slope
+
+34
+00:02:10,740 --> 00:02:12,180
+of an indifference curve.
+
+35
+00:02:12,180 --> 00:02:17,180
+And this is why it's dx2/dx1
+
+36
+00:02:17,850 --> 00:02:22,850
+in this highlighted equation
+is gonna be given by the ratio
+
+37
+00:02:23,460 --> 00:02:28,460
+of MU1 and MU2 with a
+minus sign before that.
+
+38
+00:02:30,600 --> 00:02:33,270
+So how do we know this last equality
+
+39
+00:02:33,270 --> 00:02:38,270
+that the MRS equals
+minus MU1 divided by MU2?
+
+40
+00:02:41,400 --> 00:02:44,460
+Well, this is what we're gonna prove here.
+
+41
+00:02:44,460 --> 00:02:47,610
+We know first that an
+indifference curve is such
+
+42
+00:02:47,610 --> 00:02:51,300
+that the satisfaction
+level is constant at some,
+
+43
+00:02:51,300 --> 00:02:53,853
+let's say k value.
+
+44
+00:02:54,840 --> 00:02:58,410
+We can use something that you've learned
+
+45
+00:02:58,410 --> 00:03:02,700
+in your calculus classes core
+as the total differentiation
+
+46
+00:03:02,700 --> 00:03:07,700
+and total differentiation
+is taking this equation
+
+47
+00:03:07,890 --> 00:03:11,340
+and taking the total
+differentiation of it.
+
+48
+00:03:11,340 --> 00:03:14,160
+And that total differentiation
+
+49
+00:03:14,160 --> 00:03:17,400
+of it is written like this.
+
+50
+00:03:17,400 --> 00:03:20,640
+First is the change of x1
+
+51
+00:03:20,640 --> 00:03:25,290
+multiply by how sensitive
+U is with respect to x1,
+
+52
+00:03:25,290 --> 00:03:28,830
+which is given by the
+partial derivative of U
+
+53
+00:03:28,830 --> 00:03:33,830
+with respect to x1 plus how
+sensitive is D2 function
+
+54
+00:03:36,510 --> 00:03:39,210
+with respect to the second good
+
+55
+00:03:39,210 --> 00:03:44,210
+times how big the change
+of that good two is,
+
+56
+00:03:44,280 --> 00:03:47,193
+which is represented here again by dx2.
+
+57
+00:03:48,780 --> 00:03:51,210
+And that should be equal
+to the total change
+
+58
+00:03:51,210 --> 00:03:54,210
+in the utility that we will call here dk.
+
+59
+00:03:54,210 --> 00:03:59,210
+However, dk must be zero
+because k is constant.
+
+60
+00:03:59,430 --> 00:04:03,693
+So dk cannot be different
+than zero, it must be zero.
+
+61
+00:04:04,620 --> 00:04:09,620
+That is that we can use this knowledge,
+
+62
+00:04:11,940 --> 00:04:15,750
+we can use this knowledge or
+this fact into this equation
+
+63
+00:04:15,750 --> 00:04:17,550
+but that's not the only thing we can use.
+
+64
+00:04:17,550 --> 00:04:20,430
+We also need to notice that
+the partial with respect
+
+65
+00:04:20,430 --> 00:04:24,960
+to x1 and x2 are simply
+the marginal utilities.
+
+66
+00:04:24,960 --> 00:04:29,960
+So we can rewrite this
+guy like this using dk0
+
+67
+00:04:30,480 --> 00:04:34,667
+and using that the derivatives
+of U with respect to x1
+
+68
+00:04:34,667 --> 00:04:39,603
+and x2 simply are MU1
+and MU2 respectively.
+
+69
+00:04:41,070 --> 00:04:43,320
+So we have this equation.
+
+70
+00:04:43,320 --> 00:04:48,320
+From this equation, we can
+form or solve for dx2, dx1
+
+71
+00:04:52,740 --> 00:04:56,910
+which is the slope of
+the indifference curve.
+
+72
+00:04:56,910 --> 00:05:01,217
+To do that, we need to
+divide both sides by dx1.
+
+73
+00:05:04,860 --> 00:05:06,900
+And after we have done that,
+
+74
+00:05:06,900 --> 00:05:10,353
+we can solve indeed for dx2/dx1.
+
+75
+00:05:11,490 --> 00:05:15,003
+If we do that, we will get this equation,
+
+76
+00:05:17,010 --> 00:05:19,143
+which is exactly what we wanted to show.
+
+77
+00:05:20,280 --> 00:05:24,690
+Let's just for the sake of comprehension
+
+78
+00:05:24,690 --> 00:05:27,003
+do that on the iPad as well.
+
+79
+00:05:30,690 --> 00:05:35,690
+Marginal rate of substitution.
+
+80
+00:05:38,700 --> 00:05:39,533
+Okay?
+
+81
+00:05:42,330 --> 00:05:43,680
+Let's put it in a nicer place.
+
+82
+00:05:43,680 --> 00:05:44,880
+Okay, cool.
+
+83
+00:05:44,880 --> 00:05:49,380
+So we will try to prove that the slope
+
+84
+00:05:51,780 --> 00:05:53,590
+of a indifference curve
+
+85
+00:05:56,490 --> 00:06:01,490
+is the same as minus MU1 divided by MU2.
+
+86
+00:06:03,090 --> 00:06:05,943
+This is what we want to prove.
+
+87
+00:06:06,900 --> 00:06:11,700
+And to do that, we will
+start again by saying, okay,
+
+88
+00:06:11,700 --> 00:06:13,563
+along one indifference curve,
+
+89
+00:06:15,030 --> 00:06:19,263
+the utility level is fixed at a level k.
+
+90
+00:06:21,990 --> 00:06:24,423
+Second, we will say,
+
+91
+00:06:26,310 --> 00:06:29,340
+we can take total differentiation of this
+
+92
+00:06:29,340 --> 00:06:32,740
+and this is going to be the impact of x1
+
+93
+00:06:34,740 --> 00:06:39,240
+on U times the change
+of x1 plus the impact
+
+94
+00:06:39,240 --> 00:06:44,240
+of x2 on utility times the change in x2.
+
+95
+00:06:45,690 --> 00:06:48,273
+And they will be equal
+to the change in utility.
+
+96
+00:06:49,140 --> 00:06:51,993
+However, as we have seen before, oops.
+
+97
+00:06:53,280 --> 00:06:58,020
+However, as we have seen before,
+this guy here must be zero.
+
+98
+00:06:58,020 --> 00:07:03,020
+And these guys here are
+MU1 and MU2 respectively.
+
+99
+00:07:04,920 --> 00:07:07,500
+And therefore, we can
+rewrite this equation
+
+100
+00:07:07,500 --> 00:07:12,500
+as MU1 dx1 plus MU2 times dx2 equals zero.
+
+101
+00:07:18,060 --> 00:07:23,060
+So from this point, we can
+do, we can divide both sides
+
+102
+00:07:24,540 --> 00:07:29,187
+by the dx1 and we will have this.
+
+103
+00:07:35,100 --> 00:07:37,320
+From this point, we can subtract MU1
+
+104
+00:07:37,320 --> 00:07:41,880
+from both sides and we
+will have the following.
+
+105
+00:07:41,880 --> 00:07:44,280
+Well, we can subtract MU1 from both sides
+
+106
+00:07:44,280 --> 00:07:48,510
+and also divide both sides by MU2.
+
+107
+00:07:48,510 --> 00:07:51,183
+And we will get this.
+
+108
+00:08:01,470 --> 00:08:03,720
+And this is exactly what we wanted.
+
+109
+00:08:03,720 --> 00:08:08,720
+So we have been able to
+show what we're looking for.
+
+110
+00:08:11,310 --> 00:08:16,310
+Okay, let us now do some
+examples of calculating MRS.
+
+111
+00:08:19,230 --> 00:08:21,630
+Let's say we're going to do,
+
+112
+00:08:21,630 --> 00:08:26,130
+we will do similar functions
+that we have just before.
+
+113
+00:08:26,130 --> 00:08:29,373
+So let's start with some Cobb-Douglas.
+
+114
+00:08:34,890 --> 00:08:39,890
+Suppose the utility function
+is x1 squared times x2.
+
+115
+00:08:41,790 --> 00:08:45,663
+So MRS, remember is, oops.
+
+116
+00:08:47,258 --> 00:08:52,217
+MRS, okay, is minus MU1 divided by MU2.
+
+117
+00:08:55,151 --> 00:09:00,151
+And MU1 is the partial
+of U with respect to x1
+
+118
+00:09:00,390 --> 00:09:05,310
+and MU2 is the partial
+of x, sorry, partial of U
+
+119
+00:09:05,310 --> 00:09:07,803
+with respect to x2.
+
+120
+00:09:08,880 --> 00:09:13,880
+So with that in mind, we can
+calculate the partial of X
+
+121
+00:09:15,090 --> 00:09:18,960
+of U with respect to
+x1, which would be two
+
+122
+00:09:18,960 --> 00:09:21,750
+x1 times x2.
+
+123
+00:09:21,750 --> 00:09:25,320
+And the partial of U with respect to x2
+
+124
+00:09:25,320 --> 00:09:30,320
+or MU2 would be x1 squared times one.
+
+125
+00:09:30,660 --> 00:09:34,680
+So we get this, we can
+simplify a little bit
+
+126
+00:09:34,680 --> 00:09:39,680
+and we will get two
+times x2 divided by x1.
+
+127
+00:09:41,070 --> 00:09:45,870
+So that would be our MRS
+for the first function.
+
+128
+00:09:45,870 --> 00:09:47,823
+Let's do another example.
+
+129
+00:09:52,920 --> 00:09:57,300
+Example two, finding MRS.
+
+130
+00:09:57,300 --> 00:10:01,773
+This time for the utility function equals.
+
+131
+00:10:04,650 --> 00:10:05,800
+Oops, sorry about that.
+
+132
+00:10:07,020 --> 00:10:12,020
+Utility function equals
+x1 times x2 square root.
+
+133
+00:10:15,120 --> 00:10:15,953
+Okay?
+
+134
+00:10:15,953 --> 00:10:19,790
+So in this case, we will say that again,
+
+135
+00:10:22,821 --> 00:10:25,030
+MRS equals
+
+136
+00:10:27,750 --> 00:10:32,070
+minus MU1 divided by MU2.
+
+137
+00:10:32,070 --> 00:10:34,980
+Let's not write the whole
+partial derivative this time
+
+138
+00:10:34,980 --> 00:10:36,510
+because it's not necessary.
+
+139
+00:10:36,510 --> 00:10:40,740
+We know that MU1 is a partial
+of U with respect to x1.
+
+140
+00:10:40,740 --> 00:10:45,740
+So in this case, we can
+directly write x2 square root
+
+141
+00:10:45,810 --> 00:10:50,310
+because that is the partial
+of x of U with respect to x1
+
+142
+00:10:50,310 --> 00:10:53,910
+and the minus sign here is simply the one
+
+143
+00:10:53,910 --> 00:10:55,530
+that is coming from there.
+
+144
+00:10:55,530 --> 00:10:57,000
+Okay?
+
+145
+00:10:57,000 --> 00:10:59,400
+And with that in mind,
+
+146
+00:10:59,400 --> 00:11:02,700
+we can now calculate the partial
+
+147
+00:11:02,700 --> 00:11:07,680
+of U with respect to x2, which would be x1
+
+148
+00:11:07,680 --> 00:11:12,063
+times 1/2 x2 minus 1/2.
+
+149
+00:11:13,260 --> 00:11:18,260
+So it's interesting, but now
+this can be also simplified.
+
+150
+00:11:28,650 --> 00:11:31,980
+The way we simplify this is by noting
+
+151
+00:11:31,980 --> 00:11:36,917
+that having 1/2 in the
+denominator is the same
+
+152
+00:11:40,020 --> 00:11:42,480
+as having two in the numerator.
+
+153
+00:11:42,480 --> 00:11:43,800
+That's the first thing.
+
+154
+00:11:43,800 --> 00:11:47,670
+The second thing is that we have x2 power
+
+155
+00:11:47,670 --> 00:11:51,480
+to something both in the
+denominator and the numerator
+
+156
+00:11:51,480 --> 00:11:54,600
+and we can bring those
+together to the numerator.
+
+157
+00:11:54,600 --> 00:11:59,290
+So it would be x to power to 1/2 plus 1/2
+
+158
+00:12:01,590 --> 00:12:05,460
+and that plus 1/2 will come from this.
+
+159
+00:12:05,460 --> 00:12:10,460
+It would be x to 1/2 from
+what we already knew.
+
+160
+00:12:12,270 --> 00:12:16,650
+It's in the numerator minus
+because there is also something
+
+161
+00:12:16,650 --> 00:12:20,460
+in the denominator,
+1/2 because 1/2, sorry,
+
+162
+00:12:20,460 --> 00:12:25,230
+minus minus 1/2 because
+minus 1/2 is the exponent
+
+163
+00:12:25,230 --> 00:12:27,183
+in the denominator for x2.
+
+164
+00:12:29,130 --> 00:12:34,130
+And we know that in the
+denominator, we also have x1.
+
+165
+00:12:34,770 --> 00:12:39,770
+So all in all, this will
+simplify to two times, sorry,
+
+166
+00:12:41,100 --> 00:12:45,960
+minus two times x2 divided by x1.
+
+167
+00:12:47,940 --> 00:12:49,889
+You might be thinking, wait a second,
+
+168
+00:12:49,889 --> 00:12:52,413
+where have we seen this before?
+
+169
+00:12:53,310 --> 00:12:56,220
+And the answer would be
+in the previous example.
+
+170
+00:12:56,220 --> 00:12:58,770
+How come these two utility functions,
+
+171
+00:12:58,770 --> 00:13:02,320
+this guy here, this guy here
+
+172
+00:13:03,180 --> 00:13:05,470
+and this guy here
+
+173
+00:13:08,040 --> 00:13:10,020
+have the same MRS?
+
+174
+00:13:10,020 --> 00:13:13,140
+Well, it is because these
+two functions actually
+
+175
+00:13:13,140 --> 00:13:15,840
+are representing the same preferences.
+
+176
+00:13:15,840 --> 00:13:17,160
+They can be written
+
+177
+00:13:17,160 --> 00:13:21,000
+as an increasing
+transformation of the other.
+
+178
+00:13:21,000 --> 00:13:24,240
+And as we had anticipated before,
+
+179
+00:13:24,240 --> 00:13:27,360
+if they represent the same preferences,
+
+180
+00:13:27,360 --> 00:13:30,690
+they will have the same indifference maps,
+
+181
+00:13:30,690 --> 00:13:34,200
+they will have the same slopes
+for the indifference curves,
+
+182
+00:13:34,200 --> 00:13:36,480
+meaning they will have the same MRS.
+
+183
+00:13:36,480 --> 00:13:40,440
+So all these coincidence is
+actually not a coincidence,
+
+184
+00:13:40,440 --> 00:13:43,890
+it's a mathematical
+implication of the definitions
+
+185
+00:13:43,890 --> 00:13:48,870
+and the math concepts that are applied
+
+186
+00:13:48,870 --> 00:13:51,120
+to indifference curves,
+
+187
+00:13:51,120 --> 00:13:56,120
+uniqueness of utility functions and MRS.
+
+188
+00:13:59,640 --> 00:14:04,110
+Finally, we will do an
+example of a function
+
+189
+00:14:04,110 --> 00:14:08,100
+that is of perfect substitutes.
+
+190
+00:14:08,100 --> 00:14:10,200
+So we're gonna do it here.
+
+191
+00:14:10,200 --> 00:14:14,473
+Example three, we're
+going to do utility, x1
+
+192
+00:14:15,780 --> 00:14:20,780
+plus let's say five times x2.
+
+193
+00:14:21,180 --> 00:14:25,047
+So for utility x1 plus five times x2,
+
+194
+00:14:28,980 --> 00:14:32,670
+we can calculate again also the MRS.
+
+195
+00:14:32,670 --> 00:14:37,670
+And the MRS would be, as
+always, MU1 minus ahead of that
+
+196
+00:14:38,850 --> 00:14:42,720
+or minus MU1 divided by MU2.
+
+197
+00:14:42,720 --> 00:14:46,950
+MU1, in this perfect complements
+preference, is very simple.
+
+198
+00:14:46,950 --> 00:14:48,990
+It's simply one.
+
+199
+00:14:48,990 --> 00:14:52,530
+So it would be minus one in the numerator
+
+200
+00:14:52,530 --> 00:14:55,650
+and the MU2 would be simply five.
+
+201
+00:14:55,650 --> 00:14:57,333
+So in this case,
+
+202
+00:14:59,790 --> 00:15:01,980
+we will simply have
+
+203
+00:15:01,980 --> 00:15:06,033
+that the MRS is minus 1/5.
+
+204
+00:15:07,440 --> 00:15:12,440
+This is an important result
+
+205
+00:15:15,150 --> 00:15:20,070
+because it's actually generalizable
+for perfect complements.
+
+206
+00:15:20,070 --> 00:15:24,920
+Okay, so we're gonna
+write here, MRS for...
+
+207
+00:15:26,460 --> 00:15:27,900
+Actually, we're gonna write it with white
+
+208
+00:15:27,900 --> 00:15:30,330
+so we keep our convention
+
+209
+00:15:30,330 --> 00:15:33,960
+of having white for notes
+and yellow for examples.
+
+210
+00:15:33,960 --> 00:15:38,960
+So the MRS
+
+211
+00:15:39,390 --> 00:15:44,120
+for perfect substitutes
+
+212
+00:15:49,620 --> 00:15:53,410
+is always
+
+213
+00:15:57,750 --> 00:15:58,773
+constant.
+
+214
+00:16:01,500 --> 00:16:03,480
+Why is that?
+
+215
+00:16:03,480 --> 00:16:07,770
+This is actually part of the definition
+
+216
+00:16:07,770 --> 00:16:11,400
+or this is another way to
+define perfect substitutes.
+
+217
+00:16:11,400 --> 00:16:15,030
+Perfect substitutes have the same rate
+
+218
+00:16:15,030 --> 00:16:18,540
+of substitution regardless
+of the combination
+
+219
+00:16:18,540 --> 00:16:22,110
+or regardless of the
+bundle we are considering.
+
+220
+00:16:22,110 --> 00:16:27,110
+So by definition, the perfect
+substitutes preferences
+
+221
+00:16:27,180 --> 00:16:29,550
+will have a constant MRS.
+
+222
+00:16:29,550 --> 00:16:31,920
+If you remember, the indifference curves
+
+223
+00:16:31,920 --> 00:16:35,430
+for perfect substitutes preferences
+
+224
+00:16:35,430 --> 00:16:39,423
+were having indifference curves
+that would look like this.
+
+225
+00:16:41,760 --> 00:16:45,840
+They were all parallel lines
+
+226
+00:16:49,920 --> 00:16:52,360
+and that will make them
+
+227
+00:16:55,140 --> 00:16:57,810
+have indeed the same slope
+
+228
+00:16:57,810 --> 00:17:00,030
+of their four indifferent curves,
+
+229
+00:17:00,030 --> 00:17:02,520
+meaning the MRS might must be constant
+
+230
+00:17:02,520 --> 00:17:07,513
+and the same for any
+combination of x1 and x2.
+
+231
+00:17:09,420 --> 00:17:11,580
+This concludes our discussion
+
+232
+00:17:11,580 --> 00:17:15,150
+of preferences and utility.
+
+233
+00:17:15,150 --> 00:17:20,150
+And we will then discuss how the ideas
+
+234
+00:17:20,580 --> 00:17:23,580
+of budget constraint,
+as well as preferences
+
+235
+00:17:23,580 --> 00:17:28,580
+and utility combine in what
+we call the consumer choice,
+
+236
+00:17:28,650 --> 00:17:33,540
+how the consumer uses their wallet
+
+237
+00:17:33,540 --> 00:17:37,530
+and their preferences or
+their brain to find out
+
+238
+00:17:37,530 --> 00:17:40,860
+what is the best option they can afford,
+
+239
+00:17:40,860 --> 00:17:42,158
+what is the best thing,
+
+240
+00:17:42,158 --> 00:17:44,760
+what is the best affordable thing
+
+241
+00:17:44,760 --> 00:17:46,994
+that they can purchase and consume.
+
+242
+00:17:46,994 --> 00:17:49,577
+(upbeat music)
+

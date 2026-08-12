@@ -1,0 +1,147 @@
+{
+  "course": {
+    "code": "ECON-100A",
+    "name": "Intermediate Microeconomics",
+    "institution": "UC Santa Cruz",
+    "canvas_course_id": 93725,
+    "canvas_url": "https://canvas.ucsc.edu/courses/93725",
+    "media_host": "media.ucsc.edu",
+    "media_platform": "YuJa",
+    "instructor": "Kristian Lopez Vargas"
+  },
+  "ingest": {
+    "date": "2026-08-11",
+    "scope": "Modules 1 and 2 only; modules 3-10 deferred",
+    "caption_source": "YuJa caption files, type HUMAN (not ASR)",
+    "caption_url_patterns": [
+      "/P/DataPage/CaptionFile/{videoPID}_video_English.srt",
+      "/P/DataPage/CaptionFile/{broadcastPID}_English.srt"
+    ],
+    "video_source_endpoint": "/P/Data/VideoSource?video={sourcePath}&videoPID={pid}&mp4Only=true&useCookie=true",
+    "note": "Video pages must be visited once per session before their VideoSource call is authorized."
+  },
+  "videos": [
+    {
+      "module": 1,
+      "module_name": "Intro and Budget",
+      "n": 1,
+      "slug": "m1-l1-intro-microeconomics",
+      "title": "Lecture 1: Introduction to Microeconomics",
+      "yuja_title": "CC - ECON 100 - 1.1 Introduction to Microeconomics",
+      "videoPID": 1347962,
+      "authCode": 1325396580,
+      "broadcastPID": 1263606,
+      "sourcePath": "/P/VideoCaptures/a/1/1263606/171133939",
+      "duration_s": 261.195,
+      "duration_label": "4:21",
+      "captionFile": "1347962_video_English.srt"
+    },
+    {
+      "module": 1,
+      "module_name": "Intro and Budget",
+      "n": 2,
+      "slug": "m1-l2-consumption-bundles-and-budget-line",
+      "title": "Lecture 2: Consumption Bundles and Budget Line",
+      "yuja_title": "CC - ECON 100 - 2.1 Consumption Bundles and Budget Line",
+      "videoPID": 1354922,
+      "authCode": 1118687449,
+      "broadcastPID": 1269984,
+      "sourcePath": "/P/VideoCaptures/a/1/1269984/54642622",
+      "duration_s": 1520.503,
+      "duration_label": "25:21",
+      "captionFile": "1269984_English.srt"
+    },
+    {
+      "module": 1,
+      "module_name": "Intro and Budget",
+      "n": 3,
+      "slug": "m1-l3-changes-in-budget-line",
+      "title": "Lecture 3: Changes in Budget Line",
+      "videoPID": 1348480,
+      "authCode": 1557470353,
+      "duration_label": "12:43",
+      "captionFile": "1348480_video_English.srt"
+    },
+    {
+      "module": 1,
+      "module_name": "Intro and Budget",
+      "n": 4,
+      "slug": "m1-l4-taxes",
+      "title": "Lecture 4: Taxes",
+      "videoPID": 1348543,
+      "authCode": 1465757486,
+      "duration_label": "20:07",
+      "captionFile": "1348543_video_English.srt"
+    },
+    {
+      "module": 2,
+      "module_name": "Preferences and Utility",
+      "n": 1,
+      "slug": "m2-l1-preferences-part1",
+      "title": "Lecture 1: Preferences, Part 1",
+      "videoPID": 1348880,
+      "authCode": 1500772055,
+      "captionFile": "1348880_video_English.srt"
+    },
+    {
+      "module": 2,
+      "module_name": "Preferences and Utility",
+      "n": 2,
+      "slug": "m2-l2-preferences-part2",
+      "title": "Lecture 2: Preferences, Part 2",
+      "videoPID": 1348889,
+      "authCode": 1300602138,
+      "captionFile": "1348889_video_English.srt"
+    },
+    {
+      "module": 2,
+      "module_name": "Preferences and Utility",
+      "n": 3,
+      "slug": "m2-l3-utility-part1",
+      "title": "Lecture 3: Utility, Part 1",
+      "videoPID": 1348906,
+      "authCode": 1468240635,
+      "captionFile": "1348906_video_English.srt"
+    },
+    {
+      "module": 2,
+      "module_name": "Preferences and Utility",
+      "n": 4,
+      "slug": "m2-l4-utility-part2",
+      "title": "Lecture 4: Utility, Part 2",
+      "videoPID": 1348928,
+      "authCode": 1584622907,
+      "captionFile": "1348928_video_English.srt"
+    },
+    {
+      "module": 2,
+      "module_name": "Preferences and Utility",
+      "n": 5,
+      "slug": "m2-l5-typical-utility-function",
+      "title": "Lecture 5: Typical Utility Functions",
+      "videoPID": 1348955,
+      "authCode": 556278059,
+      "captionFile": "1348955_video_English.srt"
+    },
+    {
+      "module": 2,
+      "module_name": "Preferences and Utility",
+      "n": 6,
+      "slug": "m2-l6-marginal-utility",
+      "title": "Lecture 6: Marginal Utility",
+      "videoPID": 1348968,
+      "authCode": 1759384082,
+      "captionFile": "1348968_video_English.srt"
+    },
+    {
+      "module": 2,
+      "module_name": "Preferences and Utility",
+      "n": 7,
+      "slug": "m2-l7-marginal-rate-of-substitution",
+      "title": "Lecture 7: Marginal Rate of Substitution",
+      "videoPID": 1349009,
+      "authCode": 1980354182,
+      "captionFile": "1349009_video_English.srt"
+    }
+  ]
+}

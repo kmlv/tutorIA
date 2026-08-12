@@ -1,0 +1,442 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-12T00:42:37.046381+00:00",
+  "title": "ECON-100A modulos 1 y 2 sintetizados",
+  "provider": "edge",
+  "duration_s": 299.928,
+  "audio": "20260811-194214_econ-100a-modulos-1-y-2-sintetizados.mp3",
+  "transcript": "20260811-194214_econ-100a-modulos-1-y-2-sintetizados.md",
+  "player": "20260811-194214_econ-100a-modulos-1-y-2-sintetizados.player.html",
+  "sync": {
+    "segments": [
+      {
+        "text": "Hola Kristian.",
+        "start_s": 0.1,
+        "end_s": 1.664,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ya están los módulos uno y dos de tu curso de micro intermedia.",
+        "start_s": 1.614,
+        "end_s": 5.602,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Once videos, dos horas cuarenta y nueve minutos de clase, sintetizados.",
+        "start_s": 5.602,
+        "end_s": 10.511,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Te cuento qué encontré, porque hubo dos sorpresas que cambiaron cómo hice el trabajo... y tres cosas que necesitan tu ojo.",
+        "start_s": 10.511,
+        "end_s": 17.182,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Primera sorpresa.",
+        "start_s": 17.182,
+        "end_s": 18.977,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Tus videos están en YuJa, y cuando fui a buscar cómo transcribirlos, descubrí que los subtítulos no son automáticos... son humanos.",
+        "start_s": 18.977,
+        "end_s": 26.75,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Alguien los escribió.",
+        "start_s": 26.75,
+        "end_s": 28.545,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Eso significa que no tuve que transcribir nada: la calidad ya estaba ahí, con las fórmulas bien puestas y la puntuación correcta.",
+        "start_s": 28.545,
+        "end_s": 35.795,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Me ahorró horas, y sobre todo, me dio una base mucho más confiable que cualquier reconocimiento de voz.",
+        "start_s": 35.795,
+        "end_s": 41.886,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Segunda sorpresa, y esta es mejor.",
+        "start_s": 41.886,
+        "end_s": 44.761,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El módulo dos son grabaciones de tus láminas en reveal punto jota ese.",
+        "start_s": 44.761,
+        "end_s": 49.023,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Fui a buscar el fuente... y lo tienes en tu propia computadora, en el repositorio de láminas y tareas del curso.",
+        "start_s": 49.023,
+        "end_s": 55.443,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Las quince presentaciones, en markdown.",
+        "start_s": 55.443,
+        "end_s": 58.398,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Eso quiere decir que para el módulo dos no tuve que leer texto de una pantalla y adivinar: el contenido de cada lámina está transcrito con fidelidad exacta, palabra por palabra, porque salió del archivo original.",
+        "start_s": 58.398,
+        "end_s": 69.807,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "El módulo uno es distinto: ahí escribes a mano en el iPad, y para eso sí tuve que extraer imágenes.",
+        "start_s": 69.807,
+        "end_s": 76.182,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Detecté los cambios de página automáticamente y saqué doscientas sesenta y cuatro pantallas, siempre el estado completo de cada página, no el momento en que estabas a media escritura.",
+        "start_s": 76.182,
+        "end_s": 85.807,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ahora, lo que te entrego.",
+        "start_s": 85.807,
+        "end_s": 88.057,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Once archivos, uno por video, cada uno con cuatro partes.",
+        "start_s": 88.057,
+        "end_s": 92.489,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Una síntesis de qué hace la clase y en qué orden.",
+        "start_s": 92.489,
+        "end_s": 95.602,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Un inventario de pantallas con marca de tiempo, o sea, qué se ve exactamente en cada momento.",
+        "start_s": 95.602,
+        "end_s": 101.58,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Un guion regenerado en el estilo de tutor I A, con las marcas de sincronización que ya usa el proyecto.",
+        "start_s": 101.58,
+        "end_s": 107.386,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y una sección de banderas... cosas que noté y que deberías mirar.",
+        "start_s": 107.386,
+        "end_s": 111.545,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y de esas banderas, hay tres que de verdad necesitan tu decisión.",
+        "start_s": 111.545,
+        "end_s": 115.773,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La primera es la más importante.",
+        "start_s": 115.773,
+        "end_s": 118.25,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "En el video de utilidad, parte uno, hay un momento donde explicas que la utilidad es ordinal... que si un bien te da seis y otro te da dos, lo único que puedes concluir es que prefieres el primero.",
+        "start_s": 118.25,
+        "end_s": 129.011,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Que no puedes decir que es tres veces mejor.",
+        "start_s": 129.011,
+        "end_s": 131.898,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Bueno... el subtítulo publicado dice exactamente lo contrario.",
+        "start_s": 131.898,
+        "end_s": 136.024,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Dice que sí se puede decir que es tres veces más preferido.",
+        "start_s": 136.024,
+        "end_s": 139.795,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Justo la confusión que el pasaje existe para evitar.",
+        "start_s": 139.795,
+        "end_s": 143.205,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Y como los subtítulos son humanos y están publicados, un alumno que lea en vez de escuchar se lleva la idea equivocada.",
+        "start_s": 143.205,
+        "end_s": 149.727,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "Ese es el arreglo de mayor valor en los dos módulos.",
+        "start_s": 149.727,
+        "end_s": 153.136,
+        "part_index": 0,
+        "speaker": null
+      },
+      {
+        "text": "La segunda.",
+        "start_s": 153.568,
+        "end_s": 155.166,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El paquete de línea presupuestaria que ya existe en tutor I A tiene una nota de procedencia que dice que el café y el jugo de naranja no eran tu ejemplo original, que se cambiaron a pedido tuyo.",
+        "start_s": 155.116,
+        "end_s": 164.809,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El video dice otra cosa.",
+        "start_s": 164.809,
+        "end_s": 167.082,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El café y el jugo son tuyos, desde el minuto uno con cuarenta y uno, y los números también: ingreso cien, precio tres, precio uno.",
+        "start_s": 167.082,
+        "end_s": 175.536,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "O sea, el paquete te está atribuyendo de menos.",
+        "start_s": 175.536,
+        "end_s": 179.229,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "No toqué ese archivo porque no era mío en esta tarea, pero alguien debería corregir la nota.",
+        "start_s": 179.229,
+        "end_s": 184.604,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y la tercera es más técnica.",
+        "start_s": 184.604,
+        "end_s": 187.07,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "En utilidad parte dos, ejemplo dos, la derivación llega a un resultado que no corresponde a la función que está escrita, sino a otra parecida.",
+        "start_s": 187.07,
+        "end_s": 195.173,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "La lección sobre el dominio, que es lo valioso ahí, sigue siendo correcta... pero la función puede estar mal etiquetada.",
+        "start_s": 195.173,
+        "end_s": 201.866,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Eso lo dejé marcado sin resolver, porque es tuyo decidir cuál querías.",
+        "start_s": 201.866,
+        "end_s": 206.57,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Una cosa más, sobre lo que hice bien y quiero que sepas.",
+        "start_s": 206.57,
+        "end_s": 210.354,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Marqué explícitamente los momentos de tu enseñanza que vale la pena conservar tal cual, no reescribir.",
+        "start_s": 210.354,
+        "end_s": 216.116,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "El más fuerte de todos: cómo construyes el quiebre de la línea presupuestaria con los cupones de comida... no lo afirmas, lo construyes desde un solo punto y después generalizas.",
+        "start_s": 216.116,
+        "end_s": 226.093,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Eso es excelente.",
+        "start_s": 226.093,
+        "end_s": 227.957,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "También cuando dices que pause el video y piense antes de darles la respuesta.",
+        "start_s": 227.957,
+        "end_s": 232.411,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "También el contraejemplo de completitud, donde distingues entre decir no sé y ser indiferente.",
+        "start_s": 232.411,
+        "end_s": 237.945,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Y el momento donde te corriges a ti mismo en cámara sobre la restricción del dominio... eso no lo pulí, lo dejé como trampa deliberada en el guion, porque enseña más así.",
+        "start_s": 237.945,
+        "end_s": 247.104,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Sobre los videos.",
+        "start_s": 247.104,
+        "end_s": 249.013,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Bajé los once, dos punto seis siete gigas, y siguen ahí.",
+        "start_s": 249.013,
+        "end_s": 253.298,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "No los borré.",
+        "start_s": 253.298,
+        "end_s": 254.798,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Están fuera del control de versiones, con sus hashes registrados para que sepas exactamente qué se guardó, y no se publican en ningún lado.",
+        "start_s": 254.798,
+        "end_s": 262.298,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Eso sigue la política de retención que ya tenías escrita en tu otro repositorio de notas de video.",
+        "start_s": 262.298,
+        "end_s": 267.798,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Se quedan hasta que tú digas.",
+        "start_s": 267.798,
+        "end_s": 270.104,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Para cerrar.",
+        "start_s": 270.104,
+        "end_s": 271.638,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Módulos uno y dos listos, once síntesis, once guiones regenerados, doscientas sesenta y cuatro pantallas documentadas.",
+        "start_s": 271.638,
+        "end_s": 279.195,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Tres cosas esperando tu decisión: el subtítulo que dice lo contrario de lo que enseñas, la atribución que te queda corta en el paquete existente, y la función posiblemente mal etiquetada.",
+        "start_s": 279.195,
+        "end_s": 289.388,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Los módulos tres al diez quedan intactos, como pediste.",
+        "start_s": 289.388,
+        "end_s": 293.275,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Cuando quieras seguimos con esos... la tubería ya está armada y correrla de nuevo es barato.",
+        "start_s": 293.275,
+        "end_s": 298.298,
+        "part_index": 1,
+        "speaker": null
+      },
+      {
+        "text": "Hasta luego.",
+        "start_s": 298.298,
+        "end_s": 299.843,
+        "part_index": 1,
+        "speaker": null
+      }
+    ],
+    "granularity": "sentence",
+    "source": "edge-sentence-boundary",
+    "timebase": "media_seconds"
+  },
+  "tags": [],
+  "formulas": [],
+  "transcript_text": "# ECON-100A modulos 1 y 2 sintetizados\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nHola Kristian. Ya están los módulos uno y dos de tu curso de micro intermedia. Once videos, dos horas cuarenta y nueve minutos de clase, sintetizados. Te cuento qué encontré, porque hubo dos sorpresas que cambiaron cómo hice el trabajo... y tres cosas que necesitan tu ojo.\n\nPrimera sorpresa. Tus videos están en YuJa, y cuando fui a buscar cómo transcribirlos, descubrí que los subtítulos no son automáticos... son humanos. Alguien los escribió. Eso significa que no tuve que transcribir nada: la calidad ya estaba ahí, con las fórmulas bien puestas y la puntuación correcta. Me ahorró horas, y sobre todo, me dio una base mucho más confiable que cualquier reconocimiento de voz.\n\nSegunda sorpresa, y esta es mejor. El módulo dos son grabaciones de tus láminas en reveal punto jota ese. Fui a buscar el fuente... y lo tienes en tu propia computadora, en el repositorio de láminas y tareas del curso. Las quince presentaciones, en markdown. Eso quiere decir que para el módulo dos no tuve que leer texto de una pantalla y adivinar: el contenido de cada lámina está transcrito con fidelidad exacta, palabra por palabra, porque salió del archivo original. El módulo uno es distinto: ahí escribes a mano en el iPad, y para eso sí tuve que extraer imágenes. Detecté los cambios de página automáticamente y saqué doscientas sesenta y cuatro pantallas, siempre el estado completo de cada página, no el momento en que estabas a media escritura.\n\nAhora, lo que te entrego. Once archivos, uno por video, cada uno con cuatro partes. Una síntesis de qué hace la clase y en qué orden. Un inventario de pantallas con marca de tiempo, o sea, qué se ve exactamente en cada momento. Un guion regenerado en el estilo de tutor I A, con las marcas de sincronización que ya usa el proyecto. Y una sección de banderas... cosas que noté y que deberías mirar.\n\nY de esas banderas, hay tres que de verdad necesitan tu decisión. La primera es la más importante. En el video de utilidad, parte uno, hay un momento donde explicas que la utilidad es ordinal... que si un bien te da seis y otro te da dos, lo único que puedes concluir es que prefieres el primero. Que no puedes decir que es tres veces mejor. Bueno... el subtítulo publicado dice exactamente lo contrario. Dice que sí se puede decir que es tres veces más preferido. Justo la confusión que el pasaje existe para evitar. Y como los subtítulos son humanos y están publicados, un alumno que lea en vez de escuchar se lleva la idea equivocada. Ese es el arreglo de mayor valor en los dos módulos.\n\nLa segunda. El paquete de línea presupuestaria que ya existe en tutor I A tiene una nota de procedencia que dice que el café y el jugo de naranja no eran tu ejemplo original, que se cambiaron a pedido tuyo. El video dice otra cosa. El café y el jugo son tuyos, desde el minuto uno con cuarenta y uno, y los números también: ingreso cien, precio tres, precio uno. O sea, el paquete te está atribuyendo de menos. No toqué ese archivo porque no era mío en esta tarea, pero alguien debería corregir la nota.\n\nY la tercera es más técnica. En utilidad parte dos, ejemplo dos, la derivación llega a un resultado que no corresponde a la función que está escrita, sino a otra parecida. La lección sobre el dominio, que es lo valioso ahí, sigue siendo correcta... pero la función puede estar mal etiquetada. Eso lo dejé marcado sin resolver, porque es tuyo decidir cuál querías.\n\nUna cosa más, sobre lo que hice bien y quiero que sepas. Marqué explícitamente los momentos de tu enseñanza que vale la pena conservar tal cual, no reescribir. El más fuerte de todos: cómo construyes el quiebre de la línea presupuestaria con los cupones de comida... no lo afirmas, lo construyes desde un solo punto y después generalizas. Eso es excelente. También cuando dices que pause el video y piense antes de darles la respuesta. También el contraejemplo de completitud, donde distingues entre decir no sé y ser indiferente. Y el momento donde te corriges a ti mismo en cámara sobre la restricción del dominio... eso no lo pulí, lo dejé como trampa deliberada en el guion, porque enseña más así.\n\nSobre los videos. Bajé los once, dos punto seis siete gigas, y siguen ahí. No los borré. Están fuera del control de versiones, con sus hashes registrados para que sepas exactamente qué se guardó, y no se publican en ningún lado. Eso sigue la política de retención que ya tenías escrita en tu otro repositorio de notas de video. Se quedan hasta que tú digas.\n\nPara cerrar. Módulos uno y dos listos, once síntesis, once guiones regenerados, doscientas sesenta y cuatro pantallas documentadas. Tres cosas esperando tu decisión: el subtítulo que dice lo contrario de lo que enseñas, la atribución que te queda corta en el paquete existente, y la función posiblemente mal etiquetada. Los módulos tres al diez quedan intactos, como pediste. Cuando quieras seguimos con esos... la tubería ya está armada y correrla de nuevo es barato. Hasta luego.\n\n",
+  "formula_text": "",
+  "search_text": "ECON-100A modulos 1 y 2 sintetizados # ECON-100A modulos 1 y 2 sintetizados\n\n_Generated by audioexplainer — provider: edge (edge (auto))_\n\nHola Kristian. Ya están los módulos uno y dos de tu curso de micro intermedia. Once videos, dos horas cuarenta y nueve minutos de clase, sintetizados. Te cuento qué encontré, porque hubo dos sorpresas que cambiaron cómo hice el trabajo... y tres cosas que necesitan tu ojo.\n\nPrimera sorpresa. Tus videos están en YuJa, y cuando fui a buscar cómo transcribirlos, descubrí que los subtítulos no son automáticos... son humanos. Alguien los escribió. Eso significa que no tuve que transcribir nada: la calidad ya estaba ahí, con las fórmulas bien puestas y la puntuación correcta. Me ahorró horas, y sobre todo, me dio una base mucho más confiable que cualquier reconocimiento de voz.\n\nSegunda sorpresa, y esta es mejor. El módulo dos son grabaciones de tus láminas en reveal punto jota ese. Fui a buscar el fuente... y lo tienes en tu propia computadora, en el repositorio de láminas y tareas del curso. Las quince presentaciones, en markdown. Eso quiere decir que para el módulo dos no tuve que leer texto de una pantalla y adivinar: el contenido de cada lámina está transcrito con fidelidad exacta, palabra por palabra, porque salió del archivo original. El módulo uno es distinto: ahí escribes a mano en el iPad, y para eso sí tuve que extraer imágenes. Detecté los cambios de página automáticamente y saqué doscientas sesenta y cuatro pantallas, siempre el estado completo de cada página, no el momento en que estabas a media escritura.\n\nAhora, lo que te entrego. Once archivos, uno por video, cada uno con cuatro partes. Una síntesis de qué hace la clase y en qué orden. Un inventario de pantallas con marca de tiempo, o sea, qué se ve exactamente en cada momento. Un guion regenerado en el estilo de tutor I A, con las marcas de sincronización que ya usa el proyecto. Y una sección de banderas... cosas que noté y que deberías mirar.\n\nY de esas banderas, hay tres que de verdad necesitan tu decisión. La primera es la más importante. En el video de utilidad, parte uno, hay un momento donde explicas que la utilidad es ordinal... que si un bien te da seis y otro te da dos, lo único que puedes concluir es que prefieres el primero. Que no puedes decir que es tres veces mejor. Bueno... el subtítulo publicado dice exactamente lo contrario. Dice que sí se puede decir que es tres veces más preferido. Justo la confusión que el pasaje existe para evitar. Y como los subtítulos son humanos y están publicados, un alumno que lea en vez de escuchar se lleva la idea equivocada. Ese es el arreglo de mayor valor en los dos módulos.\n\nLa segunda. El paquete de línea presupuestaria que ya existe en tutor I A tiene una nota de procedencia que dice que el café y el jugo de naranja no eran tu ejemplo original, que se cambiaron a pedido tuyo. El video dice otra cosa. El café y el jugo son tuyos, desde el minuto uno con cuarenta y uno, y los números también: ingreso cien, precio tres, precio uno. O sea, el paquete te está atribuyendo de menos. No toqué ese archivo porque no era mío en esta tarea, pero alguien debería corregir la nota.\n\nY la tercera es más técnica. En utilidad parte dos, ejemplo dos, la derivación llega a un resultado que no corresponde a la función que está escrita, sino a otra parecida. La lección sobre el dominio, que es lo valioso ahí, sigue siendo correcta... pero la función puede estar mal etiquetada. Eso lo dejé marcado sin resolver, porque es tuyo decidir cuál querías.\n\nUna cosa más, sobre lo que hice bien y quiero que sepas. Marqué explícitamente los momentos de tu enseñanza que vale la pena conservar tal cual, no reescribir. El más fuerte de todos: cómo construyes el quiebre de la línea presupuestaria con los cupones de comida... no lo afirmas, lo construyes desde un solo punto y después generalizas. Eso es excelente. También cuando dices que pause el video y piense antes de darles la respuesta. También el contraejemplo de completitud, donde distingues entre decir no sé y ser indiferente. Y el momento donde te corriges a ti mismo en cámara sobre la restricción del dominio... eso no lo pulí, lo dejé como trampa deliberada en el guion, porque enseña más así.\n\nSobre los videos. Bajé los once, dos punto seis siete gigas, y siguen ahí. No los borré. Están fuera del control de versiones, con sus hashes registrados para que sepas exactamente qué se guardó, y no se publican en ningún lado. Eso sigue la política de retención que ya tenías escrita en tu otro repositorio de notas de video. Se quedan hasta que tú digas.\n\nPara cerrar. Módulos uno y dos listos, once síntesis, once guiones regenerados, doscientas sesenta y cuatro pantallas documentadas. Tres cosas esperando tu decisión: el subtítulo que dice lo contrario de lo que enseñas, la atribución que te queda corta en el paquete existente, y la función posiblemente mal etiquetada. Los módulos tres al diez quedan intactos, como pediste. Cuando quieras seguimos con esos... la tubería ya está armada y correrla de nuevo es barato. Hasta luego.\n\n"
+}

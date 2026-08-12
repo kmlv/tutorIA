@@ -1,0 +1,1083 @@
+1
+00:00:00,000 --> 00:00:00,833
+(gentle ominous music)
+
+2
+00:00:00,833 --> 00:00:05,833
+- [Instructor] Let us
+now discuss other factors
+
+3
+00:00:09,360 --> 00:00:11,830
+that also influence the budget constraint
+
+4
+00:00:12,780 --> 00:00:15,363
+or changes in the budget constraint.
+
+5
+00:00:16,290 --> 00:00:18,570
+One of them is taxes.
+
+6
+00:00:18,570 --> 00:00:21,543
+We will start with ad valorem taxes.
+
+7
+00:00:23,010 --> 00:00:28,010
+In ad valorem taxes, we pay us taxes,
+
+8
+00:00:28,440 --> 00:00:33,000
+a percentage of the value we
+pay per unit of this product
+
+9
+00:00:33,000 --> 00:00:34,700
+or service that we are purchasing.
+
+10
+00:00:37,110 --> 00:00:42,110
+Let's say for example, an
+example where we buy a meal.
+
+11
+00:00:42,540 --> 00:00:46,950
+Let's say, before tax, the meal is $10.
+
+12
+00:00:46,950 --> 00:00:51,060
+If the tax, ad valorem
+in this case, is 5%,
+
+13
+00:00:51,060 --> 00:00:54,870
+it's going to be 5% of
+the value of that meal.
+
+14
+00:00:54,870 --> 00:00:57,540
+Therefore, the after tax payment
+
+15
+00:00:57,540 --> 00:00:59,340
+that the consumer will need to make
+
+16
+00:00:59,340 --> 00:01:04,340
+will be $10 plus 5% of $10,
+which in total is $10.5.
+
+17
+00:01:09,570 --> 00:01:14,570
+These $10.5 come from $10
+plus, sorry, times one
+
+18
+00:01:19,410 --> 00:01:22,443
+plus the 0.5.
+
+19
+00:01:25,200 --> 00:01:30,200
+Sorry, 0.05 of the $10
+that correspond to the tax.
+
+20
+00:01:31,890 --> 00:01:34,583
+And that will again become $10.5.
+
+21
+00:01:39,720 --> 00:01:44,130
+That is that the general expression
+
+22
+00:01:44,130 --> 00:01:48,690
+for an after tax payment
+per unit of the good
+
+23
+00:01:48,690 --> 00:01:53,293
+would take this form, will be one plus tax
+
+24
+00:01:55,380 --> 00:01:57,093
+times the initial price.
+
+25
+00:02:01,170 --> 00:02:04,230
+If the tax is 10%,
+
+26
+00:02:04,230 --> 00:02:09,230
+that means that the
+proportion is gonna be .1.
+
+27
+00:02:09,300 --> 00:02:11,680
+If the tax is 5%,
+
+28
+00:02:13,380 --> 00:02:17,540
+that means that this
+proportion is going to be 0.05
+
+29
+00:02:18,540 --> 00:02:19,383
+and so on.
+
+30
+00:02:21,750 --> 00:02:24,663
+But how does that change
+the budget constraint?
+
+31
+00:02:28,650 --> 00:02:33,603
+Well, that is that instead of P1 or P2,
+
+32
+00:02:34,440 --> 00:02:39,240
+we're going to have an
+after tax price per unit.
+
+33
+00:02:39,240 --> 00:02:43,800
+That is, let's suppose, first
+that only good one is taxed.
+
+34
+00:02:50,010 --> 00:02:50,850
+Okay?
+
+35
+00:02:50,850 --> 00:02:55,463
+Then the budget line will
+become price times one
+
+36
+00:03:01,740 --> 00:03:04,710
+plus the tax times X1.
+
+37
+00:03:04,710 --> 00:03:06,213
+Sorry, that's price of one.
+
+38
+00:03:07,230 --> 00:03:12,230
+Plus, as before, just P2X2 equals income.
+
+39
+00:03:12,840 --> 00:03:13,673
+Okay?
+
+40
+00:03:15,630 --> 00:03:20,630
+If instead both X1 and X2 are taxed,
+
+41
+00:03:30,030 --> 00:03:35,030
+the budget line will become now similar,
+
+42
+00:03:37,740 --> 00:03:41,313
+but taxes will be now
+imposed in both sides.
+
+43
+00:03:52,980 --> 00:03:57,980
+In terms of the graph of
+the budget constraint,
+
+44
+00:04:00,750 --> 00:04:05,750
+we will see that with taxes,
+
+45
+00:04:06,330 --> 00:04:11,330
+the intercepts will change
+as in the follow will figure.
+
+46
+00:04:15,090 --> 00:04:18,513
+Suppose this is the budget,
+
+47
+00:04:22,080 --> 00:04:25,743
+that is this is the current budget line.
+
+48
+00:04:27,660 --> 00:04:29,883
+For this to be the current budget line,
+
+49
+00:04:30,990 --> 00:04:35,990
+we would have and divided by P1 here
+
+50
+00:04:36,450 --> 00:04:39,453
+and M divided divide P2 here.
+
+51
+00:04:42,060 --> 00:04:45,960
+If there is a tax on good one,
+
+52
+00:04:45,960 --> 00:04:50,223
+the new budget line will
+be something like this.
+
+53
+00:05:07,860 --> 00:05:11,640
+That is taxes, in this
+case, are equivalent
+
+54
+00:05:11,640 --> 00:05:15,393
+to increasing the price of good one.
+
+55
+00:05:17,010 --> 00:05:21,093
+If instead both goods are taxed,
+
+56
+00:05:22,950 --> 00:05:27,950
+what we have would be that
+both intercepts will decrease
+
+57
+00:05:28,230 --> 00:05:32,147
+and therefore the new
+budget line will, sorry,
+
+58
+00:05:33,810 --> 00:05:35,733
+will look something like this.
+
+59
+00:06:01,650 --> 00:06:05,880
+That is the budget
+constraint or the budget line
+
+60
+00:06:05,880 --> 00:06:09,610
+will shift inwards in a parallel manner
+
+61
+00:06:11,610 --> 00:06:15,780
+because both intercepts are changing
+
+62
+00:06:15,780 --> 00:06:19,593
+by the same factor, in
+this case, reducing it.
+
+63
+00:06:23,910 --> 00:06:27,660
+Another factor that can
+change the budget line
+
+64
+00:06:27,660 --> 00:06:32,393
+is whether we receive or the
+consumer receives or not gifts.
+
+65
+00:06:33,510 --> 00:06:34,343
+Okay?
+
+66
+00:06:34,343 --> 00:06:37,914
+So a gift can come from, of course, anyone
+
+67
+00:06:37,914 --> 00:06:42,914
+and in some cases, the gift
+will be such that we can sell it
+
+68
+00:06:47,310 --> 00:06:52,310
+or in other cases, we
+cannot sell the gift.
+
+69
+00:06:52,680 --> 00:06:56,730
+So let's think first what would happen
+
+70
+00:06:56,730 --> 00:06:59,763
+if we cannot sell the gift.
+
+71
+00:07:03,840 --> 00:07:06,363
+Let us explain this with one example.
+
+72
+00:07:09,300 --> 00:07:14,300
+Suppose we have a food
+stamp program, okay?
+
+73
+00:07:29,460 --> 00:07:30,960
+Okay.
+
+74
+00:07:30,960 --> 00:07:35,400
+And let's assume that income is 400
+
+75
+00:07:35,400 --> 00:07:38,040
+and the price, there are two goods.
+
+76
+00:07:38,040 --> 00:07:39,210
+There is food.
+
+77
+00:07:39,210 --> 00:07:43,803
+We're gonna call price
+of food equals to $1.
+
+78
+00:07:44,640 --> 00:07:47,430
+And there is price of other goods.
+
+79
+00:07:47,430 --> 00:07:51,853
+We're gonna just call them G,
+which is going to be also $1.
+
+80
+00:07:53,160 --> 00:07:57,733
+Okay, so $1 for goods and $1 for food.
+
+81
+00:08:00,240 --> 00:08:02,280
+Just to make things simple.
+
+82
+00:08:02,280 --> 00:08:07,280
+So let's see how this
+initial budget constraint
+
+83
+00:08:09,270 --> 00:08:10,350
+would look like.
+
+84
+00:08:10,350 --> 00:08:14,310
+Well, we have learned that we would have,
+
+85
+00:08:14,310 --> 00:08:19,310
+let's say, food is here
+and other goods are here,
+
+86
+00:08:24,240 --> 00:08:29,240
+then the intercepts would
+be 400 divided by one,
+
+87
+00:08:29,280 --> 00:08:34,280
+which is 400, and 400 divided
+by one, which is also 400
+
+88
+00:08:34,320 --> 00:08:39,320
+for food access and good
+access respectively.
+
+89
+00:08:40,410 --> 00:08:42,810
+So for example, this could
+be depicted like this
+
+90
+00:08:45,360 --> 00:08:49,627
+where here we have 400
+and here we have 400.
+
+91
+00:08:51,240 --> 00:08:52,890
+Okay?
+
+92
+00:08:52,890 --> 00:08:57,890
+Imagine now that there is
+a gift of or a food stamp
+
+93
+00:09:01,110 --> 00:09:06,057
+or a coupon, we're gonna
+call it a food stamp coupon
+
+94
+00:09:13,530 --> 00:09:17,610
+equals to 200 units of food.
+
+95
+00:09:20,550 --> 00:09:21,383
+Okay?
+
+96
+00:09:21,383 --> 00:09:23,193
+So this is food.
+
+97
+00:09:25,200 --> 00:09:30,200
+So we need to ask what would
+be the new budget line?
+
+98
+00:09:31,290 --> 00:09:32,610
+And the new budget line,
+
+99
+00:09:32,610 --> 00:09:36,120
+we're gonna depict it with green.
+
+100
+00:09:36,120 --> 00:09:40,980
+New budget line.
+
+101
+00:09:40,980 --> 00:09:42,030
+Okay.
+
+102
+00:09:42,030 --> 00:09:47,030
+So graphically, this is how
+that situation looks like.
+
+103
+00:09:50,700 --> 00:09:53,770
+First, we need to ask ourselves
+
+104
+00:09:55,620 --> 00:10:00,540
+If I am consuming some point,
+
+105
+00:10:00,540 --> 00:10:04,293
+let's say, I am consuming, for example,
+
+106
+00:10:05,430 --> 00:10:10,430
+this point here, okay, this
+might be the point 200 food,
+
+107
+00:10:13,410 --> 00:10:15,663
+200 units of other goods, okay?
+
+108
+00:10:16,800 --> 00:10:21,480
+Once I have to this point is affordable
+
+109
+00:10:21,480 --> 00:10:26,010
+with the original budget line,
+that means that I can afford,
+
+110
+00:10:26,010 --> 00:10:28,410
+I can purchase and consume.
+
+111
+00:10:28,410 --> 00:10:31,143
+That point, we're gonna call it point A,
+
+112
+00:10:32,160 --> 00:10:37,160
+without the food stamp program coupon
+
+113
+00:10:37,680 --> 00:10:40,470
+and only with the income at the prices
+
+114
+00:10:40,470 --> 00:10:44,310
+that I had originally
+faced, which is one and one.
+
+115
+00:10:44,310 --> 00:10:47,340
+So if I can purchase that bundle A,
+
+116
+00:10:47,340 --> 00:10:52,113
+200, 200 in that original situation,
+
+117
+00:10:53,160 --> 00:10:57,570
+that implies that I could
+buy the same bundle now
+
+118
+00:10:57,570 --> 00:11:02,570
+and add it on the food
+dimension, on the food access
+
+119
+00:11:04,590 --> 00:11:07,290
+or along the food access, 200 more,
+
+120
+00:11:07,290 --> 00:11:11,073
+because I have a coupon
+of 200 units of food.
+
+121
+00:11:12,000 --> 00:11:16,247
+That is, I would be
+able to consume point B,
+
+122
+00:11:19,920 --> 00:11:24,920
+which is 400 units of food
+and 200 units of order goods.
+
+123
+00:11:33,930 --> 00:11:37,863
+But the same logic apply
+literally to any point.
+
+124
+00:11:39,240 --> 00:11:44,240
+So to any point on the
+original budget line.
+
+125
+00:11:44,670 --> 00:11:49,463
+There is another point
+in the new budget line,
+
+126
+00:11:49,463 --> 00:11:53,447
+which is just found by adding 200 units
+
+127
+00:11:58,050 --> 00:12:00,240
+that are coming from the coupon.
+
+128
+00:12:00,240 --> 00:12:05,240
+So following that logic, I can...
+
+129
+00:12:06,480 --> 00:12:07,313
+By the way,
+
+130
+00:12:07,313 --> 00:12:10,680
+this point is hopefully
+most likely actually there.
+
+131
+00:12:10,680 --> 00:12:15,680
+So this can be, yeah, okay.
+
+132
+00:12:16,050 --> 00:12:18,873
+So let's see.
+
+133
+00:12:21,120 --> 00:12:25,707
+The new body line is going
+to be something like this
+
+134
+00:12:29,550 --> 00:12:34,550
+and it's going to go all the
+way to a point like this.
+
+135
+00:12:37,080 --> 00:12:39,420
+So yeah, I was right.
+
+136
+00:12:39,420 --> 00:12:40,950
+This point was one.
+
+137
+00:12:40,950 --> 00:12:43,050
+Slightly one to the right
+was the correct one.
+
+138
+00:12:43,050 --> 00:12:46,410
+So in this new budget line,
+
+139
+00:12:46,410 --> 00:12:51,410
+we have taken the original one
+and we have added information
+
+140
+00:12:51,450 --> 00:12:56,280
+that what or which order bundles
+we are also able to afford
+
+141
+00:12:56,280 --> 00:13:01,280
+because we have 200 units from
+the food stamp coupon, okay?
+
+142
+00:13:05,010 --> 00:13:10,010
+So interestingly, the
+set of affordable bundles
+
+143
+00:13:12,690 --> 00:13:16,910
+used to be something
+that would look like this
+
+144
+00:13:16,910 --> 00:13:20,523
+in the beginning, right?
+
+145
+00:13:21,690 --> 00:13:26,130
+And now, it became something that looks
+
+146
+00:13:26,130 --> 00:13:28,800
+that added all this area here.
+
+147
+00:13:28,800 --> 00:13:33,800
+All this area was added
+and now it looks like this.
+
+148
+00:13:34,530 --> 00:13:37,200
+So we have more affordable bundles.
+
+149
+00:13:37,200 --> 00:13:41,490
+This is would be the impact of a gift,
+
+150
+00:13:41,490 --> 00:13:45,900
+in this case, a food stamp
+program on the budget line,
+
+151
+00:13:45,900 --> 00:13:47,733
+on the budget constraint.
+
+152
+00:14:01,710 --> 00:14:04,830
+Before we conclude the
+discussion of the budget line
+
+153
+00:14:04,830 --> 00:14:06,690
+and the budget constraint,
+
+154
+00:14:06,690 --> 00:14:11,690
+I want to recommend you try to draw
+
+155
+00:14:13,830 --> 00:14:18,830
+and do the math of
+other interesting cases.
+
+156
+00:14:18,840 --> 00:14:21,480
+So the first interesting case
+
+157
+00:14:21,480 --> 00:14:24,480
+that you should check at home is the case
+
+158
+00:14:24,480 --> 00:14:28,650
+in which you are able
+to sell the gift, okay?
+
+159
+00:14:28,650 --> 00:14:29,820
+And I'll give you the hint.
+
+160
+00:14:29,820 --> 00:14:33,750
+So the same example of the food stamp,
+
+161
+00:14:33,750 --> 00:14:34,950
+I'm gonna go back to it,
+
+162
+00:14:37,620 --> 00:14:40,860
+where you can actually sell the coupons.
+
+163
+00:14:40,860 --> 00:14:43,560
+The food will yield,
+
+164
+00:14:43,560 --> 00:14:47,283
+will give us a different body constraint.
+
+165
+00:14:52,419 --> 00:14:57,360
+It's gonna become equivalent
+to increasing your income.
+
+166
+00:14:57,360 --> 00:14:58,193
+Okay?
+
+167
+00:14:58,193 --> 00:15:02,870
+So to summarize, if you have a gift
+
+168
+00:15:05,580 --> 00:15:10,580
+like a food stamp program
+that you cannot sell,
+
+169
+00:15:16,260 --> 00:15:20,403
+then the budget line will look
+like the one with drew here.
+
+170
+00:15:21,540 --> 00:15:25,770
+But if you have a food stamp
+or a gift that you can sell,
+
+171
+00:15:25,770 --> 00:15:28,710
+that thing becomes equivalent
+to increasing your income.
+
+172
+00:15:28,710 --> 00:15:31,260
+So do the same example
+
+173
+00:15:31,260 --> 00:15:35,760
+but this time, assuming that
+people can sell the coupons
+
+174
+00:15:35,760 --> 00:15:39,510
+and try to do the same
+drawing with this new thing
+
+175
+00:15:39,510 --> 00:15:43,050
+that coupons can be sold and
+you will see a difference.
+
+176
+00:15:43,050 --> 00:15:43,883
+Okay?
+
+177
+00:15:43,883 --> 00:15:48,440
+So that is one task or
+homework, if you want.
+
+178
+00:15:49,560 --> 00:15:51,360
+Another one I recommend you do
+
+179
+00:15:51,360 --> 00:15:53,850
+is to think about the following.
+
+180
+00:15:53,850 --> 00:15:56,250
+What happens with the budget line
+
+181
+00:15:56,250 --> 00:16:01,250
+if we have a price that lowers
+
+182
+00:16:01,440 --> 00:16:05,070
+if you buy many enough
+units of something, right?
+
+183
+00:16:05,070 --> 00:16:06,360
+So there are some places
+
+184
+00:16:06,360 --> 00:16:08,670
+and some marketplaces that tells you
+
+185
+00:16:08,670 --> 00:16:13,670
+if you buy the first 10
+units, you pay whatever,
+
+186
+00:16:13,927 --> 00:16:15,510
+$100 per unit.
+
+187
+00:16:15,510 --> 00:16:17,580
+But if you buy more than 10 units,
+
+188
+00:16:17,580 --> 00:16:20,070
+you might pay only $80 per unit, right?
+
+189
+00:16:20,070 --> 00:16:21,990
+So it's a decrease in price
+
+190
+00:16:21,990 --> 00:16:26,990
+that comes if you buy in bulk or volume.
+
+191
+00:16:27,750 --> 00:16:29,040
+But in other markets,
+
+192
+00:16:29,040 --> 00:16:32,700
+you will find sort of the opposite, right?
+
+193
+00:16:32,700 --> 00:16:34,860
+To encourage you to
+buy at least something,
+
+194
+00:16:34,860 --> 00:16:39,860
+they will tell you you
+can pay a lower price
+
+195
+00:16:40,410 --> 00:16:43,320
+for the first five units
+you buy of something.
+
+196
+00:16:43,320 --> 00:16:47,940
+For the first five meals,
+you pay this lower price
+
+197
+00:16:47,940 --> 00:16:50,760
+and for the next units,
+you pay more, right?
+
+198
+00:16:50,760 --> 00:16:55,050
+So that is the opposite in the sense
+
+199
+00:16:55,050 --> 00:16:57,390
+that now the price is
+lower for the first units
+
+200
+00:16:57,390 --> 00:17:00,540
+and higher for the additional units.
+
+201
+00:17:00,540 --> 00:17:01,373
+Okay.
+
+202
+00:17:01,373 --> 00:17:03,600
+So think about those cases
+
+203
+00:17:03,600 --> 00:17:06,573
+and do the math about those.
+
+204
+00:17:09,300 --> 00:17:14,300
+For now, the hints for each
+of them are as follows, okay?
+
+205
+00:17:16,770 --> 00:17:21,770
+This is your homework, okay?
+
+206
+00:17:22,200 --> 00:17:26,280
+Separate from the official
+homework that you would turn in.
+
+207
+00:17:26,280 --> 00:17:28,950
+This is for homework not to turn in.
+
+208
+00:17:28,950 --> 00:17:33,950
+And first one is lower price
+if purchase in bulk, right?
+
+209
+00:17:47,220 --> 00:17:49,770
+And so you can do an
+(faintly speaking) example,
+
+210
+00:17:49,770 --> 00:17:52,530
+but I'm just gonna do the graph here
+
+211
+00:17:52,530 --> 00:17:55,563
+on how the budget line looks.
+
+212
+00:17:58,710 --> 00:18:01,470
+And it's gonna look like this.
+
+213
+00:18:01,470 --> 00:18:06,470
+So suppose the discount for
+buying in bulk applies to X1.
+
+214
+00:18:10,470 --> 00:18:14,940
+So you're gonna pay a
+price up to some point,
+
+215
+00:18:14,940 --> 00:18:16,143
+let's say, this point.
+
+216
+00:18:17,070 --> 00:18:21,570
+But then if you buy more
+than this threshold,
+
+217
+00:18:21,570 --> 00:18:23,400
+you pay a lower price.
+
+218
+00:18:23,400 --> 00:18:26,550
+So the slope must become flatter, right?
+
+219
+00:18:26,550 --> 00:18:29,340
+Because that's what happens
+when the price is lower.
+
+220
+00:18:29,340 --> 00:18:34,340
+So this would be the how
+the budget line will look
+
+221
+00:18:35,910 --> 00:18:40,910
+when you have a discount
+for buying in bulk,
+
+222
+00:18:41,280 --> 00:18:43,290
+a discount per unit, right?
+
+223
+00:18:43,290 --> 00:18:48,290
+Lower price for in higher amounts of X1.
+
+224
+00:18:49,290 --> 00:18:51,210
+Now, let's do this similar thing.
+
+225
+00:18:51,210 --> 00:18:53,583
+If you have actually a discount.
+
+226
+00:18:54,900 --> 00:18:59,900
+A discount for the first 10
+units, for example, okay.
+
+227
+00:19:06,120 --> 00:19:10,200
+This is, for example,
+discount for 10 units.
+
+228
+00:19:10,200 --> 00:19:13,740
+So in the case of discount
+for the first 10 units,
+
+229
+00:19:13,740 --> 00:19:18,740
+again, of X1, we will have the following.
+
+230
+00:19:21,000 --> 00:19:24,270
+So now the first 10 units
+are going to be cheaper,
+
+231
+00:19:24,270 --> 00:19:28,830
+meaning the budget line will
+be flatter for those 10 units.
+
+232
+00:19:28,830 --> 00:19:31,440
+And then it's going to become steeper
+
+233
+00:19:31,440 --> 00:19:34,890
+'cause the normal price will kick in.
+
+234
+00:19:34,890 --> 00:19:36,690
+So it's gonna go something like this
+
+235
+00:19:37,740 --> 00:19:40,050
+because cheaper for the first 10 units,
+
+236
+00:19:40,050 --> 00:19:42,030
+and then it's gonna be like this.
+
+237
+00:19:42,030 --> 00:19:42,863
+Okay?
+
+238
+00:19:42,863 --> 00:19:46,890
+And this would be the 10 units
+that I was mentioning, okay?
+
+239
+00:19:46,890 --> 00:19:50,190
+This is the discount
+for the first 10 units.
+
+240
+00:19:50,190 --> 00:19:51,023
+Okay.
+
+241
+00:19:51,023 --> 00:19:56,023
+Well, with this hints for
+you to solve this problems
+
+242
+00:19:56,040 --> 00:20:00,720
+at home, we will conclude
+this chapter or this section
+
+243
+00:20:00,720 --> 00:20:02,163
+and move on to the next one.
+
+244
+00:20:03,090 --> 00:20:04,243
+I'll see you very soon.
+
+245
+00:20:04,243 --> 00:20:06,754
+(gentle ominous music)
+

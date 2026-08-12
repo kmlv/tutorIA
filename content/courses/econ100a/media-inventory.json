@@ -1,0 +1,109 @@
+{
+ "note": "Source media is retained locally OUTSIDE Git, under workspace/econ100a/. Only derived text (captions, transcripts, lecture syntheses) is committed. Media is not published or redistributed. Retain until Kristian asks for cleanup.",
+ "media_root": "workspace/econ100a/",
+ "rights": "Instructor-owned lecture recordings (Kristian Lopez Vargas, UCSC ECON-100A).",
+ "captured": "2026-08-11",
+ "total_bytes": 2666246444,
+ "total_duration_s": 10139.98,
+ "items": [
+  {
+   "slug": "m1-l1-intro-microeconomics",
+   "video_bytes": 126730598,
+   "video_sha256": "5dbc9e4ea3a97c8f45b457255f82aa0278eafd991902b6c615f5540ec0264f9e",
+   "duration_s": 261.19,
+   "frames_extracted": 8,
+   "caption_bytes": 5518,
+   "caption_sha256": "3a896d232e755b31abc2d78eb85d40223d9c817fb4e24c2afa34ed7d6e6fb006"
+  },
+  {
+   "slug": "m1-l2-consumption-bundles-and-budget-line",
+   "video_bytes": 538100845,
+   "video_sha256": "a1bd8ca4ede73f2138b222a112f3d489cfcbc54ad7d6050cc8fd49c72fa43085",
+   "duration_s": 1520.5,
+   "frames_extracted": 50,
+   "caption_bytes": 23717,
+   "caption_sha256": "e00d6747d80269c6719b8c4f45ba844df9b15823c9a0feb738bfee42fd39547e"
+  },
+  {
+   "slug": "m1-l3-changes-in-budget-line",
+   "video_bytes": 305032743,
+   "video_sha256": "fb42e8e19f1f768a0d1b5099ccfa4f867ee70f0953fa3e26375d59c5daf04a2c",
+   "duration_s": 762.36,
+   "frames_extracted": 18,
+   "caption_bytes": 13819,
+   "caption_sha256": "fb3fe0a8f5a59e2b775695d510b2ed1c1cb71d54c467c1457df836c762eb0a76"
+  },
+  {
+   "slug": "m1-l4-taxes",
+   "video_bytes": 481807983,
+   "video_sha256": "fb9892690d2354d73d65ac234089a94ff459f3ab121674e4d9136a06d970b995",
+   "duration_s": 1206.83,
+   "frames_extracted": 35,
+   "caption_bytes": 17984,
+   "caption_sha256": "a3322f3af0ade56384f061727b980bab87a4b4048e38febdc72644dce30845fb"
+  },
+  {
+   "slug": "m2-l1-preferences-part1",
+   "video_bytes": 155626757,
+   "video_sha256": "94749712bb3cd7d12cd5b67b465d168c23c71cfdbfe38a7a3deb71bc0dff624f",
+   "duration_s": 1050.23,
+   "frames_extracted": 20,
+   "caption_bytes": 19057,
+   "caption_sha256": "2ed29de00f478b478e8aff7ecebffae53e029139a914d20f855f100270c02b6f"
+  },
+  {
+   "slug": "m2-l2-preferences-part2",
+   "video_bytes": 103653984,
+   "video_sha256": "91824e3da23950e2a3ee64817a7c10abacf2761228cbbd7a1f6a4525e049dbd6",
+   "duration_s": 744.47,
+   "frames_extracted": 13,
+   "caption_bytes": 13739,
+   "caption_sha256": "63db1d2b7e7f66f79c5a2e315cd342b87ab4f310abfd34158b89ebd01f47d6c6"
+  },
+  {
+   "slug": "m2-l3-utility-part1",
+   "video_bytes": 190123863,
+   "video_sha256": "174c3fb75e331f8a04d77cd1fca1f87e137eac7194010480faf358b06ace807b",
+   "duration_s": 1312.33,
+   "frames_extracted": 23,
+   "caption_bytes": 24368,
+   "caption_sha256": "3ec4eaf6de6b77b36d59c021659c2a81292a67cdd343fb84ae844db383bdbf7c"
+  },
+  {
+   "slug": "m2-l4-utility-part2",
+   "video_bytes": 173418239,
+   "video_sha256": "cc73f3ae148236cb3b6aa0631718641e43f5c176d34d31eff1e05764de42ca91",
+   "duration_s": 764.83,
+   "frames_extracted": 20,
+   "caption_bytes": 13455,
+   "caption_sha256": "d77bccbc5a79ac9f782ec4164ec57dddad45702e7ec9f4d4cd29dbc9df3d4119"
+  },
+  {
+   "slug": "m2-l5-typical-utility-function",
+   "video_bytes": 194576517,
+   "video_sha256": "d585f90296abd82c7972b6f4d4f59389e3f0ecb20d74df7daa7c26c0384a77d1",
+   "duration_s": 899.47,
+   "frames_extracted": 28,
+   "caption_bytes": 15744,
+   "caption_sha256": "2edc320c6c9f03fe5e6cb2c86431688bba8ce2159de2f658574e31332f8afadb"
+  },
+  {
+   "slug": "m2-l6-marginal-utility",
+   "video_bytes": 125045127,
+   "video_sha256": "1f403fec882c6e039e60e4b401bd4a0ff8cf988240069392953bda73f4d9831d",
+   "duration_s": 547.6,
+   "frames_extracted": 15,
+   "caption_bytes": 9307,
+   "caption_sha256": "c2612a0ec80eec5c106fc748740c2201adc6dd06023c810ad4d69fa3e2c49e18"
+  },
+  {
+   "slug": "m2-l7-marginal-rate-of-substitution",
+   "video_bytes": 272129788,
+   "video_sha256": "f75097f468a08b7b7a5b1244f95222d92cb8443def344cdf3cecd9c855ea2bfd",
+   "duration_s": 1070.17,
+   "frames_extracted": 34,
+   "caption_bytes": 17800,
+   "caption_sha256": "f80e03fd229780b3c6d12494eb0428c97b37566aa49c3249e9692999bbea209b"
+  }
+ ]
+}

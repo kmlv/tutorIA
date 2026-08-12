@@ -1,0 +1,1523 @@
+1
+00:00:06,050 --> 00:00:08,820
+>> Hello. Today we're going
+
+2
+00:00:08,820 --> 00:00:10,820
+to discuss the
+budget constraint.
+
+3
+00:00:10,820 --> 00:00:14,195
+Let us start with some
+basic definitions.
+
+4
+00:00:14,195 --> 00:00:16,020
+The first definition we need to
+
+5
+00:00:16,020 --> 00:00:19,020
+cover is the
+consumption choice set.
+
+6
+00:00:19,020 --> 00:00:22,460
+The consumption choice
+set is a collection of
+
+7
+00:00:22,460 --> 00:00:27,860
+every possible consumption
+option that one consumer
+
+8
+00:00:27,860 --> 00:00:32,580
+can possibly get unrestricted or
+
+9
+00:00:32,580 --> 00:00:38,100
+regardless their own budgetary
+and time constraints.
+
+10
+00:00:38,100 --> 00:00:43,860
+But of course, people cannot
+actually reach any bundle
+
+11
+00:00:43,860 --> 00:00:45,480
+or any choice in
+
+12
+00:00:45,480 --> 00:00:47,480
+that grand set because
+
+13
+00:00:47,480 --> 00:00:49,800
+people have limited
+resources in their wallet,
+
+14
+00:00:49,800 --> 00:00:52,780
+in their bank
+account, and in time.
+
+15
+00:00:56,020 --> 00:01:01,820
+The next important concept
+is the consumption bundle.
+
+16
+00:01:01,820 --> 00:01:08,050
+A consumption bundle is a
+mathematical expression,
+
+17
+00:01:08,050 --> 00:01:10,220
+a vector in particular,
+
+18
+00:01:10,220 --> 00:01:13,480
+that contains quantities of
+
+19
+00:01:13,480 --> 00:01:16,440
+the n goods that we can have or
+
+20
+00:01:16,440 --> 00:01:19,860
+we will have in our
+simplified universe.
+
+21
+00:01:19,860 --> 00:01:21,340
+So we're going to study
+
+22
+00:01:21,340 --> 00:01:23,680
+a simplified universe that
+
+23
+00:01:23,680 --> 00:01:27,015
+consists of only n
+different types of goods,
+
+24
+00:01:27,015 --> 00:01:30,260
+and each of these
+different goods
+
+25
+00:01:30,260 --> 00:01:33,980
+can be consumed in
+different quantities.
+
+26
+00:01:37,640 --> 00:01:40,990
+Let me give you an example.
+
+27
+00:01:41,090 --> 00:01:44,550
+Suppose we have only two goods.
+
+28
+00:01:44,550 --> 00:01:52,260
+It's going to be coffee
+and orange juice.
+
+29
+00:01:52,260 --> 00:01:55,200
+We're going to denote coffee by
+
+30
+00:01:55,200 --> 00:01:59,920
+x_1 and orange juice by x_2.
+
+31
+00:02:01,580 --> 00:02:07,380
+And when we have a universe
+with only these two goods,
+
+32
+00:02:07,380 --> 00:02:13,420
+we can form a
+bundle in this way.
+
+33
+00:02:14,330 --> 00:02:16,860
+So this is a general expression,
+
+34
+00:02:16,860 --> 00:02:20,355
+a vector, a two
+dimensional vector.
+
+35
+00:02:20,355 --> 00:02:29,490
+And for example, if this
+vector takes this form 5,
+
+36
+00:02:29,490 --> 00:02:32,330
+7, it means that there
+are five units of
+
+37
+00:02:32,330 --> 00:02:35,530
+coffee and seven units
+of orange juice.
+
+38
+00:02:35,530 --> 00:02:42,290
+Suppose we are expressing
+both goods in ounces,
+
+39
+00:02:42,290 --> 00:02:45,525
+so this would mean
+five ounces of coffee
+
+40
+00:02:45,525 --> 00:02:49,755
+and seven ounces
+of orange juice.
+
+41
+00:02:49,755 --> 00:02:54,720
+If we would have in a
+different example now
+
+42
+00:02:54,720 --> 00:03:00,135
+three goods for let's
+say x_1 again coffee,
+
+43
+00:03:00,135 --> 00:03:10,240
+x_2 orange juice, and
+let's say x_3 pizza,
+
+44
+00:03:10,280 --> 00:03:17,680
+then this one will be in slices
+and these two in ounces.
+
+45
+00:03:18,080 --> 00:03:22,425
+An example of a bundle here
+would be, for example,
+
+46
+00:03:22,425 --> 00:03:27,785
+again, 5, 7, 2.
+
+47
+00:03:27,785 --> 00:03:32,820
+This would be five
+ounces of coffee,
+
+48
+00:03:32,820 --> 00:03:36,795
+seven ounces of orange juice,
+
+49
+00:03:36,795 --> 00:03:39,030
+and two slices of pizza.
+
+50
+00:03:39,030 --> 00:03:42,820
+This would be a bundle.
+
+51
+00:03:48,080 --> 00:03:52,450
+Also, we have
+
+52
+00:03:52,450 --> 00:03:56,350
+to take into consideration
+the prices of the goods,
+
+53
+00:03:56,350 --> 00:03:58,770
+and that is given
+by another vector
+
+54
+00:03:58,770 --> 00:04:02,150
+that we will denote
+p_1 through p_n and,
+
+55
+00:04:02,150 --> 00:04:05,390
+we will do examples in
+a second with that.
+
+56
+00:04:05,390 --> 00:04:09,470
+So let's discuss now
+
+57
+00:04:09,470 --> 00:04:14,925
+a new concept that we will
+call affordable bundles.
+
+58
+00:04:14,925 --> 00:04:18,970
+So affordable bundles
+are the bundles that
+
+59
+00:04:18,970 --> 00:04:24,570
+given prices and given your
+income, you can afford.
+
+60
+00:04:24,570 --> 00:04:27,110
+So it would be, in other words,
+
+61
+00:04:27,110 --> 00:04:31,090
+bundles that given prices
+
+62
+00:04:31,090 --> 00:04:33,570
+you face and the
+income you have,
+
+63
+00:04:33,570 --> 00:04:39,130
+you can purchase with
+the income you have.
+
+64
+00:04:42,270 --> 00:04:44,890
+The equation to find
+
+65
+00:04:44,890 --> 00:04:47,450
+the bundles that you
+can afford that are
+
+66
+00:04:47,450 --> 00:04:50,710
+within your budget constraints
+
+67
+00:04:50,710 --> 00:04:53,390
+are given by this inequality.
+
+68
+00:04:53,390 --> 00:04:56,480
+The first term here, p_1x_1,
+
+69
+00:04:56,480 --> 00:05:01,400
+is the amount you will spend
+an x in good one all the
+
+70
+00:05:01,400 --> 00:05:06,845
+way to the amount you
+would spend in good n,
+
+71
+00:05:06,845 --> 00:05:11,160
+and all that expenditure
+summed up or added
+
+72
+00:05:11,160 --> 00:05:16,510
+up needs to be equal or
+below the income you have.
+
+73
+00:05:19,300 --> 00:05:22,070
+Let us do an example.
+
+74
+00:05:22,070 --> 00:05:29,040
+Suppose we have as
+before x_1 coffee,
+
+75
+00:05:29,040 --> 00:05:33,330
+x_2 orange juice, and
+
+76
+00:05:33,330 --> 00:05:40,710
+x_3 pizza and we
+
+77
+00:05:40,710 --> 00:05:47,025
+have that the price of coffee
+is one dollar per ounce,
+
+78
+00:05:47,025 --> 00:05:50,940
+the price of orange
+juice is going to
+
+79
+00:05:50,940 --> 00:05:55,860
+be point $0.5 per ounce,
+
+80
+00:05:55,860 --> 00:06:00,700
+and the price of
+
+81
+00:06:00,700 --> 00:06:04,230
+one slice of pizza is
+going to be three dollars.
+
+82
+00:06:04,230 --> 00:06:08,700
+So we have three goods: x_1
+coffee, x_2 orange juice,
+
+83
+00:06:08,700 --> 00:06:13,005
+x_3 pizza and their
+corresponding prices are one,
+
+84
+00:06:13,005 --> 00:06:16,140
+50 cents, and three dollars.
+
+85
+00:06:16,140 --> 00:06:20,540
+So the expenditure of this is
+
+86
+00:06:20,540 --> 00:06:27,200
+written generically like this.
+
+87
+00:06:29,270 --> 00:06:32,640
+This is how much you
+spend in coffee,
+
+88
+00:06:32,640 --> 00:06:34,880
+this is how much you
+spend in orange juice,
+
+89
+00:06:34,880 --> 00:06:38,000
+this is how much
+you spend in pizza,
+
+90
+00:06:38,000 --> 00:06:43,870
+and together is, of course,
+your total expenditure.
+
+91
+00:06:43,870 --> 00:06:47,760
+And as you saw from
+
+92
+00:06:47,760 --> 00:06:52,410
+the previous slide for
+one particular bundle,
+
+93
+00:06:52,410 --> 00:06:53,910
+x_1, x_2, x_3,
+
+94
+00:06:53,910 --> 00:06:57,060
+to be affordable, this
+inequality needs to hold.
+
+95
+00:06:57,060 --> 00:06:58,740
+The total expenditure needs to
+
+96
+00:06:58,740 --> 00:07:01,340
+be equal or below your income.
+
+97
+00:07:01,340 --> 00:07:03,655
+So let's give an example.
+
+98
+00:07:03,655 --> 00:07:08,100
+Let's test this.
+
+99
+00:07:08,100 --> 00:07:15,885
+Is this bundle affordable?
+
+100
+00:07:15,885 --> 00:07:18,300
+That is a question. We're going
+
+101
+00:07:18,300 --> 00:07:19,695
+to start with something simple.
+
+102
+00:07:19,695 --> 00:07:22,350
+We're going to
+start with bundle x
+
+103
+00:07:22,350 --> 00:07:25,110
+that's going to be
+one ounce of coffee,
+
+104
+00:07:25,110 --> 00:07:27,050
+one ounce of orange juice,
+
+105
+00:07:27,050 --> 00:07:29,330
+and one slice of pizza.
+
+106
+00:07:29,330 --> 00:07:35,355
+So let's form this
+expression for our example.
+
+107
+00:07:35,355 --> 00:07:37,165
+It's going to be p_1,
+
+108
+00:07:37,165 --> 00:07:41,275
+which I hope you
+remember is one,
+
+109
+00:07:41,275 --> 00:07:45,865
+so we have 1 times 1 because
+
+110
+00:07:45,865 --> 00:07:51,270
+we have one unit of
+coffee plus the price of
+
+111
+00:07:51,270 --> 00:07:58,200
+orange juice was 0.5
+times 1 because of this
+
+112
+00:07:58,200 --> 00:08:03,510
+plus the price of
+
+113
+00:08:03,510 --> 00:08:08,460
+the slice of pizza was
+3 times 1 unit is this.
+
+114
+00:08:08,460 --> 00:08:11,880
+So the total expenditure in
+
+115
+00:08:11,880 --> 00:08:21,225
+this simple example
+will be 1 plus 0.5,
+
+116
+00:08:21,225 --> 00:08:23,730
+so 1.5, plus 3,
+
+117
+00:08:23,730 --> 00:08:26,760
+so it's going to be 4.5.
+
+118
+00:08:26,760 --> 00:08:33,145
+So suppose as an example
+that income is 10,
+
+119
+00:08:33,145 --> 00:08:38,490
+therefore this bundle 1, 1,
+
+120
+00:08:38,490 --> 00:08:45,810
+1, i affordable.
+
+121
+00:08:48,710 --> 00:08:52,290
+In more technical terms,
+
+122
+00:08:52,290 --> 00:08:59,230
+it is this bundle is inside
+our budget constraint.
+
+123
+00:09:00,470 --> 00:09:06,220
+Suppose instead that we
+have a different bundle.
+
+124
+00:09:11,650 --> 00:09:22,820
+Let's say we have
+bundle 5, 7, 4.
+
+125
+00:09:22,820 --> 00:09:25,850
+So 5 ounces of coffee,
+
+126
+00:09:25,850 --> 00:09:27,785
+7 ounces of orange juice,
+
+127
+00:09:27,785 --> 00:09:30,875
+4 slices of pizza.
+
+128
+00:09:30,875 --> 00:09:36,290
+Now we're going to see if
+that bundle is affordable.
+
+129
+00:09:36,290 --> 00:09:40,580
+Remember prices are one,
+
+130
+00:09:40,580 --> 00:09:45,260
+price of two is 0.5,
+
+131
+00:09:45,260 --> 00:09:48,950
+and price of pizza was,
+
+132
+00:09:48,950 --> 00:09:53,940
+if I remember
+correctly, yes, was $3.
+
+133
+00:09:55,690 --> 00:09:59,750
+And also, we said
+that income was 10.
+
+134
+00:09:59,750 --> 00:10:02,630
+So this is your
+context and I want to
+
+135
+00:10:02,630 --> 00:10:05,885
+test whether this bundle
+here is affordable.
+
+136
+00:10:05,885 --> 00:10:12,185
+So let's see. So what is
+the total expenditure?
+
+137
+00:10:12,185 --> 00:10:14,910
+Total expenditure is
+
+138
+00:10:17,770 --> 00:10:25,560
+1*5+0.5*7+3*4.
+
+139
+00:10:26,950 --> 00:10:31,100
+So this is 5,
+
+140
+00:10:31,100 --> 00:10:36,860
+this is 3.5 and this is 12.
+
+141
+00:10:36,860 --> 00:10:41,945
+As you are already realizing,
+
+142
+00:10:41,945 --> 00:10:49,115
+this is 17+3.5 that is 20.5.
+
+143
+00:10:49,115 --> 00:10:50,930
+And in this case,
+
+144
+00:10:50,930 --> 00:10:53,180
+this is greater than 10,
+
+145
+00:10:53,180 --> 00:11:00,755
+so the bundle 5,
+
+146
+00:11:00,755 --> 00:11:09,840
+7, 4 is not affordable.
+
+147
+00:11:15,670 --> 00:11:23,855
+Let us now discuss the budget
+line or budget constraint.
+
+148
+00:11:23,855 --> 00:11:28,040
+So the key concept
+here is that there are
+
+149
+00:11:28,040 --> 00:11:29,585
+some bundles that are just
+
+150
+00:11:29,585 --> 00:11:32,675
+affordable in the sense
+that if you buy them,
+
+151
+00:11:32,675 --> 00:11:36,230
+your income will be fully spent.
+
+152
+00:11:36,230 --> 00:11:39,140
+Let me repeat that. There
+are bundles that are just
+
+153
+00:11:39,140 --> 00:11:42,365
+affordable in the sense
+that if you buy them,
+
+154
+00:11:42,365 --> 00:11:47,735
+your income will be fully spent.
+
+155
+00:11:47,735 --> 00:11:51,665
+So mathematically, this is
+expression for such bundle.
+
+156
+00:11:51,665 --> 00:11:54,810
+If you see here,
+
+157
+00:12:00,820 --> 00:12:07,590
+the total expenditure is
+exactly equal to income.
+
+158
+00:12:10,060 --> 00:12:13,445
+In these cases, if
+a bundle satisfies
+
+159
+00:12:13,445 --> 00:12:18,875
+that the total expenditure
+
+160
+00:12:18,875 --> 00:12:22,610
+of buying that particular
+bundle equals income,
+
+161
+00:12:22,610 --> 00:12:28,140
+we say that that bundle
+is on the budget line.
+
+162
+00:12:32,320 --> 00:12:35,855
+From now on, we're going to
+
+163
+00:12:35,855 --> 00:12:42,785
+focus in the world or universe
+with only two commodities.
+
+164
+00:12:42,785 --> 00:12:46,940
+So it is true that we can have,
+
+165
+00:12:46,940 --> 00:12:49,655
+as in real life, in
+the supermarket,
+
+166
+00:12:49,655 --> 00:12:52,415
+many different types of goods.
+
+167
+00:12:52,415 --> 00:12:55,280
+But because important
+points that we will
+
+168
+00:12:55,280 --> 00:12:58,115
+learn only require two goods,
+
+169
+00:12:58,115 --> 00:12:59,855
+we're going to simplify
+
+170
+00:12:59,855 --> 00:13:01,775
+our discussion and focus
+
+171
+00:13:01,775 --> 00:13:03,800
+on the world with
+only two goods.
+
+172
+00:13:03,800 --> 00:13:06,785
+For example, coffee
+and orange juice.
+
+173
+00:13:06,785 --> 00:13:14,765
+In this world, the expenditure
+is simply p1x1+p2x2.
+
+174
+00:13:14,765 --> 00:13:18,995
+And if a bundle
+satisfies this equation,
+
+175
+00:13:18,995 --> 00:13:23,075
+which is that expenditure
+equals to income,
+
+176
+00:13:23,075 --> 00:13:26,780
+we say that that particular
+bundle is on the budget line.
+
+177
+00:13:26,780 --> 00:13:29,675
+So in what follows,
+
+178
+00:13:29,675 --> 00:13:32,230
+I'm going to teach you how
+
+179
+00:13:32,230 --> 00:13:36,950
+to find this budget
+line mathematically.
+
+180
+00:13:38,490 --> 00:13:44,035
+Let us present a
+diagram, a graph,
+
+181
+00:13:44,035 --> 00:13:48,020
+that we're going to use
+many times and it's
+
+182
+00:13:48,020 --> 00:13:50,000
+going to help us illustrate some
+
+183
+00:13:50,000 --> 00:13:52,235
+of the concepts we will discuss.
+
+184
+00:13:52,235 --> 00:13:56,870
+This is what we call
+the commodity space.
+
+185
+00:13:56,870 --> 00:14:00,425
+So the commodity
+space in the universe
+
+186
+00:14:00,425 --> 00:14:04,295
+of only two goods
+is just a plane.
+
+187
+00:14:04,295 --> 00:14:10,670
+And it's a bi-dimensional plane
+with two axis, x1 and x2.
+
+188
+00:14:10,670 --> 00:14:14,750
+And this for example will
+refer to quantities of
+
+189
+00:14:14,750 --> 00:14:16,820
+coffee and this for example will
+
+190
+00:14:16,820 --> 00:14:19,925
+refer to quantities
+of orange juice.
+
+191
+00:14:19,925 --> 00:14:24,530
+This is an example. It can
+be any pair of two goods.
+
+192
+00:14:24,530 --> 00:14:31,955
+In this universe or in this
+so-called commodity space,
+
+193
+00:14:31,955 --> 00:14:36,835
+there will be bundles
+that we can afford,
+
+194
+00:14:36,835 --> 00:14:39,970
+we can purchase with our
+income and there are
+
+195
+00:14:39,970 --> 00:14:43,790
+bundles that are not affordable
+or we cannot purchase.
+
+196
+00:14:43,790 --> 00:14:45,440
+So there will be for example,
+
+197
+00:14:45,440 --> 00:14:48,185
+bundles that if they
+are too expensive,
+
+198
+00:14:48,185 --> 00:14:51,470
+because they contain way
+
+199
+00:14:51,470 --> 00:14:54,530
+too many units of goods 1 and 2,
+
+200
+00:14:54,530 --> 00:14:56,270
+will not be affordable.
+
+201
+00:14:56,270 --> 00:14:59,105
+And there will be other bundles,
+
+202
+00:14:59,105 --> 00:15:03,410
+especially those that
+contain few units,
+
+203
+00:15:03,410 --> 00:15:05,135
+that will be affordable.
+
+204
+00:15:05,135 --> 00:15:08,570
+But how do we know in
+
+205
+00:15:08,570 --> 00:15:12,140
+a synthesized and precise way
+
+206
+00:15:12,140 --> 00:15:14,315
+which bundles are affordable
+
+207
+00:15:14,315 --> 00:15:16,085
+and which bundles
+are not affordable.
+
+208
+00:15:16,085 --> 00:15:18,860
+That is determined by what we
+
+209
+00:15:18,860 --> 00:15:22,500
+call the budgeted
+and the budget line.
+
+210
+00:15:24,700 --> 00:15:28,820
+So let's start discussing
+the budget line.
+
+211
+00:15:28,820 --> 00:15:32,075
+The budget line as I
+mentioned earlier,
+
+212
+00:15:32,075 --> 00:15:35,460
+it has this equation,
+
+213
+00:15:37,600 --> 00:15:43,710
+income equals expenditure.
+
+214
+00:15:45,010 --> 00:15:47,540
+So we're going to discuss
+
+215
+00:15:47,540 --> 00:15:53,100
+the budget line mathematically
+and also graphically.
+
+216
+00:15:55,450 --> 00:15:59,465
+Let's do this. Suppose you
+
+217
+00:15:59,465 --> 00:16:04,955
+only spend your money in good 1.
+
+218
+00:16:04,955 --> 00:16:12,020
+Let's say this, only by x1.
+
+219
+00:16:12,020 --> 00:16:19,070
+If you do that it means that
+x2 is zero and it means
+
+220
+00:16:19,070 --> 00:16:23,165
+that your budget line
+
+221
+00:16:23,165 --> 00:16:28,235
+only has this expression
+because x2 is zero.
+
+222
+00:16:28,235 --> 00:16:33,020
+And therefore,
+[NOISE] the maximum
+
+223
+00:16:33,020 --> 00:16:38,465
+amount of x1 that you can
+purchase is going to be this.
+
+224
+00:16:38,465 --> 00:16:44,430
+Right from here to here
+we're just solving for x1.
+
+225
+00:16:49,690 --> 00:17:00,080
+Similarly, if we only buy x2,
+
+226
+00:17:00,080 --> 00:17:04,415
+that means that we are
+setting x1 as zero.
+
+227
+00:17:04,415 --> 00:17:07,880
+And in that case the max amount
+
+228
+00:17:07,880 --> 00:17:14,435
+of good 2 I could buy
+is given by this.
+
+229
+00:17:14,435 --> 00:17:18,320
+It's putting all your
+money only on good 2.
+
+230
+00:17:18,320 --> 00:17:23,520
+We call these guys, intercepts.
+
+231
+00:17:31,430 --> 00:17:34,800
+And the reason why we
+call them intercepts
+
+232
+00:17:34,800 --> 00:17:37,485
+is going to become
+apparent in a second,
+
+233
+00:17:37,485 --> 00:17:40,440
+but it's mainly
+because those are
+
+234
+00:17:40,440 --> 00:17:45,700
+the points that the budget
+line crosses the axis.
+
+235
+00:17:46,640 --> 00:17:50,805
+So now let us put those
+concepts together.
+
+236
+00:17:50,805 --> 00:17:52,575
+Let's draw again
+
+237
+00:17:52,575 --> 00:18:00,340
+our two dimensional
+commodity space x_1, x_2.
+
+238
+00:18:01,520 --> 00:18:10,330
+And let's see what the budget
+line means for this space.
+
+239
+00:18:13,730 --> 00:18:16,455
+We want to draw
+
+240
+00:18:16,455 --> 00:18:22,180
+this line into this space.
+That's what we want to do.
+
+241
+00:18:22,280 --> 00:18:24,825
+So you might be thinking,
+
+242
+00:18:24,825 --> 00:18:26,820
+this is the y axis,
+
+243
+00:18:26,820 --> 00:18:28,320
+this is the x axis,
+
+244
+00:18:28,320 --> 00:18:32,025
+I can solve for x_2
+and that is correct.
+
+245
+00:18:32,025 --> 00:18:36,990
+You could solve for x_2 and
+you will do the following.
+
+246
+00:18:36,990 --> 00:18:41,790
+You would find that x_2
+
+247
+00:18:41,790 --> 00:18:49,270
+= m/p_2-p_1/p_2*x_1.
+
+248
+00:18:56,120 --> 00:18:58,755
+From here to here,
+
+249
+00:18:58,755 --> 00:19:03,250
+the only thing I'm doing
+is I'm solving for x_2.
+
+250
+00:19:05,660 --> 00:19:08,790
+Again, from the
+top to the bottom,
+
+251
+00:19:08,790 --> 00:19:12,270
+the only thing I'm doing
+is I'm solving for x_2.
+
+252
+00:19:12,270 --> 00:19:16,380
+So you have learned in
+previous courses how to
+
+253
+00:19:16,380 --> 00:19:20,595
+draw lines in a
+bidimensional plane.
+
+254
+00:19:20,595 --> 00:19:22,740
+And you will remember that this
+
+255
+00:19:22,740 --> 00:19:27,450
+is exactly what we were calling
+
+256
+00:19:27,450 --> 00:19:32,010
+the intercept and this thing
+
+257
+00:19:32,010 --> 00:19:36,450
+here is going to be the slope.
+
+258
+00:19:36,450 --> 00:19:43,365
+So we're going to bring that
+information into this here.
+
+259
+00:19:43,365 --> 00:19:45,135
+Since prices are positive,
+
+260
+00:19:45,135 --> 00:19:46,995
+we know this slope is negative.
+
+261
+00:19:46,995 --> 00:19:53,395
+So if we have an
+intercept here like this,
+
+262
+00:19:53,395 --> 00:19:55,310
+the budget line is going to be
+
+263
+00:19:55,310 --> 00:19:58,565
+negative and is going
+to go somewhere else.
+
+264
+00:19:58,565 --> 00:20:01,770
+So we know that this slope
+
+265
+00:20:02,090 --> 00:20:10,335
+equals -p_1/p_2,
+
+266
+00:20:10,335 --> 00:20:12,750
+and the only thing
+that remains to be
+
+267
+00:20:12,750 --> 00:20:15,420
+found is this intercept.
+
+268
+00:20:15,420 --> 00:20:20,790
+But that intercept means that
+what is the amount I will
+
+269
+00:20:20,790 --> 00:20:27,120
+purchase of x_1 if
+I buy zero of x_2,
+
+270
+00:20:27,120 --> 00:20:29,595
+which we have actually
+solved before.
+
+271
+00:20:29,595 --> 00:20:32,370
+It is right here.
+
+272
+00:20:32,370 --> 00:20:36,225
+So we also have that
+solution already and that
+
+273
+00:20:36,225 --> 00:20:40,185
+will be income divided by p_1.
+
+274
+00:20:40,185 --> 00:20:42,735
+So to wrap up,
+
+275
+00:20:42,735 --> 00:20:46,500
+we have found three things.
+
+276
+00:20:46,500 --> 00:20:50,550
+We have found the intercept
+in the y axis or x_2,
+
+277
+00:20:50,550 --> 00:20:52,770
+we have found the slope,
+
+278
+00:20:52,770 --> 00:20:57,435
+and we have found the
+intercept in the x axis,
+
+279
+00:20:57,435 --> 00:21:00,430
+which is for x_1.
+
+280
+00:21:06,350 --> 00:21:09,915
+What is also interesting is that
+
+281
+00:21:09,915 --> 00:21:19,140
+this so called budget line
+
+282
+00:21:19,140 --> 00:21:22,935
+is dividing the whole
+commodity space
+
+283
+00:21:22,935 --> 00:21:25,590
+in two different regions.
+
+284
+00:21:25,590 --> 00:21:31,995
+One region is the region
+of affordable bundles.
+
+285
+00:21:31,995 --> 00:21:35,295
+That is all these that I'm
+highlighting right now,
+
+286
+00:21:35,295 --> 00:21:37,830
+all the thing here,
+
+287
+00:21:37,830 --> 00:21:41,220
+and of course everything
+that is inside.
+
+288
+00:21:41,220 --> 00:21:45,340
+This is what we call
+the budget set.
+
+289
+00:21:48,290 --> 00:21:53,430
+So we can afford all the
+bundles that show up here,
+
+290
+00:21:53,430 --> 00:21:54,960
+all the points that are here,
+
+291
+00:21:54,960 --> 00:21:57,615
+those are points
+that we can afford.
+
+292
+00:21:57,615 --> 00:22:03,585
+But the same thing is doing
+for bundles that are outside.
+
+293
+00:22:03,585 --> 00:22:06,735
+Bundles that are outside
+are not reachable.
+
+294
+00:22:06,735 --> 00:22:09,375
+We cannot buy these points.
+
+295
+00:22:09,375 --> 00:22:14,400
+Those will imply expenditure
+
+296
+00:22:14,400 --> 00:22:18,700
+that is above our means,
+above our income.
+
+297
+00:22:22,490 --> 00:22:30,100
+This here is just the graph
+borrowed from our textbook
+
+298
+00:22:30,100 --> 00:22:34,950
+and it depicts the
+same thing we have
+
+299
+00:22:34,950 --> 00:22:40,650
+been discussing on the
+whiteboard or blackboard.
+
+300
+00:22:40,650 --> 00:22:43,155
+Some of you might be asking,
+
+301
+00:22:43,155 --> 00:22:45,840
+but what if there are
+more than two goods?
+
+302
+00:22:45,840 --> 00:22:48,690
+Can I still draw that?
+And the answer is yes.
+
+303
+00:22:48,690 --> 00:22:51,570
+You can still draw
+the budget set and
+
+304
+00:22:51,570 --> 00:22:56,720
+the budget surface up
+to three commodities,
+
+305
+00:22:56,720 --> 00:22:58,520
+which is what is depicted here.
+
+306
+00:22:58,520 --> 00:23:02,610
+The intercepts are the same
+as before in the sense
+
+307
+00:23:02,610 --> 00:23:07,830
+that for x_1 is m/p_1
+and for x_2 is m/p_2,
+
+308
+00:23:07,830 --> 00:23:11,100
+and for x_3 is m/p_3.
+
+309
+00:23:11,100 --> 00:23:13,365
+However, the question
+of course now has
+
+310
+00:23:13,365 --> 00:23:17,265
+three elements in the
+side of the expenditure.
+
+311
+00:23:17,265 --> 00:23:20,205
+And instead of being
+a budget line,
+
+312
+00:23:20,205 --> 00:23:25,150
+it's now a budget plane
+or a budget surface.
+
+313
+00:23:25,400 --> 00:23:29,295
+Let us do one example.
+
+314
+00:23:29,295 --> 00:23:34,110
+So suppose income is 100,
+
+315
+00:23:34,110 --> 00:23:40,960
+p_1 is $3, and p_2= $1.
+
+316
+00:23:41,390 --> 00:23:48,825
+So let's see how we will
+draw this budget line.
+
+317
+00:23:48,825 --> 00:23:50,850
+First, as always,
+
+318
+00:23:50,850 --> 00:23:57,795
+we need to start with
+drawing the axis x_1, x_2.
+
+319
+00:23:57,795 --> 00:24:01,170
+And then we need to
+find the intercepts.
+
+320
+00:24:01,170 --> 00:24:07,200
+So one intercept is m/3,
+
+321
+00:24:07,200 --> 00:24:09,660
+which is 100/3 in this case,
+
+322
+00:24:09,660 --> 00:24:11,490
+income divided by p_1.
+
+323
+00:24:11,490 --> 00:24:17,940
+And we're going to do
+this one somewhere here.
+
+324
+00:24:17,940 --> 00:24:22,650
+So this is going to be m/p_1.
+
+325
+00:24:22,650 --> 00:24:28,470
+In this case, this
+is equal 200/3.
+
+326
+00:24:28,470 --> 00:24:30,750
+And in the other case,
+
+327
+00:24:30,750 --> 00:24:34,815
+we're going to do this up here.
+
+328
+00:24:34,815 --> 00:24:44,775
+For good 2 it is going
+to be m/p_2 = 100/1,
+
+329
+00:24:44,775 --> 00:24:47,130
+which in this case
+is going to be,
+
+330
+00:24:47,130 --> 00:24:49,510
+of course, just 100.
+
+331
+00:24:51,290 --> 00:24:54,195
+So the budget line is
+
+332
+00:24:54,195 --> 00:24:58,020
+the line that connects
+these two intercepts.
+
+333
+00:24:58,020 --> 00:25:04,515
+So 100/3 and simply 100.
+
+334
+00:25:04,515 --> 00:25:06,855
+And we know more than that.
+
+335
+00:25:06,855 --> 00:25:12,855
+We know that the slope
+is going to be -p_1/p_2,
+
+336
+00:25:12,855 --> 00:25:17,920
+which in this case is simply -3.
